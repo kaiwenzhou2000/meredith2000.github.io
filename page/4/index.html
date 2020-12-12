@@ -78,208 +78,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-斐波那契数列" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/07/22/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/" class="article-date">
-  <time class="dt-published" datetime="2020-07-22T08:20:40.000Z" itemprop="datePublished">2020-07-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/07/22/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/">斐波那契数列(快速幂求模)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在写题目的时候，遇到一个很有意思的题目，题目是关于斐波那契数列的，但是我的脑子里立马出现“矩阵快速幂”，我想肯定是用这种解法，结果折腾了三四个小时，还没搞定。不是因为我写的矩阵快速幂的方法不对，而是这道题无法使用矩阵快速幂来完成。废话不多说了，直接给你们看题目。</p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>带余数斐波那契数公式如下：<br>fib(n) = (fib(n-1) + fib(n-2)) % r n&gt;=1 r = 173<br>解析带余数斐波那契数的类结构如下<br>class fib{<br>static const int r = 173;<br>static const int F1 = 1;<br>static const int F2 = 1;<br>public:<br>fib();<br>//获取fib(n^p)的值 其中n小于1000000，p小于10000，p和n都是正整数<br>int getfib(int n, int p);<br>};<br>以下的main函数执行后<br>void main( )<br>{<br>fib a;<br>cout &lt;&lt; a.getfib(120000,1000) &lt;&lt; endl;<br>}<br>其输出结果为：<br>8</p>
-<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>这道题乍一看是使用矩阵快速幂的方法来计算斐波那契数列，但是，这道题坑就坑在，他给出的n非常大，虽然理论上来说通过矩阵快速幂是可以解决很大的n，但是这个n实在是太大，而且用内置的数据类型根本就无法表示，这给后续的运算带来了极大的麻烦。实际上这道题根本就不是真的让你用矩阵快速幂来精确的计算第n项的斐波那契数列的结果，而是一道“找规律”的题目。</p>
-<p>在这道题目中，由于对斐波那契数列的结果不断的取模运算，使得斐波那契的结果呈现一个“环状结构”，所以说，根本就不需要计算那么多项的斐波那契数列，知道找到这个“环形结构”的交界点就可以了。</p>
-<p><strong>快速幂求模</strong></p>
-<p>这是这道题目唯一的难点，就是计算(n^p)%r，解决的思想其实很简单。</p>
-<p>首先我们先来了解一下模运算的基本性质：</p>
-<ol>
-<li> (a + b) % p = (a % p + b % p) % p</li>
-<li> (a - b) % p = (a % p - b % p) % p</li>
-<li> <strong>(a * b) % p = (a % p * b % p) % p</strong></li>
-<li> a ^ b % p = ((a % p)^b) % p</li>
-</ol>
-<p>在这里我们重点关注第三条性质。好，我们知道了这个性质之后，让我们再来复习一下小学时候学过的乘法的性质：</p>
-<p><img src="https://zkwzkw.top/wordpress/wp-content/uploads/2020/07/IMG_184781BC88B1-1-1024x496.jpeg"></p>
-<p>基本的乘方运算性质</p>
-<p>由此可见，越往下进行，需要运算的次数越少，使用这种方法可以有效的降低算法的复杂度。</p>
-<p>这时候，我们再结合刚刚取模运算的规律：</p>
-<p><img src="https://zkwzkw.top/wordpress/wp-content/uploads/2020/07/IMG_D3F25CDA81F3-1-1024x871.jpeg"></p>
-<p>结合上面两条性质</p>
-<p>这样就不断的循环下去，知道temp的指数为0。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>#include <iostream><br>#define maxN 100000    // 定义fibCache的大小<br>#define MOD 173            // 定义取模的大小</p>
-<p>using namespace std;</p>
-<p>unsigned long long fibCache[maxN] = {0};    // 设置斐波那契数列的缓存结构，将已经计算好的斐波那契的项放在这里面</p>
-<p>class fib{<br>    static const int r = 173;<br>    static const int F1 = 1;<br>    static const int F2 = 1;<br>public:<br>    fib();<br>    //获取fib(n^p)的值  其中n小于1000000，p小于10000，p和n都是正整数<br>    int getfib(int n, int p);<br>};</p>
-<p>// 用来寻找这个循环的周期（大小）<br>unsigned long long findLoop(){<br>    unsigned long long i = 2;<br>    // 初始化斐波那契数列的缓存数组<br>    fibCache[0] = 0;<br>    fibCache[1] = 1;<br>    // 向febCache中添加值，要保证第一次能够进入，同时在找到“尾巴”的时候退出这个循环<br>    do{<br>        fibCache[i] = (fibCache[i-1] + fibCache[i-2])%MOD;<br>        i++;<br>    }while (!(fibCache[i-2] == 0 &amp;&amp; fibCache[i-1] == 1));<br>    // 修正i的值，这时候i表示着斐波那契数列中形成的环的大小<br>    return i-2;<br>}</p>
-<p>fib::fib() {}</p>
-<p>// 用来计算最后的落在fibCache的具体位置，并返回结果，这里运用到了快速幂求模<br>unsigned long long findFib(unsigned long long count, unsigned long long n, unsigned long long p){    // count表示斐波那契数列循环的周期，n表示底数，p表示指数<br>    // res 用来存放最后结果所在位置的索引<br>    unsigned long long res=1,temp=n%count;<br>    while(p){<br>        if (p&amp;1) res=res*temp%count;    // p和1进行与运算实际上是判断p的奇偶性，如果p是奇数的话，就会进入这个if，如果是偶数的话，就不会进入这个if（p一定为有一次等于1.就在这时，res获取最后的结果）<br>        temp=temp*temp%count;    // 不断地对自己进行平方，并求模<br>        p=p&gt;&gt;1;    // 右移一位，相当于除以2<br>    }<br>    return fibCache[res];<br>}</p>
-<p>int fib::getfib(int n, int p) {<br>    unsigned long long count = findLoop();<br>    return findFib(count, n, p);<br>}</p>
-<p>int main() {<br>    fib a;</p>
-<pre><code>cout &lt;&lt; a.getfib(120000,1000) &lt;&lt; endl;
-
-return 0;</code></pre>
-<p>}</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.zkwzkw.top/2020/07/22/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/" data-id="ckilr27z2003dmqab8u6n9lqn" data-title="斐波那契数列(快速幂求模)" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" rel="tag">期末考试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-c-期末复习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/07/21/c-%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="article-date">
-  <time class="dt-published" datetime="2020-07-21T06:21:48.000Z" itemprop="datePublished">2020-07-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/C/">C++</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/07/21/c-%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">C++ 期末复习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近一直用java和python，都已经渐渐忘记了c++的一些基本用法和概念。但是考虑到马上进学校还有c++的考试，想想还是复习复习吧，于是我就干脆写一篇关于c++重点知识的复习博客，给我自己提提醒，同时可以帮助到正在学习c++的同学们，如果有不足，请多多指正！</p>
-<hr>
-<h2 id="知识点总结"><a href="#知识点总结" class="headerlink" title="知识点总结"></a>知识点总结</h2><h3 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h3><p>拷贝构造函数是一种特殊的构造函数，主要在下面三种情况下会遇到</p>
-<ul>
-<li>  使用一个已经创建完毕的对象来初始化一个新的对象</li>
-<li>  将函数对象作为函数的形参</li>
-<li>  返回值为一个对象</li>
-</ul>
-<p>我们先说第一种情况：使用一个已经创建完毕的对象来初始化一个新的对象</p>
-<p>person p1(age, name);    // 此时p1使用person中的普通的构造函数来完成对象的创建<br>person p2(p1);    // p2的构造是依靠p1来完成的，所以再p2创建的时候就会调用person的拷贝构造函数</p>
-<p>下面是第二种情况：将函数对象作为函数的形参</p>
-<p>// 在main函数中调用test的时候，p1对象被当做实参传入函数，那么p2就会调用拷贝构造函数来进行初始化。<br>void test(person p2){<br>    // do something<br>}</p>
-<p>int main(){<br>    person p1(age, name);<br>    test(p1);<br>    return 0;<br>}</p>
-<p>第三种情况：返回值为一个对象</p>
-<p>// test函数在返回p1对象的时候，就会调用p2的拷贝构造函数，来初始化p2<br>person test(){<br>    person p1(age, name);<br>    return p1<br>}</p>
-<p>int main (){<br>    person p2 = test();<br>    return 0;<br>}</p>
-<p>上面已经说完了拷贝构造函数的三种调用的时机，下面就让我来说说拷贝构造函数的写法吧。</p>
-<p>class person{<br>private:<br>    string name;<br>    int age;<br>public:<br>    // 空参构造器<br>    person(){};<br>    // 参数构造器<br>    person(age, name){<br>    this-&gt;age = age;<br>    this-&gt;name = name;<br>    }<br>    // 拷贝构造函数<br>    // 引用必须要加，要不然会引起递归调用，编译器会报错<br>    // const 可加可不加，但是建议加上，避免p在函数的过程中发生变化<br>    person(const person&amp; p){<br>    age = p.age;<br>    name = p.name;<br>    }<br>};</p>
-<h3 id="构造函数的调用规则"><a href="#构造函数的调用规则" class="headerlink" title="构造函数的调用规则"></a>构造函数的调用规则</h3><p>在默认的情况下，c++编译器会给每一个类添加3个构造函数</p>
-<ul>
-<li>  默认空参构造函数</li>
-<li>  默认析构函数</li>
-<li>  默认拷贝构造函数</li>
-</ul>
-<p>但是，一旦用户自定义有参数构造函数，那么编译器将不再自动的提供无参构造函数，但是仍然会提供析构函数和拷贝构造函数。</p>
-<p>如果用户自定义拷贝构造函数，那么c++就只会提供默认的析构函数。</p>
-<p><strong>Tips:</strong></p>
-<p>如果出现以下情况本质上还是调用了拷贝构造函数</p>
-<p>person *p = new person(age, name);     // 在这里，p并不是一个对象，而是一个指针，没有用到person中的任何构造函数<br>person p1= *p;    // 而在这里，实际上*p所代表的是一个对象，所以p1在初始化的时候调用了拷贝构造函数</p>
-<h3 id="深拷贝与浅拷贝"><a href="#深拷贝与浅拷贝" class="headerlink" title="深拷贝与浅拷贝"></a>深拷贝与浅拷贝</h3><ul>
-<li>  <strong>浅拷贝</strong>：默认的拷贝构造函数就是浅拷贝，如果遇到指针，只会拷贝指针的地址。</li>
-<li>  <strong>深拷贝</strong>：在拷贝指针的时候不是直接拷贝指针的地址，而是在堆区重新开辟一块空间，将原来指针里面的内容拷贝进去，然后在将指针指向新开辟的一块空间（需要程序员自己操作）。</li>
-</ul>
-<h3 id="重载运算符"><a href="#重载运算符" class="headerlink" title="重载运算符"></a>重载运算符</h3><p>重载运算符定义的格式如下：</p>
-<p>person&amp; operator+(person p);    // 在class中申明</p>
-<p>person&amp; person::operator+(person p){    // 在class外定义<br>    // do something<br>}</p>
-<p>// 前置++运算符的重载<br>person&amp; operator++(){<br>}</p>
-<p>// 后置++运算法的重载<br>person operator++(int){<br>    // 为了与前置++运算符的区分，要在后面添加一个int占位符（添加其他的没有用）</p>
-<p>// 重载左移运算符必须要在全局进行申明，然后在需要操作的类的内部申明友元函数（具体可以看下面的友元函数的使用）<br>ostream&amp; operator&lt;&lt; (ostream&amp; cout, person p1){<br>    cout &lt;&lt; p1.name;<br>    return cout;<br>}</p>
-<p><strong>Tips</strong>:</p>
-<p>在使用运算符重载（除了后置的运算符）时，返回值最好是引用数据类型，因为这样可以保证在连续运算的时候操作的是同一个对象</p>
-<p>在使用后置的运算符的时候一定不能返回引用，因为后置的运算符是先返回值，再运算的，此时返回的是一个临时的值，只能进行值的传递，要是使用引用的话会有非法访问的问题。</p>
-<h3 id="友元函数"><a href="#友元函数" class="headerlink" title="友元函数"></a>友元函数</h3><p>在类中具有的private的属性的对象，在类的外面是不可以访问的，而在实际操作中，为了操作的方便，可以在类中申明友元函数，这样，在友元函数中就可以访问该类内部的私有属性。可以参考一下代码来体会一下。</p>
-<p>class person{<br>// 申明是友元函数<br>friend ostream&amp; operator&lt;&lt; (ostream&amp; cout, person, p1);<br>private:<br>    string name;<br>    int age;<br>public:<br>    // 构造函数和方法<br>};</p>
-<p>ostream&amp; operator&lt;&lt; (ostream&amp; cout, person p1){<br>    // 由于在类中申明了是友元函数，所以再改函数中能访问p1中的私有属性，比如说下面的p1.name<br>    cout &lt;&lt; p1.name;<br>    return cout;<br>}</p>
-<p><strong>Tips:</strong></p>
-<p>友元函数在类类申明的时候要添加friend关键字，但是在全局里面定义的时候前面是不需要加friend的。</p>
-<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><p>在c++中分为以下两块：</p>
-<ul>
-<li>  函数模板</li>
-<li>  类模板</li>
-</ul>
-<p><strong>关于函数模板</strong>：</p>
-<p><strong>关于类模板：</strong></p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>在C++中是允许实现多重继承的，而继承的方式分为一下的三种方式：</p>
-<ul>
-<li>  公有继承</li>
-<li>  保护继承</li>
-<li>  私有继承</li>
-</ul>
-<p>区别如下：</p>
-<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-35.png"></p>
-<p>申明和定义的方法：</p>
-<p>// 父类<br>class father(){<br>    father();    // 父类构造器<br>}</p>
-<p>// 子类，继承父类<br>class son(): public father{<br>    son();    // 子类构造器<br>}</p>
-<p>// 调用父类构造器的子类构造器<br>son::son(): father(){<br>    // 里面申明子类构造器<br>}</p>
-<h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><ul>
-<li>  让指针能够指向数组可以这样赋值</li>
-</ul>
-<p>*p = new int[n]</p>
-<ul>
-<li>  new 返回值为指针</li>
-<li>  不用添加任何头文件实现小数点后面保留一位小数，并且四舍五入</li>
-</ul>
-<p>// temp1，temp2用来组合出小数点之后的第二位，用来判断要不要四舍五入<br>int temp1, temp2;<br>    avg = (english+math+programe)/3.0;<br>    temp1 = avg*100;<br>    temp2 = avg*10;<br>    avg = temp2/10.0;<br>    temp2 *= 10;<br>    if (temp1-temp2 &gt;= 5) {<br>        avg += 0.1;<br>    }</p>
-<ul>
-<li>  在类中申明的方法，前面有friend，static……在下面定义函数的时候前面的修饰符都不需要加，只要最前面写返回值就可以了。</li>
-<li>  如果在一个函数中传进来的参数为一直指针，指向一个字符串，那么要给另外一个字符数组是不能直接赋值的，需要先将字符数组转换为字符串，然后再用for循环将字符字符串转换为字符数组</li>
-</ul>
-<p>stuinfo::stuinfo(char *st, char *na, int score) {<br>    int i, j;<br>    // temp 用来接收传递进来的两个参数，并转换为字符串<br>    string temp1 = st;<br>    string temp2 = na;<br>    for(i = 0; i &lt; temp1.length(); i++){<br>        stuno[i] = st[i];<br>    }<br>    stuno[i] = ‘\0’;<br>    for(j = 0; j &lt; temp2.length(); j++){<br>        name[j] = na[j];<br>    }<br>    name[j] = ‘\0’;<br>    sum = score;<br>}</p>
-<h2 id="后续还会有更新。。。"><a href="#后续还会有更新。。。" class="headerlink" title="后续还会有更新。。。"></a>后续还会有更新。。。</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.zkwzkw.top/2020/07/21/c-%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" data-id="ckilr27wt0008mqabcgvhg77p" data-title="C++ 期末复习" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" rel="tag">南林大</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" rel="tag">期末考试</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-利用aria2实现离线下载" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2020/07/20/%E5%88%A9%E7%94%A8aria2%E5%AE%9E%E7%8E%B0%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/" class="article-date">
@@ -842,14 +640,14 @@ return 0;</code></pre>
 
 
   
-    <article id="post-twentytwenty" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-linux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2020/07/18/twentytwenty/" class="article-date">
-  <time class="dt-published" datetime="2020-07-18T12:27:04.000Z" itemprop="datePublished">2020-07-18</time>
+    <a href="/2020/07/18/linux/" class="article-date">
+  <time class="dt-published" datetime="2020-07-18T07:17:09.000Z" itemprop="datePublished">2020-07-18</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
   </div>
 
   </div>
@@ -860,7 +658,7 @@ return 0;</code></pre>
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/07/18/twentytwenty/">twentytwenty</a>
+      <a class="p-name article-title" href="/2020/07/18/linux/">Linux Shell编程总结</a>
     </h1>
   
 
@@ -868,15 +666,72 @@ return 0;</code></pre>
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>/* 代码高亮居中显示，并且缩小间距 */ .enlighter-default { margin: -20px auto 30px auto; } /* 分隔点缩小间距 */ .wp-block-separator.is-style-dots{ margin: 36px auto }</p>
+        <p>这是我对Linux脚本编写的一点浅薄的认识，如果有错误，请多多指正</p>
+<h2 id="关于引号的问题"><a href="#关于引号的问题" class="headerlink" title="关于引号的问题"></a>关于引号的问题</h2><ul>
+<li>  单引号 纯粹的普通字符</li>
+<li>  双引号 一般当做普通字符来使用，但是”$” , “`“ , “\“ 仍然被看做是特殊字符</li>
+<li>  倒引号 被shell解释为可执行的命令</li>
+</ul>
+<h2 id="shell中的各种运算符号"><a href="#shell中的各种运算符号" class="headerlink" title="shell中的各种运算符号"></a>shell中的各种运算符号</h2><ul>
+<li>  “$” 是取值运算，是取得变量的值</li>
+<li>  “${ }” 这是将花括号里面的东西看做一个整体</li>
+</ul>
+<p>a=(1 2 3)<br>for i in “${a[@]}”<br>    do<br>        echo $i<br>    done</p>
+<ul>
+<li>  “$( )” 在shell中进行命令的执行，并返回一个返回值</li>
+</ul>
+<p>a=$(pwd)</p>
+<ul>
+<li>  “[ ]” 这是逻辑判断的运算符，使用的时候一定到注意前后要有空格，可以用test或者[[ ]]来代替</li>
+</ul>
+<p>if [ 10 -gt 9 ]<br>then<br>    echo “10 is greater than 9”<br>else<br>    echo “10 is litter than 9”<br>fi</p>
+<p>对文件进行测试的参数：</p>
+<p><img src="http://zkwzkw.top/wordpress/wp-content/uploads/2020/07/2020-06-24_10.55.37.png"></p>
+<p>对字符串进行测试的参数:</p>
+<p><img src="http://zkwzkw.top/wordpress/wp-content/uploads/2020/07/2020-06-24_10.57.45.png"></p>
+<p>对数字进行测试：</p>
+<p><img src="http://zkwzkw.top/wordpress/wp-content/uploads/2020/07/2020-06-24_10.58.08.png"></p>
+<ul>
+<li>  “(( ))” 这个里面进行算数运算，相当于let，在进行算数运算的时候引用变量是不需要使用$的</li>
+</ul>
+<h2 id="关于位置参数"><a href="#关于位置参数" class="headerlink" title="关于位置参数"></a>关于位置参数</h2><p><img src="http://zkwzkw.top/wordpress/wp-content/uploads/2020/07/2020-06-24_10.43.29.png"></p>
+<ul>
+<li>  $# 表示输入了几个参数</li>
+<li>  $?可以知道上一次程序执行的情况</li>
+<li>  用set命令可以在shell中设定参数</li>
+</ul>
+<p>set 1 2 3<br>echo $1 $2 $3</p>
+<ul>
+<li>  每执行一次shift，命令行上面的参数都会向右移动一位（$0除外）</li>
+</ul>
+<p><img src="http://zkwzkw.top/wordpress/wp-content/uploads/2020/07/2020-06-24_10.46.19.png"></p>
+<h2 id="if-语法"><a href="#if-语法" class="headerlink" title="if 语法"></a>if 语法</h2><p>if [ 条件测试 ]<br>then<br>    …<br>else<br>    …<br>fi</p>
+<p>if [ 条件测试 ]<br>then<br>    …<br>elif [ 条件测试 ]<br>then<br>    …<br>else<br>    …<br>fi</p>
+<h2 id="case-语法"><a href="#case-语法" class="headerlink" title="case 语法"></a>case 语法</h2><p>case 字符串 in<br>模式字符串1) 命令;;<br>模式字符串2) 命令;;<br>…<br>模式字符串n) 命令;;<br>esac</p>
+<h2 id="while-语法"><a href="#while-语法" class="headerlink" title="while 语法"></a>while 语法</h2><p>while [ test ]<br>do<br>    …<br>done</p>
+<h2 id="until-语法"><a href="#until-语法" class="headerlink" title="until 语法"></a>until 语法</h2><p>until [ test ]<br>do<br>    …<br>done</p>
+<h2 id="for-语法"><a href="#for-语法" class="headerlink" title="for 语法"></a>for 语法</h2><p>for i in “$a[@]“<br>do<br>    …<br>done</p>
+<p>for i in 文件正则表达式<br>do<br>    …<br>done</p>
+<p>for i in $*<br>do<br>    …<br>done</p>
+<p># 与上面一种格式完全等价<br>for i<br>do<br>    …<br>done</p>
+<p>for ((i=0;i&lt;len;i++))<br>do<br>    …<br>done</p>
+<h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><ul>
+<li>  shell中的变量一律当做字符串</li>
+<li>  在变量赋值的时候要是内容中有空格，一定要用引号引起来</li>
+<li>  [*]是表示将一个数组组合成一个字符串，[@]表示将数组分开输出</li>
+<li>  在for循环中使用数组最好把in后面的数组用双引号引起来</li>
+<li>  字符串里面不要放~，shell无法解析</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.zkwzkw.top/2020/07/18/twentytwenty/" data-id="ckilr27xm001fmqabgyl1dncf" data-title="twentytwenty" class="article-share-link">Share</a>
+      <a data-url="https://blog.zkwzkw.top/2020/07/18/linux/" data-id="ckilr27x5000omqab7ud200w0" data-title="Linux Shell编程总结" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" rel="tag">南林大</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" rel="tag">期末考试</a></li></ul>
+
     </footer>
   </div>
   
@@ -889,7 +744,7 @@ return 0;</code></pre>
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
   </nav>
 
 </section>
@@ -942,10 +797,6 @@ return 0;</code></pre>
       <ul>
         
           <li>
-            <a href="/2020/12/12/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
             <a href="/2020/12/12/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8C%97/">软件需求分析复习指北</a>
           </li>
         
@@ -959,6 +810,10 @@ return 0;</code></pre>
         
           <li>
             <a href="/2020/10/09/c-lang-07/">C_lang_07</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/09/data-knot-06/">data_knot_06</a>
           </li>
         
       </ul>
