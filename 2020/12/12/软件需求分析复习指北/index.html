@@ -1,359 +1,523 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>软件需求分析复习指北 | Meredith&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="第一章 需求工程导论软件项目的三种类型（P3）   在预期的时间内，在预算的成本下完成预期的所有功能，则项目为成功项目   已经完成，软件产品能够正常工作，但在生产中或者超支，或者超期，或者实现的功能不全的项目为问题项目   因无法进行而被中途撤销，或者最终产品无法提交试用，则项目为失败项目  项目成功项目的因素（P4）   用户参与   高层管理支持   清晰的需求说明   正确的项目计划">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.zkwzkw.top","root":"/","images":"/images","scheme":"Muse","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="第一章 需求工程导论软件项目的三种类型（P3） 在预期的时间内，在预算的成本下完成预期的所有功能，则项目为成功项目 已经完成，软件产品能够正常工作，但在生产中或者超支，或者超期，或者实现的功能不全的项目为问题项目 因无法进行而被中途撤销，或者最终产品无法提交试用，则项目为失败项目  项目成功项目的因素（P4） 用户参与 高层管理支持 清晰的需求说明 正确的项目计划 切合实际的期望 细化的项目里程碑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="软件需求分析复习指北">
 <meta property="og:url" content="https://blog.zkwzkw.top/2020/12/12/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8C%97/index.html">
 <meta property="og:site_name" content="Meredith&#39;s blog">
-<meta property="og:description" content="第一章 需求工程导论软件项目的三种类型（P3）   在预期的时间内，在预算的成本下完成预期的所有功能，则项目为成功项目   已经完成，软件产品能够正常工作，但在生产中或者超支，或者超期，或者实现的功能不全的项目为问题项目   因无法进行而被中途撤销，或者最终产品无法提交试用，则项目为失败项目  项目成功项目的因素（P4）   用户参与   高层管理支持   清晰的需求说明   正确的项目计划">
+<meta property="og:description" content="第一章 需求工程导论软件项目的三种类型（P3） 在预期的时间内，在预算的成本下完成预期的所有功能，则项目为成功项目 已经完成，软件产品能够正常工作，但在生产中或者超支，或者超期，或者实现的功能不全的项目为问题项目 因无法进行而被中途撤销，或者最终产品无法提交试用，则项目为失败项目  项目成功项目的因素（P4） 用户参与 高层管理支持 清晰的需求说明 正确的项目计划 切合实际的期望 细化的项目里程碑">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-12T03:37:29.000Z">
-<meta property="article:modified_time" content="2020-12-12T10:01:14.371Z">
+<meta property="article:published_time" content="2020-12-12T14:00:39.000Z">
+<meta property="article:modified_time" content="2020-12-12T14:02:17.486Z">
 <meta property="article:author" content="kaiwen zhou">
-<meta property="article:tag" content="code">
+<meta property="article:tag" content="软件需求分析">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Meredith's blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="canonical" href="https://blog.zkwzkw.top/2020/12/12/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8C%97/">
 
-  
-<meta name="generator" content="Hexo 5.2.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Meredith&#39;s blog</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">share my code</a>
-        </h2>
-      
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>软件需求分析复习指北 | Meredith's blog</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Meredith's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">share my code</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.zkwzkw.top"></form>
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">第一章 需求工程导论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B%EF%BC%88P3%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">软件项目的三种类型（P3）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%88%90%E5%8A%9F%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%9B%A0%E7%B4%A0%EF%BC%88P4%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">项目成功项目的因素（P4）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%B1%E5%93%8D%E9%97%AE%E9%A2%98%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%9B%A0%E7%B4%A0%EF%BC%88P4%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">影响问题项目的因素（P4）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%B1%E5%93%8D%E5%A4%B1%E8%B4%A5%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%9B%A0%E7%B4%A0%EF%BC%88P4%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">影响失败项目的因素（P4）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%A8%A1%E6%8B%9F%E7%89%B9%E6%80%A7%EF%BC%88P5%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">软件模拟特性（P5）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B%E4%B8%AD%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%B4%BB%E5%8A%A8%EF%BC%88P12%EF%BC%89"><span class="nav-number">1.6.</span> <span class="nav-text">需求工程中基本的活动（P12）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%A4%8D%E6%9D%82%E6%80%A7%EF%BC%88P16%EF%BC%89"><span class="nav-number">1.7.</span> <span class="nav-text">需求工程的复杂性（P16）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9C%80%E8%A6%81%E5%85%B7%E5%A4%87%E7%9A%84%E6%8A%80%E8%83%BD%EF%BC%88P18%EF%BC%89"><span class="nav-number">1.8.</span> <span class="nav-text">需求工程师需要具备的技能（P18）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%9C%80%E6%B1%82%E5%9F%BA%E7%A1%80"><span class="nav-number">2.</span> <span class="nav-text">第二章 需求基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E7%9A%84%E5%9F%BA%E7%A1%80%E2%80%94%E2%80%94%E6%A8%A1%E6%8B%9F%E5%85%B1%E4%BA%AB%E7%8E%B0%E8%B1%A1%EF%BC%88P26%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">问题解决的基础——模拟共享现象（P26）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%92%8C%E9%97%AE%E9%A2%98%E7%9A%84%E5%B1%82%E6%AC%A1%EF%BC%88P28%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">需求和问题的层次（P28）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E7%A7%80%E9%9C%80%E6%B1%82%E7%9A%84%E7%89%B9%E6%80%A7%EF%BC%88P43%EF%BC%89"><span class="nav-number">2.3.</span> <span class="nav-text">优秀需求的特性（P43）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">第三章 需求工程过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E8%8E%B7%E5%8F%96%EF%BC%88P54%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">需求获取（P54）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9C%80%E6%B1%82%E8%8E%B7%E5%8F%96%E6%A6%82%E8%BF%B0"><span class="nav-number">4.</span> <span class="nav-text">第四章 需求获取概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E8%8E%B7%E5%8F%96%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%9B%B0%E9%9A%BE%EF%BC%88P75%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">需求获取中的常见困难（P75）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E8%8E%B7%E5%8F%96%E6%B4%BB%E5%8A%A8%EF%BC%88P79%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">需求获取活动（P79）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%88P80%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">获取信息的内容（P80）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF%E7%9A%84%E6%9D%A5%E6%BA%90%EF%BC%88P81%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">获取信息的来源（P81）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88P81%EF%BC%89"><span class="nav-number">4.5.</span> <span class="nav-text">获取信息的方法（P81）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF%E7%9A%84%E8%BF%87%E7%A8%8B%EF%BC%88P82%EF%BC%89"><span class="nav-number">4.6.</span> <span class="nav-text">获取信息的过程（P82）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%A1%AE%E5%AE%9A%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%89%8D%E6%99%AF%E4%B8%8E%E8%8C%83%E5%9B%B4"><span class="nav-number">5.</span> <span class="nav-text">第五章 确定项目的前景与范围</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%EF%BC%88P96%EF%BC%89"><span class="nav-number">5.1.</span> <span class="nav-text">问题分析（P96）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E5%88%86%E6%9E%90%EF%BC%88P105%EF%BC%89"><span class="nav-number">5.2.</span> <span class="nav-text">目标分析（P105）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%BB%E5%8A%A8%E5%9B%BE%EF%BC%88P122%EF%BC%89"><span class="nav-number">5.3.</span> <span class="nav-text">活动图（P122）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%86%E5%88%AB%E6%B6%89%E4%BC%97%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88P150%EF%BC%89"><span class="nav-number">5.4.</span> <span class="nav-text">识别涉众的方法（P150）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%89%E4%BC%97%E8%AF%84%E4%BC%B0%EF%BC%88P156%EF%BC%89"><span class="nav-number">5.5.</span> <span class="nav-text">涉众评估（P156）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%89%E4%BC%97%E4%BB%A3%E8%A1%A8%E9%80%89%E6%8B%A9%EF%BC%88P160%EF%BC%89"><span class="nav-number">5.6.</span> <span class="nav-text">涉众代表选择（P160）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E6%95%B0%E6%8D%AE%E5%8F%8A%E7%A1%AC%E6%95%B0%E6%8D%AE%E9%87%87%E6%A0%B7%EF%BC%88P166%EF%BC%89"><span class="nav-number">5.7.</span> <span class="nav-text">硬数据及硬数据采样（P166）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9F%BA%E4%BA%8E%E7%94%A8%E4%BE%8B-%E5%9C%BA%E6%99%AF%E6%A8%A1%E5%9E%8B%E5%B1%95%E5%BC%80%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82%E8%8E%B7%E5%8F%96"><span class="nav-number">6.</span> <span class="nav-text">第七章 基于用例&#x2F;场景模型展开用户需求获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E5%9B%BE%EF%BC%88P186%EF%BC%89"><span class="nav-number">6.1.</span> <span class="nav-text">用例图（P186）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E8%BF%87%E7%A8%8B%E5%BB%BA%E6%A8%A1"><span class="nav-number">7.</span> <span class="nav-text">第十二章 过程建模</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%EF%BC%88P293%EF%BC%89"><span class="nav-number">7.1.</span> <span class="nav-text">数据流图（P293）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1"><span class="nav-number">8.</span> <span class="nav-text">第十三章 数据建模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0-%E9%9C%80%E6%B1%82%E9%AA%8C%E8%AF%81"><span class="nav-number">9.</span> <span class="nav-text">第十六章 需求验证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E9%AA%8C%E8%AF%81%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88P418%EF%BC%89"><span class="nav-number">9.1.</span> <span class="nav-text">需求验证的方法（P418）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0-%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86"><span class="nav-number">10.</span> <span class="nav-text">第十七章 需求管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%88P431%EF%BC%89"><span class="nav-number">10.1.</span> <span class="nav-text">需求管理的作用（P431）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86%E7%9A%84%E8%BF%87%E7%A8%8B%EF%BC%88P432%EF%BC%89"><span class="nav-number">10.2.</span> <span class="nav-text">需求管理的过程（P432）</span></a></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">kaiwen zhou</p>
+  <div class="site-description" itemprop="description">the web page to share my code</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
       </div>
     </div>
-  </div>
-</header>
+  </aside>
+  <div class="sidebar-dimmer"></div>
 
-      <div class="outer">
-        <section id="main"><article id="post-软件需求分析复习指北" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/12/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8C%97/" class="article-date">
-  <time class="dt-published" datetime="2020-12-12T03:37:29.000Z" itemprop="datePublished">2020-12-12</time>
-</a>
+
+    </header>
+
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
   </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      软件需求分析复习指北
-    </h1>
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/12/12/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8C%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          软件需求分析复习指北
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-        <hr>
-<h2 id="第一章-需求工程导论"><a href="#第一章-需求工程导论" class="headerlink" title="第一章 需求工程导论"></a>第一章 需求工程导论</h2><h3 id="软件项目的三种类型（P3）"><a href="#软件项目的三种类型（P3）" class="headerlink" title="软件项目的三种类型（P3）"></a>软件项目的三种类型（P3）</h3><ul>
-<li>  在预期的时间内，在预算的成本下完成预期的所有功能，则项目为成功项目</li>
-<li>  已经完成，软件产品能够正常工作，但在生产中或者超支，或者超期，或者实现的功能不全的项目为问题项目</li>
-<li>  因无法进行而被中途撤销，或者最终产品无法提交试用，则项目为失败项目</li>
+
+      <time title="Created: 2020-12-12 22:00:39 / Modified: 22:02:17" itemprop="dateCreated datePublished" datetime="2020-12-12T22:00:39+08:00">2020-12-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="第一章-需求工程导论"><a href="#第一章-需求工程导论" class="headerlink" title="第一章 需求工程导论"></a>第一章 需求工程导论</h2><h3 id="软件项目的三种类型（P3）"><a href="#软件项目的三种类型（P3）" class="headerlink" title="软件项目的三种类型（P3）"></a>软件项目的三种类型（P3）</h3><ul>
+<li>在预期的时间内，在预算的成本下完成预期的所有功能，则项目为成功项目</li>
+<li>已经完成，软件产品能够正常工作，但在生产中或者超支，或者超期，或者实现的功能不全的项目为问题项目</li>
+<li>因无法进行而被中途撤销，或者最终产品无法提交试用，则项目为失败项目</li>
 </ul>
 <h3 id="项目成功项目的因素（P4）"><a href="#项目成功项目的因素（P4）" class="headerlink" title="项目成功项目的因素（P4）"></a>项目成功项目的因素（P4）</h3><ul>
-<li>  用户参与</li>
-<li>  高层管理支持</li>
-<li>  清晰的需求说明</li>
-<li>  正确的项目计划</li>
-<li>  切合实际的期望</li>
-<li>  细化的项目里程碑</li>
-<li>  员工能力</li>
-<li>  主人翁意识</li>
-<li>  清晰的目标和前景</li>
-<li>  努力工作</li>
+<li>用户参与</li>
+<li>高层管理支持</li>
+<li>清晰的需求说明</li>
+<li>正确的项目计划</li>
+<li>切合实际的期望</li>
+<li>细化的项目里程碑</li>
+<li>员工能力</li>
+<li>主人翁意识</li>
+<li>清晰的目标和前景</li>
+<li>努力工作</li>
 </ul>
 <h3 id="影响问题项目的因素（P4）"><a href="#影响问题项目的因素（P4）" class="headerlink" title="影响问题项目的因素（P4）"></a>影响问题项目的因素（P4）</h3><ul>
-<li>  缺少用户的输入</li>
-<li>  不完整的需求说明</li>
-<li>  需求变化</li>
-<li>  缺乏高层管理支持</li>
-<li>  技术能力不足</li>
-<li>  缺乏资源</li>
-<li>  不切实际的期望</li>
-<li>  目标不清晰</li>
-<li>  不现实的时间要求</li>
-<li>  新技术的影响</li>
+<li>缺少用户的输入</li>
+<li>不完整的需求说明</li>
+<li>需求变化</li>
+<li>缺乏高层管理支持</li>
+<li>技术能力不足</li>
+<li>缺乏资源</li>
+<li>不切实际的期望</li>
+<li>目标不清晰</li>
+<li>不现实的时间要求</li>
+<li>新技术的影响</li>
 </ul>
 <h3 id="影响失败项目的因素（P4）"><a href="#影响失败项目的因素（P4）" class="headerlink" title="影响失败项目的因素（P4）"></a>影响失败项目的因素（P4）</h3><ul>
-<li>  不完整的需求说明</li>
-<li>  缺少用户输入</li>
-<li>  缺乏资源</li>
-<li>  不切实际的期望</li>
-<li>  缺乏高层管理支持</li>
-<li>  需求变化</li>
-<li>  缺乏计划</li>
-<li>  额外的无用功能</li>
-<li>  缺乏IT管理</li>
-<li>  技术能力不足</li>
+<li>不完整的需求说明</li>
+<li>缺少用户输入</li>
+<li>缺乏资源</li>
+<li>不切实际的期望</li>
+<li>缺乏高层管理支持</li>
+<li>需求变化</li>
+<li>缺乏计划</li>
+<li>额外的无用功能</li>
+<li>缺乏IT管理</li>
+<li>技术能力不足</li>
 </ul>
-<h3 id="软件模拟特性（P5）"><a href="#软件模拟特性（P5）" class="headerlink" title="软件模拟特性（P5）"></a>软件模拟特性（P5）</h3><p>导致需求问题的原因中最重要的原因就是：<strong>未能很好的理解和掌握“应用”型软件的模拟特性以及由此而产生的一系列影响和要求</strong> ​ 软件的模拟特性来源于其知识载体的特性：<strong>软件在运行中表现出来的特性，行为应该和应用的现实情况保持一致</strong>。这样，人们通过观察软件的表现就可以得出相应现实问题的答案，即软件“模拟”了现实</p>
+<h3 id="软件模拟特性（P5）"><a href="#软件模拟特性（P5）" class="headerlink" title="软件模拟特性（P5）"></a>软件模拟特性（P5）</h3><p>​    导致需求问题的原因中最重要的原因就是：<strong>未能很好的理解和掌握“应用”型软件的模拟特性以及由此而产生的一系列影响和要求</strong><br>​    软件的模拟特性来源于其知识载体的特性：<strong>软件在运行中表现出来的特性，行为应该和应用的现实情况保持一致</strong>。这样，人们通过观察软件的表现就可以得出相应现实问题的答案，即软件“模拟”了现实</p>
 <p>“模拟”性具体指</p>
 <ul>
-<li>  目的性</li>
-<li>  正确性</li>
-<li>  现实可理解性</li>
+<li>目的性</li>
+<li>正确性</li>
+<li>现实可理解性</li>
 </ul>
-<h3 id="需求工程中基本的活动（P12）"><a href="#需求工程中基本的活动（P12）" class="headerlink" title="需求工程中基本的活动（P12）"></a>需求工程中基本的活动（P12）</h3><p>graph TD 需求工程—需求开发 需求工程—需求管理 需求开发—需求获取 需求开发—需求分析 需求开发—需求规格说明 需求开发—需求需求验证</p>
+<h3 id="需求工程中基本的活动（P12）"><a href="#需求工程中基本的活动（P12）" class="headerlink" title="需求工程中基本的活动（P12）"></a>需求工程中基本的活动（P12）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">	需求工程---需求开发</span><br><span class="line">	需求工程---需求管理</span><br><span class="line">	需求开发---需求获取</span><br><span class="line">	需求开发---需求分析</span><br><span class="line">	需求开发---需求规格说明</span><br><span class="line">	需求开发---需求需求验证</span><br></pre></td></tr></table></figure>
+
 <h3 id="需求工程的复杂性（P16）"><a href="#需求工程的复杂性（P16）" class="headerlink" title="需求工程的复杂性（P16）"></a>需求工程的复杂性（P16）</h3><ul>
-<li>  处理范围广泛</li>
-<li>  涉及诸多参与方</li>
-<li>  处理内容多样</li>
-<li>  处理活动相互交织</li>
-<li>  处理结果要求苛刻</li>
+<li>处理范围广泛</li>
+<li>涉及诸多参与方</li>
+<li>处理内容多样</li>
+<li>处理活动相互交织</li>
+<li>处理结果要求苛刻</li>
 </ul>
 <h3 id="需求工程师需要具备的技能（P18）"><a href="#需求工程师需要具备的技能（P18）" class="headerlink" title="需求工程师需要具备的技能（P18）"></a>需求工程师需要具备的技能（P18）</h3><ul>
-<li>  熟练掌握软件开发的方法与技术</li>
-<li>  精确的表达能力和文档化能力</li>
-<li>  良好的沟通能力</li>
-<li>  抽象建模与分析能力</li>
-<li>  关系协调和团队工作的能力</li>
+<li>熟练掌握软件开发的方法与技术</li>
+<li>精确的表达能力和文档化能力</li>
+<li>良好的沟通能力</li>
+<li>抽象建模与分析能力</li>
+<li>关系协调和团队工作的能力</li>
 </ul>
 <hr>
 <h2 id="第二章-需求基础"><a href="#第二章-需求基础" class="headerlink" title="第二章 需求基础"></a>第二章 需求基础</h2><h3 id="问题解决的基础——模拟共享现象（P26）"><a href="#问题解决的基础——模拟共享现象（P26）" class="headerlink" title="问题解决的基础——模拟共享现象（P26）"></a>问题解决的基础——模拟共享现象（P26）</h3><p>处于问题域之外的解系统之所以能够解决问题域中问题，是因为<strong>问题域与解系统之间存在有效的互动，并在互动中相互影响</strong>。而问题域与解系统能够形成互动的基础是<strong>解系统部分模拟了问题域</strong>，这种模拟性称为共享现象</p>
 <h3 id="需求和问题的层次（P28）"><a href="#需求和问题的层次（P28）" class="headerlink" title="需求和问题的层次（P28）"></a>需求和问题的层次（P28）</h3><ul>
-<li>  <strong>业务需求</strong>，针对整个业务的期望</li>
-<li>  <strong>用户需求</strong>，针对具体任务的期望</li>
-<li>  <strong>系统级需求</strong>，针对用户与系统一次交互的期望</li>
+<li><strong>业务需求</strong>，针对整个业务的期望</li>
+<li><strong>用户需求</strong>，针对具体任务的期望</li>
+<li><strong>系统级需求</strong>，针对用户与系统一次交互的期望</li>
 </ul>
-<p>graph TD 业务需求–&gt;业务需求指导需求获取用户需求–&gt;转化用户需求为系统级需求系统需求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">	业务需求--&gt;|业务需求指导需求获取|用户需求--&gt;|转化用户需求为系统级需求|系统需求</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
 <h3 id="优秀需求的特性（P43）"><a href="#优秀需求的特性（P43）" class="headerlink" title="优秀需求的特性（P43）"></a>优秀需求的特性（P43）</h3><ul>
-<li>  <strong>完备性</strong>需求是否描述了开发人员设计和实现这项功能所需的所有信息</li>
-<li>  <strong>正确性</strong>每项需取样都必须正确描述所需要的系统功能，要真实反应用户的意图</li>
-<li>  <strong>可行性</strong>需求必须能够在系统及其运行环境的已知条件和约束下实现</li>
-<li>  <strong>必要性</strong>每一项需求都应该是必要的，它是满足用户的业务需求说必需的</li>
-<li>  <strong>无歧义</strong>需求要能够正确传递的前提是传递者和受众能够形成共同的理解</li>
-<li>  <strong>可验证</strong>需求是可以通过分析、检查、模拟或测试等方法能够判断需取样是否被满足</li>
+<li><p><strong>完备性</strong></p>
+<p>需求是否描述了开发人员设计和实现这项功能所需的所有信息</p>
+</li>
+<li><p><strong>正确性</strong></p>
+<p>每项需取样都必须正确描述所需要的系统功能，要真实反应用户的意图</p>
+</li>
+<li><p><strong>可行性</strong></p>
+<p>需求必须能够在系统及其运行环境的已知条件和约束下实现</p>
+</li>
+<li><p><strong>必要性</strong></p>
+<p>每一项需求都应该是必要的，它是满足用户的业务需求说必需的</p>
+</li>
+<li><p><strong>无歧义</strong></p>
+<p>需求要能够正确传递的前提是传递者和受众能够形成共同的理解</p>
+</li>
+<li><p><strong>可验证</strong></p>
+<p>需求是可以通过分析、检查、模拟或测试等方法能够判断需取样是否被满足</p>
+</li>
 </ul>
 <hr>
 <h2 id="第三章-需求工程过程"><a href="#第三章-需求工程过程" class="headerlink" title="第三章 需求工程过程"></a>第三章 需求工程过程</h2><h3 id="需求获取（P54）"><a href="#需求获取（P54）" class="headerlink" title="需求获取（P54）"></a>需求获取（P54）</h3><ul>
-<li>  收集背景资料</li>
-<li>  获取问题和目标，定义项目前景与范围</li>
-<li>  识别涉众，选择信息的来源</li>
-<li>  选择获取方法，执行获取，获取功能与非功能需求</li>
-<li>  记录获取结果</li>
+<li>收集背景资料</li>
+<li>获取问题和目标，定义项目前景与范围</li>
+<li>识别涉众，选择信息的来源</li>
+<li>选择获取方法，执行获取，获取功能与非功能需求</li>
+<li>记录获取结果</li>
 </ul>
 <h2 id="第四章-需求获取概述"><a href="#第四章-需求获取概述" class="headerlink" title="第四章 需求获取概述"></a>第四章 需求获取概述</h2><h3 id="需求获取中的常见困难（P75）"><a href="#需求获取中的常见困难（P75）" class="headerlink" title="需求获取中的常见困难（P75）"></a>需求获取中的常见困难（P75）</h3><ul>
 <li>用户和开发人员的背景不同，立场不同<ul>
-<li>  知识理解的困难</li>
-<li>  默认知识现象</li>
+<li>知识理解的困难</li>
+<li>默认知识现象</li>
 </ul>
 </li>
-<li>  普通用户缺乏概括性，综合性的表述能力</li>
-<li>  用户存在认知困难</li>
+<li>普通用户缺乏概括性，综合性的表述能力</li>
+<li>用户存在认知困难</li>
 <li>用户越俎代庖<ul>
-<li>  用户提出的不是需求，而是解决方案</li>
-<li>  用户固执地坚持某些特征和功能</li>
+<li>用户提出的不是需求，而是解决方案</li>
+<li>用户固执地坚持某些特征和功能</li>
 </ul>
 </li>
 <li>缺乏用户参与<ul>
-<li>  用户数量太多，选择困难</li>
-<li>  用户认知不足，不愿意参与</li>
-<li>  用户情绪抵制，消极参与</li>
-<li>  没有明确的用户</li>
+<li>用户数量太多，选择困难</li>
+<li>用户认知不足，不愿意参与</li>
+<li>用户情绪抵制，消极参与</li>
+<li>没有明确的用户</li>
 </ul>
 </li>
 </ul>
 <h3 id="需求获取活动（P79）"><a href="#需求获取活动（P79）" class="headerlink" title="需求获取活动（P79）"></a>需求获取活动（P79）</h3><ul>
-<li>  研究应用背景，建立初始的知识框架</li>
-<li>  根据获取的需求，采用必要的获取方法和技巧</li>
-<li>  先行确定获取的内容和主题，设定场景</li>
-<li>  分析用户的高（深）层目标，理解用户的意图</li>
-<li>  进行涉众分析，针对涉众的特点展开工作</li>
+<li>研究应用背景，建立初始的知识框架</li>
+<li>根据获取的需求，采用必要的获取方法和技巧</li>
+<li>先行确定获取的内容和主题，设定场景</li>
+<li>分析用户的高（深）层目标，理解用户的意图</li>
+<li>进行涉众分析，针对涉众的特点展开工作</li>
 </ul>
 <h3 id="获取信息的内容（P80）"><a href="#获取信息的内容（P80）" class="headerlink" title="获取信息的内容（P80）"></a>获取信息的内容（P80）</h3><ul>
-<li>  需求</li>
-<li>  问题域描述</li>
-<li>  环境和约束</li>
+<li>需求</li>
+<li>问题域描述</li>
+<li>环境和约束</li>
 </ul>
 <h3 id="获取信息的来源（P81）"><a href="#获取信息的来源（P81）" class="headerlink" title="获取信息的来源（P81）"></a>获取信息的来源（P81）</h3><ul>
-<li>  涉众</li>
-<li>  硬数据</li>
-<li>  相关产品</li>
-<li>  重要文档</li>
-<li>  相关技术标准和法规</li>
+<li>涉众</li>
+<li>硬数据</li>
+<li>相关产品</li>
+<li>重要文档</li>
+<li>相关技术标准和法规</li>
 </ul>
 <h3 id="获取信息的方法（P81）"><a href="#获取信息的方法（P81）" class="headerlink" title="获取信息的方法（P81）"></a>获取信息的方法（P81）</h3><ul>
 <li>传统方法<ul>
-<li>  问卷调差</li>
-<li>  面谈</li>
-<li>  文档分析</li>
-<li>  文档检查</li>
-<li>  需求剥离</li>
+<li>问卷调差</li>
+<li>面谈</li>
+<li>文档分析</li>
+<li>文档检查</li>
+<li>需求剥离</li>
 </ul>
 </li>
 <li>集体获取方法<ul>
-<li>  头脑风暴</li>
-<li>  专题讨论会</li>
-<li>  JAD（联合应用开发）</li>
-<li>  JRP（联合需求计划）</li>
+<li>头脑风暴</li>
+<li>专题讨论会</li>
+<li>JAD（联合应用开发）</li>
+<li>JRP（联合需求计划）</li>
 </ul>
 </li>
 <li>原型<ul>
-<li>  采用原型方法</li>
+<li>采用原型方法</li>
 </ul>
 </li>
 <li>模型驱动方法<ul>
-<li>  面对目标的方法</li>
-<li>  基于场景的方法</li>
-<li>  基于用例的方法</li>
+<li>面对目标的方法</li>
+<li>基于场景的方法</li>
+<li>基于用例的方法</li>
 </ul>
 </li>
 <li>认知方法<ul>
-<li>  任务分析</li>
-<li>  协议分析</li>
+<li>任务分析</li>
+<li>协议分析</li>
 </ul>
 </li>
 <li>基于上下文的方法<ul>
-<li>  观察</li>
-<li>  民族志</li>
-<li>  话语分析</li>
+<li>观察</li>
+<li>民族志</li>
+<li>话语分析</li>
 </ul>
 </li>
 </ul>
 <h3 id="获取信息的过程（P82）"><a href="#获取信息的过程（P82）" class="headerlink" title="获取信息的过程（P82）"></a>获取信息的过程（P82）</h3><ul>
-<li><strong>注意事项</strong><ul>
-<li>  在整体上制定组织方案</li>
-<li>  维护项目的前景和范围</li>
-<li>  接受需求的不稳定性</li>
-<li>  控制探索性工作</li>
+<li><p><strong>注意事项</strong></p>
+<ul>
+<li>在整体上制定组织方案</li>
+<li>维护项目的前景和范围</li>
+<li>接受需求的不稳定性</li>
+<li>控制探索性工作</li>
 </ul>
 </li>
-<li><strong>防止遗漏需求</strong><ul>
-<li>  务必让所有涉众都表达自己的意见</li>
-<li>  不要以抽象和模糊的需求作为结束</li>
-<li>  使用多种方法表发需求信息</li>
-<li>  主义检查边界和布尔逻辑</li>
+<li><p><strong>防止遗漏需求</strong></p>
+<ul>
+<li>务必让所有涉众都表达自己的意见</li>
+<li>不要以抽象和模糊的需求作为结束</li>
+<li>使用多种方法表发需求信息</li>
+<li>主义检查边界和布尔逻辑</li>
 </ul>
 </li>
-<li><strong>结束获取</strong><ul>
-<li>  用户想不出更多的用例</li>
-<li>  用户想出的新用例都是导出用例</li>
-<li>  用户只是在重复已经讨论过的问题</li>
-<li>  新提出的特性、需求都在项目范围之外</li>
-<li>  新提出的需求优先级都很低</li>
-<li>  用户提出的新功能都属于后续版本，而非当前版本</li>
+<li><p><strong>结束获取</strong></p>
+<ul>
+<li>用户想不出更多的用例</li>
+<li>用户想出的新用例都是导出用例</li>
+<li>用户只是在重复已经讨论过的问题</li>
+<li>新提出的特性、需求都在项目范围之外</li>
+<li>新提出的需求优先级都很低</li>
+<li>用户提出的新功能都属于后续版本，而非当前版本</li>
 </ul>
 </li>
 </ul>
 <hr>
 <h2 id="第五章-确定项目的前景与范围"><a href="#第五章-确定项目的前景与范围" class="headerlink" title="第五章 确定项目的前景与范围"></a>第五章 确定项目的前景与范围</h2><h3 id="问题分析（P96）"><a href="#问题分析（P96）" class="headerlink" title="问题分析（P96）"></a>问题分析（P96）</h3><ul>
-<li><strong>获取问题</strong><ul>
-<li>  问题分析的前提是获取问题，这可以通过收集背景资料或与涉众沟通来实现</li>
+<li><p><strong>获取问题</strong></p>
+<ul>
+<li>问题分析的前提是获取问题，这可以通过收集背景资料或与涉众沟通来实现</li>
 </ul>
 </li>
-<li><strong>明确问题</strong><ul>
-<li>  对问题达成共识</li>
-<li>  收集背景资料，判断问题的明确性</li>
-<li>  分析不明确的问题，发现问题背后的问题</li>
+<li><p><strong>明确问题</strong></p>
+<ul>
+<li>对问题达成共识</li>
+<li>收集背景资料，判断问题的明确性</li>
+<li>分析不明确的问题，发现问题背后的问题</li>
 </ul>
 </li>
-<li>  <strong>发现业务需求</strong>每一个明确、一致的问题都意味着涉众存在一些相应的期望目标，即业务需求</li>
-<li><strong>定义问题解决方案及系统特性</strong><ul>
-<li>  建立问题解决方案</li>
-<li>  确定系统特性和解决方案的边界</li>
-<li>  确定解决方案的约束</li>
+<li><p><strong>发现业务需求</strong></p>
+<p>每一个明确、一致的问题都意味着涉众存在一些相应的期望目标，即业务需求</p>
+</li>
+<li><p><strong>定义问题解决方案及系统特性</strong></p>
+<ul>
+<li>建立问题解决方案</li>
+<li>确定系统特性和解决方案的边界</li>
+<li>确定解决方案的约束</li>
 </ul>
 </li>
 </ul>
 <h3 id="目标分析（P105）"><a href="#目标分析（P105）" class="headerlink" title="目标分析（P105）"></a>目标分析（P105）</h3><h3 id="活动图（P122）"><a href="#活动图（P122）" class="headerlink" title="活动图（P122）"></a>活动图（P122）</h3><h3 id="识别涉众的方法（P150）"><a href="#识别涉众的方法（P150）" class="headerlink" title="识别涉众的方法（P150）"></a>识别涉众的方法（P150）</h3><ul>
-<li>  先膨胀后收缩方法</li>
-<li>  检查列表方法</li>
-<li>  涉众网络方法</li>
+<li>先膨胀后收缩方法</li>
+<li>检查列表方法</li>
+<li>涉众网络方法</li>
 </ul>
 <h3 id="涉众评估（P156）"><a href="#涉众评估（P156）" class="headerlink" title="涉众评估（P156）"></a>涉众评估（P156）</h3><ul>
-<li>  优先级评估</li>
-<li>  风险评估</li>
-<li>  共赢分析</li>
+<li>优先级评估</li>
+<li>风险评估</li>
+<li>共赢分析</li>
 </ul>
 <h3 id="涉众代表选择（P160）"><a href="#涉众代表选择（P160）" class="headerlink" title="涉众代表选择（P160）"></a>涉众代表选择（P160）</h3><ul>
 <li><strong>涉众代表选择</strong><ul>
-<li>  完整采样</li>
-<li>  态度积极</li>
-<li>  数量适中</li>
-<li>  比例恰当</li>
+<li>完整采样</li>
+<li>态度积极</li>
+<li>数量适中</li>
+<li>比例恰当</li>
 </ul>
 </li>
 <li><strong>用户替代源</strong><ul>
-<li>  拥有类似系统经验的系统分析人员</li>
-<li>  与用户直接联系的技术支持人员</li>
-<li>  服务咨询人员</li>
-<li>  内部或者外部的顾问</li>
-<li>  用户方的管理者</li>
-<li>  市场人员</li>
-<li>  拥有相关知识的开发人员</li>
+<li>拥有类似系统经验的系统分析人员</li>
+<li>与用户直接联系的技术支持人员</li>
+<li>服务咨询人员</li>
+<li>内部或者外部的顾问</li>
+<li>用户方的管理者</li>
+<li>市场人员</li>
+<li>拥有相关知识的开发人员</li>
 </ul>
 </li>
 </ul>
 <h3 id="硬数据及硬数据采样（P166）"><a href="#硬数据及硬数据采样（P166）" class="headerlink" title="硬数据及硬数据采样（P166）"></a>硬数据及硬数据采样（P166）</h3><ul>
 <li>定制硬数据<ul>
-<li>  数据收集表格</li>
-<li>  统计报表</li>
+<li>数据收集表格</li>
+<li>统计报表</li>
 </ul>
 </li>
 <li>定性硬数据<ul>
-<li>  整个组织的描述文件</li>
-<li>  业务指导文档</li>
-<li>  业务备忘</li>
+<li>整个组织的描述文件</li>
+<li>业务指导文档</li>
+<li>业务备忘</li>
 </ul>
 </li>
 </ul>
@@ -362,176 +526,128 @@
 <h2 id="第十二章-过程建模"><a href="#第十二章-过程建模" class="headerlink" title="第十二章 过程建模"></a>第十二章 过程建模</h2><h3 id="数据流图（P293）"><a href="#数据流图（P293）" class="headerlink" title="数据流图（P293）"></a>数据流图（P293）</h3><hr>
 <h2 id="第十三章-数据建模"><a href="#第十三章-数据建模" class="headerlink" title="第十三章 数据建模"></a>第十三章 数据建模</h2><hr>
 <h2 id="第十六章-需求验证"><a href="#第十六章-需求验证" class="headerlink" title="第十六章 需求验证"></a>第十六章 需求验证</h2><h3 id="需求验证的方法（P418）"><a href="#需求验证的方法（P418）" class="headerlink" title="需求验证的方法（P418）"></a>需求验证的方法（P418）</h3><ul>
-<li>  需求评审</li>
-<li>  原型与模拟</li>
-<li>  开发测试用例</li>
-<li>  用户手册编制</li>
-<li>  利用跟踪关系</li>
-<li>  自动化分析</li>
+<li>需求评审</li>
+<li>原型与模拟</li>
+<li>开发测试用例</li>
+<li>用户手册编制</li>
+<li>利用跟踪关系</li>
+<li>自动化分析</li>
 </ul>
 <hr>
 <h2 id="第十七章-需求管理"><a href="#第十七章-需求管理" class="headerlink" title="第十七章 需求管理"></a>第十七章 需求管理</h2><h3 id="需求管理的作用（P431）"><a href="#需求管理的作用（P431）" class="headerlink" title="需求管理的作用（P431）"></a>需求管理的作用（P431）</h3><ul>
-<li>  增强了项目涉众对复杂产品特征在细节和互相依赖关系的理解</li>
-<li>  增进了项目涉众之间的交流</li>
-<li>  减少了工作量的浪费</li>
-<li>  准确反应项目的状态，帮助进行更好的项目决策</li>
-<li>  改变项目文化，使需求的作用得到重视和有效的发挥</li>
+<li>增强了项目涉众对复杂产品特征在细节和互相依赖关系的理解</li>
+<li>增进了项目涉众之间的交流</li>
+<li>减少了工作量的浪费</li>
+<li>准确反应项目的状态，帮助进行更好的项目决策</li>
+<li>改变项目文化，使需求的作用得到重视和有效的发挥</li>
 </ul>
 <h3 id="需求管理的过程（P432）"><a href="#需求管理的过程（P432）" class="headerlink" title="需求管理的过程（P432）"></a>需求管理的过程（P432）</h3><ul>
-<li>  维护需求基线</li>
-<li>  实现需求跟踪</li>
-<li>  控制变更</li>
+<li>维护需求基线</li>
+<li>实现需求跟踪</li>
+<li>控制变更</li>
 </ul>
 
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.zkwzkw.top/2020/12/12/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8C%97/" data-id="ckilr27z8003lmqabdyuw8vlg" data-title="软件需求分析复习指北" class="article-share-link">Share</a>
-      
-      
-      
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/" rel="tag"># 软件需求分析</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/27/%E7%BB%99express%E5%BC%80%E5%90%AFhttps/" rel="prev" title="给Express开启HTTPS">
+                  <i class="fa fa-chevron-left"></i> 给Express开启HTTPS
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2020/12/12/code/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          code
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/11/27/%E7%BB%99express%E5%BC%80%E5%90%AFhttps/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">给Express开启HTTPS</div>
-    </a>
-  
-</nav>
-
-  
-</article>
+  </article>
+</div>
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/aria2/">aria2</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jupyter/">jupyter</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/uncategorized/">uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/website/">website</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">概率论与数理统计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E5%B7%A5%E8%81%8C%E4%B8%9A%E7%B4%A0%E5%85%BB/">软工职业素养</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/123/" rel="tag">123</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Studio/" rel="tag">Android Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/" rel="tag">Google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRT/" rel="tag">MRT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aria2/" rel="tag">aria2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ariang/" rel="tag">ariang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/" rel="tag">express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/host/" rel="tag">host</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jupyter/" rel="tag">jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/owncloud/" rel="tag">owncloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" rel="tag">南林大</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" rel="tag">数据库原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" rel="tag">期末考试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" rel="tag">概率论与数理统计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/123/" style="font-size: 10px;">123</a> <a href="/tags/Android-Studio/" style="font-size: 10px;">Android Studio</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/MRT/" style="font-size: 10px;">MRT</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/apache/" style="font-size: 14.29px;">apache</a> <a href="/tags/aria2/" style="font-size: 10px;">aria2</a> <a href="/tags/ariang/" style="font-size: 10px;">ariang</a> <a href="/tags/c/" style="font-size: 18.57px;">c++</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/host/" style="font-size: 10px;">host</a> <a href="/tags/https/" style="font-size: 15.71px;">https</a> <a href="/tags/jupyter/" style="font-size: 10px;">jupyter</a> <a href="/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/owncloud/" style="font-size: 11.43px;">owncloud</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/tomcat/" style="font-size: 11.43px;">tomcat</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/wordpress/" style="font-size: 11.43px;">wordpress</a> <a href="/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" style="font-size: 20px;">南林大</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" style="font-size: 10px;">数据库原理</a> <a href="/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 20px;">期末考试</a> <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" style="font-size: 10px;">概率论与数理统计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 11.43px;">计算机组成原理</a>
-    </div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kaiwen zhou</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/12/12/code/">code</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/12/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8C%97/">软件需求分析复习指北</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/27/%E7%BB%99express%E5%BC%80%E5%90%AFhttps/">给Express开启HTTPS</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/24/%E5%85%B3%E4%BA%8Emac%E4%B8%8A%E7%9A%84mrt/">关于Mac上的MRT</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/09/c-lang-07/">C_lang_07</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2020 kaiwen zhou<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+<% if (theme.mermaid.enable) { %>
+  <script src="https://cdn.bootcdn.net/ajax/libs/mermaid/8.8.2/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+<% } %>
 
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
+  </footer>
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
 
 
 
 
-<script src="/js/script.js"></script>
+
+
+
+  
 
 
 
 
 
-  </div>
+
 </body>
 </html>
