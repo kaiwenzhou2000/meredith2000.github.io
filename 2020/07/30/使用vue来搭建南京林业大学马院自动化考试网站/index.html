@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>使用Vue来搭建南京林业大学马院自动化考试网站 | Meredith&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="不多废话，先上网站！网站：https:&#x2F;&#x2F;service.zkwzkw.top 开源地址：https:&#x2F;&#x2F;github.com&#x2F;Meredith2000&#x2F;OnlineTestForNJFU 前言这段时间在家里无聊，心血来潮学习了一下Vue，但是由于本人非常菜，所以各种查资料看视频，终于花了两天时间，模仿我们学校的马院的自动化考试网站，写了Vue的版本来帮助我复习（实际我发现有这时间写网站，不如去多">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Vue来搭建南京林业大学马院自动化考试网站">
+<meta property="og:url" content="https://zkwzkw.top/2020/07/30/%E4%BD%BF%E7%94%A8vue%E6%9D%A5%E6%90%AD%E5%BB%BA%E5%8D%97%E4%BA%AC%E6%9E%97%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%A9%AC%E9%99%A2%E8%87%AA%E5%8A%A8%E5%8C%96%E8%80%83%E8%AF%95%E7%BD%91%E7%AB%99/index.html">
+<meta property="og:site_name" content="Meredith&#39;s blog">
+<meta property="og:description" content="不多废话，先上网站！网站：https:&#x2F;&#x2F;service.zkwzkw.top 开源地址：https:&#x2F;&#x2F;github.com&#x2F;Meredith2000&#x2F;OnlineTestForNJFU 前言这段时间在家里无聊，心血来潮学习了一下Vue，但是由于本人非常菜，所以各种查资料看视频，终于花了两天时间，模仿我们学校的马院的自动化考试网站，写了Vue的版本来帮助我复习（实际我发现有这时间写网站，不如去多">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-30T14:25:14.000Z">
+<meta property="article:modified_time" content="2020-12-12T10:01:14.292Z">
+<meta property="article:author" content="kaiwen zhou">
+<meta property="article:tag" content="南林大">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Meredith's blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Meredith&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">share my code</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zkwzkw.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-使用vue来搭建南京林业大学马院自动化考试网站" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/07/30/%E4%BD%BF%E7%94%A8vue%E6%9D%A5%E6%90%AD%E5%BB%BA%E5%8D%97%E4%BA%AC%E6%9E%97%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%A9%AC%E9%99%A2%E8%87%AA%E5%8A%A8%E5%8C%96%E8%80%83%E8%AF%95%E7%BD%91%E7%AB%99/" class="article-date">
+  <time class="dt-published" datetime="2020-07-30T14:25:14.000Z" itemprop="datePublished">2020-07-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      使用Vue来搭建南京林业大学马院自动化考试网站
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="不多废话，先上网站！"><a href="#不多废话，先上网站！" class="headerlink" title="不多废话，先上网站！"></a>不多废话，先上网站！</h2><p>网站：<a target="_blank" rel="noopener" href="https://service.zkwzkw.top/">https://service.zkwzkw.top</a></p>
+<p>开源地址：<a target="_blank" rel="noopener" href="https://github.com/Meredith2000/OnlineTestForNJFU">https://github.com/Meredith2000/OnlineTestForNJFU</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这段时间在家里无聊，心血来潮学习了一下Vue，但是由于本人非常菜，所以各种查资料看视频，终于花了两天时间，模仿我们学校的马院的自动化考试网站，写了Vue的版本来帮助我复习（实际我发现有这时间写网站，不如去多背两个题😂），既然网站都写出来了，那我就不妨分享不来吧，也能帮助一些正在学习Vue的小伙伴！但是，我现在这个版本还非常的初级，仅仅只有单选题和判断对错的功能，后续会加上更多的题型和更多有趣的功能！</p>
+<h2 id="关于Vue"><a href="#关于Vue" class="headerlink" title="关于Vue"></a>关于Vue</h2><h3 id="为什么我会选择Vue？"><a href="#为什么我会选择Vue？" class="headerlink" title="为什么我会选择Vue？"></a>为什么我会选择Vue？</h3><ul>
+<li>  没有为什么，仅仅只是因为觉得Vue牛X</li>
+</ul>
+<h3 id="在开发中Vue带给我最大的便捷"><a href="#在开发中Vue带给我最大的便捷" class="headerlink" title="在开发中Vue带给我最大的便捷"></a>在开发中Vue带给我最大的便捷</h3><ul>
+<li>  Vue中的响应式的特性给我免去了很多不必要的麻烦</li>
+<li>  Vue中组件化的设计让我再开发中极大的缩小了代码量，提高了代码的复用率</li>
+<li>  Vue中vue-router让我快捷的实现了前端路由，完成了所谓的SinglePage Web Application(SPA)</li>
+<li>  同时吹爆vue cli，简直太好用了，还有Vue UI对我这种小白来说的真的是非常友好。</li>
+</ul>
+<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><ul>
+<li>  WebStrom 版本：2020.1.1</li>
+<li>  Vue 版本：2.6.11</li>
+<li>  npm 版本：6.14.4</li>
+<li>  vue cli 版本：4.4.6</li>
+<li>  vue-router 版本：3.2.0</li>
+<li>  axios 版本：0.19.2</li>
+</ul>
+<h2 id="基本搭建过程"><a href="#基本搭建过程" class="headerlink" title="基本搭建过程"></a>基本搭建过程</h2><p>这里我不打算交代整个搭建步骤，因为网上搭建的步骤很多，我就不“重复造轮子”啦，我下面只说一个重点的部分</p>
+<p>整个项目我都是通过vue cli来搭建，所以常用的命令就以下四条：</p>
+<p>vue create online_test_for_njfu    # 直接使用脚手架来初始化项目，美滋滋<br>vue run serve    # 预览整个项目<br>vue run build    # 编译整个项目<br>vue ui    # vue中吹爆的一个功能，它将整个项目的配置的全部都以可视化的界面呈现出来，简直就是小白的福音</p>
+<p>在项目搭建完成之后当然是构建组建啦，我的网站分为四个组件，分别是：</p>
+<ul>
+<li>  Header（这是整个网页的导航来，依靠它来跳转页面）</li>
+<li>  SideBar（本来想要通过它来实现不同题型的切换的，但是我现在的网站只有单选题，所以只好展示将其作为公告栏）</li>
+<li>  SingleSelectForXXX（这个就是网站最重要的部分啦，这个就是题目的显示与答题区）</li>
+<li>  router（实现前端路由，非常的方便和好用）</li>
+</ul>
+<p>下面就让我来具体说说这四个组成部分吧！</p>
+<h3 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h3><p>这一部分的功能很简单，就是放一些自己的logo还有slot标签来在外部能够对Header进行自定义，达到一个能够复用的效果。</p>
+<p>在设计Header时候，遇到最大的问题就是slot标签中的内容无法在Header组件中改变样式，但是没关系，我在App中css顺利的改变了。</p>
+<h3 id="SideBar"><a href="#SideBar" class="headerlink" title="SideBar"></a>SideBar</h3><p>这一部分的功能目前来说只是一个呈现公告的地方，所以他的制作也是非常简单的，主要就是与后面的组件（SingleSelectForXXX）组成一个flex-box，以此实现在一行显示的效果。</p>
+<h3 id="SingleSelectForXXX"><a href="#SingleSelectForXXX" class="headerlink" title="SingleSelectForXXX"></a>SingleSelectForXXX</h3><p>这个就是整个网站的核心组件了！</p>
+<p>这个组件我是将发送请求的功能和这个组件的框架全部耦合在了一块，因为我觉着这样能使整个模块的功能更加清晰，我选择axios来发送get请求，在我的后台web服务器中有多个servlet能够返回每一题的全部内容。</p>
+<p>同时在显示颜色方面也是使用v-bind的方式动态的添加class来改变元素的css。</p>
+<p>同时我还提供了三种方式来选择题目：</p>
+<ul>
+<li>  默认顺序方式（index不断的自加，达到顺序出题的效果）</li>
+<li>  随机方式（index是在一定范围内的随机数，能够达到随机的效果）</li>
+<li>  指定方式（index是可以根据用户的需要所自定义，但是一定要在范围之内，要不然没有反应）</li>
+</ul>
+<h3 id="router"><a href="#router" class="headerlink" title="router"></a>router</h3><p>这个是本网站的路由相关的配置，主要是两个标签</p>
+<ul>
+<li><p>  <router-link to="/url" ></router-link></p>
+</li>
+<li><p>  <router-view></router-view></p>
+</li>
+</ul>
+<p>前者是用来指定点击后的路径的，后者是点击后展示的组件的。</p>
+<h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><p>对这个项目感兴趣的朋友可以点击下面两个链接：</p>
+<p>网站：<a target="_blank" rel="noopener" href="https://service.zkwzkw.top/">https://service.zkwzkw.top</a></p>
+<p>开源地址：<a target="_blank" rel="noopener" href="https://github.com/Meredith2000/OnlineTestForNJFU">https://github.com/Meredith2000/OnlineTestForNJFU</a></p>
+<p>同时想要看我的更多博客可以点击下面这个链接：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.zkwzkw.top/">https://blog.zkwzkw.top</a></p>
+<p><strong>我是一个虽然很菜，但是还是每天坚持写代码的小菜鸡</strong>🌝🌝</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zkwzkw.top/2020/07/30/%E4%BD%BF%E7%94%A8vue%E6%9D%A5%E6%90%AD%E5%BB%BA%E5%8D%97%E4%BA%AC%E6%9E%97%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%A9%AC%E9%99%A2%E8%87%AA%E5%8A%A8%E5%8C%96%E8%80%83%E8%AF%95%E7%BD%91%E7%AB%99/" data-id="ckilj4xle001jfiabeimzea64" data-title="使用Vue来搭建南京林业大学马院自动化考试网站" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" rel="tag">南林大</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2020/08/02/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%80%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          南林大C++编程第一题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2020/07/28/jupyter%E7%9A%84%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E5%88%A9%E7%94%A8nginx%E5%AF%B9%E5%85%B6%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jupyter的搭建以及利用nginx对其进行反向代理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/algorithm/">algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/aria2/">aria2</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/jupyter/">jupyter</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/uncategorized/">uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/website/">website</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">概率论与数理统计</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E8%BD%AF%E5%B7%A5%E8%81%8C%E4%B8%9A%E7%B4%A0%E5%85%BB/">软工职业素养</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Android-Studio/" rel="tag">Android Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Google/" rel="tag">Google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MRT/" rel="tag">MRT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/apache/" rel="tag">apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/aria2/" rel="tag">aria2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ariang/" rel="tag">ariang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/express/" rel="tag">express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/host/" rel="tag">host</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jupyter/" rel="tag">jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/maven/" rel="tag">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/owncloud/" rel="tag">owncloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/wordpress/" rel="tag">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" rel="tag">南林大</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" rel="tag">数据库原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" rel="tag">期末考试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" rel="tag">概率论与数理统计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Android-Studio/" style="font-size: 10px;">Android Studio</a> <a href="/blog/tags/Google/" style="font-size: 10px;">Google</a> <a href="/blog/tags/MRT/" style="font-size: 10px;">MRT</a> <a href="/blog/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/blog/tags/Python/" style="font-size: 10px;">Python</a> <a href="/blog/tags/apache/" style="font-size: 14.29px;">apache</a> <a href="/blog/tags/aria2/" style="font-size: 10px;">aria2</a> <a href="/blog/tags/ariang/" style="font-size: 10px;">ariang</a> <a href="/blog/tags/c/" style="font-size: 18.57px;">c++</a> <a href="/blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/blog/tags/express/" style="font-size: 10px;">express</a> <a href="/blog/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/blog/tags/host/" style="font-size: 10px;">host</a> <a href="/blog/tags/https/" style="font-size: 15.71px;">https</a> <a href="/blog/tags/jupyter/" style="font-size: 10px;">jupyter</a> <a href="/blog/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/blog/tags/maven/" style="font-size: 10px;">maven</a> <a href="/blog/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/owncloud/" style="font-size: 11.43px;">owncloud</a> <a href="/blog/tags/php/" style="font-size: 10px;">php</a> <a href="/blog/tags/tomcat/" style="font-size: 11.43px;">tomcat</a> <a href="/blog/tags/vue/" style="font-size: 10px;">vue</a> <a href="/blog/tags/wordpress/" style="font-size: 11.43px;">wordpress</a> <a href="/blog/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" style="font-size: 20px;">南林大</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" style="font-size: 10px;">数据库原理</a> <a href="/blog/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 20px;">期末考试</a> <a href="/blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" style="font-size: 10px;">概率论与数理统计</a> <a href="/blog/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 11.43px;">计算机组成原理</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/12/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/12/12/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8C%97/">软件需求分析复习指北</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/11/27/%E7%BB%99express%E5%BC%80%E5%90%AFhttps/">给Express开启HTTPS</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/10/24/%E5%85%B3%E4%BA%8Emac%E4%B8%8A%E7%9A%84mrt/">关于Mac上的MRT</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/10/09/c-lang-07/">C_lang_07</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 kaiwen zhou<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

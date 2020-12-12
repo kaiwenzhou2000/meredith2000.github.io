@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>jupyter的搭建以及利用nginx对其进行反向代理 | Meredith&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前言这几天一直在忙着学习Vue，一直没有时间更新博客，今天趁着这个机会来一篇关于jupyter搭建的博客，而且网上关于利用nginx对jupyter进行反向代理的文章也比较少，所以我想借此机会分享一下的我经验。  安装环境   CentOS 版本： 7.7   Nginx 版本：1.16.1   Python 版本：3.6.8   pip 版本：9.0.3   jupyter core 版本：4.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jupyter的搭建以及利用nginx对其进行反向代理">
+<meta property="og:url" content="https://zkwzkw.top/2020/07/28/jupyter%E7%9A%84%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E5%88%A9%E7%94%A8nginx%E5%AF%B9%E5%85%B6%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/index.html">
+<meta property="og:site_name" content="Meredith&#39;s blog">
+<meta property="og:description" content="前言这几天一直在忙着学习Vue，一直没有时间更新博客，今天趁着这个机会来一篇关于jupyter搭建的博客，而且网上关于利用nginx对jupyter进行反向代理的文章也比较少，所以我想借此机会分享一下的我经验。  安装环境   CentOS 版本： 7.7   Nginx 版本：1.16.1   Python 版本：3.6.8   pip 版本：9.0.3   jupyter core 版本：4.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-28T03:15:19.000Z">
+<meta property="article:modified_time" content="2020-12-12T10:01:14.289Z">
+<meta property="article:author" content="kaiwen zhou">
+<meta property="article:tag" content="https">
+<meta property="article:tag" content="jupyter">
+<meta property="article:tag" content="nginx">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Meredith's blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Meredith&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">share my code</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zkwzkw.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-jupyter的搭建以及利用nginx对其进行反向代理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/07/28/jupyter%E7%9A%84%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E5%88%A9%E7%94%A8nginx%E5%AF%B9%E5%85%B6%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2020-07-28T03:15:19.000Z" itemprop="datePublished">2020-07-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/jupyter/">jupyter</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      jupyter的搭建以及利用nginx对其进行反向代理
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这几天一直在忙着学习Vue，一直没有时间更新博客，今天趁着这个机会来一篇关于jupyter搭建的博客，而且网上关于利用nginx对jupyter进行反向代理的文章也比较少，所以我想借此机会分享一下的我经验。</p>
+<hr>
+<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><ul>
+<li>  CentOS 版本： 7.7</li>
+<li>  Nginx 版本：1.16.1</li>
+<li>  Python 版本：3.6.8</li>
+<li>  pip 版本：9.0.3</li>
+<li>  jupyter core 版本：4.6.3</li>
+<li>  ipython 版本：7.16.1</li>
+</ul>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ul>
+<li>  首先安装python3环境（如果安装了就跳过这一步）</li>
+</ul>
+<p>yum install python3</p>
+<ul>
+<li>  使用pip3来安装jupyter（在python3的版本中都是自带pip3的）</li>
+</ul>
+<p>pip3 install jupyter  </p>
+<ul>
+<li>  生成配置文件（root用户在后面加上–allow-root）</li>
+</ul>
+<p>jupyter notebook –generate-config</p>
+<ul>
+<li>  使用ipython来生成密码，进入ipython并且输入一下指令，然后进行密码的设置（他返回的秘钥一定要保存好，后面配置文件需要）</li>
+</ul>
+<p>from notebook.auth import passwd<br>passwd()</p>
+<ul>
+<li>  修改配置文件（root用户的配置文件默认在/root/.jupyter/jupyter_notebook_config.py）</li>
+</ul>
+<p>c.NotebookApp.ip = ‘*‘    # 允许所有的ip访问<br>c.NotebookApp.port = 8888    # 对外暴露的端口号<br>c.NotebookApp.open_browser = False    # 默认不打开浏览器<br>c.NotebookApp.password = u’sha1:XXXXX’    # 输入刚刚复制的秘钥<br>c.NotebookApp.notebook_dir = u’/usr/jupyter’    # 设置文件存储的位置</p>
+<p>现在在浏览器打开，并输入你的<a href="http://ip:port就可以正常访问了">http://ip:port就可以正常访问了</a></p>
+<p><strong>现在基本的安装步骤结束了，但是我这里想要补充一下为jupyter添加ssl证书的步骤：</strong></p>
+<ul>
+<li>  还是打开jupyter_notebook_config.py这个配置文件，找到并且修改下面的几项</li>
+</ul>
+<p>## SSL/TLS 认证文件所在全路径.<br>c.NotebookApp.certfile = u’你的证书的绝对路径.pem’</p>
+<h2 id="SSL-TLS-私钥文件所在全路径"><a href="#SSL-TLS-私钥文件所在全路径" class="headerlink" title="SSL/TLS 私钥文件所在全路径."></a>SSL/TLS 私钥文件所在全路径.</h2><p>c.NotebookApp.keyfile = u’你的证书的秘钥的绝对路径.key’</p>
+<p>现在，就可以正常开启https服务了。</p>
+<p><strong>现在我来说说怎么开启nginx进行反向代理：</strong></p>
+<ul>
+<li>  我的jupyter是挂在我的一个二级域名下的，但是问题是我的二级域名下面不只有一个网站，所以我要现指定jupyter的目录，打开配置文件：</li>
+</ul>
+<p>c.NotebookApp.base_project_url = ‘/你想指定的目录’</p>
+<ul>
+<li>  指定了jupyter的目录，下面就要使用nginx对jupyter进行反向代理了，打开nginx.conf，修改如下：</li>
+</ul>
+<p>location /刚刚指定的目录文件夹/ {<br>        proxy_pass https://你的域名:指定的端口号;<br>        proxy_set_header X-Real-IP $remote_addr;<br>        proxy_set_header Host $host;<br>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>        proxy_http_version 1.1;<br>        proxy_set_header Upgrade $http_upgrade;<br>        proxy_set_header Connection “upgrade”;<br>        proxy_redirect off;<br>}</p>
+<p>好了，现在就应该能反向代理了，完美实现隐藏端口号的效果。</p>
+<hr>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaozhun1223/article/details/99689841">https://blog.csdn.net/xiaozhun1223/article/details/99689841</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/itxdm/p/Add_a_free_TLS_SSL_certificate_for_Jupyter.html">https://www.cnblogs.com/itxdm/p/Add_a_free_TLS_SSL_certificate_for_Jupyter.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/266589600/answer/312363000">https://www.zhihu.com/question/266589600/answer/312363000</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zkwzkw.top/2020/07/28/jupyter%E7%9A%84%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E5%88%A9%E7%94%A8nginx%E5%AF%B9%E5%85%B6%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" data-id="ckilj4xkm000gfiabayzofvst" data-title="jupyter的搭建以及利用nginx对其进行反向代理" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/https/" rel="tag">https</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/jupyter/" rel="tag">jupyter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/nginx/" rel="tag">nginx</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2020/07/30/%E4%BD%BF%E7%94%A8vue%E6%9D%A5%E6%90%AD%E5%BB%BA%E5%8D%97%E4%BA%AC%E6%9E%97%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%A9%AC%E9%99%A2%E8%87%AA%E5%8A%A8%E5%8C%96%E8%80%83%E8%AF%95%E7%BD%91%E7%AB%99/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          使用Vue来搭建南京林业大学马院自动化考试网站
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2020/07/24/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Nginx反向代理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/algorithm/">algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/aria2/">aria2</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/jupyter/">jupyter</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/uncategorized/">uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/website/">website</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">概率论与数理统计</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E8%BD%AF%E5%B7%A5%E8%81%8C%E4%B8%9A%E7%B4%A0%E5%85%BB/">软工职业素养</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Android-Studio/" rel="tag">Android Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Google/" rel="tag">Google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MRT/" rel="tag">MRT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/apache/" rel="tag">apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/aria2/" rel="tag">aria2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ariang/" rel="tag">ariang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/express/" rel="tag">express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/host/" rel="tag">host</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jupyter/" rel="tag">jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/maven/" rel="tag">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/owncloud/" rel="tag">owncloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/wordpress/" rel="tag">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" rel="tag">南林大</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" rel="tag">数据库原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" rel="tag">期末考试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" rel="tag">概率论与数理统计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Android-Studio/" style="font-size: 10px;">Android Studio</a> <a href="/blog/tags/Google/" style="font-size: 10px;">Google</a> <a href="/blog/tags/MRT/" style="font-size: 10px;">MRT</a> <a href="/blog/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/blog/tags/Python/" style="font-size: 10px;">Python</a> <a href="/blog/tags/apache/" style="font-size: 14.29px;">apache</a> <a href="/blog/tags/aria2/" style="font-size: 10px;">aria2</a> <a href="/blog/tags/ariang/" style="font-size: 10px;">ariang</a> <a href="/blog/tags/c/" style="font-size: 18.57px;">c++</a> <a href="/blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/blog/tags/express/" style="font-size: 10px;">express</a> <a href="/blog/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/blog/tags/host/" style="font-size: 10px;">host</a> <a href="/blog/tags/https/" style="font-size: 15.71px;">https</a> <a href="/blog/tags/jupyter/" style="font-size: 10px;">jupyter</a> <a href="/blog/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/blog/tags/maven/" style="font-size: 10px;">maven</a> <a href="/blog/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/owncloud/" style="font-size: 11.43px;">owncloud</a> <a href="/blog/tags/php/" style="font-size: 10px;">php</a> <a href="/blog/tags/tomcat/" style="font-size: 11.43px;">tomcat</a> <a href="/blog/tags/vue/" style="font-size: 10px;">vue</a> <a href="/blog/tags/wordpress/" style="font-size: 11.43px;">wordpress</a> <a href="/blog/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" style="font-size: 20px;">南林大</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" style="font-size: 10px;">数据库原理</a> <a href="/blog/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 20px;">期末考试</a> <a href="/blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" style="font-size: 10px;">概率论与数理统计</a> <a href="/blog/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 11.43px;">计算机组成原理</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/12/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/12/12/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8C%97/">软件需求分析复习指北</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/11/27/%E7%BB%99express%E5%BC%80%E5%90%AFhttps/">给Express开启HTTPS</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/10/24/%E5%85%B3%E4%BA%8Emac%E4%B8%8A%E7%9A%84mrt/">关于Mac上的MRT</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/10/09/c-lang-07/">C_lang_07</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 kaiwen zhou<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

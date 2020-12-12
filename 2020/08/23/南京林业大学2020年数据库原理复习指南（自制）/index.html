@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>南京林业大学2020年数据库原理复习指南（自制） | Meredith&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前言制作这个复习指南主要是为了帮助我自己梳理这个课程的知识体系，顺便帮助一下需要的同学。在其中，一定有很多错误与不足，请发现的同学多多指正！ 同时需要其他复习指南的可以参考一下连接： 欢迎访问我的个人网站，里面有更多的干货哦！ https:&#x2F;&#x2F;blog.zkwzkw.top 考试题型选择题：15题 30分简答题：8题 40分命令设计题：10题 30分 基本概念DBMS的概念DBMS中文全称：数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="南京林业大学2020年数据库原理复习指南（自制）">
+<meta property="og:url" content="https://zkwzkw.top/2020/08/23/%E5%8D%97%E4%BA%AC%E6%9E%97%E4%B8%9A%E5%A4%A7%E5%AD%A62020%E5%B9%B4%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8D%97%EF%BC%88%E8%87%AA%E5%88%B6%EF%BC%89/index.html">
+<meta property="og:site_name" content="Meredith&#39;s blog">
+<meta property="og:description" content="前言制作这个复习指南主要是为了帮助我自己梳理这个课程的知识体系，顺便帮助一下需要的同学。在其中，一定有很多错误与不足，请发现的同学多多指正！ 同时需要其他复习指南的可以参考一下连接： 欢迎访问我的个人网站，里面有更多的干货哦！ https:&#x2F;&#x2F;blog.zkwzkw.top 考试题型选择题：15题 30分简答题：8题 40分命令设计题：10题 30分 基本概念DBMS的概念DBMS中文全称：数据库">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.38.06.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.40.22.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.40.25.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.40.29.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.40.34.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.40.59.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.41.10.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.41.13.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.07.24.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-27.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-28.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-29.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-30.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-31.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-33.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-36.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-37.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-38.png">
+<meta property="og:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/08/%E6%88%AA%E5%B1%8F2020-08-22-%E4%B8%8B%E5%8D%8810.33.05.png">
+<meta property="article:published_time" content="2020-08-23T06:19:57.000Z">
+<meta property="article:modified_time" content="2020-12-12T10:01:14.305Z">
+<meta property="article:author" content="kaiwen zhou">
+<meta property="article:tag" content="南林大">
+<meta property="article:tag" content="期末考试">
+<meta property="article:tag" content="数据库原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.38.06.png">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Meredith's blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Meredith&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">share my code</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zkwzkw.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-南京林业大学2020年数据库原理复习指南（自制）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/08/23/%E5%8D%97%E4%BA%AC%E6%9E%97%E4%B8%9A%E5%A4%A7%E5%AD%A62020%E5%B9%B4%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8D%97%EF%BC%88%E8%87%AA%E5%88%B6%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2020-08-23T06:19:57.000Z" itemprop="datePublished">2020-08-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      南京林业大学2020年数据库原理复习指南（自制）
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>制作这个复习指南主要是为了帮助我自己梳理这个课程的知识体系，顺便帮助一下需要的同学。在其中，一定有很多错误与不足，请发现的同学多多指正！</p>
+<p>同时需要其他复习指南的可以参考一下连接：</p>
+<p>欢迎访问我的个人网站，里面有更多的干货哦！</p>
+<p><a target="_blank" rel="noopener" href="https://blog.zkwzkw.top/">https://blog.zkwzkw.top</a></p>
+<h2 id="考试题型"><a href="#考试题型" class="headerlink" title="考试题型"></a>考试题型</h2><p><strong>选择题：15题 30分<br>简答题：8题 40分<br>命令设计题：10题 30分</strong></p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="DBMS的概念"><a href="#DBMS的概念" class="headerlink" title="DBMS的概念"></a>DBMS的概念</h3><p>DBMS中文全称：数据库管理系统(Database Management System)</p>
+<ul>
+<li>  DBMS是位于用户与操作系统（OS）之间的一层数据管理软件。</li>
+<li>  它为用户或应用程序提供访问数据库的方法，包括数据库的建立、查询、更新及各种数据控制。</li>
+<li>  DBMS总是基于某种数据模型，可以分为层次型、网状型、关系型和面对对象型等（）</li>
+</ul>
+<hr>
+<h3 id="表和视图区别联系"><a href="#表和视图区别联系" class="headerlink" title="表和视图区别联系"></a>表和视图区别联系</h3><ul>
+<li>  一个表可以是一个基本表，也可以是一个视图。</li>
+<li>  基本表是实际存储在数据库中的表，视图是从基本表或者其他输入中导出的表。</li>
+<li>  视图是一个虚表，它只在数据库中存储其定义，而不存放视图的数据。</li>
+<li>  视图的数据仍存放在导出该视图的基本表中</li>
+<li>  视图对应的于关系模型中的外模型，而基本表对应于关系模型的模式。</li>
+</ul>
+<hr>
+<h3 id="会画E-R图"><a href="#会画E-R图" class="headerlink" title="会画E-R图"></a>会画E-R图</h3><p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.38.06.png"></p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.40.22.png"></p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.40.25.png"></p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.40.29.png"></p>
+<h3 id="ER图示例"><a href="#ER图示例" class="headerlink" title="ER图示例"></a>ER图示例</h3><p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.40.34.png"></p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.40.59.png"></p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.41.10.png"></p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.41.13.png"></p>
+<hr>
+<h3 id="数据库三级模式结构"><a href="#数据库三级模式结构" class="headerlink" title="数据库三级模式结构"></a>数据库三级模式结构</h3><p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/09/%E6%88%AA%E5%B1%8F2020-09-13-%E4%B8%8B%E5%8D%8810.07.24.png"></p>
+<h4 id="概念模式"><a href="#概念模式" class="headerlink" title="概念模式"></a>概念模式</h4><p>定义：<strong>概念模式（简称模式，也称逻辑模式）是对数据库全局逻辑结构的描述，是数据库所有用户的公共数据视图。</strong></p>
+<h4 id="外部模式"><a href="#外部模式" class="headerlink" title="外部模式"></a>外部模式</h4><p>定义：<strong>外部模式（也称子模式或用户模式）是用户观念下局部数据结构的逻辑描述，是数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述</strong></p>
+<h4 id="内部模式"><a href="#内部模式" class="headerlink" title="内部模式"></a>内部模式</h4><p>定义：<strong>内部模式（也称存储模式，内模式）是对数据库中数据物理结构和存储方式的描述，是数据在数据库内部的表示形式。内部模式定义了所有内部记录类型、索引和文件的组织方式，以及所有数据控制方面的细节</strong></p>
+<h3 id="关系模型数据约束（完整性规则）"><a href="#关系模型数据约束（完整性规则）" class="headerlink" title="关系模型数据约束（完整性规则）"></a>关系模型数据约束（完整性规则）</h3><ul>
+<li>  实体完整性规则</li>
+<li>  参照完整性规则</li>
+<li>  用户定义的完整性规则</li>
+</ul>
+<h4 id="实体完整性规则"><a href="#实体完整性规则" class="headerlink" title="实体完整性规则"></a>实体完整性规则</h4><p>关系中元组的主键值不能为空</p>
+<h4 id="参照完整性规则"><a href="#参照完整性规则" class="headerlink" title="参照完整性规则"></a>参照完整性规则</h4><p>如果属性集K是关系模式R1的主键，同时K又是关系模式R2的外键，那么在R2的关系中，K的取值只允许两种可能：</p>
+<ul>
+<li>  为空值</li>
+<li>  等于R1关系中的某个主键值</li>
+</ul>
+<h4 id="用户定义的完整性规则"><a href="#用户定义的完整性规则" class="headerlink" title="用户定义的完整性规则"></a>用户定义的完整性规则</h4><p>这是针对某一具体数据约束条件，由应用环境决定（比如说筛选学生成绩大于80分的同学等等）</p>
+<hr>
+<h3 id="关系代数的五个基本操作"><a href="#关系代数的五个基本操作" class="headerlink" title="关系代数的五个基本操作"></a>关系代数的五个基本操作</h3><ul>
+<li>  并运算</li>
+<li>  差运算</li>
+<li>  笛卡尔积</li>
+<li>  选择运算</li>
+<li>  投影运算</li>
+</ul>
+<h4 id="并运算"><a href="#并运算" class="headerlink" title="并运算"></a>并运算</h4><p>设关系R和S具有相同的元数n（即两关系都有n个属性），相应的属性取自同一个域，则关系R和关系S的并是由属于R或属于S的元组组成，其结果仍然是一个n目关系，记为R∪S，其形式定义为：</p>
+<p>R∪S = {t  t∈R ∨ t∈S}, t是元组变量</p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-27.png"></p>
+<h4 id="差运算"><a href="#差运算" class="headerlink" title="差运算"></a>差运算</h4><p>设关系R和S具有相同的元素n，相应的属性取自同一个域，则关系R和关系S的差是由属于R但不属于S的元组组成，其结果仍是一个n目关系，记为R-S，其形式定义为：</p>
+<p>R-S = {t  t∈R ∧ t∉S}, t是元组变量</p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-28.png"></p>
+<h4 id="笛卡尔积"><a href="#笛卡尔积" class="headerlink" title="笛卡尔积"></a>笛卡尔积</h4><p>设有关系R和S，它们分别是n目和m目关系，即它们的元数据分别为n和m，分别有p和q个元组，则关系R、S经笛卡尔积运算的据结果是一个（m+n）目关系，共有（p×q）个元组，这些元组是由R和S的元组组合而成的。关系R与S的笛卡尔积记为R×S，其形式定义为：</p>
+<p>R×S = {t  t=⟨tⁿ,tᵐ⟩ ∧ tⁿ∉R ∧ tᵐ∈S}, t是元组变量</p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-29.png"></p>
+<h4 id="选择运算"><a href="#选择运算" class="headerlink" title="选择运算"></a>选择运算</h4><p>选择运算是根据某些条件对关系做水平分割，即在一个关系内选择符合条件的元组称为选择运算。选择运算可表示为</p>
+<p>𝞼c(R) = {t  t∈R ∧ C[t]=True}, 其中𝞼是选择运算符，𝞼c(R)表示从R中挑选满足公式C的元组所构成的关系</p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-30.png"></p>
+<h4 id="投影运算"><a href="#投影运算" class="headerlink" title="投影运算"></a>投影运算</h4><p>这个操作是对一个关系进行垂直分割，即对一个关系内属性的指定称为投影运算。选择运算可表示为：</p>
+<p>πa(R) = {t  t∈R  C[t]=True}, 其中π是选择运算符，πa(R)表示从R中挑选满足公式C的元组所构成的关系</p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-31.png"></p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-33.png"></p>
+<hr>
+<h3 id="数据库系统生存期"><a href="#数据库系统生存期" class="headerlink" title="数据库系统生存期"></a>数据库系统生存期</h3><h4 id="规划阶段"><a href="#规划阶段" class="headerlink" title="规划阶段"></a>规划阶段</h4><p>规划阶段进行建立数据库的必要性及可行性分析，确定数据库系统在组织中和信息系统中的地位以及各个数据库之间的关系</p>
+<h4 id="需求分析阶段"><a href="#需求分析阶段" class="headerlink" title="需求分析阶段"></a><strong>需求分析阶段</strong></h4><p><strong>准确了解与分析用户需求（包括数据与处理）</strong></p>
+<p><strong>是整个设计过程的基础，是最困难、最耗费时间的一步</strong></p>
+<h4 id="概念结构设计阶段"><a href="#概念结构设计阶段" class="headerlink" title="概念结构设计阶段"></a><strong>概念结构设计阶段</strong></h4><p><strong>是整个数据库设计的关键</strong></p>
+<p><strong>通过对用户需求进行综合、归纳与抽象，形成一个独立于具体DBMS的概念模型</strong></p>
+<h4 id="逻辑结构设计阶段"><a href="#逻辑结构设计阶段" class="headerlink" title="逻辑结构设计阶段"></a><strong>逻辑结构设计阶段</strong></h4><p><strong>将概念结构转换为某个DBMS所支持的数据模型</strong></p>
+<p><strong>对其进行优化</strong></p>
+<h4 id="数据库物理设计阶段"><a href="#数据库物理设计阶段" class="headerlink" title="数据库物理设计阶段"></a><strong>数据库物理设计阶段</strong></h4><p><strong>为逻辑数据模型选取一个最适合应用环境的物理结构（包括存储结构和存取方法）</strong></p>
+<h4 id="数据库实施阶段"><a href="#数据库实施阶段" class="headerlink" title="数据库实施阶段"></a><strong>数据库实施阶段</strong></h4><p><strong>运用DBMS提供的数据语言、工具及宿主语言，根据逻辑设计和物理设计的结果</strong></p>
+<ul>
+<li>  <strong>建立数据库</strong></li>
+<li>  <strong>编制与调试应用程序</strong></li>
+<li>  <strong>组织数据入库</strong></li>
+<li>  <strong>并进行试运行</strong></li>
+</ul>
+<h4 id="数据库运行和维护阶段"><a href="#数据库运行和维护阶段" class="headerlink" title="数据库运行和维护阶段"></a><strong>数据库运行和维护阶段</strong></h4><p><strong>数据库应用系统经过试运行后即可投入正式运行。</strong></p>
+<p><strong>在数据库系统运行过程中必须不断地对其进行评价、调整与修改。</strong></p>
+<hr>
+<h3 id="保护数据库的安全措施的五个级别"><a href="#保护数据库的安全措施的五个级别" class="headerlink" title="保护数据库的安全措施的五个级别"></a>保护数据库的安全措施的五个级别</h3><h4 id="环境级"><a href="#环境级" class="headerlink" title="环境级"></a><strong>环境级</strong></h4><p><strong>计算机系统的机房和设备应加以保护，防止有人进行物理破坏。</strong></p>
+<h4 id="职员级"><a href="#职员级" class="headerlink" title="职员级"></a><strong>职员级</strong></h4><p><strong>工作人员应清正廉洁，正确授予用户访问数据库的权限。</strong></p>
+<h4 id="OS级"><a href="#OS级" class="headerlink" title="OS级"></a><strong>OS级</strong></h4><p><strong>应防止未经授权的用户从OS处着手访问数据库。</strong></p>
+<h4 id="网络级"><a href="#网络级" class="headerlink" title="网络级"></a><strong>网络级</strong></h4><p><strong>由于大多数DBS都允许用户通过网络进行远程访问，因此网络软件内部的安全性是很重要的。</strong></p>
+<h4 id="DBS级"><a href="#DBS级" class="headerlink" title="DBS级"></a><strong>DBS级</strong></h4><p><strong>DBS的职责是检查用户的身份是否合法及使用数据库的权限是否正确。</strong></p>
+<hr>
+<h3 id="实体间的几种对应方式"><a href="#实体间的几种对应方式" class="headerlink" title="实体间的几种对应方式"></a>实体间的几种对应方式</h3><h4 id="一对一（1：1）联系"><a href="#一对一（1：1）联系" class="headerlink" title="一对一（1：1）联系"></a><strong>一对一（1：1）联系</strong></h4><p><strong>若两个实体集中E1、E2中的每一个实体至多和另一个实体集中的一个实体相联系，则称E1和E2是一对一的联系，记为1：1。</strong></p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-36.png"></p>
+<p><strong>例如，学校实体集与校长实体集间的联系是一对一联系。</strong></p>
+<h4 id="一对多（1：n）联系"><a href="#一对多（1：n）联系" class="headerlink" title="一对多（1：n）联系"></a><strong>一对多（1：n）联系</strong></h4><p><strong>设两个实体集E1、E2，若E1中每一个实体都与E2中的多个实体（包括0个和1个）相联系，而E2中每个实体最多只能和E1中一个实体相联系，则称E1和E2是一对多的联系，记为1：n。</strong></p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-37.png"></p>
+<h4 id="多对多（m：n）联系"><a href="#多对多（m：n）联系" class="headerlink" title="多对多（m：n）联系"></a><strong>多对多（m：n）联系</strong></h4><p><strong>设两个实体集E1、E2，若E1中每一个实体都和E2实体集中的多个实体（可以是0个，1个）相联系，反之亦然，则称E1和E2是多对多联系，记为m：n。</strong></p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-38.png"></p>
+<hr>
+<h3 id="超键、主键、候选键的概念"><a href="#超键、主键、候选键的概念" class="headerlink" title="超键、主键、候选键的概念"></a>超键、主键、候选键的概念</h3><h4 id="超键"><a href="#超键" class="headerlink" title="超键"></a>超键</h4><p>在一个关系中，能惟一标识元组但含有多余属性的属性组合，称为关系的超键。</p>
+<h4 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h4><p>若一个关系中有多个候选键，则选其中的一个为关系的主键。</p>
+<p>用主键实现关系定义中：表中任意两行（元组）不能相同的约束。 主键中任何属性的取值不能为空，主键的值不能重复。</p>
+<h4 id="候选键"><a href="#候选键" class="headerlink" title="候选键"></a>候选键</h4><p>如果一个属性组能唯一标识元组，且又不含有多余的属性，那么这个属性组称为关系的候选键。</p>
+<p>包含在任何一个候选键中的属性称为主属性，不包含在任何键中的属性称为非主属性或非键属性。</p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/08/%E6%88%AA%E5%B1%8F2020-08-22-%E4%B8%8B%E5%8D%8810.33.05.png"></p>
+<h2 id="命令设计"><a href="#命令设计" class="headerlink" title="命令设计"></a>命令设计</h2><h3 id="创建数据库、创建表、修改表结构、表记录更新（4个）"><a href="#创建数据库、创建表、修改表结构、表记录更新（4个）" class="headerlink" title="创建数据库、创建表、修改表结构、表记录更新（4个）"></a>创建数据库、创建表、修改表结构、表记录更新（4个）</h3><h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><p>create database &lt;数据库名&gt;;</p>
+<h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h4><p>create table Student(Sno char(10) not null, Sname Varchar(8), Ssex char(8), Sbirthday date, Sdept char(16), Speciality varchar(20));</p>
+<h4 id="修改表结构"><a href="#修改表结构" class="headerlink" title="修改表结构"></a>修改表结构</h4><p># 增加新的属性<br>ALTER TABLE ＜表名＞ ADD＜属性名＞＜类型＞;</p>
+<h1 id="删除原有的属性"><a href="#删除原有的属性" class="headerlink" title="删除原有的属性"></a>删除原有的属性</h1><p>ALTER TABLE ＜表名＞ ADD＜属性名＞＜类型＞;</p>
+<h1 id="补充定义主键"><a href="#补充定义主键" class="headerlink" title="补充定义主键"></a>补充定义主键</h1><p>ALTER TABLE ＜表名＞ ADD PRIMARY KEY(&lt;属性名表&gt;);</p>
+<h1 id="撤销主键定义"><a href="#撤销主键定义" class="headerlink" title="撤销主键定义"></a>撤销主键定义</h1><p>ALTER TABLE ＜表名＞ DROP PRIMARY KEY;</p>
+<h1 id="补充定义外键"><a href="#补充定义外键" class="headerlink" title="补充定义外键"></a>补充定义外键</h1><p>ALTER TABLE ＜表名＞<br>ADD  FOREIGN KEY ＜属性＞ REFERENCES   ＜表名＞(&lt;属性&gt;);</p>
+<h1 id="撤销外键定义"><a href="#撤销外键定义" class="headerlink" title="撤销外键定义"></a>撤销外键定义</h1><p>ALTER TABLE ＜表名＞ DROP FOREIGN KEY &lt;外键名&gt; ;</p>
+<h4 id="修改表记录"><a href="#修改表记录" class="headerlink" title="修改表记录"></a>修改表记录</h4><p># 添加表中的数据<br>insert into student(sno, sname, ssex, sbirthday, sdept, speciality) value(‘20150101’, ‘李勇’, ‘ 男’, 19970112,  ‘CS’, ‘计算机应用’ );</p>
+<h1 id="更新表中的数据"><a href="#更新表中的数据" class="headerlink" title="更新表中的数据"></a>更新表中的数据</h1><p>update sc set degree = degree + 5;</p>
+<h1 id="删除指定属性的数据"><a href="#删除指定属性的数据" class="headerlink" title="删除指定属性的数据"></a>删除指定属性的数据</h1><p>delete from sc where cno=’C02’;</p>
+<h3 id="查询的创建（4个）"><a href="#查询的创建（4个）" class="headerlink" title="查询的创建（4个）"></a>查询的创建（4个）</h3><h4 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h4><p><strong>选择表中的若干列</strong></p>
+<p># 多行查询<br>SELECT Sno，Sname FROM Student；</p>
+<h1 id="使用别名来进行多行查询"><a href="#使用别名来进行多行查询" class="headerlink" title="使用别名来进行多行查询"></a>使用别名来进行多行查询</h1><p>SELECT Sname  as NAME，’Year of Birth: ’   as BIRTH，2011-Sage as BIRTHDAY，ISLOWER(Sdept)  as DEPARTMENT<br>FROM Student；</p>
+<p><strong>选择表中的若干元组</strong></p>
+<p># 使用DISTINCT关键字来排除重复的元素<br>SELECT DISTINCT Sno FROM SC;</p>
+<h1 id="使用比较大小的方式"><a href="#使用比较大小的方式" class="headerlink" title="使用比较大小的方式"></a>使用比较大小的方式</h1><p>SELECT Sname，Sage FROM Student WHERE Sage &lt; 20；         </p>
+<h1 id="或者"><a href="#或者" class="headerlink" title="或者"></a>或者</h1><p>SELECT Sname，Sage FROM    Student WHERE NOT Sage &gt;= 20;</p>
+<h1 id="使用between（-gt-20-and-lt-23）"><a href="#使用between（-gt-20-and-lt-23）" class="headerlink" title="使用between（&gt;=20 and &lt;= 23）"></a>使用between（&gt;=20 and &lt;= 23）</h1><p>SELECT Sname，Sdept，Sage FROM   Student WHERE Sage BETWEEN 20 AND 23； </p>
+<p><strong>确定集合</strong></p>
+<p># 使用in关键字<br>SELECT Sname，Ssex FROM  Student WHERE Sdept IN ( ‘IS’，’MA’，’CS’ );</p>
+<h1 id="使用not-in关键字"><a href="#使用not-in关键字" class="headerlink" title="使用not in关键字"></a>使用not in关键字</h1><p>SELECT Sname，Ssex FROM  Student WHERE Sdept IN ( ‘IS’，’MA’，’CS’ );</p>
+<p><strong>字符串匹配</strong></p>
+<p><strong>% (百分号)  代表任意长度（长度可以为0）的字符串</strong></p>
+<ul>
+<li>  <strong>例：a%b表示以a开头，以b结尾的任意长度的字符串。</strong></li>
+<li>  <strong>如:acb，addgb，ab 等都满足该匹配串</strong></li>
+</ul>
+<p><strong>_ (下横线)  代表任意单个字符</strong></p>
+<ul>
+<li>  <strong>例：a_b表示以a开头，以b结尾的长度为3的任意字符串。</strong></li>
+<li>  <strong>如:acb，afb等都满足该匹配串</strong></li>
+</ul>
+<p># 下面两种方式等价<br>SELECT *<br>     FROM  Student<br>     WHERE  Sno LIKE ‘95001’；</p>
+<p>SELECT  *<br>      FROM  Student<br>      WHERE Sno = ‘95001’；</p>
+<h1 id="使用匹配符"><a href="#使用匹配符" class="headerlink" title="使用匹配符"></a>使用匹配符</h1><p>SELECT Sname，Sno，Ssex<br>      FROM Student<br>      WHERE  Sname LIKE ‘刘%’；</p>
+<p>SELECT Sname，Sno，Ssex<br>      FROM Student<br>      WHERE  Sname LIKE ‘刘%’；</p>
+<p><strong>多重条件查询</strong></p>
+<p><strong>用逻辑运算符**</strong>AND**<strong>和</strong> <strong>OR**</strong>来联结多个查询条件**</p>
+<ul>
+<li>   <strong>AND的优先级高于OR</strong></li>
+<li>   <strong>可以用括号改变优先级</strong></li>
+</ul>
+<p>SELECT Sname<br>       FROM  Student<br>       WHERE Sdept= ‘CS’ AND Sage&lt;20；</p>
+<p>SELECT Sname，Ssex<br>FROM   Student<br>WHERE  Sdept= ‘ IS ‘<br>OR Sdept= ‘ MA’ OR Sdept= ‘ CS ‘；</p>
+<h3 id="视图的创建（1个）"><a href="#视图的创建（1个）" class="headerlink" title="视图的创建（1个）"></a>视图的创建（1个）</h3><p>CREATE VIEW IS_Student<br>               AS<br>               SELECT Sno，Sname，Sage<br>               FROM    Student<br>               WHERE  Sdept= ‘IS’；</p>
+<h3 id="简单触发器的创建（1个）"><a href="#简单触发器的创建（1个）" class="headerlink" title="简单触发器的创建（1个）"></a>简单触发器的创建（1个）</h3><p>创建简单触发器，在向学生表INSERT数据时，学生数增加，DELETE学生时，学生数减少。</p>
+<p>CREATE TRIGGER trigger_student_count_insert<br>AFTER INSERT ON student_info FOR EACH ROW<br>UPDATE student_count SET student_count=student_count+1;</p>
+<p>CREATE TRIGGER trigger_student_count_delete<br>AFTER DELETEON student_info FOR EACH ROW<br>UPDATE student_count SET student_count=student_count-1;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zkwzkw.top/2020/08/23/%E5%8D%97%E4%BA%AC%E6%9E%97%E4%B8%9A%E5%A4%A7%E5%AD%A62020%E5%B9%B4%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8D%97%EF%BC%88%E8%87%AA%E5%88%B6%EF%BC%89/" data-id="ckilj4xlv001zfiabdaknd77i" data-title="南京林业大学2020年数据库原理复习指南（自制）" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" rel="tag">南林大</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" rel="tag">数据库原理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" rel="tag">期末考试</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2020/09/11/%E5%85%B3%E4%BA%8E%E4%B9%A6%E9%A6%99%E4%B8%AD%E5%9B%BD%E7%88%AC%E8%99%AB%E5%88%B6%E4%BD%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于书香中国爬虫制作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2020/08/09/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%83%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">南林大C++编程第七题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/algorithm/">algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/aria2/">aria2</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/jupyter/">jupyter</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/uncategorized/">uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/website/">website</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">概率论与数理统计</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E8%BD%AF%E5%B7%A5%E8%81%8C%E4%B8%9A%E7%B4%A0%E5%85%BB/">软工职业素养</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Android-Studio/" rel="tag">Android Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Google/" rel="tag">Google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MRT/" rel="tag">MRT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/apache/" rel="tag">apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/aria2/" rel="tag">aria2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ariang/" rel="tag">ariang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/express/" rel="tag">express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/host/" rel="tag">host</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jupyter/" rel="tag">jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/maven/" rel="tag">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/owncloud/" rel="tag">owncloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/wordpress/" rel="tag">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" rel="tag">南林大</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" rel="tag">数据库原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" rel="tag">期末考试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" rel="tag">概率论与数理统计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Android-Studio/" style="font-size: 10px;">Android Studio</a> <a href="/blog/tags/Google/" style="font-size: 10px;">Google</a> <a href="/blog/tags/MRT/" style="font-size: 10px;">MRT</a> <a href="/blog/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/blog/tags/Python/" style="font-size: 10px;">Python</a> <a href="/blog/tags/apache/" style="font-size: 14.29px;">apache</a> <a href="/blog/tags/aria2/" style="font-size: 10px;">aria2</a> <a href="/blog/tags/ariang/" style="font-size: 10px;">ariang</a> <a href="/blog/tags/c/" style="font-size: 18.57px;">c++</a> <a href="/blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/blog/tags/express/" style="font-size: 10px;">express</a> <a href="/blog/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/blog/tags/host/" style="font-size: 10px;">host</a> <a href="/blog/tags/https/" style="font-size: 15.71px;">https</a> <a href="/blog/tags/jupyter/" style="font-size: 10px;">jupyter</a> <a href="/blog/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/blog/tags/maven/" style="font-size: 10px;">maven</a> <a href="/blog/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/owncloud/" style="font-size: 11.43px;">owncloud</a> <a href="/blog/tags/php/" style="font-size: 10px;">php</a> <a href="/blog/tags/tomcat/" style="font-size: 11.43px;">tomcat</a> <a href="/blog/tags/vue/" style="font-size: 10px;">vue</a> <a href="/blog/tags/wordpress/" style="font-size: 11.43px;">wordpress</a> <a href="/blog/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" style="font-size: 20px;">南林大</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" style="font-size: 10px;">数据库原理</a> <a href="/blog/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 20px;">期末考试</a> <a href="/blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" style="font-size: 10px;">概率论与数理统计</a> <a href="/blog/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 11.43px;">计算机组成原理</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/12/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/12/12/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8C%97/">软件需求分析复习指北</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/11/27/%E7%BB%99express%E5%BC%80%E5%90%AFhttps/">给Express开启HTTPS</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/10/24/%E5%85%B3%E4%BA%8Emac%E4%B8%8A%E7%9A%84mrt/">关于Mac上的MRT</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/10/09/c-lang-07/">C_lang_07</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 kaiwen zhou<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

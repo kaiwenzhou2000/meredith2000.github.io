@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>斐波那契数列(快速幂求模) | Meredith&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前言今天在写题目的时候，遇到一个很有意思的题目，题目是关于斐波那契数列的，但是我的脑子里立马出现“矩阵快速幂”，我想肯定是用这种解法，结果折腾了三四个小时，还没搞定。不是因为我写的矩阵快速幂的方法不对，而是这道题无法使用矩阵快速幂来完成。废话不多说了，直接给你们看题目。 题目带余数斐波那契数公式如下：fib(n) &#x3D; (fib(n-1) + fib(n-2)) % r n&gt;&#x3D;1 r &#x3D; 17">
+<meta property="og:type" content="article">
+<meta property="og:title" content="斐波那契数列(快速幂求模)">
+<meta property="og:url" content="https://zkwzkw.top/2020/07/22/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/index.html">
+<meta property="og:site_name" content="Meredith&#39;s blog">
+<meta property="og:description" content="前言今天在写题目的时候，遇到一个很有意思的题目，题目是关于斐波那契数列的，但是我的脑子里立马出现“矩阵快速幂”，我想肯定是用这种解法，结果折腾了三四个小时，还没搞定。不是因为我写的矩阵快速幂的方法不对，而是这道题无法使用矩阵快速幂来完成。废话不多说了，直接给你们看题目。 题目带余数斐波那契数公式如下：fib(n) &#x3D; (fib(n-1) + fib(n-2)) % r n&gt;&#x3D;1 r &#x3D; 17">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://zkwzkw.top/wordpress/wp-content/uploads/2020/07/IMG_184781BC88B1-1-1024x496.jpeg">
+<meta property="og:image" content="https://zkwzkw.top/wordpress/wp-content/uploads/2020/07/IMG_D3F25CDA81F3-1-1024x871.jpeg">
+<meta property="article:published_time" content="2020-07-22T08:20:40.000Z">
+<meta property="article:modified_time" content="2020-12-12T10:01:14.279Z">
+<meta property="article:author" content="kaiwen zhou">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="期末考试">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zkwzkw.top/wordpress/wp-content/uploads/2020/07/IMG_184781BC88B1-1-1024x496.jpeg">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Meredith's blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Meredith&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">share my code</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zkwzkw.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-斐波那契数列" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/07/22/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/" class="article-date">
+  <time class="dt-published" datetime="2020-07-22T08:20:40.000Z" itemprop="datePublished">2020-07-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/algorithm/">algorithm</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      斐波那契数列(快速幂求模)
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在写题目的时候，遇到一个很有意思的题目，题目是关于斐波那契数列的，但是我的脑子里立马出现“矩阵快速幂”，我想肯定是用这种解法，结果折腾了三四个小时，还没搞定。不是因为我写的矩阵快速幂的方法不对，而是这道题无法使用矩阵快速幂来完成。废话不多说了，直接给你们看题目。</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>带余数斐波那契数公式如下：<br>fib(n) = (fib(n-1) + fib(n-2)) % r n&gt;=1 r = 173<br>解析带余数斐波那契数的类结构如下<br>class fib{<br>static const int r = 173;<br>static const int F1 = 1;<br>static const int F2 = 1;<br>public:<br>fib();<br>//获取fib(n^p)的值 其中n小于1000000，p小于10000，p和n都是正整数<br>int getfib(int n, int p);<br>};<br>以下的main函数执行后<br>void main( )<br>{<br>fib a;<br>cout &lt;&lt; a.getfib(120000,1000) &lt;&lt; endl;<br>}<br>其输出结果为：<br>8</p>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>这道题乍一看是使用矩阵快速幂的方法来计算斐波那契数列，但是，这道题坑就坑在，他给出的n非常大，虽然理论上来说通过矩阵快速幂是可以解决很大的n，但是这个n实在是太大，而且用内置的数据类型根本就无法表示，这给后续的运算带来了极大的麻烦。实际上这道题根本就不是真的让你用矩阵快速幂来精确的计算第n项的斐波那契数列的结果，而是一道“找规律”的题目。</p>
+<p>在这道题目中，由于对斐波那契数列的结果不断的取模运算，使得斐波那契的结果呈现一个“环状结构”，所以说，根本就不需要计算那么多项的斐波那契数列，知道找到这个“环形结构”的交界点就可以了。</p>
+<p><strong>快速幂求模</strong></p>
+<p>这是这道题目唯一的难点，就是计算(n^p)%r，解决的思想其实很简单。</p>
+<p>首先我们先来了解一下模运算的基本性质：</p>
+<ol>
+<li> (a + b) % p = (a % p + b % p) % p</li>
+<li> (a - b) % p = (a % p - b % p) % p</li>
+<li> <strong>(a * b) % p = (a % p * b % p) % p</strong></li>
+<li> a ^ b % p = ((a % p)^b) % p</li>
+</ol>
+<p>在这里我们重点关注第三条性质。好，我们知道了这个性质之后，让我们再来复习一下小学时候学过的乘法的性质：</p>
+<p><img src="https://zkwzkw.top/wordpress/wp-content/uploads/2020/07/IMG_184781BC88B1-1-1024x496.jpeg"></p>
+<p>基本的乘方运算性质</p>
+<p>由此可见，越往下进行，需要运算的次数越少，使用这种方法可以有效的降低算法的复杂度。</p>
+<p>这时候，我们再结合刚刚取模运算的规律：</p>
+<p><img src="https://zkwzkw.top/wordpress/wp-content/uploads/2020/07/IMG_D3F25CDA81F3-1-1024x871.jpeg"></p>
+<p>结合上面两条性质</p>
+<p>这样就不断的循环下去，知道temp的指数为0。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>#include <iostream><br>#define maxN 100000    // 定义fibCache的大小<br>#define MOD 173            // 定义取模的大小</p>
+<p>using namespace std;</p>
+<p>unsigned long long fibCache[maxN] = {0};    // 设置斐波那契数列的缓存结构，将已经计算好的斐波那契的项放在这里面</p>
+<p>class fib{<br>    static const int r = 173;<br>    static const int F1 = 1;<br>    static const int F2 = 1;<br>public:<br>    fib();<br>    //获取fib(n^p)的值  其中n小于1000000，p小于10000，p和n都是正整数<br>    int getfib(int n, int p);<br>};</p>
+<p>// 用来寻找这个循环的周期（大小）<br>unsigned long long findLoop(){<br>    unsigned long long i = 2;<br>    // 初始化斐波那契数列的缓存数组<br>    fibCache[0] = 0;<br>    fibCache[1] = 1;<br>    // 向febCache中添加值，要保证第一次能够进入，同时在找到“尾巴”的时候退出这个循环<br>    do{<br>        fibCache[i] = (fibCache[i-1] + fibCache[i-2])%MOD;<br>        i++;<br>    }while (!(fibCache[i-2] == 0 &amp;&amp; fibCache[i-1] == 1));<br>    // 修正i的值，这时候i表示着斐波那契数列中形成的环的大小<br>    return i-2;<br>}</p>
+<p>fib::fib() {}</p>
+<p>// 用来计算最后的落在fibCache的具体位置，并返回结果，这里运用到了快速幂求模<br>unsigned long long findFib(unsigned long long count, unsigned long long n, unsigned long long p){    // count表示斐波那契数列循环的周期，n表示底数，p表示指数<br>    // res 用来存放最后结果所在位置的索引<br>    unsigned long long res=1,temp=n%count;<br>    while(p){<br>        if (p&amp;1) res=res*temp%count;    // p和1进行与运算实际上是判断p的奇偶性，如果p是奇数的话，就会进入这个if，如果是偶数的话，就不会进入这个if（p一定为有一次等于1.就在这时，res获取最后的结果）<br>        temp=temp*temp%count;    // 不断地对自己进行平方，并求模<br>        p=p&gt;&gt;1;    // 右移一位，相当于除以2<br>    }<br>    return fibCache[res];<br>}</p>
+<p>int fib::getfib(int n, int p) {<br>    unsigned long long count = findLoop();<br>    return findFib(count, n, p);<br>}</p>
+<p>int main() {<br>    fib a;</p>
+<pre><code>cout &lt;&lt; a.getfib(120000,1000) &lt;&lt; endl;
+
+return 0;</code></pre>
+<p>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zkwzkw.top/2020/07/22/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/" data-id="ckilj4xmq003ffiab3rqu6cb5" data-title="斐波那契数列(快速幂求模)" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/c/" rel="tag">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" rel="tag">期末考试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2020/07/22/nginx-%E5%AE%89%E8%A3%85ssl%E8%AF%81%E4%B9%A6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Nginx 开启HTPPS
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2020/07/21/c-%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C++ 期末复习</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/algorithm/">algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/aria2/">aria2</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/jupyter/">jupyter</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/uncategorized/">uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/website/">website</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">概率论与数理统计</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E8%BD%AF%E5%B7%A5%E8%81%8C%E4%B8%9A%E7%B4%A0%E5%85%BB/">软工职业素养</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Android-Studio/" rel="tag">Android Studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Google/" rel="tag">Google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MRT/" rel="tag">MRT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/apache/" rel="tag">apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/aria2/" rel="tag">aria2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ariang/" rel="tag">ariang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/express/" rel="tag">express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/host/" rel="tag">host</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jupyter/" rel="tag">jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/maven/" rel="tag">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/owncloud/" rel="tag">owncloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/wordpress/" rel="tag">wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" rel="tag">南林大</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" rel="tag">数据库原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" rel="tag">期末考试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" rel="tag">概率论与数理统计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/Android-Studio/" style="font-size: 10px;">Android Studio</a> <a href="/blog/tags/Google/" style="font-size: 10px;">Google</a> <a href="/blog/tags/MRT/" style="font-size: 10px;">MRT</a> <a href="/blog/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/blog/tags/Python/" style="font-size: 10px;">Python</a> <a href="/blog/tags/apache/" style="font-size: 14.29px;">apache</a> <a href="/blog/tags/aria2/" style="font-size: 10px;">aria2</a> <a href="/blog/tags/ariang/" style="font-size: 10px;">ariang</a> <a href="/blog/tags/c/" style="font-size: 18.57px;">c++</a> <a href="/blog/tags/docker/" style="font-size: 10px;">docker</a> <a href="/blog/tags/express/" style="font-size: 10px;">express</a> <a href="/blog/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/blog/tags/host/" style="font-size: 10px;">host</a> <a href="/blog/tags/https/" style="font-size: 15.71px;">https</a> <a href="/blog/tags/jupyter/" style="font-size: 10px;">jupyter</a> <a href="/blog/tags/linux/" style="font-size: 17.14px;">linux</a> <a href="/blog/tags/maven/" style="font-size: 10px;">maven</a> <a href="/blog/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/blog/tags/node/" style="font-size: 10px;">node</a> <a href="/blog/tags/owncloud/" style="font-size: 11.43px;">owncloud</a> <a href="/blog/tags/php/" style="font-size: 10px;">php</a> <a href="/blog/tags/tomcat/" style="font-size: 11.43px;">tomcat</a> <a href="/blog/tags/vue/" style="font-size: 10px;">vue</a> <a href="/blog/tags/wordpress/" style="font-size: 11.43px;">wordpress</a> <a href="/blog/tags/%E5%8D%97%E6%9E%97%E5%A4%A7/" style="font-size: 20px;">南林大</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" style="font-size: 10px;">数据库原理</a> <a href="/blog/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 20px;">期末考试</a> <a href="/blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" style="font-size: 10px;">概率论与数理统计</a> <a href="/blog/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 11.43px;">计算机组成原理</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/12/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/12/12/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8C%97/">软件需求分析复习指北</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/11/27/%E7%BB%99express%E5%BC%80%E5%90%AFhttps/">给Express开启HTTPS</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/10/24/%E5%85%B3%E4%BA%8Emac%E4%B8%8A%E7%9A%84mrt/">关于Mac上的MRT</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/10/09/c-lang-07/">C_lang_07</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 kaiwen zhou<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
