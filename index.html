@@ -228,8 +228,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2020-12-19 19:06:04" itemprop="dateCreated datePublished" datetime="2020-12-19T19:06:04+08:00">2020-12-19</time>
+      <time title="Created: 2020-12-19 19:06:04 / Modified: 19:30:19" itemprop="dateCreated datePublished" datetime="2020-12-19T19:06:04+08:00">2020-12-19</time>
     </span>
 
   
@@ -293,7 +294,7 @@
 </blockquote>
 <h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h3><p>这是一道典型的动态规划的题目，主要是要写出整个的状态转义方程，这里我把表中的取值的过程简单写成一个函数：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">value_table[i][j] = <span class="built_in">max</span>(拿的价值，不拿的价值)</span><br></pre></td></tr></table></figure>
-<p><strong>状态转移方程：</strong><br>$$<br>value_table[i][j] =<br>\begin{cases}<br>value_table[i-1][j] \<br>value[i] + value_table[i-1][j-weight[i]]<br>\end{cases}<br>$$<br>建立表格之后，找到最大的就行了</p>
+<p><strong>状态转移方程：</strong><br>$$<br>value\_table[i][j] =<br>\begin{cases}<br>value\_table[i-1][j] \\<br>value[i] + value\_table[i-1][j-weight[i]]<br>\end{cases}<br>$$<br>建立表格之后，找到最大的就行了</p>
 <h2 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h2>
       
     </div>
@@ -1621,6 +1622,39 @@ if (document.querySelectorAll('.mermaid').length) {
 
 
 
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'none'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
 
 
 
