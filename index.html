@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,7 +167,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -196,6 +196,121 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/12/19/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E6%9C%9F%E6%9C%AB%E8%AF%95%E5%8D%B7%E8%A7%A3%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/12/19/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E6%9C%9F%E6%9C%AB%E8%AF%95%E5%8D%B7%E8%A7%A3%E6%9E%90/" class="post-title-link" itemprop="url">算法分析期末试卷解析</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-12-19 19:06:04" itemprop="dateCreated datePublished" datetime="2020-12-19T19:06:04+08:00">2020-12-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="算法分析期末试卷解析"><a href="#算法分析期末试卷解析" class="headerlink" title="算法分析期末试卷解析"></a>算法分析期末试卷解析</h1><h2 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h2><blockquote>
+<p>题目：用伪代码描述一个二分查找算法的完整过程</p>
+<p>题目类型：二分法</p>
+</blockquote>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>下面是一个有序的列表，而红色背景的元素就是我们需要寻找的元素了</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%881.33.19.png" alt="截屏2020-12-19 下午1.33.19"></p>
+<p><strong>注意：二分法查找要求列表中的值是有序的！！！</strong></p>
+<p><strong>现在我们将列表中放入三个指针</strong>，他们分别是：</p>
+<ul>
+<li>指向列表头部的head指针 -&gt; 0</li>
+<li>指向列表尾部的tail指针 -&gt; len(array)</li>
+<li>指向列表中间的mid指针 -&gt; int(head + mid)</li>
+</ul>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%881.41.14.png" alt="截屏2020-12-19 下午1.41.14"></p>
+<p><strong>我们约定检索的规则如下：</strong></p>
+<ul>
+<li>如果mid所指的值等于我们所要寻找的值，那么就认为找到了</li>
+<li>如果mid所指的值大于我们要寻找的值，那么我们寻找的值，一定在mid的左边，则移动tail指针到mid的左边，并重新计算mid</li>
+<li>如果mid所指的值小于我们要寻找的值，那么我们寻找的值，一定在mid的右边，则移动head指针到mid的右边，并重新计算mid</li>
+<li>如果head &gt; tail 那就说明列表中没有这个元素</li>
+</ul>
+<h3 id="查找过程"><a href="#查找过程" class="headerlink" title="查找过程"></a>查找过程</h3><p><strong>下面我们进行第一次的比较：</strong></p>
+<p>​    此时mid所代表的的是6号元素，其所对应的值是7，由于7小于我们所要寻找的11，所以head指向7号元素，mid = (head + tail)/2，所以mid所指的是9号元素，其值为10，对应图如下</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%881.54.26.png" alt="截屏2020-12-19 下午1.54.26"></p>
+<p><strong>下面我们进行第三次的比较：</strong></p>
+<p>​    此时mid所代表的的是9号元素，其所对应的值是10，由于10小于我们所要寻找的11，所以head指向10号元素，mid = (head + tail)/2，所以mid所指的是11号元素，其值为12，对应图如下</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%881.58.07.png" alt="截屏2020-12-19 下午1.58.07"></p>
+<p><strong>下面我们进行第四次的比较：</strong></p>
+<p>​    此时mid所代表的的是11号元素，其所对应的值是12，由于12大于我们所要寻找的11，所以tail指向10号元素，mid = (head + tail)/2，所以mid所指的是10号元素，其值为11，对应图如下</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%882.01.37.png" alt="截屏2020-12-19 下午2.01.37"></p>
+<p><strong>下面我们进行第五次比较：</strong></p>
+<p>​    此时mid所代表的的是10号元素，其所对应的值是11，11正是我们要寻找的元素！</p>
+<h3 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h3><p>此种算法的算法复杂度为<strong>O(log(2n))</strong></p>
+<h2 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h2><blockquote>
+<p>题目：在2k*2k的棋盘覆盖问题中，如果k值等于3，残缺方块的行列序号分别是7和6，请给出此种状态下的覆盖过程描述并简单解释使用了何种算法以及本题使用这种算法的优势。</p>
+<p>题目类型：分治法+递归</p>
+</blockquote>
+<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>如下图所示，红色部分表示缺失的棋盘位置：</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%882.23.47.png" alt="截屏2020-12-19 下午2.23.47"></p>
+<p>面对这样的题，我们可以把整个棋盘分成4个子棋盘，分别是<strong>左上，右上，左下，右下</strong>，如下图：</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%882.41.44.png" alt="截屏2020-12-19 下午2.41.44"></p>
+<p>可以看出确实的格子是属于左上的，所以我们要在其余没有缺少的子棋盘中的指定一个做为缺少的（指定位置），如下图：</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%882.49.19.png" alt="截屏2020-12-19 下午2.49.19"></p>
+<p>根据上面的过程可以不断的递归下去，每一个棋盘都可以分为四个子棋盘，直到最后只有一个格子的时候退出</p>
+<h3 id="伪代码演示"><a href="#伪代码演示" class="headerlink" title="伪代码演示"></a>伪代码演示</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">play_chess</span>(<span class="params">棋盘的大小, 棋盘的顶点横坐标, 棋盘的顶点纵坐标, 缺少位置的横坐标, 缺少位置的纵坐标</span>):</span></span><br><span class="line">  <span class="comment"># 递归的出口</span></span><br><span class="line">  <span class="keyword">if</span> size == <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  <span class="comment"># 首先进行棋盘的分割</span></span><br><span class="line">  <span class="comment"># 左上角</span></span><br><span class="line">  <span class="keyword">if</span> 缺失的格子在左上角:</span><br><span class="line">    play_chess(棋盘位置调整到左上角，缩小规模)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    chess_board[中心点的左上方坐标] = trace_step</span><br><span class="line">    play_chess(棋盘位置调整到左上角, 缩小规模, 更新缺少的点)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 右上角</span></span><br><span class="line">  <span class="keyword">if</span> 缺失的格子在右上角:</span><br><span class="line">    play_chess(棋盘位置调整到右上角，缩小规模)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    chess_board[中心点的右上方坐标] = trace_step</span><br><span class="line">    play_chess(棋盘位置调整到右上角, 缩小规模, 更新缺少的点)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 左下角</span></span><br><span class="line">  <span class="keyword">if</span> 缺失的格子在左下角:</span><br><span class="line">    play_chess(棋盘位置调整到左下角，缩小规模)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    chess_board[中心点的左下方坐标] = trace_step</span><br><span class="line">    play_chess(棋盘位置调整到左下角, 缩小规模, 更新缺少的点)</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 右下角</span></span><br><span class="line">  <span class="keyword">if</span> 缺失的格子在右下角:</span><br><span class="line">    play_chess(棋盘位置调整到右下角，缩小规模)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    chess_board[中心点的右下方坐标] = trace_step</span><br><span class="line">    play_chess(棋盘位置调整到右下角, 缩小规模, 更新缺少的点)</span><br></pre></td></tr></table></figure>
+<h2 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h2><blockquote>
+<p>题目：给定n种物品和一个背包。物品i的重量为wi，其价值为vi,背包的容量为C。使用动态规划方法分析并描述应该如何选择装入背包的物品，使得装入背包中物品的总价值最大？在选择装入背包时，对每种物品只有两种选择：即装入背包或不装入背包，不能将物品装入背包多次，也不能只装入部分某物品。</p>
+<p>题目类型：0，1背包问题（动态规划）</p>
+</blockquote>
+<h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h3><p>这是一道典型的动态规划的题目，主要是要写出整个的状态转义方程，这里我把表中的取值的过程简单写成一个函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">value_table[i][j] = <span class="built_in">max</span>(拿的价值，不拿的价值)</span><br></pre></td></tr></table></figure>
+<p><strong>状态转移方程：</strong><br>$$<br>value_table[i][j] =<br>\begin{cases}<br>value_table[i-1][j] \<br>value[i] + value_table[i-1][j-weight[i]]<br>\end{cases}<br>$$<br>建立表格之后，找到最大的就行了</p>
+<h2 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1413,149 +1528,6 @@ graph TD
 <li>  Process Design Language (PDL) (Pseudo code)</li>
 </ul>
 <p><strong>week 6 题目</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/10/06/software-project-management-training-seminar-03/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/06/software-project-management-training-seminar-03/" class="post-title-link" itemprop="url">Software project management training seminar_03</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-10-06 21:30:25" itemprop="dateCreated datePublished" datetime="2020-10-06T21:30:25+08:00">2020-10-06</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E5%B7%A5%E8%81%8C%E4%B8%9A%E7%B4%A0%E5%85%BB/" itemprop="url" rel="index"><span itemprop="name">软工职业素养</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Why-we-need-document’s-arrangements"><a href="#Why-we-need-document’s-arrangements" class="headerlink" title="Why we need document’s arrangements?"></a>Why we need document’s arrangements?</h2><ul>
-<li>Project management’s gist<ul>
-<li>  Know progress、analyze the issue，provide project predictability</li>
-</ul>
-</li>
-<li>Working communication’s proof<ul>
-<li>  Oral statement are no guarantee write down in arrangement</li>
-</ul>
-</li>
-<li>Software test’s basis<ul>
-<li>  Without document test workers can’t work</li>
-</ul>
-</li>
-<li>Train user’s reference<ul>
-<li>  Help external people know the project’s inside story</li>
-</ul>
-</li>
-<li>Technical support’s helper<ul>
-<li>  Help technical support’s helper be familiar with the system ,analyze the mistakes ,solve the problems, record the necessity of the history</li>
-<li>  The best value of the software is the reusability</li>
-</ul>
-</li>
-</ul>
-<p>The progress of making a whole set of document followed by the requirement is the progress of developing a software followed the standard.</p>
-<h2 id="The-basic-ideas-of-making-documentsBasic-principles-of-document-management"><a href="#The-basic-ideas-of-making-documentsBasic-principles-of-document-management" class="headerlink" title="The basic ideas of making documentsBasic principles of document management"></a><strong>The basic ideas of making documents</strong>Basic principles of document management</h2><ul>
-<li>Clarify the range of the documents to avoid blank and the fickleness<ul>
-<li>  The big and whole documents are of no use</li>
-</ul>
-</li>
-<li>Stand in the readers’ shoes to avoid whistling jigs to a milestone<ul>
-<li>  Keep the readers’ understanding as the standard to make the documents</li>
-</ul>
-</li>
-<li>Norm the nouns’ titles to keep the consistent<ul>
-<li>  Keep the nouns’ titles consistent can cut down the ambiguity of the documents</li>
-</ul>
-</li>
-<li>Pay attention to the control of the versions to avoid attending to one and lose another<ul>
-<li>  The documents in different periods record the whole progress of the development of the project</li>
-</ul>
-</li>
-<li>Use pictures, words, tables to guarantee the content is clear<ul>
-<li>  Brief pictures and tables are better than many words</li>
-</ul>
-</li>
-</ul>
-<h2 id="Basic-principles-of-document-management"><a href="#Basic-principles-of-document-management" class="headerlink" title="Basic principles of document management"></a>Basic principles of document management</h2><ul>
-<li><strong>Integrity</strong><ul>
-<li>  Project documents should cover the complete process of software development</li>
-</ul>
-</li>
-<li><strong>Simplicity</strong><ul>
-<li>  Don’t waste too much time and energy writing documentation</li>
-</ul>
-</li>
-<li><strong>Effectiveness</strong><ul>
-<li>  Documents must play a role in supporting decision and guiding reference</li>
-</ul>
-</li>
-<li><strong>Continuity</strong><ul>
-<li>  Transformation of documents should have reasonable basis and continuously develop</li>
-</ul>
-</li>
-</ul>
 
       
     </div>
