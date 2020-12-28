@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,7 +167,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -196,6 +196,115 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/10/06/detailed-design-04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/10/06/detailed-design-04/" class="post-title-link" itemprop="url">Detailed_design_04</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-10-06 21:31:57" itemprop="dateCreated datePublished" datetime="2020-10-06T21:31:57+08:00">2020-10-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E5%B7%A5%E8%81%8C%E4%B8%9A%E7%B4%A0%E5%85%BB/" itemprop="url" rel="index"><span itemprop="name">软工职业素养</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="prepare-detailed-design-specification"><a href="#prepare-detailed-design-specification" class="headerlink" title="prepare detailed design specification"></a>prepare detailed design specification</h2><ul>
+<li>  determine the algorithm of each module, express the algorithm process with tools, and write out the detailed process description of the module.</li>
+<li>  determine the data structure of each module.</li>
+<li>  determine module interface details. Detailed design is the forerunner of coding.</li>
+</ul>
+<h2 id="The-advantages-of-structural-programming-technology"><a href="#The-advantages-of-structural-programming-technology" class="headerlink" title="The advantages of structural programming technology"></a>The advantages of structural programming technology</h2><ul>
+<li>  The method of gradual refinement from top to bottom conforms to the general law of human solving complex problems, so it can significantly improve the success rate and productivity of software development projects.</li>
+<li>  The program developed by the process of first global and then local, first whole and then detail, abstract and then concrete step-by-step refinement has a clear hierarchy, so it is easy to read and understand.</li>
+<li>  Do not use GO TO statement only use a single entry single exit control structure, so that the static structure of the program and its dynamic implementation is more consistent, easy to read and understand.</li>
+<li>  The control structure has a definite logical pattern, the writing of program code is limited to a few straightforward ways, so the source program is clear and smooth.</li>
+<li>  The clarity and modularity of the program make it possible to reuse the most code when modifying and redesigning a software.</li>
+<li>  The logical structure of the program is clear and is conducive to the proof of program correctness.</li>
+</ul>
+<h2 id="Tools-for-Process-Design"><a href="#Tools-for-Process-Design" class="headerlink" title="Tools for Process Design"></a>Tools for Process Design</h2><ul>
+<li>  Program flowchart</li>
+<li>Box diagram (N-S diagram)<ul>
+<li>  Functional domain (that is, the scope of a specific control structure) is clear.</li>
+<li>  Impossible to transfer control arbitrarily.</li>
+<li>  Easily determine the scope of local and global data.</li>
+<li>  It is easy to express nested relationships, and it can also represent the hierarchical structure of modules</li>
+</ul>
+</li>
+<li>  Problem Analysis Chart (PAD)</li>
+</ul>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/10/image-2.png"></p>
+<ul>
+<li>  Determination tree and judging table</li>
+<li>  Process Design Language (PDL) (Pseudo code)</li>
+</ul>
+<p><strong>week 6 题目</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1292,109 +1401,6 @@ return 0;</code></pre>
 <p>void Arrayint::show() {<br>    int i;<br>    for(i = 0; i &lt; n; i++){<br>        cout &lt;&lt; p[i] &lt;&lt; ‘ ‘;<br>    }<br>    cout &lt;&lt; endl;<br>}</p>
 <p>int main() {<br>    int a[10] = {5,7,8,9,10,11,12,34,32,22};</p>
 <p>Arrayint *x = new Arrayint(10, a);<br>a[2] = 100;<br>Arrayint y = *x;<br>x-&gt;show();<br>delete x;<br>y.show();<br>    return 0;<br>}</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/08/03/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%BA%8C%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/03/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%BA%8C%E9%A2%98/" class="post-title-link" itemprop="url">南林大C++编程第二题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-08-03 16:28:05" itemprop="dateCreated datePublished" datetime="2020-08-03T16:28:05+08:00">2020-08-03</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>前言</p>
-<p>这里是南京林业大学2020年C++复习指南（自制）的编程题版块，想要获取更多可以点击以下链接：</p>
-<p><a href="https://blog.zkwzkw.top/?p=240">https://blog.zkwzkw.top/?p=240</a></p>
-<p>需要其他复习指南的可以参考一下连接：</p>
-<p>欢迎访问我的个人网站，里面有更多的干货哦！</p>
-<p><a href="https://blog.zkwzkw.top/">https://blog.zkwzkw.top</a></p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><strong>设计一个stack类的结构，该类可以完成栈的功能。该栈的元素类型为int，最大深度为100。它能完成push和pop方法，功能分别为压栈和出栈。<br>如下main()函数可以执行。<br>void main()<br>{<br>stack s1;<br>int i;<br>for(i = 1; i &lt; 10;i++)<br>s1.push(i);<br>for(i = 1; i &lt;6;i++)<br>cout &lt;&lt; s1.pop()&lt;&lt;”,”;<br>s1.push(200);<br>cout &lt;&lt; s1.pop()&lt;&lt;endl;<br>}<br>执行的结果为<br>9,8,7,6,5,200</strong></p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>第二题也没有什么难度，主要要注意一下栈的溢出和触底的检验操作</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>#include <iostream></p>
-<p>#define maxN 100            // 栈的最大容量</p>
-<p>using namespace std;</p>
-<p>class stack{<br>private:<br>    int top;                // 栈顶指针，初始化的时候指向-1<br>    int a[maxN];            // 用数组来模拟栈<br>public:<br>    stack();            // 空参构造器<br>    void push(int num);     // push方法<br>    int pop();              // pop方法<br>};</p>
-<p>// 初始化栈<br>stack::stack() {<br>    top = -1;<br>}</p>
-<p>void stack::push(int num) {<br>    if (top &lt; maxN-1) {             // 检验栈有没有溢出<br>        top++;<br>        a[top] = num;<br>    }<br>}</p>
-<p>int stack::pop() {<br>    if (top &gt; -1) {                 // 检验栈有没有触底<br>        top–;<br>        return a[top+1];<br>    }<br>    return -1;<br>}</p>
-<p>int main()<br>{<br>    stack s1;<br>    int i;</p>
-<pre><code>for(i = 1; i &lt; 10;i++)
-    s1.push(i);
-for(i = 1; i &lt;6;i++)
-    cout &lt;&lt; s1.pop()&lt;&lt;&quot;,&quot;;
-s1.push(200);
-cout &lt;&lt; s1.pop()&lt;&lt;endl;
-return 0;</code></pre>
-<p>}</p>
 
       
     </div>
