@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,7 +167,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -196,6 +196,80 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/12/29/c%E5%A4%B4%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/12/29/c%E5%A4%B4%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99/" class="post-title-link" itemprop="url">Clion无法找到unistd.h这个头文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-12-29 09:51:41" itemprop="dateCreated datePublished" datetime="2020-12-29T09:51:41+08:00">2020-12-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Clion无法找到unistd-h这个头文件"><a href="#Clion无法找到unistd-h这个头文件" class="headerlink" title="Clion无法找到unistd.h这个头文件"></a>Clion无法找到unistd.h这个头文件</h1><blockquote>
+<p>今天遇到一个很无语的错误，前几天一直在操作系统实习，里面用到了很多unistd.h 还有csignal中定义的一些变量，之前都是能够正常运行的。然后最近要演示代码，我就想打开程序再运行一下，结果一打开，疯狂爆红，然后我看了一下，根源居然是没有找到头文件！！晚上找了很多方法都是没有用的（什么叫你升级xcode都是扯淡），然后我将源码复制到xcode中去运行，结果居然运行成功了！我猜测可能的原因是我的xcode前段时间升级了一下，然后头文件的目录产生了变化，而clion还没有来得及更变目录，这里我提供一下临时的解决方案</p>
+</blockquote>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>MacOS 11.1</li>
+<li>Clion 2020.3</li>
+<li>Xcode 12.3</li>
+</ul>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><p>在cmake中在添加下面这个几行代码</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定头文件路径</span></span><br><span class="line"><span class="keyword">include_directories</span>(/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/<span class="keyword">include</span>)</span><br><span class="line"><span class="comment"># 链接库文件</span></span><br><span class="line"><span class="keyword">link_directories</span>(/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib)</span><br></pre></td></tr></table></figure>
+<p>这里其实就是指定头文件的路径和链接库的路径，有点类似PATH</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1775,193 +1849,8 @@ graph TD
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/10/09/software-engineer-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/09/software-engineer-01/" class="post-title-link" itemprop="url">software_engineer_01</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-10-09 07:58:07" itemprop="dateCreated datePublished" datetime="2020-10-09T07:58:07+08:00">2020-10-09</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E5%B7%A5%E8%81%8C%E4%B8%9A%E7%B4%A0%E5%85%BB/" itemprop="url" rel="index"><span itemprop="name">软工职业素养</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Three-periods-and-characteristics-of-computer-development"><a href="#Three-periods-and-characteristics-of-computer-development" class="headerlink" title="Three periods and characteristics of computer development"></a>Three periods and characteristics of computer development</h2><ul>
-<li>  The program design</li>
-<li>  Application system</li>
-<li>  Software engineering</li>
-</ul>
-<h2 id="software-crisis"><a href="#software-crisis" class="headerlink" title="software crisis"></a>software crisis</h2><p><strong>Three periods in the development of computer software</strong></p>
-<ul>
-<li>  Early era (before the mid-1960s) the programming phaseGeneral hardware, special software; The program is small in size, and the writer and user are the same person (in the same group)</li>
-<li>  Second generation (mid-1960s - mid-1970s) program system phaseEmergence of “software workshop”, product software; A “personalized” development approach.</li>
-<li>  Third generation (after mid-1970s) software engineering phaseSoftware development has become a new engineering discipline - software engineering.</li>
-</ul>
-<p><strong>what is a software crisis?</strong></p>
-<p>Software crisis refers to a series of serious problems encountered in the development and maintenance of computer software.</p>
-<p><strong>two main problem</strong></p>
-<ul>
-<li>  How to develop software, how to meet the growing demand for software.</li>
-<li>  How to maintain an ever-expanding supply of software</li>
-</ul>
-<p><strong>Major manifestations of the software crisis</strong></p>
-<ul>
-<li>  Inaccurate estimates of software development costs and schedules.</li>
-<li>  The user is not satisfied</li>
-<li>  Software quality is not high, reliability is poor</li>
-<li>  Software is often unmaintainable and errors are difficult to correct.</li>
-<li>  Lack of proper documentation</li>
-<li>  The software cost accounts for the system total cost proportion to rise year by year</li>
-<li>  The speed of software development can not keep pace with that of computers</li>
-</ul>
-<p><strong>The cause of the software crisis</strong></p>
-<ul>
-<li>  It’s about the nature of the software itself.</li>
-<li>  Software is not easy to maintain</li>
-<li>  In the process of software development, more or less adopted the wrong methods and techniques.</li>
-<li>  Without a complete and accurate understanding of the user’s needs, I rushed into writing the program.</li>
-</ul>
-<p><strong>How to eliminate the software crisis?</strong></p>
-<ul>
-<li>  Technical measuresUse better software development methods and tools</li>
-<li>  The software development of organization and management This is not a mysterious skill of individual labor, but a kind of engineering project which is well organized, tightly managed, coordinated and completed by all kinds of personnel.</li>
-</ul>
-<h2 id="software-engineering"><a href="#software-engineering" class="headerlink" title="software engineering"></a>software engineering</h2><p><strong>What is software engineering?</strong></p>
-<p>Software engineering is an engineering subject that guides the development and maintenance of computer software. It adopts the concept, principle, technology and method of engineering to develop and maintain software, which combines the management technology which has been proved to be correct by time test with the best technical method that can be obtained at present. Software engineering is a subject involving the research and application of the principles, methods and tools of software planning, requirement analysis, design, coding, testing and maintenance.</p>
-<p><strong>Why is the software life cycle divided into phases?</strong></p>
-<p>One of the common strategies used by human beings in solving complex problems is to break down each problem, that is, to decompose the problem and then solve each sub problem separately. The “life cycle method” adopted in software engineering is to decompose the complex problems of software development and maintenance from the perspective of time. It divides the long life cycle of software into several stages in turn. Each stage has relatively independent tasks, and then gradually complete the tasks of each stage.</p>
-<p><strong>How to divide it?</strong></p>
-<p>Software life cycle is generally divided into three periods:</p>
-<ul>
-<li>  software definition (problem definition, feasibility study, requirement analysis)</li>
-<li>  software development (overall design, detailed design, coding and unit testing, comprehensive testing)</li>
-<li>  software maintenance</li>
-</ul>
-<p><strong>What are the characteristics of each stage?</strong></p>
-<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/10/image.png"></p>
-<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/10/image-1.png"></p>
-<h2 id="Software-development-process-model"><a href="#Software-development-process-model" class="headerlink" title="Software development process model"></a>Software development process model</h2><ul>
-<li><p><strong>waterfall model**</strong>advantages**</p>
-<ul>
-<li><p>  Accepts the work object of the activity from the previous activity as input 。</p>
-</li>
-<li><p>  What should be done to implement the activity using this input</p>
-</li>
-<li><p>  Give the output of the activity to the next activity</p>
-</li>
-<li><p>  Review the implementation of the activity.If its work is confirmed, it will proceed to the next activity.</p>
-</li>
-<li><p>*disadvantages**</p>
-</li>
-<li><p>  From the perspective of epistemology, human cognition is a process that is repeated many times and cannot be completed at once. However, the several stages divided in the waterfall model do not reflect the repetitive nature of this cognitive process.</p>
-</li>
-<li><p>  Software development is a knowledge-intensive development activity that requires mutual cooperation to complete, but the waterfall model does not reflect this.</p>
-</li>
-</ul>
-</li>
-<li><p><strong>Prototype model**</strong>advantages**</p>
-<ul>
-<li><p>  The prototype method is much better than the traditional life cycle method in getting a good definition of requirements. It can deal with fuzzy requirements, and developers and users can fully communicate.</p>
-</li>
-<li><p>  The prototype system can be used as a training environment, which is conducive to the synchronization of user training and development, and the development process is also a learning process.</p>
-</li>
-<li><p>  The prototype gives the user the opportunity to change the unreasonable final system in mind.</p>
-</li>
-<li><p>  The prototype can develop a flexible computer system with low risk.</p>
-</li>
-<li><p>  prototypes increase opportunities to make the system more maintainable and user-friendly.</p>
-</li>
-<li><p>  The prototype reduces the total development cost and time.</p>
-</li>
-<li><p>*disadvantages**</p>
-</li>
-<li><p>  Model effects or insight into areas that developers are not familiar with using the minor parts as the main framework to make irrelevant prototypes</p>
-</li>
-<li><p>  Prototype iterations do not converge to the developer’s prior goal of making each change, and in order to eliminate errors, the minor parts get larger and larger, overwhelming the major parts</p>
-</li>
-<li><p>  The prototype converges too quickly to the requirements set and ignores some basic points</p>
-</li>
-<li><p>  Resource planning and management can be difficult, and updating documents at any time can be troublesome</p>
-</li>
-<li><p>  Long-term development on the prototype environment, only pay attention to the satisfactory prototype, easy to forget the differences between the user environment and the prototype environment</p>
-</li>
-</ul>
-</li>
-<li><p>  <strong>Fountain model</strong>The fountain model assumes that the phases of the software life cycle overlap and iterateMainly used in object-oriented methods</p>
-</li>
-<li><p>  <strong>Helix model</strong>Based on the prototype, the spiral model is formed by repeated prototype iteration and increased risk assessment</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
