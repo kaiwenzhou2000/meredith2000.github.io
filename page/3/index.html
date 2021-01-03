@@ -167,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -205,6 +205,113 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/08/09/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%BA%94%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/09/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%BA%94%E9%A2%98/" class="post-title-link" itemprop="url">南林大C++编程第五题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-09 15:52:26" itemprop="dateCreated datePublished" datetime="2020-08-09T15:52:26+08:00">2020-08-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这里是南京林业大学2020年C++复习指南（自制）的编程题版块，想要获取更多可以点击以下链接：</p>
+<p><a href="https://blog.zkwzkw.top/?p=240">https://blog.zkwzkw.top/?p=240</a></p>
+<p>需要其他复习指南的可以参考一下连接：</p>
+<p>欢迎访问我的个人网站，里面有更多的干货哦！</p>
+<p><a href="https://blog.zkwzkw.top/">https://blog.zkwzkw.top</a></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><strong>设计一个Fraction类的结构，该类表示一个可以单步前进的广义整数。该类有以下两个私有属性<br>int den; //单步前进的步进距离,也就是执行++运算后的增长量；<br>int num; //当前的整数值<br>设计和实现该类相应的结构函数，print函数，并重载它的前缀++运算符号和后缀++运算符号。<br>该类完成后，如下main()函数可以执行。<br>void main()<br>{<br>Fraction b(1,10),a(4,-8);<br>(a++).print();<br>a.print();<br>a = b++;<br>a.print();<br>a = ++b;<br>a.print();<br>}<br>执行的结果为<br>-8<br>-4<br>10<br>12</strong></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这道题主要考察的是前置++和后置++运算符的重载</p>
+<p>Fraction&amp; operator++();      // 前置++<br>Fraction operator++(int);   // 后置++</p>
+<p>后置++运算符必须要在后面加一个int形参，表示与前置++的区别，同时，由于是++运算，所以可以返回自身。前置++运算最好要返回引用，后置可以直接返回指针。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>#include <iostream></p>
+<p>using namespace std;</p>
+<p>class Fraction{<br>private:<br>    int den; //单步前进的步进距离,也就是执行++运算后的增长量；<br>    int num; //当前的整数值</p>
+<p>public:<br>    Fraction(int den, int num);<br>    Fraction&amp; operator++();      // 前置++<br>    Fraction operator++(int);   // 后置++<br>    void print();<br>};</p>
+<p>Fraction::Fraction(int den, int num) {<br>    this-&gt;den = den;<br>    this-&gt;num = num;<br>}</p>
+<p>Fraction &amp; Fraction::operator++() {<br>    /*<br>     * 前置++运算符<br>     * 先++，再参与运算<br>     * 在++之后，直接返回自身<br>     *<br>     * */<br>    num += den;<br>    return *this;<br>}</p>
+<p>Fraction Fraction::operator++(int) {<br>    /*<br>     * 后置++运算符<br>     * 先参与运算再++<br>     * 先用一个temp保存要返回的值<br>     * 在自身++<br>     *<br>     * */<br>    Fraction temp(*this);<br>    num += den;<br>    return temp;<br>}</p>
+<p>void Fraction::print() {<br>    cout &lt;&lt; num &lt;&lt; endl;<br>}</p>
+<p>int main() {<br>    Fraction b(1,10),a(4,-8);</p>
+<pre><code>(a++).print();
+a.print();
+
+a = b++;
+a.print();
+
+a = ++b;
+a.print();
+return 0;</code></pre>
+<p>}</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1086,139 +1193,6 @@ return 0;</code></pre>
 <p>同时想要看我的更多博客可以点击下面这个链接：</p>
 <p><a href="https://blog.zkwzkw.top/">https://blog.zkwzkw.top</a></p>
 <p><strong>我是一个虽然很菜，但是还是每天坚持写代码的小菜鸡</strong>🌝🌝</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/07/28/jupyter%E7%9A%84%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E5%88%A9%E7%94%A8nginx%E5%AF%B9%E5%85%B6%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/28/jupyter%E7%9A%84%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E5%88%A9%E7%94%A8nginx%E5%AF%B9%E5%85%B6%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" class="post-title-link" itemprop="url">jupyter的搭建以及利用nginx对其进行反向代理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-07-28 11:15:19" itemprop="dateCreated datePublished" datetime="2020-07-28T11:15:19+08:00">2020-07-28</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/jupyter/" itemprop="url" rel="index"><span itemprop="name">jupyter</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这几天一直在忙着学习Vue，一直没有时间更新博客，今天趁着这个机会来一篇关于jupyter搭建的博客，而且网上关于利用nginx对jupyter进行反向代理的文章也比较少，所以我想借此机会分享一下的我经验。</p>
-<hr>
-<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><ul>
-<li>  CentOS 版本： 7.7</li>
-<li>  Nginx 版本：1.16.1</li>
-<li>  Python 版本：3.6.8</li>
-<li>  pip 版本：9.0.3</li>
-<li>  jupyter core 版本：4.6.3</li>
-<li>  ipython 版本：7.16.1</li>
-</ul>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ul>
-<li>  首先安装python3环境（如果安装了就跳过这一步）</li>
-</ul>
-<p>yum install python3</p>
-<ul>
-<li>  使用pip3来安装jupyter（在python3的版本中都是自带pip3的）</li>
-</ul>
-<p>pip3 install jupyter  </p>
-<ul>
-<li>  生成配置文件（root用户在后面加上–allow-root）</li>
-</ul>
-<p>jupyter notebook –generate-config</p>
-<ul>
-<li>  使用ipython来生成密码，进入ipython并且输入一下指令，然后进行密码的设置（他返回的秘钥一定要保存好，后面配置文件需要）</li>
-</ul>
-<p>from notebook.auth import passwd<br>passwd()</p>
-<ul>
-<li>  修改配置文件（root用户的配置文件默认在/root/.jupyter/jupyter_notebook_config.py）</li>
-</ul>
-<p>c.NotebookApp.ip = ‘*‘    # 允许所有的ip访问<br>c.NotebookApp.port = 8888    # 对外暴露的端口号<br>c.NotebookApp.open_browser = False    # 默认不打开浏览器<br>c.NotebookApp.password = u’sha1:XXXXX’    # 输入刚刚复制的秘钥<br>c.NotebookApp.notebook_dir = u’/usr/jupyter’    # 设置文件存储的位置</p>
-<p>现在在浏览器打开，并输入你的<a href="http://ip:port就可以正常访问了">http://ip:port就可以正常访问了</a></p>
-<p><strong>现在基本的安装步骤结束了，但是我这里想要补充一下为jupyter添加ssl证书的步骤：</strong></p>
-<ul>
-<li>  还是打开jupyter_notebook_config.py这个配置文件，找到并且修改下面的几项</li>
-</ul>
-<p>## SSL/TLS 认证文件所在全路径.<br>c.NotebookApp.certfile = u’你的证书的绝对路径.pem’</p>
-<h2 id="SSL-TLS-私钥文件所在全路径"><a href="#SSL-TLS-私钥文件所在全路径" class="headerlink" title="SSL/TLS 私钥文件所在全路径."></a>SSL/TLS 私钥文件所在全路径.</h2><p>c.NotebookApp.keyfile = u’你的证书的秘钥的绝对路径.key’</p>
-<p>现在，就可以正常开启https服务了。</p>
-<p><strong>现在我来说说怎么开启nginx进行反向代理：</strong></p>
-<ul>
-<li>  我的jupyter是挂在我的一个二级域名下的，但是问题是我的二级域名下面不只有一个网站，所以我要现指定jupyter的目录，打开配置文件：</li>
-</ul>
-<p>c.NotebookApp.base_project_url = ‘/你想指定的目录’</p>
-<ul>
-<li>  指定了jupyter的目录，下面就要使用nginx对jupyter进行反向代理了，打开nginx.conf，修改如下：</li>
-</ul>
-<p>location /刚刚指定的目录文件夹/ {<br>        proxy_pass https://你的域名:指定的端口号;<br>        proxy_set_header X-Real-IP $remote_addr;<br>        proxy_set_header Host $host;<br>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>        proxy_http_version 1.1;<br>        proxy_set_header Upgrade $http_upgrade;<br>        proxy_set_header Connection “upgrade”;<br>        proxy_redirect off;<br>}</p>
-<p>好了，现在就应该能反向代理了，完美实现隐藏端口号的效果。</p>
-<hr>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaozhun1223/article/details/99689841">https://blog.csdn.net/xiaozhun1223/article/details/99689841</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/itxdm/p/Add_a_free_TLS_SSL_certificate_for_Jupyter.html">https://www.cnblogs.com/itxdm/p/Add_a_free_TLS_SSL_certificate_for_Jupyter.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/266589600/answer/312363000">https://www.zhihu.com/question/266589600/answer/312363000</a></p>
-</blockquote>
 
       
     </div>

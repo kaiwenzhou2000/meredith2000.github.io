@@ -167,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -205,6 +205,139 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/07/28/jupyter%E7%9A%84%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E5%88%A9%E7%94%A8nginx%E5%AF%B9%E5%85%B6%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/28/jupyter%E7%9A%84%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E5%88%A9%E7%94%A8nginx%E5%AF%B9%E5%85%B6%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" class="post-title-link" itemprop="url">jupyter的搭建以及利用nginx对其进行反向代理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-28 11:15:19" itemprop="dateCreated datePublished" datetime="2020-07-28T11:15:19+08:00">2020-07-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/jupyter/" itemprop="url" rel="index"><span itemprop="name">jupyter</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这几天一直在忙着学习Vue，一直没有时间更新博客，今天趁着这个机会来一篇关于jupyter搭建的博客，而且网上关于利用nginx对jupyter进行反向代理的文章也比较少，所以我想借此机会分享一下的我经验。</p>
+<hr>
+<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><ul>
+<li>  CentOS 版本： 7.7</li>
+<li>  Nginx 版本：1.16.1</li>
+<li>  Python 版本：3.6.8</li>
+<li>  pip 版本：9.0.3</li>
+<li>  jupyter core 版本：4.6.3</li>
+<li>  ipython 版本：7.16.1</li>
+</ul>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ul>
+<li>  首先安装python3环境（如果安装了就跳过这一步）</li>
+</ul>
+<p>yum install python3</p>
+<ul>
+<li>  使用pip3来安装jupyter（在python3的版本中都是自带pip3的）</li>
+</ul>
+<p>pip3 install jupyter  </p>
+<ul>
+<li>  生成配置文件（root用户在后面加上–allow-root）</li>
+</ul>
+<p>jupyter notebook –generate-config</p>
+<ul>
+<li>  使用ipython来生成密码，进入ipython并且输入一下指令，然后进行密码的设置（他返回的秘钥一定要保存好，后面配置文件需要）</li>
+</ul>
+<p>from notebook.auth import passwd<br>passwd()</p>
+<ul>
+<li>  修改配置文件（root用户的配置文件默认在/root/.jupyter/jupyter_notebook_config.py）</li>
+</ul>
+<p>c.NotebookApp.ip = ‘*‘    # 允许所有的ip访问<br>c.NotebookApp.port = 8888    # 对外暴露的端口号<br>c.NotebookApp.open_browser = False    # 默认不打开浏览器<br>c.NotebookApp.password = u’sha1:XXXXX’    # 输入刚刚复制的秘钥<br>c.NotebookApp.notebook_dir = u’/usr/jupyter’    # 设置文件存储的位置</p>
+<p>现在在浏览器打开，并输入你的<a href="http://ip:port就可以正常访问了">http://ip:port就可以正常访问了</a></p>
+<p><strong>现在基本的安装步骤结束了，但是我这里想要补充一下为jupyter添加ssl证书的步骤：</strong></p>
+<ul>
+<li>  还是打开jupyter_notebook_config.py这个配置文件，找到并且修改下面的几项</li>
+</ul>
+<p>## SSL/TLS 认证文件所在全路径.<br>c.NotebookApp.certfile = u’你的证书的绝对路径.pem’</p>
+<h2 id="SSL-TLS-私钥文件所在全路径"><a href="#SSL-TLS-私钥文件所在全路径" class="headerlink" title="SSL/TLS 私钥文件所在全路径."></a>SSL/TLS 私钥文件所在全路径.</h2><p>c.NotebookApp.keyfile = u’你的证书的秘钥的绝对路径.key’</p>
+<p>现在，就可以正常开启https服务了。</p>
+<p><strong>现在我来说说怎么开启nginx进行反向代理：</strong></p>
+<ul>
+<li>  我的jupyter是挂在我的一个二级域名下的，但是问题是我的二级域名下面不只有一个网站，所以我要现指定jupyter的目录，打开配置文件：</li>
+</ul>
+<p>c.NotebookApp.base_project_url = ‘/你想指定的目录’</p>
+<ul>
+<li>  指定了jupyter的目录，下面就要使用nginx对jupyter进行反向代理了，打开nginx.conf，修改如下：</li>
+</ul>
+<p>location /刚刚指定的目录文件夹/ {<br>        proxy_pass https://你的域名:指定的端口号;<br>        proxy_set_header X-Real-IP $remote_addr;<br>        proxy_set_header Host $host;<br>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>        proxy_http_version 1.1;<br>        proxy_set_header Upgrade $http_upgrade;<br>        proxy_set_header Connection “upgrade”;<br>        proxy_redirect off;<br>}</p>
+<p>好了，现在就应该能反向代理了，完美实现隐藏端口号的效果。</p>
+<hr>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaozhun1223/article/details/99689841">https://blog.csdn.net/xiaozhun1223/article/details/99689841</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/itxdm/p/Add_a_free_TLS_SSL_certificate_for_Jupyter.html">https://www.cnblogs.com/itxdm/p/Add_a_free_TLS_SSL_certificate_for_Jupyter.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/266589600/answer/312363000">https://www.zhihu.com/question/266589600/answer/312363000</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1230,109 +1363,6 @@ return 0;</code></pre>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37500838/article/details/84575254">https://blog.csdn.net/qq_37500838/article/details/84575254</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bjx2020/p/12118614.html">https://www.cnblogs.com/bjx2020/p/12118614.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.tpyyes.com/a/kuozhan/413.html">https://www.tpyyes.com/a/kuozhan/413.html</a></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/07/19/apache-%E5%BC%80%E5%90%AFhttps/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/19/apache-%E5%BC%80%E5%90%AFhttps/" class="post-title-link" itemprop="url">Apache 开启HTTPS</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-07-19 11:21:01" itemprop="dateCreated datePublished" datetime="2020-07-19T11:21:01+08:00">2020-07-19</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><ul>
-<li>  CentOS版本： 7.7</li>
-<li>  Apache版本：2.4.6</li>
-<li>  ssl证书类型：CRT</li>
-</ul>
-<hr>
-<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><ul>
-<li>  首先现在Apache的安装目录下建立文件夹，命名为cert。</li>
-<li>  下载ssl证书。（建议将证书文件、证书链文件、密钥文件分别命名为：domain name_public.crt、domain name_chain.crt、domain name.key）</li>
-<li>  输入一下命令，来安装mod_ssl</li>
-</ul>
-<p>yum install -y mod_ssl</p>
-<ul>
-<li>  完成安装之后，找到Apache安装目录/conf/httpd.conf，并且打开，找到一下语句</li>
-</ul>
-<p>LoadModule ssl_module modules/mod_ssl.so  #删除行首的配置语句注释符号“#”加载mod_ssl.so模块启用SSL服务，Apache默认是不启用该模块的。<br>Include conf/extra/httpd-ssl.conf  #删除行首的配置语句注释符号“#”。  </p>
-<ul>
-<li>  找到Apache安装目录/conf.d/ssl.conf，并且打开，修改如下：（注意，在修改的时候由于文件名中间有空格，要用单引号包围）</li>
-</ul>
-<p>&lt;VirtualHost *:443&gt;<br>    ServerName   #修改为申请证书时绑定的域名<a target="_blank" rel="noopener" href="http://www.yourdomainname1.com./">www.YourDomainName1.com。</a><br>    DocumentRoot  /data/www/hbappserver/public<br>    SSLEngine on<br>    SSLProtocol all -SSLv2 -SSLv3 # 添加SSL协议支持协议，去掉不安全的协议。<br>    SSLCipherSuite HIGH:!RC4:!MD5:!aNULL:!eNULL:!NULL:!DH:!EDH:!EXP:+MEDIUM   # 修改加密套件。<br>    SSLHonorCipherOrder on<br>    SSLCertificateFile cert/domain name1_public.crt   # 将domain name1_public.crt替换成您证书文件名。<br>    SSLCertificateKeyFile cert/domain name1.key   # 将domain name1.key替换成您证书的密钥文件名。<br>    SSLCertificateChainFile cert/domain name1_chain.crt  # 将domain name1_chain.crt替换成您证书的密钥文件名；证书链开头如果有#字符，请删除。<br></VirtualHost></p>
-<hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/98727.html?spm=5176.2020520163.0.0.59c156a7nQDZ37">https://help.aliyun.com/document_detail/98727.html?spm=5176.2020520163.0.0.59c156a7nQDZ37</a></p>
 </blockquote>
 
       
