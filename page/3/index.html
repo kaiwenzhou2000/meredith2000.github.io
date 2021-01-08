@@ -167,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -205,6 +205,112 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/08/09/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E5%85%AD%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/09/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E5%85%AD%E9%A2%98/" class="post-title-link" itemprop="url">南林大C++编程第六题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-09 17:11:22" itemprop="dateCreated datePublished" datetime="2020-08-09T17:11:22+08:00">2020-08-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这里是南京林业大学2020年C++复习指南（自制）的编程题版块，想要获取更多可以点击以下链接：</p>
+<p><a href="https://blog.zkwzkw.top/?p=240">https://blog.zkwzkw.top/?p=240</a></p>
+<p>需要其他复习指南的可以参考一下连接：</p>
+<p>欢迎访问我的个人网站，里面有更多的干货哦！</p>
+<p><a href="https://blog.zkwzkw.top/">https://blog.zkwzkw.top</a></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><strong>设计一个polygon基类的结构如下：<br>class polygon<br>{<br>private:<br>int polygonnum; //多边形的边数<br>public:<br>virtual double Getarea()=0; //求面积<br>virtual double Getperimeter()=0; //求周长<br>polygon(int n)<br>{<br>polygonnum = n;<br>};<br>int Getpolygonnum() //获取多边形的边数<br>{<br>return polygonnum;<br>}<br>};<br>改类表示一个抽象的多边形，它有两个纯虚拟函数需要实现，一个求面积，一个求周长。<br>设计类triangle，它是polygon类的继承类，它可以计算三角形的面积和周长。它的结构函数的格式如下：<br>triangle(double x, double y, double z)，其中x y z分别表示了三边的长度。<br>设计类rectangle它是polygon类的继承类，它可以计算矩形的面积和周长。它的结构函数的格式如下：<br>rectangle(double x, double y)，其中x y分别表示了长和宽。<br>以上三个类完成后，如下main()函数可以执行。<br>void main(int argc, char* argv[])<br>{<br>polygon *ptri = new triangle(3,5,5);<br>cout &lt;&lt; ptri-&gt;Getpolygonnum() &lt;&lt;”, “&lt;&lt; ptri-&gt;Getarea()&lt;&lt;”, “&lt;Getperimeter()&lt;Getpolygonnum()&lt;&lt;”, “&lt;&lt; prec-&gt;Getarea() &lt;&lt;”, “&lt;Getperimeter()&lt;&lt;endl;<br>}<br>执行的结果为<br>3, 7.15454, 13<br>4, 12, 14</strong></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这道题主要考察的继承方面的知识。主要是要掌握如何进行类之间的继承，并且子类能够调用父类的构造器。同时还要了解三角形的面积计算公式</p>
+<p>实现公有继承，并且子类调用父类的构造器：</p>
+<p>// 父类<br>class father(){<br>    father();    // 父类构造器<br>}</p>
+<p>// 子类，继承父类<br>class son(): public father{<br>    son();    // 子类构造器<br>}</p>
+<p>// 调用父类构造器的子类构造器<br>son::son(): father(){<br>    // 里面申明子类构造器<br>}</p>
+<p>三角形的计算公式：</p>
+<p>include <cmath></p>
+<p>s = sqrt((x+y+z)*(x+y-z)*(x+z-y)*(y+z-x))/4;  </p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>#include <iostream><br>#include <cmath></p>
+<p>using namespace std;</p>
+<p>class polygon<br>{<br>private:<br>    int polygonnum;                             //多边形的边数<br>public:<br>    virtual double Getarea()=0;                 //求面积<br>    virtual double Getperimeter()=0;            //求周长<br>    polygon(int n)<br>    {<br>        polygonnum = n;<br>    };<br>    int Getpolygonnum()                         //获取多边形的边数<br>    {<br>        return polygonnum;<br>    }<br>};</p>
+<p>// 公有继承<br>class triangle: public polygon{<br>private:<br>    double x;<br>    double y;<br>    double z;<br>public:<br>    triangle(double x, double y, double z);<br>    double Getarea();<br>    double Getperimeter();<br>};</p>
+<p>// 定义子类的构造函数，并调用父类的构造函数<br>triangle::triangle(double x, double y, double z):polygon(3) {<br>    this-&gt;x = x;<br>    this-&gt;y = y;<br>    this-&gt;z = z;<br>}</p>
+<p>double triangle::Getarea() {<br>    return sqrt((x+y+z)*(x+y-z)*(x+z-y)*(y+z-x))/4;         // 三角形的计算公式<br>}</p>
+<p>double triangle::Getperimeter() {<br>    return x+y+z;<br>}</p>
+<p>// ==================================</p>
+<p>class rectangle: public polygon{<br>private:<br>    double x;<br>    double y;<br>public:<br>    rectangle(double x, double y);<br>    double Getarea();<br>    double Getperimeter();<br>};</p>
+<p>// 定义子类的构造函数，并调用父类的构造函数<br>rectangle::rectangle(double x, double y):polygon(4) {<br>    this-&gt;x = x;<br>    this-&gt;y = y;<br>}</p>
+<p>double rectangle::Getarea() {<br>    return x*y;<br>}</p>
+<p>double rectangle::Getperimeter() {<br>    return 2*(x+y);<br>}</p>
+<p>int main() {<br>    polygon *ptri = new triangle(3,5,5);<br>    cout &lt;&lt; ptri-&gt;Getpolygonnum() &lt;&lt;”,  “&lt;&lt; ptri-&gt;Getarea()&lt;&lt;”,  “&lt;<ptri->Getperimeter()&lt;&lt;endl;<br>    polygon *prec = new rectangle(3,4);<br>    cout &lt;&lt; prec-&gt;Getpolygonnum()&lt;&lt;”,  “&lt;&lt; prec-&gt;Getarea() &lt;&lt;”,  “&lt;<prec->Getperimeter()&lt;&lt;endl;<br>    return 0;<br>}</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1057,142 +1163,6 @@ return 0;</code></pre>
 <p>void Complex::add(Complex c) {<br>    this-&gt;real += c.real;<br>    this-&gt;image += c.image;<br>}</p>
 <p>void Complex::show() {<br>    if (real == 0) {<br>        cout &lt;&lt; image &lt;&lt; ‘i’ &lt;&lt; endl;<br>    } else if (image == 0) {<br>        cout &lt;&lt; real &lt;&lt; endl;<br>    } else{<br>        cout &lt;&lt; real &lt;&lt; ‘+’ &lt;&lt; image &lt;&lt; ‘i’ &lt;&lt; endl;<br>    }<br>}</p>
 <p>int main()<br>{<br>Complex c1(3, 5);       // 使用第二个构造器<br>Complex c2 = 4;                     // 使用第一个构造器<br>c1.add(c2);                         // 传入Complex对象，调用add方法<br>c1.show();                          // 空参，调用add方法<br>c2.show();                          // 同上<br>Complex c3(0,5);            // 调用第二个构造器<br>c3.show();                          // 空参，调用add方法<br>return 0;<br>}</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/07/30/%E4%BD%BF%E7%94%A8vue%E6%9D%A5%E6%90%AD%E5%BB%BA%E5%8D%97%E4%BA%AC%E6%9E%97%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%A9%AC%E9%99%A2%E8%87%AA%E5%8A%A8%E5%8C%96%E8%80%83%E8%AF%95%E7%BD%91%E7%AB%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/30/%E4%BD%BF%E7%94%A8vue%E6%9D%A5%E6%90%AD%E5%BB%BA%E5%8D%97%E4%BA%AC%E6%9E%97%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%A9%AC%E9%99%A2%E8%87%AA%E5%8A%A8%E5%8C%96%E8%80%83%E8%AF%95%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">使用Vue来搭建南京林业大学马院自动化考试网站</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-07-30 22:25:14" itemprop="dateCreated datePublished" datetime="2020-07-30T22:25:14+08:00">2020-07-30</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="不多废话，先上网站！"><a href="#不多废话，先上网站！" class="headerlink" title="不多废话，先上网站！"></a>不多废话，先上网站！</h2><p>网站：<a target="_blank" rel="noopener" href="https://service.zkwzkw.top/">https://service.zkwzkw.top</a></p>
-<p>开源地址：<a target="_blank" rel="noopener" href="https://github.com/Meredith2000/OnlineTestForNJFU">https://github.com/Meredith2000/OnlineTestForNJFU</a></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这段时间在家里无聊，心血来潮学习了一下Vue，但是由于本人非常菜，所以各种查资料看视频，终于花了两天时间，模仿我们学校的马院的自动化考试网站，写了Vue的版本来帮助我复习（实际我发现有这时间写网站，不如去多背两个题😂），既然网站都写出来了，那我就不妨分享不来吧，也能帮助一些正在学习Vue的小伙伴！但是，我现在这个版本还非常的初级，仅仅只有单选题和判断对错的功能，后续会加上更多的题型和更多有趣的功能！</p>
-<h2 id="关于Vue"><a href="#关于Vue" class="headerlink" title="关于Vue"></a>关于Vue</h2><h3 id="为什么我会选择Vue？"><a href="#为什么我会选择Vue？" class="headerlink" title="为什么我会选择Vue？"></a>为什么我会选择Vue？</h3><ul>
-<li>  没有为什么，仅仅只是因为觉得Vue牛X</li>
-</ul>
-<h3 id="在开发中Vue带给我最大的便捷"><a href="#在开发中Vue带给我最大的便捷" class="headerlink" title="在开发中Vue带给我最大的便捷"></a>在开发中Vue带给我最大的便捷</h3><ul>
-<li>  Vue中的响应式的特性给我免去了很多不必要的麻烦</li>
-<li>  Vue中组件化的设计让我再开发中极大的缩小了代码量，提高了代码的复用率</li>
-<li>  Vue中vue-router让我快捷的实现了前端路由，完成了所谓的SinglePage Web Application(SPA)</li>
-<li>  同时吹爆vue cli，简直太好用了，还有Vue UI对我这种小白来说的真的是非常友好。</li>
-</ul>
-<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><ul>
-<li>  WebStrom 版本：2020.1.1</li>
-<li>  Vue 版本：2.6.11</li>
-<li>  npm 版本：6.14.4</li>
-<li>  vue cli 版本：4.4.6</li>
-<li>  vue-router 版本：3.2.0</li>
-<li>  axios 版本：0.19.2</li>
-</ul>
-<h2 id="基本搭建过程"><a href="#基本搭建过程" class="headerlink" title="基本搭建过程"></a>基本搭建过程</h2><p>这里我不打算交代整个搭建步骤，因为网上搭建的步骤很多，我就不“重复造轮子”啦，我下面只说一个重点的部分</p>
-<p>整个项目我都是通过vue cli来搭建，所以常用的命令就以下四条：</p>
-<p>vue create online_test_for_njfu    # 直接使用脚手架来初始化项目，美滋滋<br>vue run serve    # 预览整个项目<br>vue run build    # 编译整个项目<br>vue ui    # vue中吹爆的一个功能，它将整个项目的配置的全部都以可视化的界面呈现出来，简直就是小白的福音</p>
-<p>在项目搭建完成之后当然是构建组建啦，我的网站分为四个组件，分别是：</p>
-<ul>
-<li>  Header（这是整个网页的导航来，依靠它来跳转页面）</li>
-<li>  SideBar（本来想要通过它来实现不同题型的切换的，但是我现在的网站只有单选题，所以只好展示将其作为公告栏）</li>
-<li>  SingleSelectForXXX（这个就是网站最重要的部分啦，这个就是题目的显示与答题区）</li>
-<li>  router（实现前端路由，非常的方便和好用）</li>
-</ul>
-<p>下面就让我来具体说说这四个组成部分吧！</p>
-<h3 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h3><p>这一部分的功能很简单，就是放一些自己的logo还有slot标签来在外部能够对Header进行自定义，达到一个能够复用的效果。</p>
-<p>在设计Header时候，遇到最大的问题就是slot标签中的内容无法在Header组件中改变样式，但是没关系，我在App中css顺利的改变了。</p>
-<h3 id="SideBar"><a href="#SideBar" class="headerlink" title="SideBar"></a>SideBar</h3><p>这一部分的功能目前来说只是一个呈现公告的地方，所以他的制作也是非常简单的，主要就是与后面的组件（SingleSelectForXXX）组成一个flex-box，以此实现在一行显示的效果。</p>
-<h3 id="SingleSelectForXXX"><a href="#SingleSelectForXXX" class="headerlink" title="SingleSelectForXXX"></a>SingleSelectForXXX</h3><p>这个就是整个网站的核心组件了！</p>
-<p>这个组件我是将发送请求的功能和这个组件的框架全部耦合在了一块，因为我觉着这样能使整个模块的功能更加清晰，我选择axios来发送get请求，在我的后台web服务器中有多个servlet能够返回每一题的全部内容。</p>
-<p>同时在显示颜色方面也是使用v-bind的方式动态的添加class来改变元素的css。</p>
-<p>同时我还提供了三种方式来选择题目：</p>
-<ul>
-<li>  默认顺序方式（index不断的自加，达到顺序出题的效果）</li>
-<li>  随机方式（index是在一定范围内的随机数，能够达到随机的效果）</li>
-<li>  指定方式（index是可以根据用户的需要所自定义，但是一定要在范围之内，要不然没有反应）</li>
-</ul>
-<h3 id="router"><a href="#router" class="headerlink" title="router"></a>router</h3><p>这个是本网站的路由相关的配置，主要是两个标签</p>
-<ul>
-<li><p>  <router-link to="/url" ></router-link></p>
-</li>
-<li><p>  <router-view></router-view></p>
-</li>
-</ul>
-<p>前者是用来指定点击后的路径的，后者是点击后展示的组件的。</p>
-<h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><p>对这个项目感兴趣的朋友可以点击下面两个链接：</p>
-<p>网站：<a target="_blank" rel="noopener" href="https://service.zkwzkw.top/">https://service.zkwzkw.top</a></p>
-<p>开源地址：<a target="_blank" rel="noopener" href="https://github.com/Meredith2000/OnlineTestForNJFU">https://github.com/Meredith2000/OnlineTestForNJFU</a></p>
-<p>同时想要看我的更多博客可以点击下面这个链接：</p>
-<p><a href="https://blog.zkwzkw.top/">https://blog.zkwzkw.top</a></p>
-<p><strong>我是一个虽然很菜，但是还是每天坚持写代码的小菜鸡</strong>🌝🌝</p>
 
       
     </div>
