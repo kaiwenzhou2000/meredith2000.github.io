@@ -167,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -205,6 +205,125 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/08/09/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%83%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/09/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%83%E9%A2%98/" class="post-title-link" itemprop="url">南林大C++编程第七题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-09 17:41:33" itemprop="dateCreated datePublished" datetime="2020-08-09T17:41:33+08:00">2020-08-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这里是南京林业大学2020年C++复习指南（自制）的编程题版块，想要获取更多可以点击以下链接：</p>
+<p><a href="https://blog.zkwzkw.top/?p=240">https://blog.zkwzkw.top/?p=240</a></p>
+<p>需要其他复习指南的可以参考一下连接：</p>
+<p>欢迎访问我的个人网站，里面有更多的干货哦！</p>
+<p><a href="https://blog.zkwzkw.top/">https://blog.zkwzkw.top</a></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>**设计一个FifoTable类表示环形队列，它有四个私有属性，分别为：<br>int table[SIZE]; //存放队列数据的数组<br>int tail; //队列尾指针<br>int head; //队列头指针<br>int max,min; //队列元素的界，也就是如果加入队列的元素值大于max或者小于min，加入操作无法成功。<br>三个公有成员函数如下<br>FifoTable(int max,int min); //结构函数，设置对象的max和min值。<br>bool AddElement(int d); //向队列加入一个元素d，成功返回真，否则返回假。如果队列满了，则新的值无法加入<br>int GetElement(); //从队列头获取一个元素，并返回该元素值。如果队列为空，则返回NULLVALUE<br>常量NULLVALUE和SIZE值如下<br>const int NULLVALUE= 999999;<br>const int SIZE = 10;<br>该类的代码完成后，如下main()函数可以执行。<br>void main()<br>{<br>for(i = 0; i &lt; 9; i++)<br>cout &lt;&lt; ft.GetElement() &lt;&lt; “,”;  </p>
+<p>FifoTable ft(20,-2);<br>int i;  </p>
+<p>for(i = -2; i &lt;= 23; i++)<br>ft.AddElement(i);  </p>
+<p>cout &lt;&lt; ft.GetElement() &lt;&lt; endl;<br>}<br>执行的结果为：<br>-2,-1,0,1,2,3,4,5,6,999999**</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这道题主要考察的是对队列的理解，我认为要掌握以下的几点</p>
+<ul>
+<li>  判断队列是否为空</li>
+<li>  判断队列是否已满</li>
+<li>  修正指针</li>
+</ul>
+<p>判断队列是否为空：</p>
+<p>if (head == tail){<br>    // 说明队列为空<br>}</p>
+<p>判断队列是否已满：</p>
+<p>if (head == (tail+1)%SIZE){<br>    // 说明队列已满<br>}</p>
+<p>修正指针：</p>
+<p>if (head == SIZE){<br>    head = 0;<br>}</p>
+<p>if (tail == SIZE){<br>    tail = 0;<br>}</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>#include <iostream></p>
+<p>using namespace std;</p>
+<p>const int NULLVALUE= 999999;<br>const int SIZE = 10;</p>
+<p>class FifoTable{<br>private:<br>    int table[SIZE];   //存放队列数据的数组<br>    int tail;          //队列尾指针<br>    int head;          //队列头指针<br>    int max,min;       //队列元素的界，也就是如果加入队列的元素值大于max或者小于min，加入操作无法成功。<br>public:<br>    FifoTable(int max,int min);   //结构函数，设置对象的max和min值。<br>    bool AddElement(int d);       //向队列加入一个元素d，成功返回真，否则返回假。如果队列满了，则新的值无法加入<br>    int GetElement();             //从队列头获取一个元素，并返回该元素值。如果队列为空，则返回NULLVALUE</p>
+<p>};</p>
+<p>FifoTable::FifoTable(int max, int min) {<br>    tail = 0;<br>    head = 0;<br>    this-&gt;max = max;<br>    this-&gt;min = min;<br>}</p>
+<p>bool FifoTable::AddElement(int d) {<br>    // 输入的数据不符合要求<br>    if (d &gt; max  d &lt; min) {<br>      return false;<br>    }<br>    // 队列已经满了<br>    if (head == (tail+1)%SIZE) {<br>      return false;<br>    }<br>    table[tail] = d;<br>    tail++;<br>    // 由于是环形队列，所以再tail越界的时候要进行修正<br>    if (tail == SIZE) {<br>      tail = 0;<br>    }<br>    return true;<br>}</p>
+<p>int FifoTable::GetElement() {<br>    int temp;<br>    // 栈空<br>    if (head == tail) {<br>        return NULLVALUE;<br>    }<br>    // 用来暂时保存要返回的值<br>    temp = table[head];<br>    head++;<br>    // 由于是环形队列，所以再head越界的时候要进行修正<br>    if (head == SIZE) {<br>      head = 0;<br>    }<br>    return temp;<br>}</p>
+<p>int main() {<br>    FifoTable ft(20,-2);<br>    int i;</p>
+<pre><code>for(i = -2; i &lt;= 23; i++)
+    ft.AddElement(i);
+
+for(i = 0; i &lt; 9; i++)
+    cout &lt;&lt; ft.GetElement() &lt;&lt; &quot;,&quot;;
+
+cout &lt;&lt; ft.GetElement() &lt;&lt; endl;
+return 0;</code></pre>
+<p>}</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1069,100 +1188,6 @@ return 0;</code></pre>
 <li>  <a href="https://blog.zkwzkw.top/?p=302">第二题</a></li>
 <li>  <a href="https://blog.zkwzkw.top/?p=307">第三题</a></li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/08/02/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%80%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/02/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%80%E9%A2%98/" class="post-title-link" itemprop="url">南林大C++编程第一题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-08-02 14:51:08" itemprop="dateCreated datePublished" datetime="2020-08-02T14:51:08+08:00">2020-08-02</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这里是南京林业大学2020年C++复习指南（自制）的编程题版块，想要获取更多可以点击以下链接：</p>
-<p><a href="https://blog.zkwzkw.top/?p=240">https://blog.zkwzkw.top/?p=240</a></p>
-<p>需要其他复习指南的可以参考一下连接：</p>
-<p>欢迎访问我的个人网站，里面有更多的干货哦！</p>
-<p><a href="https://blog.zkwzkw.top/">https://blog.zkwzkw.top</a></p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><strong>设计一个Complex类的结构，该类表示复数。并设计和实现该类相应的结构函数和add成员函数，该函数完成复数的加法。该类完成后，如下main()函数可以执行。<br>void main()<br>{<br>Complex c1(3, 5);<br>Complex c2 = 4;<br>c1.add(c2);<br>c1.show();<br>c2.show();<br>Complex c3(0,5);<br>c3.show();<br>}<br>执行的结果为<br>7+5i<br>4<br>5i</strong></p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这道题没啥难度，只要是考察构造函数的使用还有类内部方法的设计。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>#include <iostream></p>
-<p>using namespace std;</p>
-<p>class Complex{<br>private:<br>    int real;<br>    int image;<br>public:<br>    // 构造器<br>    Complex(int real);<br>    Complex(int real, int image);<br>    void add(Complex c);<br>    void show();<br>};</p>
-<p>// 构造器和方法的具体实现<br>Complex::Complex(int real) {<br>    this-&gt;real = real;<br>    this-&gt;image = 0;<br>}</p>
-<p>Complex::Complex(int real, int image) {<br>    this-&gt;real = real;<br>    this-&gt;image = image;<br>}</p>
-<p>void Complex::add(Complex c) {<br>    this-&gt;real += c.real;<br>    this-&gt;image += c.image;<br>}</p>
-<p>void Complex::show() {<br>    if (real == 0) {<br>        cout &lt;&lt; image &lt;&lt; ‘i’ &lt;&lt; endl;<br>    } else if (image == 0) {<br>        cout &lt;&lt; real &lt;&lt; endl;<br>    } else{<br>        cout &lt;&lt; real &lt;&lt; ‘+’ &lt;&lt; image &lt;&lt; ‘i’ &lt;&lt; endl;<br>    }<br>}</p>
-<p>int main()<br>{<br>Complex c1(3, 5);       // 使用第二个构造器<br>Complex c2 = 4;                     // 使用第一个构造器<br>c1.add(c2);                         // 传入Complex对象，调用add方法<br>c1.show();                          // 空参，调用add方法<br>c2.show();                          // 同上<br>Complex c3(0,5);            // 调用第二个构造器<br>c3.show();                          // 空参，调用add方法<br>return 0;<br>}</p>
 
       
     </div>

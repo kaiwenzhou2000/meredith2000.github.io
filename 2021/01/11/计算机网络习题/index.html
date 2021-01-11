@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.zkwzkw.top","root":"/","images":"/images","scheme":"Muse","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="计算机网络课后习题及重要知识点 第一章 概述分组交换和电路交换的时延分组交换：  发送时延 处理时延（经过节点数*单个节点的处理时延） 传播时延 排队时延  电路交换：  发送时延 传播时延 建立链接时延     网络利用率 D 表示当前网络的时延 D0表示网络空闲时的时延  第二章 物理层香农公式 码分多址CDMA题目：码分多址CDMA为什么可以使所有用户在同样的时间使用同样的频带进行通信而不会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络习题">
+<meta property="og:url" content="https://blog.zkwzkw.top/2021/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%A0%E9%A2%98/index.html">
+<meta property="og:site_name" content="Meredith&#39;s blog">
+<meta property="og:description" content="计算机网络课后习题及重要知识点 第一章 概述分组交换和电路交换的时延分组交换：  发送时延 处理时延（经过节点数*单个节点的处理时延） 传播时延 排队时延  电路交换：  发送时延 传播时延 建立链接时延     网络利用率 D 表示当前网络的时延 D0表示网络空闲时的时延  第二章 物理层香农公式 码分多址CDMA题目：码分多址CDMA为什么可以使所有用户在同样的时间使用同样的频带进行通信而不会">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.36.43.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.44.03.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.44.54.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.45.57.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.47.02.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.54.00.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.57.03.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111122408924.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111144723443.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8B%E5%8D%883.43.39.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/1440532-20180912093223517-341420925.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8B%E5%8D%885.23.27.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111170510775.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8B%E5%8D%888.23.13.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%89%AB%E6%8F%8F%E5%85%A8%E8%83%BD%E7%8E%8B%202021-01-01%2023.50.57_3.jpg">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111174854383.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8B%E5%8D%888.47.19.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111204405236.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111212302434.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/IMG_E103B40F9A91-1.jpeg">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111213505215.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%89%AB%E6%8F%8F%E5%85%A8%E8%83%BD%E7%8E%8B%202021-01-01%2023.50.57_4.jpg">
+<meta property="article:published_time" content="2021-01-11T13:42:24.000Z">
+<meta property="article:modified_time" content="2021-01-11T13:42:24.142Z">
+<meta property="article:author" content="kaiwen zhou">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.36.43.png">
+
+
+<link rel="canonical" href="https://blog.zkwzkw.top/2021/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%A0%E9%A2%98/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>计算机网络习题 | Meredith's blog</title>
+  
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8f735d1ea69ea81de16638ad4504bd80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Meredith's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">share my code</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">第一章 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2%E5%92%8C%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2%E7%9A%84%E6%97%B6%E5%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">分组交换和电路交换的时延</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%88%A9%E7%94%A8%E7%8E%87"><span class="nav-number">1.2.</span> <span class="nav-text">网络利用率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%89%A9%E7%90%86%E5%B1%82"><span class="nav-number">2.</span> <span class="nav-text">第二章 物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%99%E5%86%9C%E5%85%AC%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">香农公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A0%81%E5%88%86%E5%A4%9A%E5%9D%80CDMA"><span class="nav-number">2.2.</span> <span class="nav-text">码分多址CDMA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E7%A0%81%E5%88%86%E5%A4%9A%E5%9D%80CDMA%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AF%E4%BB%A5%E4%BD%BF%E6%89%80%E6%9C%89%E7%94%A8%E6%88%B7%E5%9C%A8%E5%90%8C%E6%A0%B7%E7%9A%84%E6%97%B6%E9%97%B4%E4%BD%BF%E7%94%A8%E5%90%8C%E6%A0%B7%E7%9A%84%E9%A2%91%E5%B8%A6%E8%BF%9B%E8%A1%8C%E9%80%9A%E4%BF%A1%E8%80%8C%E4%B8%8D%E4%BC%9A%E4%BA%92%E7%9B%B8%E5%B9%B2%E6%89%B0%EF%BC%9F%E8%BF%99%E7%A7%8D%E5%A4%8D%E7%94%A8%E6%96%B9%E6%B3%95%E6%9C%89%E4%BD%95%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="nav-number">2.2.1.</span> <span class="nav-text">题目：码分多址CDMA为什么可以使所有用户在同样的时间使用同样的频带进行通信而不会互相干扰？这种复用方法有何优缺点？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-number">3.</span> <span class="nav-text">第三章 数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CRC%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E7%A0%81"><span class="nav-number">3.1.</span> <span class="nav-text">CRC循环冗余码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%A6%81%E5%8F%91%E9%80%81%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%BA1101011011%E3%80%82%E9%87%87%E7%94%A8CRC%E7%9A%84%E7%94%9F%E6%88%90%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%98%AFP%EF%BC%88X%EF%BC%89-X-4-X-1%E3%80%82%E8%AF%95%E6%B1%82%E5%BA%94%E6%B7%BB%E5%8A%A0%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%90%8E%E9%9D%A2%E7%9A%84%E4%BD%99%E6%95%B0%E3%80%82%E6%95%B0%E6%8D%AE%E5%9C%A8%E4%BC%A0%E8%BE%93%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA1%E5%8F%98%E6%88%90%E4%BA%860%EF%BC%8C%E9%97%AE%E6%8E%A5%E6%94%B6%E7%AB%AF%E8%83%BD%E5%90%A6%E5%8F%91%E7%8E%B0%EF%BC%9F%E8%8B%A5%E6%95%B0%E6%8D%AE%E5%9C%A8%E4%BC%A0%E8%BE%93%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%9C%80%E5%90%8E%E4%B8%A4%E4%B8%AA1%E9%83%BD%E5%8F%98%E6%88%90%E4%BA%860%EF%BC%8C%E9%97%AE%E6%8E%A5%E6%94%B6%E7%AB%AF%E8%83%BD%E5%90%A6%E5%8F%91%E7%8E%B0%EF%BC%9F%E9%87%87%E7%94%A8CRC%E6%A3%80%E9%AA%8C%E5%90%8E%EF%BC%8C%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E4%BC%A0%E8%BE%93%E6%98%AF%E5%90%A6%E5%B0%B1%E5%8F%98%E6%88%90%E4%BA%86%E5%8F%AF%E9%9D%A0%E7%9A%84%E4%BC%A0%E8%BE%93%EF%BC%9F"><span class="nav-number">3.1.1.</span> <span class="nav-text">题目：要发送的数据为1101011011。采用CRC的生成多项式是P（X）&#x3D;X^4+X+1。试求应添加在数据后面的余数。数据在传输过程中最后一个1变成了0，问接收端能否发现？若数据在传输过程中最后两个1都变成了0，问接收端能否发现？采用CRC检验后，数据链路层的传输是否就变成了可靠的传输？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PPP%E5%AE%9E%E7%8E%B0%E9%80%8F%E6%98%8E%E4%BC%A0%E8%BE%93"><span class="nav-number">3.2.</span> <span class="nav-text">PPP实现透明传输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSMA-CD"><span class="nav-number">3.3.</span> <span class="nav-text">CSMA&#x2F;CD</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E5%9C%A8%E4%B8%8A%E9%A2%98%E4%B8%AD%E7%9A%84%E7%AB%99%E7%82%B9A%E5%92%8CB%E5%9C%A8t-0%E6%97%B6%E5%90%8C%E6%97%B6%E5%8F%91%E9%80%81%E4%BA%86%E6%95%B0%E6%8D%AE%E5%B8%A7%E3%80%82%E5%BD%93t-255%E6%AF%94%E7%89%B9%E6%97%B6%E9%97%B4%EF%BC%8CA%E5%92%8CB%E5%90%8C%E6%97%B6%E6%A3%80%E6%B5%8B%E5%88%B0%E5%8F%91%E7%94%9F%E4%BA%86%E7%A2%B0%E6%92%9E%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%9C%A8t-255-48-273%E6%AF%94%E7%89%B9%E6%97%B6%E9%97%B4%E5%AE%8C%E6%88%90%E4%BA%86%E5%B9%B2%E6%89%B0%E4%BF%A1%E5%8F%B7%E7%9A%84%E4%BC%A0%E8%BE%93%E3%80%82A%E5%92%8CB%E5%9C%A8CSMA-CD%E7%AE%97%E6%B3%95%E4%B8%AD%E9%80%89%E6%8B%A9%E4%B8%8D%E5%90%8C%E7%9A%84r%E5%80%BC%E9%80%80%E9%81%BF%E3%80%82%E5%81%87%E5%AE%9AA%E5%92%8CB%E9%80%89%E6%8B%A9%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%88%86%E5%88%AB%E6%98%AFrA-0%E5%92%8CrB-1%E3%80%82%E8%AF%95%E9%97%AEA%E5%92%8CB%E5%90%84%E5%9C%A8%E4%BB%80%E4%B9%88%E6%97%B6%E9%97%B4%E5%BC%80%E5%A7%8B%E9%87%8D%E4%BC%A0%E5%85%B6%E6%95%B0%E6%8D%AE%E5%B8%A7%EF%BC%9FA%E9%87%8D%E4%BC%A0%E7%9A%84%E6%95%B0%E6%8D%AE%E5%B8%A7%E5%9C%A8%E4%BB%80%E4%B9%88%E6%97%B6%E9%97%B4%E5%88%B0%E8%BE%BEB%EF%BC%9FA%E9%87%8D%E4%BC%A0%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%9A%E4%B8%8D%E4%BC%9A%E5%92%8CB%E9%87%8D%E4%BC%A0%E7%9A%84%E6%95%B0%E6%8D%AE%E5%86%8D%E6%AC%A1%E5%8F%91%E7%94%9F%E7%A2%B0%E6%92%9E%EF%BC%9FB%E4%BC%9A%E4%B8%8D%E4%BC%9A%E5%9C%A8%E9%A2%84%E5%AE%9A%E7%9A%84%E9%87%8D%E4%BC%A0%E6%97%B6%E9%97%B4%E5%81%9C%E6%AD%A2%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%EF%BC%9F"><span class="nav-number">3.3.1.</span> <span class="nav-text">题目：在上题中的站点A和B在t&#x3D;0时同时发送了数据帧。当t&#x3D;255比特时间，A和B同时检测到发生了碰撞，并且在t&#x3D;255+48&#x3D;273比特时间完成了干扰信号的传输。A和B在CSMA&#x2F;CD算法中选择不同的r值退避。假定A和B选择的随机数分别是rA&#x3D;0和rB&#x3D;1。试问A和B各在什么时间开始重传其数据帧？A重传的数据帧在什么时间到达B？A重传的数据会不会和B重传的数据再次发生碰撞？B会不会在预定的重传时间停止发送数据？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BA%BF%E5%99%A8%E5%92%8C%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="nav-number">3.4.</span> <span class="nav-text">集线器和交换机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E6%9C%89%E4%BD%95%E7%89%B9%E7%82%B9%EF%BC%9F%E7%94%A8%E5%AE%83%E6%80%8E%E6%A0%B7%E7%BB%84%E6%88%90%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91%EF%BC%9F"><span class="nav-number">3.4.1.</span> <span class="nav-text">题目：以太网交换机有何特点？用它怎样组成虚拟局域网？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E4%BA%A4%E6%8D%A2%E8%A1%A8%E7%9A%84%E6%9B%B4%E6%96%B0"><span class="nav-number">3.5.</span> <span class="nav-text">交换机交换表的更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84%E5%8D%87%E7%BA%A7"><span class="nav-number">3.6.</span> <span class="nav-text">以太网的升级</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A10Mb-s%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%8D%87%E7%BA%A7%E5%88%B0100Mb-s%E3%80%811Gb-S%E5%92%8C10Gb-s%E6%97%B6%EF%BC%8C%E9%83%BD%E9%9C%80%E8%A6%81%E8%A7%A3%E5%86%B3%E5%93%AA%E4%BA%9B%E6%8A%80%E6%9C%AF%E9%97%AE%E9%A2%98%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%A5%E5%A4%AA%E7%BD%91%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%8F%91%E5%B1%95%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%B7%98%E6%B1%B0%E6%8E%89%E8%87%AA%E5%B7%B1%E7%9A%84%E7%AB%9E%E4%BA%89%E5%AF%B9%E6%89%8B%EF%BC%8C%E5%B9%B6%E4%BD%BF%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BA%94%E7%94%A8%E8%8C%83%E5%9B%B4%E4%BB%8E%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%80%E7%9B%B4%E6%89%A9%E5%B1%95%E5%88%B0%E5%9F%8E%E5%9F%9F%E7%BD%91%E5%92%8C%E5%B9%BF%E5%9F%9F%E7%BD%91%EF%BC%9F"><span class="nav-number">3.6.1.</span> <span class="nav-text">题目：10Mb&#x2F;s以太网升级到100Mb&#x2F;s、1Gb&#x2F;S和10Gb&#x2F;s时，都需要解决哪些技术问题？为什么以太网能够在发展的过程中淘汰掉自己的竞争对手，并使自己的应用范围从局域网一直扩展到城域网和广域网？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="nav-number">4.</span> <span class="nav-text">第四章 网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E5%8F%91%E5%99%A8%E3%80%81%E7%BD%91%E6%A1%A5%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%92%8C%E7%BD%91%E5%85%B3%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB"><span class="nav-number">4.1.</span> <span class="nav-text">转发器、网桥、路由器和网关有何区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP"><span class="nav-number">4.2.</span> <span class="nav-text">IP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9AIP%E5%9C%B0%E5%9D%80%E5%88%86%E4%B8%BA%E5%87%A0%E7%B1%BB%EF%BC%9F%E5%90%84%E5%A6%82%E4%BD%95%E8%A1%A8%E7%A4%BA%EF%BC%9FIP%E5%9C%B0%E5%9D%80%E7%9A%84%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">4.2.1.</span> <span class="nav-text">题目：IP地址分为几类？各如何表示？IP地址的主要特点是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%AF%95%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E%E4%B8%8B%E5%88%97%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9AIP%E3%80%81ARP%E3%80%81RARP%E5%92%8CICMP%E3%80%82"><span class="nav-number">4.2.2.</span> <span class="nav-text">题目：试简单说明下列协议的作用：IP、ARP、RARP和ICMP。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%9C%89%E4%BA%BA%E8%AE%A4%E4%B8%BA%EF%BC%9A%E2%80%9CARP%E5%8D%8F%E8%AE%AE%E5%90%91%E7%BD%91%E7%BB%9C%E5%B1%82%E6%8F%90%E4%BE%9B%E4%BA%86%E8%BD%AC%E6%8D%A2%E5%9C%B0%E5%9D%80%E7%9A%84%E6%9C%8D%E5%8A%A1%EF%BC%8C%E5%9B%A0%E6%AD%A4ARP%E5%BA%94%E5%BD%93%E5%B1%9E%E4%BA%8E%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E3%80%82%E2%80%9D%E8%BF%99%E7%A7%8D%E8%AF%B4%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E9%94%99%E8%AF%AF%E7%9A%84%EF%BC%9F"><span class="nav-number">4.2.3.</span> <span class="nav-text">题目：有人认为：“ARP协议向网络层提供了转换地址的服务，因此ARP应当属于数据链路层。”这种说法为什么是错误的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%AF%95%E8%A7%A3%E9%87%8A%E4%B8%BA%E4%BB%80%E4%B9%88ARP%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E6%AF%8F%E5%AD%98%E5%85%A5%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E5%B0%B1%E8%A6%81%E8%AE%BE%E7%BD%AE10-20%E5%88%86%E9%92%9F%E7%9A%84%E8%B6%85%E6%97%B6%E8%AE%A1%E6%97%B6%E5%99%A8%E3%80%82%E8%BF%99%E4%B8%AA%E6%97%B6%E9%97%B4%E8%AE%BE%E7%BD%AE%E7%9A%84%E5%A4%AA%E5%A4%A7%E6%88%96%E5%A4%AA%E5%B0%8F%E4%BC%9A%E5%87%BA%E7%8E%B0%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-number">4.2.4.</span> <span class="nav-text">题目：试解释为什么ARP高速缓存每存入一个项目就要设置10~20分钟的超时计时器。这个时间设置的太大或太小会出现什么问题？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%87%B3%E5%B0%91%E4%B8%BE%E5%87%BA%E4%B8%A4%E7%A7%8D%E4%B8%8D%E9%9C%80%E8%A6%81%E5%8F%91%E9%80%81ARP%E8%AF%B7%E6%B1%82%E5%88%86%E7%BB%84%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%88%E5%8D%B3%E4%B8%8D%E9%9C%80%E8%A6%81%E8%AF%B7%E6%B1%82%E5%B0%86%E6%9F%90%E4%B8%AA%E7%9B%AE%E7%9A%84IP%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E4%B8%BA%E7%9B%B8%E5%BA%94%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%9C%B0%E5%9D%80%EF%BC%89%E3%80%82"><span class="nav-number">4.2.5.</span> <span class="nav-text">题目：至少举出两种不需要发送ARP请求分组的情况（即不需要请求将某个目的IP地址解析为相应的硬件地址）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%AF%95%E8%AF%B4%E6%98%8EIP%E5%9C%B0%E5%9D%80%E4%B8%8E%E7%A1%AC%E4%BB%B6%E5%9C%B0%E5%9D%80%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E8%BF%99%E4%B8%A4%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9C%B0%E5%9D%80%EF%BC%9F"><span class="nav-number">4.2.6.</span> <span class="nav-text">题目：试说明IP地址与硬件地址的区别，为什么要使用这两种不同的地址？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="nav-number">4.3.</span> <span class="nav-text">子网掩码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="nav-number">4.4.</span> <span class="nav-text">IP数据报</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E4%B8%80%E4%B8%AA3200%E4%BD%8D%E9%95%BF%E7%9A%84TCP%E6%8A%A5%E6%96%87%E4%BC%A0%E5%88%B0IP%E5%B1%82%EF%BC%8C%E5%8A%A0%E4%B8%8A160%E4%BD%8D%E7%9A%84%E9%A6%96%E9%83%A8%E5%90%8E%E6%88%90%E4%B8%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E3%80%82%E4%B8%8B%E9%9D%A2%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E7%94%B1%E4%B8%A4%E4%B8%AA%E5%B1%80%E5%9F%9F%E7%BD%91%E9%80%9A%E8%BF%87%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BF%9E%E6%8E%A5%E8%B5%B7%E6%9D%A5%E3%80%82%E4%BD%86%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%B1%80%E5%9F%9F%E7%BD%91%E6%89%80%E8%83%BD%E4%BC%A0%E9%80%81%E7%9A%84%E6%9C%80%E9%95%BF%E6%95%B0%E6%8D%AE%E5%B8%A7%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E9%83%A8%E5%88%86%E5%8F%AA%E6%9C%891200%E4%BD%8D%E3%80%82%E5%9B%A0%E6%AD%A4%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%9C%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E5%BF%85%E9%A1%BB%E8%BF%9B%E8%A1%8C%E5%88%86%E7%89%87%E3%80%82%E8%AF%95%E9%97%AE%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%B1%80%E5%9F%9F%E7%BD%91%E5%90%91%E5%85%B6%E4%B8%8A%E5%B1%82%E8%A6%81%E4%BC%A0%E9%80%81%E5%A4%9A%E5%B0%91%E6%AF%94%E7%89%B9%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%88%E8%BF%99%E9%87%8C%E7%9A%84%E2%80%9C%E6%95%B0%E6%8D%AE%E2%80%9D%E5%BD%93%E7%84%B6%E6%8C%87%E7%9A%84%E6%98%AF%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9C%8B%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%89"><span class="nav-number">4.4.1.</span> <span class="nav-text">题目：一个3200位长的TCP报文传到IP层，加上160位的首部后成为数据报。下面的互联网由两个局域网通过路由器连接起来。但第二个局域网所能传送的最长数据帧中的数据部分只有1200位。因此数据报在路由器必须进行分片。试问第二个局域网向其上层要传送多少比特的数据（这里的“数据”当然指的是局域网看见的数据）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="nav-number">4.5.</span> <span class="nav-text">路由表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%B7%AF%E7%94%B1%E8%A1%A8%E7%9A%84%E6%9B%B4%E6%96%B0"><span class="nav-number">4.5.1.</span> <span class="nav-text">题目：路由表的更新</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CIDR"><span class="nav-number">4.6.</span> <span class="nav-text">CIDR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91"><span class="nav-number">4.6.1.</span> <span class="nav-text">题目：划分子网</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%8D%8F%E8%AE%AE"><span class="nav-number">4.7.</span> <span class="nav-text">路由选择协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%AF%95%E7%AE%80%E8%BF%B0RIP%EF%BC%8COSPF%E5%92%8CBGP%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9"><span class="nav-number">4.7.1.</span> <span class="nav-text">题目：试简述RIP，OSPF和BGP路由选择协议的主要特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IPv6"><span class="nav-number">4.8.</span> <span class="nav-text">IPv6</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9AIPv4%E5%90%91IPv6%E8%BF%87%E6%B8%A1%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">4.8.1.</span> <span class="nav-text">题目：IPv4向IPv6过渡的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%BF%90%E8%BE%93%E5%B1%82"><span class="nav-number">5.</span> <span class="nav-text">第五章 运输层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3"><span class="nav-number">5.1.</span> <span class="nav-text">端口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E7%AB%AF%E5%8F%A3%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E7%AB%AF%E5%8F%A3%E8%A6%81%E5%88%92%E5%88%86%E4%B8%BA%E4%B8%89%E7%A7%8D%EF%BC%9F"><span class="nav-number">5.1.1.</span> <span class="nav-text">题目：端口的作用是什么？为什么端口要划分为三种？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP"><span class="nav-number">5.2.</span> <span class="nav-text">UDP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%AF%95%E7%94%A8%E7%94%BB%E5%9B%BE%E8%A7%A3%E9%87%8A%E8%BF%90%E8%BE%93%E5%B1%82%E7%9A%84%E5%A4%8D%E7%94%A8%E3%80%82%E7%94%BB%E5%9B%BE%E8%AF%B4%E6%98%8E%E8%AE%B8%E5%A4%9A%E4%B8%AA%E8%BF%90%E8%BE%93%E7%94%A8%E6%88%B7%E5%A4%8D%E7%94%A8%E5%88%B0%E4%B8%80%E6%9D%A1%E8%BF%90%E8%BE%93%E8%BF%9E%E6%8E%A5%E4%B8%8A%EF%BC%8C%E8%80%8C%E8%BF%99%E6%9D%A1%E8%BF%90%E8%BE%93%E8%BF%9E%E6%8E%A5%E6%9C%89%E5%A4%8D%E7%94%A8%E5%88%B0IP%E6%95%B0%E6%8D%AE%E6%8A%A5%E4%B8%8A%E3%80%82"><span class="nav-number">5.2.1.</span> <span class="nav-text">题目：试用画图解释运输层的复用。画图说明许多个运输用户复用到一条运输连接上，而这条运输连接有复用到IP数据报上。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP"><span class="nav-number">5.3.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D"><span class="nav-number">5.3.1.</span> <span class="nav-text">拥塞避免</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E7%94%A8TCP%E4%BC%A0%E9%80%81512%E5%AD%97%E8%8A%82%E7%9A%84%E6%95%B0%E6%8D%AE%E3%80%82%E8%AE%BE%E7%AA%97%E5%8F%A3%E4%B8%BA100%E5%AD%97%E8%8A%82%EF%BC%8C%E8%80%8CTCP%E6%8A%A5%E6%96%87%E6%AE%B5%E6%AF%8F%E6%AC%A1%E4%B9%9F%E6%98%AF%E4%BC%A0%E9%80%81100%E5%AD%97%E8%8A%82%E7%9A%84%E6%95%B0%E6%8D%AE%E3%80%82%E5%86%8D%E8%AE%BE%E5%8F%91%E9%80%81%E7%AB%AF%E5%92%8C%E6%8E%A5%E6%94%B6%E7%AB%AF%E7%9A%84%E8%B5%B7%E5%A7%8B%E5%BA%8F%E5%8F%B7%E5%88%86%E5%88%AB%E9%80%89%E4%B8%BA100%E5%92%8C200%EF%BC%8C%E8%AF%95%E7%94%BB%E5%87%BA%E7%B1%BB%E4%BC%BC%E4%BA%8E%E5%9B%BE5-31%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%A4%BA%E6%84%8F%E5%9B%BE%E3%80%82%E4%BB%8E%E8%BF%9E%E6%8E%A5%E5%BB%BA%E7%AB%8B%E9%98%B6%E6%AE%B5%E5%88%B0%E8%BF%9E%E6%8E%A5%E9%87%8A%E6%94%BE%E9%83%BD%E8%A6%81%E7%94%BB%E4%B8%8A%E3%80%82"><span class="nav-number">5.3.2.</span> <span class="nav-text">题目：用TCP传送512字节的数据。设窗口为100字节，而TCP报文段每次也是传送100字节的数据。再设发送端和接收端的起始序号分别选为100和200，试画出类似于图5-31的工作示意图。从连接建立阶段到连接释放都要画上。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="nav-number">6.</span> <span class="nav-text">第六章 应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D"><span class="nav-number">6.1.</span> <span class="nav-text">域名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%81%E6%A0%B9%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%81%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A5%E5%8F%8A%E6%9D%83%E9%99%90%E5%9F%9F%E5%90%8D%E6%9D%83%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">6.1.1.</span> <span class="nav-text">题目：域名系统的主要功能是什么？域名系统中的本地域名服务器、根域名服务器、顶级域名服务器以及权限域名权服务器有何区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E5%9F%9F%E5%90%8D%E8%BD%AC%E6%8D%A2%E7%9A%84%E8%BF%87%E7%A8%8B%E3%80%82%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E7%9A%84%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">6.1.2.</span> <span class="nav-text">题目：举例说明域名转换的过程。域名服务器中的高速缓存的作用是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%AF%95%E7%AE%80%E8%BF%B0SMTP%E9%80%9A%E4%BF%A1%E7%9A%84%E4%B8%89%E4%B8%AA%E9%98%B6%E6%AE%B5%E7%9A%84%E8%BF%87%E7%A8%8B%E3%80%82"><span class="nav-number">6.1.3.</span> <span class="nav-text">题目：试简述SMTP通信的三个阶段的过程。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9AMIME%E4%B8%8ESMTP%E7%9A%84%E5%85%B3%E7%B3%BB%E6%98%AF%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AFquoted-printable%E7%BC%96%E7%A0%81%E5%92%8Cbase64%E7%BC%96%E7%A0%81%EF%BC%9F"><span class="nav-number">6.1.4.</span> <span class="nav-text">题目：MIME与SMTP的关系是什么的？什么是quoted-printable编码和base64编码？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%84%E4%B8%AA%E5%8D%8F%E8%AE%AE%E6%89%80%E5%9C%A8%E7%9A%84%E5%B1%82%E6%AC%A1"><span class="nav-number">6.2.</span> <span class="nav-text">各个协议所在的层次</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E7%BD%91%E8%B7%AF%E5%AE%89%E5%85%A8"><span class="nav-number">7.</span> <span class="nav-text">第七章 网路安全</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">kaiwen zhou</p>
+  <div class="site-description" itemprop="description">the web page to share my code</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%A0%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机网络习题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-01-11 21:42:24" itemprop="dateCreated datePublished" datetime="2021-01-11T21:42:24+08:00">2021-01-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>计算机网络课后习题及重要知识点</p>
+<h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h2><h3 id="分组交换和电路交换的时延"><a href="#分组交换和电路交换的时延" class="headerlink" title="分组交换和电路交换的时延"></a>分组交换和电路交换的时延</h3><p>分组交换：</p>
+<ul>
+<li>发送时延</li>
+<li>处理时延（经过节点数*单个节点的处理时延）</li>
+<li>传播时延</li>
+<li>排队时延</li>
+</ul>
+<p>电路交换：</p>
+<ul>
+<li>发送时延</li>
+<li>传播时延</li>
+<li>建立链接时延</li>
+</ul>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.36.43.png" alt="截屏2021-01-11 上午10.36.43"></p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.44.03.png" alt="截屏2021-01-11 上午10.44.03"></p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.44.54.png" alt="截屏2021-01-11 上午10.44.54"></p>
+<h3 id="网络利用率"><a href="#网络利用率" class="headerlink" title="网络利用率"></a>网络利用率</h3><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.45.57.png" alt="截屏2021-01-11 上午10.45.57"></p>
+<p>D 表示当前网络的时延</p>
+<p>D0表示网络空闲时的时延</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.47.02.png" alt="截屏2021-01-11 上午10.47.02"></p>
+<h2 id="第二章-物理层"><a href="#第二章-物理层" class="headerlink" title="第二章 物理层"></a>第二章 物理层</h2><h3 id="香农公式"><a href="#香农公式" class="headerlink" title="香农公式"></a>香农公式</h3><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.54.00.png" alt="截屏2021-01-11 上午10.54.00"></p>
+<h3 id="码分多址CDMA"><a href="#码分多址CDMA" class="headerlink" title="码分多址CDMA"></a>码分多址CDMA</h3><h4 id="题目：码分多址CDMA为什么可以使所有用户在同样的时间使用同样的频带进行通信而不会互相干扰？这种复用方法有何优缺点？"><a href="#题目：码分多址CDMA为什么可以使所有用户在同样的时间使用同样的频带进行通信而不会互相干扰？这种复用方法有何优缺点？" class="headerlink" title="题目：码分多址CDMA为什么可以使所有用户在同样的时间使用同样的频带进行通信而不会互相干扰？这种复用方法有何优缺点？"></a>题目：<strong>码分多址CDMA为什么可以使所有用户在同样的时间使用同样的频带进行通信而不会互相干扰？这种复用方法有何优缺点？</strong></h4><p>各用户使用经过特殊挑选的相互正交的不同码型，因此彼此不会造成干扰。<br>这种系统发送的信号有很强的抗干扰能力，其频谱类似于白噪声，不易被敌人发现。占用较大的带宽。</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8A%E5%8D%8810.57.03.png" alt="截屏2021-01-11 上午10.57.03"></p>
+<p>将收到的码片与四个站的码片做内积再除以个数：</p>
+<ul>
+<li>1 表示发送的是1</li>
+<li>0 表示没有发送</li>
+<li>-1 表示发送的是0</li>
+</ul>
+<h2 id="第三章-数据链路层"><a href="#第三章-数据链路层" class="headerlink" title="第三章 数据链路层"></a>第三章 数据链路层</h2><h3 id="CRC循环冗余码"><a href="#CRC循环冗余码" class="headerlink" title="CRC循环冗余码"></a>CRC循环冗余码</h3><h4 id="题目：要发送的数据为1101011011。采用CRC的生成多项式是P（X）-X-4-X-1。试求应添加在数据后面的余数。数据在传输过程中最后一个1变成了0，问接收端能否发现？若数据在传输过程中最后两个1都变成了0，问接收端能否发现？采用CRC检验后，数据链路层的传输是否就变成了可靠的传输？"><a href="#题目：要发送的数据为1101011011。采用CRC的生成多项式是P（X）-X-4-X-1。试求应添加在数据后面的余数。数据在传输过程中最后一个1变成了0，问接收端能否发现？若数据在传输过程中最后两个1都变成了0，问接收端能否发现？采用CRC检验后，数据链路层的传输是否就变成了可靠的传输？" class="headerlink" title="题目：要发送的数据为1101011011。采用CRC的生成多项式是P（X）=X^4+X+1。试求应添加在数据后面的余数。数据在传输过程中最后一个1变成了0，问接收端能否发现？若数据在传输过程中最后两个1都变成了0，问接收端能否发现？采用CRC检验后，数据链路层的传输是否就变成了可靠的传输？"></a>题目：<strong>要发送的数据为1101011011。采用CRC的生成多项式是P（X）=X^4+X+1。试求应添加在数据后面的余数。数据在传输过程中最后一个1变成了0，问接收端能否发现？若数据在传输过程中最后两个1都变成了0，问接收端能否发现？采用CRC检验后，数据链路层的传输是否就变成了可靠的传输？</strong></h4><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111122408924.png" alt="image-20210111122408924"></p>
+<p>仅仅采用了CRC检验，缺重传机制，数据链路层的传输还不是可靠的传输</p>
+<h3 id="PPP实现透明传输"><a href="#PPP实现透明传输" class="headerlink" title="PPP实现透明传输"></a>PPP实现透明传输</h3><p>字符填充</p>
+<table>
+<thead>
+<tr>
+<th>原始数据</th>
+<th>字符填充之后的数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7D</td>
+<td>7D 5D</td>
+</tr>
+<tr>
+<td>7E</td>
+<td>7D 5E</td>
+</tr>
+<tr>
+<td>&lt; 20</td>
+<td>7D 原来的字符</td>
+</tr>
+</tbody></table>
+<p>零比特填充</p>
+<p>在连续的五个1之后加上一个0</p>
+<h3 id="CSMA-CD"><a href="#CSMA-CD" class="headerlink" title="CSMA/CD"></a>CSMA/CD</h3><p>最短帧长实际上就是<strong>两倍争用期时所发送的帧的长度</strong></p>
+<p>在以太网协议中，规定：<strong>最短有效帧长时64字节</strong></p>
+<p>常见的<strong>以太网争用期</strong>：</p>
+<ul>
+<li>10Mbit/s 的网络中的争用期是 <strong>51.2us</strong></li>
+<li>100Mbit/s 的网络中的争用期是 <strong>5.12us</strong></li>
+</ul>
+<p>在过了争用期之后，就不可能会发生碰撞</p>
+<p>PPP协议在发送的时候要在头部封装一个5个字节，在尾部封装3个字节，也就是一共<strong>消耗8个字节的大小</strong>，而整个帧的长度在以太网中不能小于64字节</p>
+<p>同时在使用CSMA/CD时，要在前面和后面封装8个字节的大小</p>
+<p>在r随机数选定之后，要等待<strong>r倍的争用期</strong>才能重新发送数据</p>
+<h4 id="题目：在上题中的站点A和B在t-0时同时发送了数据帧。当t-255比特时间，A和B同时检测到发生了碰撞，并且在t-255-48-273比特时间完成了干扰信号的传输。A和B在CSMA-CD算法中选择不同的r值退避。假定A和B选择的随机数分别是rA-0和rB-1。试问A和B各在什么时间开始重传其数据帧？A重传的数据帧在什么时间到达B？A重传的数据会不会和B重传的数据再次发生碰撞？B会不会在预定的重传时间停止发送数据？"><a href="#题目：在上题中的站点A和B在t-0时同时发送了数据帧。当t-255比特时间，A和B同时检测到发生了碰撞，并且在t-255-48-273比特时间完成了干扰信号的传输。A和B在CSMA-CD算法中选择不同的r值退避。假定A和B选择的随机数分别是rA-0和rB-1。试问A和B各在什么时间开始重传其数据帧？A重传的数据帧在什么时间到达B？A重传的数据会不会和B重传的数据再次发生碰撞？B会不会在预定的重传时间停止发送数据？" class="headerlink" title="题目：在上题中的站点A和B在t=0时同时发送了数据帧。当t=255比特时间，A和B同时检测到发生了碰撞，并且在t=255+48=273比特时间完成了干扰信号的传输。A和B在CSMA/CD算法中选择不同的r值退避。假定A和B选择的随机数分别是rA=0和rB=1。试问A和B各在什么时间开始重传其数据帧？A重传的数据帧在什么时间到达B？A重传的数据会不会和B重传的数据再次发生碰撞？B会不会在预定的重传时间停止发送数据？"></a>题目：<strong>在上题中的站点A和B在t=0时同时发送了数据帧。当t=255比特时间，A和B同时检测到发生了碰撞，并且在t=255+48=273比特时间完成了干扰信号的传输。A和B在CSMA/CD算法中选择不同的r值退避。假定A和B选择的随机数分别是rA=0和rB=1。试问A和B各在什么时间开始重传其数据帧？A重传的数据帧在什么时间到达B？A重传的数据会不会和B重传的数据再次发生碰撞？B会不会在预定的重传时间停止发送数据？</strong></h4><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111144723443.png" alt="image-20210111144723443"></p>
+<p>注意：</p>
+<p><strong>干扰信号是广播</strong>，其占用信道的时间为单程信道的比特时间</p>
+<p>双方在干扰信号发送之后开始进行退避，退避r倍的争用期</p>
+<p>退避结束之后，要开始进行监听，监听的时间为<strong>最小帧间距</strong>，<strong>在以太网中是默认是96bit</strong>，如果在这段时间之内没有发现信道被占用的情况就开始发送数据</p>
+<p>第i次重传失败的概率是<br>$$<br>P_i = (0.5)^k, \qquad k = min[i, 10]<br>$$</p>
+<h3 id="集线器和交换机"><a href="#集线器和交换机" class="headerlink" title="集线器和交换机"></a>集线器和交换机</h3><p><strong>集线器是物理层的设备</strong>，其特点是是一个半双工，各设备平分带宽，且会组成一个更大的碰撞域，需要CSMA/CD来检测碰撞<br><strong>交换器是数据链路层的设备</strong>，其特点是一个全双工，各设备独享带宽，且不会形成碰撞域，不会产生碰撞</p>
+<h4 id="题目：以太网交换机有何特点？用它怎样组成虚拟局域网？"><a href="#题目：以太网交换机有何特点？用它怎样组成虚拟局域网？" class="headerlink" title="题目：以太网交换机有何特点？用它怎样组成虚拟局域网？"></a>题目：<strong>以太网交换机有何特点？用它怎样组成虚拟局域网？</strong></h4><p>特点：以太网交换机实质就是一个多端口的的网桥，它工作在数据链路层上。每一个端口都直接与一个主机或一个集线器相连，并且是全双工工作。它能同时连通多对端口，使每一对通信能进行无碰撞地传输数据。在通信时是独占而不是和其他网络用户共享传输媒体的带宽。</p>
+<p>怎么组成VLAN：VLAN 是由一些局域网网段构成的与物理位置无关的逻辑组。这些网段具有某些共同的需求。虚拟局域网协议允许在以太网的帧格式中插入一个 4 字节的标识符，称为 VLAN 标记 (tag)，用来指明发送该帧的工作站属于哪一个虚拟局域网。</p>
+<h3 id="交换机交换表的更新"><a href="#交换机交换表的更新" class="headerlink" title="交换机交换表的更新"></a>交换机交换表的更新</h3><table>
+<thead>
+<tr>
+<th>动作</th>
+<th>交换表的状态（地址-&gt;接口）</th>
+<th>向哪些接口转发帧</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A发送帧给D</td>
+<td>写入 A-&gt;1</td>
+<td>1, 2, 3, 4, 5, 6</td>
+<td>一开始，交换表中没有D的MAC地址，需要<strong>广播</strong>，并记录下A的地址与接口</td>
+</tr>
+<tr>
+<td>D发送帧给A</td>
+<td>写入 D-&gt;4</td>
+<td>1</td>
+<td>交换表中存在A的信息</td>
+</tr>
+<tr>
+<td>E发送帧给A</td>
+<td>写入 E-&gt;5</td>
+<td>1</td>
+<td>交换表中存在A的信息</td>
+</tr>
+<tr>
+<td>A发送帧给E</td>
+<td>不变</td>
+<td>5</td>
+<td>交换表中存在E的信息</td>
+</tr>
+</tbody></table>
+<p>注意：</p>
+<ul>
+<li>交换表中不存在就广播</li>
+<li>在每次寻找接口的时候，如果交换表中没有改请求的MAC地址与接口的信息，则写入交换表中</li>
+</ul>
+<h3 id="以太网的升级"><a href="#以太网的升级" class="headerlink" title="以太网的升级"></a>以太网的升级</h3><h4 id="题目：10Mb-s以太网升级到100Mb-s、1Gb-S和10Gb-s时，都需要解决哪些技术问题？为什么以太网能够在发展的过程中淘汰掉自己的竞争对手，并使自己的应用范围从局域网一直扩展到城域网和广域网？"><a href="#题目：10Mb-s以太网升级到100Mb-s、1Gb-S和10Gb-s时，都需要解决哪些技术问题？为什么以太网能够在发展的过程中淘汰掉自己的竞争对手，并使自己的应用范围从局域网一直扩展到城域网和广域网？" class="headerlink" title="题目：10Mb/s以太网升级到100Mb/s、1Gb/S和10Gb/s时，都需要解决哪些技术问题？为什么以太网能够在发展的过程中淘汰掉自己的竞争对手，并使自己的应用范围从局域网一直扩展到城域网和广域网？"></a>题目：<strong>10Mb/s以太网升级到100Mb/s、1Gb/S和10Gb/s时，都需要解决哪些技术问题？为什么以太网能够在发展的过程中淘汰掉自己的竞争对手，并使自己的应用范围从局域网一直扩展到城域网和广域网？</strong></h4><p>技术问题：使参数a保持为较小的数值，可通过减小最大电缆长度或增大帧的最小长度<br>在100mb/s的以太网中采用的方法是保持最短帧长不变，但将一个网段的最大电缆的度减小到100m，帧间时间间隔从原来9.6微秒改为现在的0.96微秒<br>吉比特以太网仍保持一个网段的最大长度为100m，但采用了“载波延伸”的方法，使最短帧长仍为64字节（这样可以保持兼容性）、同时将争用时间增大为512字节。并使用“分组突发”减小开销<br>10吉比特以太网的帧格式与10mb/s，100mb/s和1Gb/s以太网的帧格式完全相同<br>吉比特以太网还保留标准规定的以太网最小和最大帧长，这就使用户在将其已有的以太网进行升级时，仍能和较低速率的以太网很方便地通信。<br>由于数据率很高，吉比特以太网不再使用铜线而只使用光纤作为传输媒体，它使用长距离（超过km）的光收发器与单模光纤接口，以便能够工作在广域网。</p>
+<h2 id="第四章-网络层"><a href="#第四章-网络层" class="headerlink" title="第四章 网络层"></a>第四章 网络层</h2><h3 id="转发器、网桥、路由器和网关有何区别"><a href="#转发器、网桥、路由器和网关有何区别" class="headerlink" title="转发器、网桥、路由器和网关有何区别"></a>转发器、网桥、路由器和网关有何区别</h3><p> 中间设备又称为中间系统或中继(relay)系统。</p>
+<p>物理层中继系统：转发器(repeater)。</p>
+<p>数据链路层中继系统：网桥或桥接器(bridge)。</p>
+<p>网络层中继系统：路由器(router)。</p>
+<p>网桥和路由器的混合物：桥路器(brouter)。</p>
+<p>网络层以上的中继系统：网关(gateway)。  </p>
+<h3 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h3><p>ip地址的分类</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8B%E5%8D%883.43.39.png" alt="截屏2021-01-11 下午3.43.39"></p>
+<table>
+<thead>
+<tr>
+<th>网络名</th>
+<th>网络号</th>
+<th>子网掩码</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A类地址</td>
+<td>1～126</td>
+<td>255.0.0.0</td>
+<td></td>
+</tr>
+<tr>
+<td>B类地址</td>
+<td>128.0～191.255</td>
+<td>255.255.0.0</td>
+<td></td>
+</tr>
+<tr>
+<td>C类地址</td>
+<td>192.0.0～223.255.255</td>
+<td>255.255.255.0</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>127</td>
+<td>255.0.0.0</td>
+<td>用于本地软件回环测试</td>
+</tr>
+<tr>
+<td>D类地址</td>
+<td>224~239</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E类地址</td>
+<td>240~255</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/1440532-20180912093223517-341420925.png" alt="1440532-20180912093223517-341420925"></p>
+<p>注意：主机号一般不会全0或者是全1</p>
+<h4 id="题目：IP地址分为几类？各如何表示？IP地址的主要特点是什么？"><a href="#题目：IP地址分为几类？各如何表示？IP地址的主要特点是什么？" class="headerlink" title="题目：IP地址分为几类？各如何表示？IP地址的主要特点是什么？"></a>题目：<strong>IP地址分为几类？各如何表示？IP地址的主要特点是什么？</strong></h4><p>分为ABCDE 5类</p>
+<p>每一类地址都由两个固定长度的字段组成，其中一个字段是网络号 net-id，它标志主机（或路由器）所连接到的网络，而另一个字段则是主机号 host-id，它标志该主机（或路由器）。各类地址的网络号字段net-id分别为1，2，3，0，0字节；主机号字段host-id分别为3字节、2字节、1字节、4字节、4字节。</p>
+<p><strong>特点</strong>：</p>
+<ol>
+<li>IP 地址是一种分等级的地址结构。分两个等级的好处是：第一，IP 地址管理机构在分配 IP 地址时只分配网络号，而剩下的主机号则由得到该网络号的单位自行分配。这样就方便了 IP 地址的管理。第二，路由器仅根据目的主机所连接的网络号来转发分组（而不考虑目的主机号），这样就可以使路由表中的项目数大幅度减少，从而减小了路由表所占的存储空间。</li>
+<li>实际上 IP 地址是标志一个主机（或路由器）和一条链路的接口。当一个主机同时连接到两个网络上时，该主机就必须同时具有两个相应的 IP 地址，其网络号 net-id 必须是不同的。这种主机称为多归属主机(multihomed host)。由于一个路由器至少应当连接到两个网络（这样它才能将 IP 数据报从一个网络转发到另一个网络），因此一个路由器至少应当有两个不同的 IP 地址。 </li>
+<li>用转发器或网桥连接起来的若干个局域网仍为一个网络，因此这些局域网都具有同样的网络号 net-id。</li>
+<li>所有分配到网络号 net-id 的网络，范围很小的局域网，还是可能覆盖很大地理范围的广域网，都是平等的。</li>
+</ol>
+<h4 id="题目：试简单说明下列协议的作用：IP、ARP、RARP和ICMP。"><a href="#题目：试简单说明下列协议的作用：IP、ARP、RARP和ICMP。" class="headerlink" title="题目：试简单说明下列协议的作用：IP、ARP、RARP和ICMP。"></a>题目：<strong>试简单说明下列协议的作用：IP、ARP、RARP和ICMP。</strong></h4><p> <strong>IP协议</strong>：实现网络互连。使参与互连的性能各异的网络从用户看起来好像是一个统一的网络。网际协议IP是TCP/IP体系中两个最主要的协议之一，与IP协议配套使用的还有四个协议。</p>
+<p><strong>ARP协议</strong>：是解决同一个局域网上的主机或路由器的IP地址和硬件地址的映射问题。    <strong>ip-&gt;MAC</strong></p>
+<p><strong>RARP</strong>：是解决同一个局域网上的主机或路由器的硬件地址和IP地址的映射问题。    <strong>MAC-&gt;ip</strong></p>
+<p><strong>网际控制报文协议 ICMP</strong>：提供差错报告和询问报文，以提高IP数据交付成功的机会    Ping命令</p>
+<p><strong>因特网组管理协议 IGMP</strong>：用于探寻、转发本局域网内的组成员关系。</p>
+<h4 id="题目：有人认为：“ARP协议向网络层提供了转换地址的服务，因此ARP应当属于数据链路层。”这种说法为什么是错误的？"><a href="#题目：有人认为：“ARP协议向网络层提供了转换地址的服务，因此ARP应当属于数据链路层。”这种说法为什么是错误的？" class="headerlink" title="题目：有人认为：“ARP协议向网络层提供了转换地址的服务，因此ARP应当属于数据链路层。”这种说法为什么是错误的？"></a>题目：有人认为：“ARP协议向网络层提供了转换地址的服务，因此ARP应当属于数据链路层。”这种说法为什么是错误的？</h4><p>因为ARP本身是网络层的一部分，ARP协议为IP协议提供了转换地址的服务，数据链路层使用硬件地址而不使用IP地址，无需ARP协议数据链路层本身即可正常运行。因此ARP不再数据链路层。</p>
+<h4 id="题目：试解释为什么ARP高速缓存每存入一个项目就要设置10-20分钟的超时计时器。这个时间设置的太大或太小会出现什么问题？"><a href="#题目：试解释为什么ARP高速缓存每存入一个项目就要设置10-20分钟的超时计时器。这个时间设置的太大或太小会出现什么问题？" class="headerlink" title="题目：试解释为什么ARP高速缓存每存入一个项目就要设置10~20分钟的超时计时器。这个时间设置的太大或太小会出现什么问题？"></a>题目：试解释为什么ARP高速缓存每存入一个项目就要设置10~20分钟的超时计时器。这个时间设置的太大或太小会出现什么问题？</h4><p>考虑到IP地址和Mac地址均有可能是变化的（更换网卡，或动态主机配置）10－20分钟更换一块网卡是合理的。超时时间太短会使ARP请求和响应分组的通信量太频繁，而超时时间太长会使更换网卡后的主机迟迟无法和网络上的其他主机通信。</p>
+<h4 id="题目：至少举出两种不需要发送ARP请求分组的情况（即不需要请求将某个目的IP地址解析为相应的硬件地址）。"><a href="#题目：至少举出两种不需要发送ARP请求分组的情况（即不需要请求将某个目的IP地址解析为相应的硬件地址）。" class="headerlink" title="题目：至少举出两种不需要发送ARP请求分组的情况（即不需要请求将某个目的IP地址解析为相应的硬件地址）。"></a>题目：至少举出两种不需要发送ARP请求分组的情况（即不需要请求将某个目的IP地址解析为相应的硬件地址）。</h4><p>在源主机的ARP高速缓存中已经有了该目的IP地址的项目；</p>
+<p>源主机发送的是广播分组；源主机和目的主机使用点对点链路。19.主机A发送IP数据报给主机B，途中经过了5个路由器。试问在IP数据报的发送过程中总共使用了几次ARP？  6次，主机用一次，每个路由器各使用一次。</p>
+<h4 id="题目：试说明IP地址与硬件地址的区别，为什么要使用这两种不同的地址？"><a href="#题目：试说明IP地址与硬件地址的区别，为什么要使用这两种不同的地址？" class="headerlink" title="题目：试说明IP地址与硬件地址的区别，为什么要使用这两种不同的地址？"></a>题目：试说明IP地址与硬件地址的区别，为什么要使用这两种不同的地址？</h4><p><strong>IP 地址</strong>就是给每个连接在因特网上的主机（或路由器）分配一个在全世界范围是唯一的 32 位的标识符。从而把整个因特网看成为一个单一的、抽象的网络在实际网络的链路上传送数据帧时，最终还是必须使用硬件地址。<br><strong>MAC地址</strong>在一定程度上与硬件一致，基于物理、能够标识具体的链路通信对象、IP地址给予逻辑域的划分、不受硬件限制。</p>
+<h3 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h3><p>使用子网掩码(subnet mask)可以找出 IP 地址中的子网部分。 </p>
+<p>IP与子网掩码相与会获得子网的网络地址，其会屏蔽主机号</p>
+<p>根据子网掩码可以知道网络中能够分配的最大主机数目（设掩码中有n个0，那么最大主机数 = 2^n - 2 台主机，全0或者全1不能分配）</p>
+<p>注意：即使不连续的子网掩码也可能是有效的，但是RFC 950中不推荐这么使用，比如说255.255.0.255 </p>
+<blockquote>
+<p>Since the bits that identify the subnet are specified by a bitmask, <strong>they need not be adjacent in the address</strong>.<br>原文地址: <a target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc950.html">https://www.rfc-editor.org/rfc/rfc950.html</a></p>
+</blockquote>
+<h3 id="IP数据报"><a href="#IP数据报" class="headerlink" title="IP数据报"></a>IP数据报</h3><p>IP数据报小于等于1500字节</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8B%E5%8D%885.23.27.png" alt="截屏2021-01-11 下午5.23.27"></p>
+<p><strong>ip数据报首部为20字节，且数据部分必须是8字节的整数倍</strong></p>
+<p><strong>ip数据报的长度 = 数据帧的长度（数据长度）</strong></p>
+<h4 id="题目：一个3200位长的TCP报文传到IP层，加上160位的首部后成为数据报。下面的互联网由两个局域网通过路由器连接起来。但第二个局域网所能传送的最长数据帧中的数据部分只有1200位。因此数据报在路由器必须进行分片。试问第二个局域网向其上层要传送多少比特的数据（这里的“数据”当然指的是局域网看见的数据）"><a href="#题目：一个3200位长的TCP报文传到IP层，加上160位的首部后成为数据报。下面的互联网由两个局域网通过路由器连接起来。但第二个局域网所能传送的最长数据帧中的数据部分只有1200位。因此数据报在路由器必须进行分片。试问第二个局域网向其上层要传送多少比特的数据（这里的“数据”当然指的是局域网看见的数据）" class="headerlink" title="题目：一个3200位长的TCP报文传到IP层，加上160位的首部后成为数据报。下面的互联网由两个局域网通过路由器连接起来。但第二个局域网所能传送的最长数据帧中的数据部分只有1200位。因此数据报在路由器必须进行分片。试问第二个局域网向其上层要传送多少比特的数据（这里的“数据”当然指的是局域网看见的数据）"></a>题目：一个3200位长的TCP报文传到IP层，加上160位的首部后成为数据报。下面的互联网由两个局域网通过路由器连接起来。但第二个局域网所能传送的最长数据帧中的数据部分只有1200位。因此数据报在路由器必须进行分片。试问第二个局域网向其上层要传送多少比特的数据（这里的“数据”当然指的是局域网看见的数据）</h4><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111170510775.png" alt="image-20210111170510775"></p>
+<p>在分片时，MF字段为1，表示之后还有分片，最后一个分片为MF = 0</p>
+<h3 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h3><table>
+<thead>
+<tr>
+<th>目的网络</th>
+<th>子网掩码</th>
+<th>下一跳</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>128.96.39.0</td>
+<td>255.255.255.128</td>
+<td>接口m0</td>
+</tr>
+<tr>
+<td>128.96.39.128</td>
+<td>255.255.255.128</td>
+<td>接口m1</td>
+</tr>
+<tr>
+<td>128.96.40.0</td>
+<td>255.255.255.128</td>
+<td>R2</td>
+</tr>
+<tr>
+<td>192.4.153.0</td>
+<td>255.255.255.192</td>
+<td>R3</td>
+</tr>
+<tr>
+<td>*（默认）</td>
+<td>——</td>
+<td>R4</td>
+</tr>
+</tbody></table>
+<p>路由器收到的分组的目的地址和子网掩码相与，要是等于相应的目的网络，就进行下一跳，如果不匹配，则与下面的子网掩码相与，要是全部不匹配则使用默认的</p>
+<p><strong>最长匹配原则</strong>：如果多个网络都与路由表中的匹配，那么就匹配子网掩码最长的那一个</p>
+<h4 id="题目：路由表的更新"><a href="#题目：路由表的更新" class="headerlink" title="题目：路由表的更新"></a>题目：路由表的更新</h4><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8B%E5%8D%888.23.13.png" alt="截屏2021-01-11 下午8.23.13"></p>
+<p>先写出B所看到的路由表</p>
+<table>
+<thead>
+<tr>
+<th align="left">目的</th>
+<th>距离</th>
+<th>下一跳</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">N2</td>
+<td>5</td>
+<td>C</td>
+</tr>
+<tr>
+<td align="left">N3</td>
+<td>9</td>
+<td>C</td>
+</tr>
+<tr>
+<td align="left">N6</td>
+<td>5</td>
+<td>C</td>
+</tr>
+<tr>
+<td align="left">N8</td>
+<td>4</td>
+<td>C</td>
+</tr>
+<tr>
+<td align="left">N9</td>
+<td>6</td>
+<td>C</td>
+</tr>
+</tbody></table>
+<p>更新路由表</p>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>距离</th>
+<th>下一跳</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>N1</td>
+<td>7</td>
+<td>A</td>
+<td>新的路由信息中没有，所以不变</td>
+</tr>
+<tr>
+<td>N2</td>
+<td>5</td>
+<td>C</td>
+<td>新的路由表和原始的路由表都中有，且下一跳相同，以新的为准</td>
+</tr>
+<tr>
+<td>N3</td>
+<td>9</td>
+<td>C</td>
+<td>原始的路由表中没有，插入新的信息</td>
+</tr>
+<tr>
+<td>N6</td>
+<td>5</td>
+<td>C</td>
+<td>新的路由表和原始的路由表都中有，但是下一跳不相同，所以选距离短的，更新</td>
+</tr>
+<tr>
+<td>N8</td>
+<td>4</td>
+<td>E</td>
+<td>新的路由表和原始的路由表都中有，距离相同，不变</td>
+</tr>
+<tr>
+<td>N9</td>
+<td>4</td>
+<td>F</td>
+<td>新的路由表和原始的路由表都中有，但是下一跳不相同，所以选距离短的，不变</td>
+</tr>
+</tbody></table>
+<h3 id="CIDR"><a href="#CIDR" class="headerlink" title="CIDR"></a>CIDR</h3><p>最大聚合实际上就是把不同的地址聚合到一个大的地址里面去，找地址的最大公共项，并将其个数作为子网掩码1的个数</p>
+<h4 id="题目：划分子网"><a href="#题目：划分子网" class="headerlink" title="题目：划分子网"></a>题目：划分子网</h4><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%89%AB%E6%8F%8F%E5%85%A8%E8%83%BD%E7%8E%8B%202021-01-01%2023.50.57_3.jpg" alt="扫描全能王 2021-01-01 23.50.57_3"></p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111174854383.png" alt="image-20210111174854383"></p>
+<h3 id="路由选择协议"><a href="#路由选择协议" class="headerlink" title="路由选择协议"></a>路由选择协议</h3><h4 id="题目：试简述RIP，OSPF和BGP路由选择协议的主要特点"><a href="#题目：试简述RIP，OSPF和BGP路由选择协议的主要特点" class="headerlink" title="题目：试简述RIP，OSPF和BGP路由选择协议的主要特点"></a>题目：试简述RIP，OSPF和BGP路由选择协议的主要特点</h4><table>
+<thead>
+<tr>
+<th>主要特点</th>
+<th>RIP</th>
+<th>OSPF</th>
+<th>BGP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>网关协议</td>
+<td>内部</td>
+<td>内部</td>
+<td>外部</td>
+</tr>
+<tr>
+<td>路由表内容</td>
+<td>目的网，下一站，距离</td>
+<td>目的网，下一站，距离</td>
+<td>目的网，完整</td>
+</tr>
+<tr>
+<td>最优通路依据</td>
+<td>跳数</td>
+<td>费用</td>
+<td>多种策略</td>
+</tr>
+<tr>
+<td>算法</td>
+<td>距离向量</td>
+<td>链路状态</td>
+<td>距离矢量</td>
+</tr>
+<tr>
+<td>传送方式</td>
+<td>运输层UDP</td>
+<td>IP数据报</td>
+<td>建立TCP连接</td>
+</tr>
+<tr>
+<td>其他</td>
+<td>简单、效率低、跳数为16不可达、好消息传的快，坏消息传的慢</td>
+<td>效率高、路由器频繁交换信息，难维持一致性</td>
+<td>规模大、统一度量为可达性</td>
+</tr>
+<tr>
+<td>要点</td>
+<td>仅和相邻路由器交换信息。   交换的信息是当前本路由器所知道的全部信息，即自己的路由表。   按固定的时间间隔交换路由信息y，例如，每隔 30 秒。</td>
+<td>向本自治系统中所有路由器发送信息，这里使用的方法是洪泛法。  发送的信息就是与本路由器相邻的所有路由器的链路状态，但这只是路由器所知道的部分信息。  “链路状态”就是说明本路由器都和哪些路由器相邻，以及该链路的“度量”(metric)。   只有当链路状态发生变化时，路由器才用洪泛法向所有路由器发送此信息。</td>
+<td>BGP 协议交换路由信息的结点数量级是自治系统数的量级，这要比这些自治系统中的网络数少很多。  每一个自治系统中 BGP  发言人（或边界路由器）的数目是很少的。这样就使得自治系统之间的路由选择不致过分复杂。  BGP 支持 CIDR，因此 BGP  的路由表也就应当包括目的网络前缀、下一跳路由器，以及到达该目的网络所要经过的各个自治系统序列。  在BGP 刚刚运行时，BGP 的邻站是交换整个的 BGP 路由表。但以后只需要在发生变化时更新有变化的部分。这样做对节省网络带宽和减少路由器的处理开销方面都有好处。</td>
+</tr>
+</tbody></table>
+<h3 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h3><p>长度为：128位</p>
+<p><strong>零压缩</strong>：把多个0写成：：的形式</p>
+<h4 id="题目：IPv4向IPv6过渡的方法"><a href="#题目：IPv4向IPv6过渡的方法" class="headerlink" title="题目：IPv4向IPv6过渡的方法"></a>题目：IPv4向IPv6过渡的方法</h4><ul>
+<li><p>使用双协议栈</p>
+<p>主机或路由器同时装有IPV4和IPV6两个协议栈，因此主机既能和IPV4通 信， 也能和IPV6通信。</p>
+</li>
+<li><p>使用隧道技术</p>
+<p>在IPV6分组进入IPV4网络时，将IPV6分组封装成IPV4分组; 当 封装成IPV4分组 离开IPV4网络时，再装数据部分（IPV6部分）转发给目的节点。</p>
+</li>
+</ul>
+<h2 id="第五章-运输层"><a href="#第五章-运输层" class="headerlink" title="第五章 运输层"></a>第五章 运输层</h2><h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><h4 id="题目：端口的作用是什么？为什么端口要划分为三种？"><a href="#题目：端口的作用是什么？为什么端口要划分为三种？" class="headerlink" title="题目：端口的作用是什么？为什么端口要划分为三种？"></a>题目：端口的作用是什么？为什么端口要划分为三种？</h4><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-11%20%E4%B8%8B%E5%8D%888.47.19.png" alt="截屏2021-01-11 下午8.47.19"></p>
+<h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><p>UDP首部是8个字节，不保证可靠连接，在传输数据的时候是一次性传输</p>
+<h4 id="题目：试用画图解释运输层的复用。画图说明许多个运输用户复用到一条运输连接上，而这条运输连接有复用到IP数据报上。"><a href="#题目：试用画图解释运输层的复用。画图说明许多个运输用户复用到一条运输连接上，而这条运输连接有复用到IP数据报上。" class="headerlink" title="题目：试用画图解释运输层的复用。画图说明许多个运输用户复用到一条运输连接上，而这条运输连接有复用到IP数据报上。"></a>题目：试用画图解释运输层的复用。画图说明许多个运输用户复用到一条运输连接上，而这条运输连接有复用到IP数据报上。</h4><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111204405236.png" alt="image-20210111204405236"></p>
+<p>UDP头部的格式（在复习指北上有，这里就不赘述了）</p>
+<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p>TCP首部是20个字节，面向流，保证可靠传输，可以实现分组传送</p>
+<p><strong>最大报文段长度 MSS</strong>：MSS 告诉对方 TCP：“我的缓存所能接收的报文段的数据字段的最大长度是 MSS 个字节。”</p>
+<h4 id="拥塞避免"><a href="#拥塞避免" class="headerlink" title="拥塞避免"></a>拥塞避免</h4><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111212302434.png" alt="image-20210111212302434"></p>
+<h4 id="题目：用TCP传送512字节的数据。设窗口为100字节，而TCP报文段每次也是传送100字节的数据。再设发送端和接收端的起始序号分别选为100和200，试画出类似于图5-31的工作示意图。从连接建立阶段到连接释放都要画上。"><a href="#题目：用TCP传送512字节的数据。设窗口为100字节，而TCP报文段每次也是传送100字节的数据。再设发送端和接收端的起始序号分别选为100和200，试画出类似于图5-31的工作示意图。从连接建立阶段到连接释放都要画上。" class="headerlink" title="题目：用TCP传送512字节的数据。设窗口为100字节，而TCP报文段每次也是传送100字节的数据。再设发送端和接收端的起始序号分别选为100和200，试画出类似于图5-31的工作示意图。从连接建立阶段到连接释放都要画上。"></a>题目：用TCP传送512字节的数据。设窗口为100字节，而TCP报文段每次也是传送100字节的数据。再设发送端和接收端的起始序号分别选为100和200，试画出类似于图5-31的工作示意图。从连接建立阶段到连接释放都要画上。</h4><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/IMG_E103B40F9A91-1.jpeg" alt="IMG_E103B40F9A91-1"></p>
+<h2 id="第六章-应用层"><a href="#第六章-应用层" class="headerlink" title="第六章 应用层"></a>第六章 应用层</h2><h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><h4 id="题目：域名系统的主要功能是什么？域名系统中的本地域名服务器、根域名服务器、顶级域名服务器以及权限域名权服务器有何区别？"><a href="#题目：域名系统的主要功能是什么？域名系统中的本地域名服务器、根域名服务器、顶级域名服务器以及权限域名权服务器有何区别？" class="headerlink" title="题目：域名系统的主要功能是什么？域名系统中的本地域名服务器、根域名服务器、顶级域名服务器以及权限域名权服务器有何区别？"></a>题目：域名系统的主要功能是什么？域名系统中的本地域名服务器、根域名服务器、顶级域名服务器以及权限域名权服务器有何区别？</h4><p>域名系统的主要功能：将域名解析为主机能识别的IP地址。</p>
+<p>因特网上的域名服务器系统也是按照域名的层次来安排的。每一个域名服务器都只对域名体系中的一部分进行管辖。共有三种不同类型的域名服务器。即本地域名服务器、根域名服务器、授权域名服务器。当一个本地域名服务器不能立即回答某个主机的查询时，该本地域名服务器就以DNS客户的身份向某一个根域名服务器查询。若根域名服务器有被查询主机的信息，就发送DNS回答报文给本地域名服务器，然后本地域名服务器再回答发起查询的主机。但当根域名服务器没有被查询的主机的信息时，它一定知道某个保存有被查询的主机名字映射的授权域名服务器的IP地址。通常根域名服务器用来管辖顶级域。根域名服务器并不直接对顶级域下面所属的所有的域名进行转换，但它一定能够找到下面的所有二级域名的域名服务器。每一个主机都必须在授权域名服务器处注册登记。通常，一个主机的授权域名服务器就是它的主机ISP的一个域名服务器。授权域名服务器总是能够将其管辖的主机名转换为该主机的IP地址。因特网允许各个单位根据本单位的具体情况将本域名划分为若干个域名服务器管辖区。一般就在各管辖区中设置相应的授权域名服务器。</p>
+<h4 id="题目：举例说明域名转换的过程。域名服务器中的高速缓存的作用是什么？"><a href="#题目：举例说明域名转换的过程。域名服务器中的高速缓存的作用是什么？" class="headerlink" title="题目：举例说明域名转换的过程。域名服务器中的高速缓存的作用是什么？"></a>题目：举例说明域名转换的过程。域名服务器中的高速缓存的作用是什么？</h4><p>（1）把不方便记忆的IP地址转换为方便记忆的域名地址。</p>
+<p>（2）作用：可大大减轻根域名服务器的负荷，使因特网上的 DNS 查询请求和回答报文的数量大为减少。</p>
+<h4 id="题目：试简述SMTP通信的三个阶段的过程。"><a href="#题目：试简述SMTP通信的三个阶段的过程。" class="headerlink" title="题目：试简述SMTP通信的三个阶段的过程。"></a>题目：试简述SMTP通信的三个阶段的过程。</h4><ol>
+<li>连接建立：连接是在发送主机的 SMTP 客户和接收主机的 SMTP 服务器之间建立的。SMTP不使用中间的邮件服务器。 </li>
+<li>邮件传送。</li>
+<li>连接释放：邮件发送完毕后，SMTP 应释放 TCP 连接。</li>
+</ol>
+<h4 id="题目：MIME与SMTP的关系是什么的？什么是quoted-printable编码和base64编码？"><a href="#题目：MIME与SMTP的关系是什么的？什么是quoted-printable编码和base64编码？" class="headerlink" title="题目：MIME与SMTP的关系是什么的？什么是quoted-printable编码和base64编码？"></a>题目：MIME与SMTP的关系是什么的？什么是quoted-printable编码和base64编码？</h4><p>​    MIME全称是通用因特网邮件扩充MIME。它并没有改动或取代SMTP。MIME的意图是继续使用目前的RFC 822格式，但增加了邮件主体的结构，并定义了传送非ASCII码的编码规则。也就是说，MIME邮件可以在现有的电子邮件程序和协议下传送。<br>​    quoted-printable编码：对于所有可打印的ASCII码，除特殊字符等号外，都不改变。等号和不可打印的ASCII码以及非ASCII码的数据的编码方法是：先将每个字节的二进制代码用两个十六进制数字表示，然后在前面再加上一个等号<br>​    base64编码是先把二进制代码划分为一个24位长的单元，然后把每个24位单元划分为4个6位组。每一个6位组按以下方法替换成ASCII码。6位的二进制代码共有64种不同的值，从1到63。用A表示0，用B表示1，等等。26个大写字母排列完毕后，接下去再排26个小写字母，再后面是10个数字，最后用+表示62，而用/表示63。再用两个连在一起的等号==和一个等号=分别表示最后一组的代码只有8位或16位。回车和换行都忽略，它们可在任何地方插入。</p>
+<p>base64：将二进制数据拆分为多个6位的二进制，然后在前面补上2个0，再对照ascill码表进行对照</p>
+<p>quoted-printable：下图</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/image-20210111213505215.png" alt="image-20210111213505215"></p>
+<h3 id="各个协议所在的层次"><a href="#各个协议所在的层次" class="headerlink" title="各个协议所在的层次"></a>各个协议所在的层次</h3><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%89%AB%E6%8F%8F%E5%85%A8%E8%83%BD%E7%8E%8B%202021-01-01%2023.50.57_4.jpg" alt="扫描全能王 2021-01-01 23.50.57_4"></p>
+<h2 id="第七章-网路安全"><a href="#第七章-网路安全" class="headerlink" title="第七章 网路安全"></a>第七章 网路安全</h2><p>见指北</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"># 计算机网络</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/01/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8C%97/" rel="prev" title="计算机网络复习指北">
+                  <i class="fa fa-chevron-left"></i> 计算机网络复习指北
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kaiwen zhou</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+<script>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+
+
+
+
+  
+
+
+</body>
+</html>
