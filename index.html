@@ -167,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -205,6 +205,892 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/03/17/javaEE%E8%80%83%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/03/17/javaEE%E8%80%83%E7%82%B9/" class="post-title-link" itemprop="url">javaEE考点</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-17 09:36:40" itemprop="dateCreated datePublished" datetime="2021-03-17T09:36:40+08:00">2021-03-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="选择（15）"><a href="#选择（15）" class="headerlink" title="选择（15）"></a>选择（15）</h2><h3 id="1-servlet的生命周期"><a href="#1-servlet的生命周期" class="headerlink" title="1.servlet的生命周期"></a>1.servlet的生命周期</h3><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlE4760EF2BE8EE60506E601E54443AEC2.png" alt="E4760EF2BE8EE60506E601E54443AEC2"></p>
+<p>init()</p>
+<p>service()</p>
+<p>doGet()</p>
+<p>doPost()</p>
+<p>destory()</p>
+<h3 id="2-jsp中如何导入jdbc包"><a href="#2-jsp中如何导入jdbc包" class="headerlink" title="2.jsp中如何导入jdbc包"></a>2.jsp中如何导入jdbc包</h3><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zl$HNFPN`JG}XH`3QFH9EG7RX.png" alt="$HNFPN`JG}XH`3QFH9EG7RX" style="zoom:70%;" />
+
+<h3 id="3-js页面中-lt-“2”-“4”-gt"><a href="#3-js页面中-lt-“2”-“4”-gt" class="headerlink" title="3.js页面中&lt;%= “2” + “4” %&gt;"></a>3.js页面中&lt;%= “2” + “4” %&gt;</h3><p>24</p>
+<h3 id="4-转发与重定向"><a href="#4-转发与重定向" class="headerlink" title="4.转发与重定向"></a>4.转发与重定向</h3><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316165032838.png" alt="image-20210316165032838"></p>
+<h3 id="5-el表达式语法正确的"><a href="#5-el表达式语法正确的" class="headerlink" title="5.el表达式语法正确的 %()"></a>5.el表达式语法正确的 %()</h3><p>${变量名} 变量名就是 setAttribute 对应的 key 值。</p>
+<h3 id="6-遍历一个数组中的所有元素（JSTL）"><a href="#6-遍历一个数组中的所有元素（JSTL）" class="headerlink" title="6.遍历一个数组中的所有元素（JSTL）"></a>6.遍历一个数组中的所有元素（JSTL）</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    <span class="keyword">int</span>[] ages = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;; <span class="comment">// 普通数组，JSTL直接使用JSP赋值表达式来取</span></span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">遍历数组: </span><br><span class="line">&lt;c:forEach <span class="keyword">var</span>=<span class="string">&quot;age&quot;</span> items=<span class="string">&quot;&lt;%= ages %&gt;&quot;</span>&gt;</span><br><span class="line">	&lt;c:out value=<span class="string">&quot;$&#123;age&#125;&quot;</span> /&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="7-数组的声明方式"><a href="#7-数组的声明方式" class="headerlink" title="7.数组的声明方式"></a>7.数组的声明方式</h3><p>数组的声明由几种方式：</p>
+<p>1.String []a = new String[length];再赋值</p>
+<p>a[0]=?;…….</p>
+<p>2.new完就直接初始化：</p>
+<p>String []a = new String[]{?,?…};</p>
+<p>3.你甚至不必new：</p>
+<p>String []a = {?,?….}</p>
+<h3 id="8-把用户名为jack塞入到session中"><a href="#8-把用户名为jack塞入到session中" class="headerlink" title="8.把用户名为jack塞入到session中"></a>8.把用户名为jack塞入到session中</h3><p>setAttribute(“name”,”jack”)</p>
+<h3 id="9-web项目中web-xml在上面目录下"><a href="#9-web项目中web-xml在上面目录下" class="headerlink" title="9.web项目中web.xml在上面目录下"></a>9.web项目中web.xml在上面目录下</h3><p>WEB-INF</p>
+<h3 id="10-tomcat的默认端口"><a href="#10-tomcat的默认端口" class="headerlink" title="10.tomcat的默认端口"></a>10.tomcat的默认端口</h3><p>localhost:8080</p>
+<h2 id="填空（15-2）"><a href="#填空（15-2）" class="headerlink" title="填空（15*2）"></a>填空（15*2）</h2><h3 id="1-javaEE的注解（Servlet-Filter）"><a href="#1-javaEE的注解（Servlet-Filter）" class="headerlink" title="1.javaEE的注解（Servlet,Filter）"></a>1.javaEE的注解（Servlet,Filter）</h3><p>@WebServlet</p>
+<p>Servlet 本身是⼀组接⼝，⾃定义⼀个类，并且实现 Servlet 接⼝，这个类就具备了接受客户端请求以及做出响应的功能。</p>
+<p>用来创建并返回基于客户请求的动态 HTML 页面以及与数据库进⾏通信。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebServlet(&quot;/login&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServlet</span> <span class="keyword">implements</span> <span class="title">Servlet</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//上述为基于注解的Servlet配置⽅式,将 login与 HelloServlet 进⾏映射，即在浏览器地址栏中直接访问login就可以映射到 HelloServlet</span></span><br></pre></td></tr></table></figure>
+<p>(Tomact中的Application context需改为”/“)</p>
+<p>@WebFilter </p>
+<p>用于将一个类声明为过滤器，该注解将会在部署时被容器处理，容器将根据具体的属性配置将相应的类部署为过滤器。</p>
+<p>⽤来拦截传⼊的请求和传出的响应,修改或以某种⽅式处理正在客户端和服务端之间交换的数据流。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebFilter(&quot;/login&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//该过滤器将作用于注解为@WebServlet(&quot;/login&quot;)的servlet</span></span><br></pre></td></tr></table></figure>
+<p>常用属性</p>
+<img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316171220620.png" alt="image-20210316171220620" style="zoom:70%;" />
+
+<h3 id="2-四大作用域"><a href="#2-四大作用域" class="headerlink" title="2.四大作用域"></a>2.四大作用域</h3><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316173737979.png" alt="image-20210316173737979" style="zoom:80%;" />
+
+<h3 id="3-jquery，匹配第几个按钮"><a href="#3-jquery，匹配第几个按钮" class="headerlink" title="3.jquery，匹配第几个按钮"></a>3.jquery，匹配第几个按钮</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">        $(function()&#123;</span><br><span class="line">            $(<span class="string">&quot;#next&quot;</span>).click(function()&#123;</span><br><span class="line">                <span class="keyword">var</span> pages = parseInt($(<span class="string">&quot;#pages&quot;</span>).html());</span><br><span class="line">                <span class="keyword">var</span> page = parseInt($(<span class="string">&quot;#currentPage&quot;</span>).html());</span><br><span class="line">                <span class="keyword">if</span>(page == pages)&#123;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                page++;</span><br><span class="line">                location.href = <span class="string">&quot;/admin?page=&quot;</span>+page;</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">            $(<span class="string">&quot;#previous&quot;</span>).click(function () &#123;</span><br><span class="line">                <span class="keyword">var</span> page = parseInt($(<span class="string">&quot;#currentPage&quot;</span>).html());</span><br><span class="line">                <span class="keyword">if</span>(page == <span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                page--;</span><br><span class="line">                location.href = <span class="string">&quot;/admin?page=&quot;</span>+page;</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">            $(<span class="string">&quot;#first&quot;</span>).click(function () &#123;</span><br><span class="line">                location.href = <span class="string">&quot;/admin?page=1&quot;</span>;</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">            $(<span class="string">&quot;#last&quot;</span>).click(function()&#123;</span><br><span class="line">                <span class="keyword">var</span> pages = parseInt($(<span class="string">&quot;#pages&quot;</span>).html());</span><br><span class="line">                location.href = <span class="string">&quot;/admin?page=&quot;</span>+pages;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%@ include file=<span class="string">&quot;top.jsp&quot;</span> %&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;div id=<span class="string">&quot;main&quot;</span>&gt;</span><br><span class="line">    &lt;hr <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;hr&quot;</span>/&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;pageControl&quot;</span>&gt;</span><br><span class="line">        &lt;div class=&quot;pageControl_item&quot;&gt;每页&lt;font id=&quot;dataPrePage&quot;&gt;$&#123;dataPrePage &#125;&lt;/font&gt;条数据&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;pageControl_item&quot; id=&quot;last&quot;&gt;最后一页&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;pageControl_item&quot; id=&quot;next&quot;&gt;下一页&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;pageControl_item&quot;&gt;&lt;font id=&quot;currentPage&quot;&gt;$&#123;currentPage &#125;&lt;/font&gt;/&lt;font id=&quot;pages&quot;&gt;$&#123;pages &#125;&lt;/font&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;pageControl_item&quot; id=&quot;previous&quot;&gt;上一页&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;pageControl_item&quot; id=&quot;first&quot;&gt;首页&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;%@ include file=<span class="string">&quot;footer.jsp&quot;</span> %&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="4-jsp指令分为哪几个指令"><a href="#4-jsp指令分为哪几个指令" class="headerlink" title="4.jsp指令分为哪几个指令"></a>4.jsp指令分为哪几个指令</h3><p><img src="C:\Users\张力\AppData\Roaming\Typora\typora-user-images\image-20210316173821737.png" alt="image-20210316173821737"></p>
+<h2 id="简答（4-5）"><a href="#简答（4-5）" class="headerlink" title="简答（4*5）"></a>简答（4*5）</h2><h3 id="1-get与post的区别"><a href="#1-get与post的区别" class="headerlink" title="1.get与post的区别"></a>1.get与post的区别</h3><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316174559407.png" alt="image-20210316174559407"></p>
+<h3 id="2-转发与重定向"><a href="#2-转发与重定向" class="headerlink" title="2.转发与重定向"></a>2.转发与重定向</h3><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316165032838.png" alt="image-20210316165032838"></p>
+<h3 id="3-cookie与session"><a href="#3-cookie与session" class="headerlink" title="3.cookie与session"></a>3.cookie与session</h3><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316174831345.png" alt="image-20210316174831345" style="zoom:50%;" />
+
+<h3 id="4-9大内置对象"><a href="#4-9大内置对象" class="headerlink" title="4. 9大内置对象"></a>4. 9大内置对象</h3><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316175049641.png" alt="image-20210316175049641" style="zoom:70%;" />
+
+<img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316175144590.png" alt="image-20210316175144590" style="zoom:50%;" />
+
+<h2 id="程序题"><a href="#程序题" class="headerlink" title="程序题"></a>程序题</h2><h3 id="selectByAll-（5-2）"><a href="#selectByAll-（5-2）" class="headerlink" title="selectByAll()（5*2）"></a>selectByAll()（5*2）</h3><ul>
+<li><p>jdbc操作数据库</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyPool</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Connection con=<span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyPool</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//1.加载驱动</span></span><br><span class="line">            Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line">            <span class="comment">//2.获取数据库连接</span></span><br><span class="line">         	con = DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://139.224.118.14:3306/mydb?characterEncoding=UTF-8&quot;</span>, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;root&quot;</span>);</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getCon</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(con == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">new</span> MyPool();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> con;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">selectAll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;User&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            Statement statement = MyPool.getCon().createStatement();</span><br><span class="line">            ResultSet rs = statement.executeQuery(<span class="string">&quot;select * from user&quot;</span>);</span><br><span class="line">            <span class="keyword">while</span> (rs.next())&#123;</span><br><span class="line">                User user = <span class="keyword">new</span> User();</span><br><span class="line">                user.setId(rs.getInt(<span class="string">&quot;id&quot;</span>));</span><br><span class="line">                user.setName(rs.getString(<span class="string">&quot;name&quot;</span>));</span><br><span class="line">                user.setPwd(rs.getString(<span class="string">&quot;pwd&quot;</span>));</span><br><span class="line">                user.setSex(rs.getString(<span class="string">&quot;sex&quot;</span>));</span><br><span class="line">                user.setPhone(rs.getString(<span class="string">&quot;phone&quot;</span>));</span><br><span class="line">                user.setAddress(rs.getString(<span class="string">&quot;address&quot;</span>));</span><br><span class="line">                list.add(user);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="登入功能"><a href="#登入功能" class="headerlink" title="登入功能"></a>登入功能</h3><ul>
+<li><p>转发</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebServlet(&quot;/login&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginServlet</span> <span class="keyword">extends</span> <span class="title">javax</span>.<span class="title">servlet</span>.<span class="title">http</span>.<span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)</span> <span class="keyword">throws</span> javax.servlet.ServletException, IOException </span>&#123;</span><br><span class="line">        request.getRequestDispatcher(<span class="string">&quot;/WEB-INF/jsp/BootstrapHome.jsp&quot;</span>)</span><br><span class="line">                .forward(request,response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)</span> <span class="keyword">throws</span> javax.servlet.ServletException, IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li>web.xml中配置servlet</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置一个servlet --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- servlet的配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- servlet的内部名称，自定义。尽量有意义 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>ServletDemo<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- servlet的类全名： 包名+简单类名 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.practice.ServletDemo<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- servlet的映射配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- servlet的内部名称，一定要和上面的内部名称保持一致！！ --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>ServletDemo<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- servlet的映射路径（访问servlet的名称） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/servlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="第二"><a href="#第二" class="headerlink" title="第二"></a>第二</h1><ul>
+<li>jdbc新增用户</li>
+<li>for each循环</li>
+</ul>
+<h2 id="简答"><a href="#简答" class="headerlink" title="简答"></a>简答</h2><ul>
+<li>bs和cs的区别</li>
+<li>转发与重定向</li>
+<li>servlet的生命周期</li>
+<li>静态导入和动态导入的区别</li>
+</ul>
+<h2 id="填空"><a href="#填空" class="headerlink" title="填空"></a>填空</h2><ul>
+<li>jsp中申明变量</li>
+<li>表单数据提交的两种方式（post get）</li>
+<li>jsp的四大作用域</li>
+<li>jsp中两种注释方式</li>
+<li>组件容器   组件 容器</li>
+<li>jsp中编译器指令分为哪三个</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/03/17/android%E8%80%83%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/03/17/android%E8%80%83%E8%AF%95/" class="post-title-link" itemprop="url">android考试</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-17 09:36:17" itemprop="dateCreated datePublished" datetime="2021-03-17T09:36:17+08:00">2021-03-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>A卷</p>
+<h2 id="填空"><a href="#填空" class="headerlink" title="填空"></a>填空</h2><h3 id="1-答案：Kotlin和Java"><a href="#1-答案：Kotlin和Java" class="headerlink" title="1.答案：Kotlin和Java"></a>1.答案：Kotlin和Java</h3><h3 id="2-答案：高度"><a href="#2-答案：高度" class="headerlink" title="2.答案：高度"></a>2.答案：高度</h3><h3 id="3-Android中数据存储的5种方式"><a href="#3-Android中数据存储的5种方式" class="headerlink" title="3.Android中数据存储的5种方式"></a>3.Android中数据存储的5种方式</h3><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316222423638.png" alt="image-20210316222423638" style="zoom:100%;" />
+
+<h2 id="简答"><a href="#简答" class="headerlink" title="简答"></a>简答</h2><h3 id="1-常用的布局"><a href="#1-常用的布局" class="headerlink" title="1.常用的布局"></a>1.常用的布局</h3><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316222454741.png" alt="image-20210316222454741" style="zoom:80%;" />
+
+<h3 id="2-安卓中log的作用与级别"><a href="#2-安卓中log的作用与级别" class="headerlink" title="2.安卓中log的作用与级别"></a>2.安卓中log的作用与级别</h3><p>​        log的作用：常用于对各种日志级别的输出</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316222527348.png" alt="image-20210316222527348"></p>
+<h3 id="3-如何使用sharedperformance存储数据"><a href="#3-如何使用sharedperformance存储数据" class="headerlink" title="3.如何使用sharedperformance存储数据"></a>3.如何使用sharedperformance存储数据</h3><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316222708239.png" alt="image-20210316222708239" style="zoom:80%;" />
+
+<h3 id="4-active四种启动模式的区别"><a href="#4-active四种启动模式的区别" class="headerlink" title="4.active四种启动模式的区别"></a>4.active四种启动模式的区别</h3><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316223001464.png" alt="image-20210316223001464" style="zoom:80%;" />
+
+<img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316223843124.png" alt="image-20210316223843124" style="zoom:80%;" />
+
+
+
+<h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><h3 id="1-设计一个APP，点击按钮，输入框中文字颜色随机改变（或点什么颜色就改成什么颜色）"><a href="#1-设计一个APP，点击按钮，输入框中文字颜色随机改变（或点什么颜色就改成什么颜色）" class="headerlink" title="1.设计一个APP，点击按钮，输入框中文字颜色随机改变（或点什么颜色就改成什么颜色）"></a>1.设计一个APP，点击按钮，输入框中文字颜色随机改变（或点什么颜色就改成什么颜色）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> TextView tv;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        tv = findViewById(R.id.textView);</span><br><span class="line">        findViewById(R.id.button).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                Random random = <span class="keyword">new</span> Random();</span><br><span class="line">                <span class="keyword">int</span> rc = Color.rgb(random.nextInt(<span class="number">256</span>),random.nextInt(<span class="number">256</span>),random.nextInt(<span class="number">256</span>));</span><br><span class="line">                tv.setTextColor(rc);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-往通讯录中插入数据"><a href="#2-往通讯录中插入数据" class="headerlink" title="2.往通讯录中插入数据"></a>2.往通讯录中插入数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    EditText et1,et2;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        et1 = findViewById(R.id.et1); et2 = findViewById(R.id.et2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//新增联系人信息</span></span><br><span class="line">        findViewById(R.id.button).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//插入一条空数据，返回onContactId</span></span><br><span class="line">                ContentValues values = <span class="keyword">new</span> ContentValues();</span><br><span class="line">                <span class="comment">//获取ContentResolver，插入到url</span></span><br><span class="line">                Uri uri = getContentResolver().insert(ContactsContract.RawContacts.CONTENT_URI,values);</span><br><span class="line">                <span class="keyword">long</span> rawContactId = ContentUris.parseId(uri);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//插入联系人姓名</span></span><br><span class="line">                values.clear();</span><br><span class="line">                values.put(ContactsContract.Data.RAW_CONTACT_ID,rawContactId);</span><br><span class="line">                <span class="comment">//设置内容类型</span></span><br><span class="line">                values.put(ContactsContract.Data.MIMETYPE,ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE);</span><br><span class="line">                <span class="comment">//插入联系人姓名</span></span><br><span class="line">                values.put(ContactsContract.CommonDataKinds.StructuredName.GIVEN_NAME,et1.getText().toString());</span><br><span class="line">                <span class="comment">//姓名插入到通讯录中</span></span><br><span class="line">                getContentResolver().insert(ContactsContract.Data.CONTENT_URI,values);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//插入联系人手机</span></span><br><span class="line">                values.clear();</span><br><span class="line">                values.put(ContactsContract.Data.RAW_CONTACT_ID,rawContactId);</span><br><span class="line">                <span class="comment">//设置内容类型</span></span><br><span class="line">                values.put(ContactsContract.Data.MIMETYPE,ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);</span><br><span class="line">                <span class="comment">//设置联系人手机</span></span><br><span class="line">                values.put(ContactsContract.CommonDataKinds.Phone.NUMBER,et2.getText().toString());</span><br><span class="line">                <span class="comment">//设置电话类型</span></span><br><span class="line">                values.put(ContactsContract.CommonDataKinds.Phone.TYPE, ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE);</span><br><span class="line">                <span class="comment">//把联系人手机插入到通讯录中</span></span><br><span class="line">                getContentResolver().insert(ContactsContract.Data.CONTENT_URI,values);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        findViewById(R.id.button2).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//curor中保存着所有联系人的信息</span></span><br><span class="line">                Cursor cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,</span><br><span class="line">                        <span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//联系人列表集合</span></span><br><span class="line">                List&lt;PhoneDto&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">                <span class="keyword">while</span>(cursor.moveToNext())&#123;</span><br><span class="line">                    String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));</span><br><span class="line">                    String phone = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));</span><br><span class="line">                    list.add(<span class="keyword">new</span> PhoneDto(name,phone));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                ListView lv = findViewById(R.id.ListView);</span><br><span class="line">                MyAdapter adapter = <span class="keyword">new</span> MyAdapter(list,MainActivity.<span class="keyword">this</span>);  <span class="comment">//传递上下文</span></span><br><span class="line">                lv.setAdapter(adapter);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">androidx.constraintlayout.widget.ConstraintLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">&quot;.MainActivity&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=&quot;@+id/textView&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginStart=&quot;29dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;38dp&quot;</span><br><span class="line">        android:text=&quot;联系人姓名&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;EditText</span><br><span class="line">        android:id=&quot;@+id/et1&quot;</span><br><span class="line">        android:layout_width=&quot;140dp&quot;</span><br><span class="line">        android:layout_height=&quot;37dp&quot;</span><br><span class="line">        android:layout_marginStart=&quot;17dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;31dp&quot;</span><br><span class="line">        android:ems=&quot;10&quot;</span><br><span class="line">        android:inputType=&quot;textPersonName&quot;</span><br><span class="line">        app:layout_constraintStart_toEndOf=&quot;@+id/textView&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=&quot;@+id/textView2&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginStart=&quot;29dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;34dp&quot;</span><br><span class="line">        android:text=&quot;联系人手机&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/textView&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;EditText</span><br><span class="line">        android:id=&quot;@+id/et2&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginStart=&quot;16dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;7dp&quot;</span><br><span class="line">        android:ems=&quot;10&quot;</span><br><span class="line">        android:inputType=&quot;textPersonName&quot;</span><br><span class="line">        app:layout_constraintStart_toEndOf=&quot;@+id/textView2&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/et1&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/button&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginStart=&quot;80dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;36dp&quot;</span><br><span class="line">        android:text=&quot;新增联系人信息&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/et2&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/button2&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginStart=&quot;40dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;36dp&quot;</span><br><span class="line">        android:text=&quot;查询联系人&quot;</span><br><span class="line">        app:layout_constraintStart_toEndOf=&quot;@+id/button&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/et2&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;ListView</span><br><span class="line">        android:id=&quot;@+id/ListView&quot;</span><br><span class="line">        android:layout_width=&quot;409dp&quot;</span><br><span class="line">        android:layout_height=&quot;489dp&quot;</span><br><span class="line">        android:layout_marginStart=&quot;1dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;20dp&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/button&quot; /&gt;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">androidx.constraintlayout.widget.ConstraintLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/03/17/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/03/17/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">数据存储技术</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-17 09:35:18" itemprop="dateCreated datePublished" datetime="2021-03-17T09:35:18+08:00">2021-03-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="数据存储技术"><a href="#数据存储技术" class="headerlink" title="数据存储技术"></a>数据存储技术</h1><h2 id="选择题"><a href="#选择题" class="headerlink" title="选择题"></a>选择题</h2><h3 id="Module-1"><a href="#Module-1" class="headerlink" title="Module 1"></a>Module 1</h3><p><strong>以下哪一项是结构化数据的示例?</strong> </p>
+<p>A. 映像 B. PDF 文档 <strong>C. 数据库</strong> ** D. 网页</p>
+<p><strong>关于大数据，以下哪项是正确的?</strong></p>
+<p> A. 仅包括非结构化数据<br> B. 包括来自单个源的数据<br> C. 使用传统软件工具高效捕获<br> <strong>D. 数据大小超出传统软件的处理能力</strong> **</p>
+<p><strong>以下哪一项是以信息为中心的体系结构的功能?</strong> </p>
+<p> A. 内置于服务器之中的存储<br> B. 防止在服务器之间共享存储<br> C. 单个系统中包括服务器、网络和存储<br> <strong>D. 存储将得到集中管理且独立于服务器</strong> **</p>
+<p><strong>以下哪一项准确描述了虚拟化?</strong> </p>
+<p><strong>A. 提供按需计量服务</strong> **<br>B. 将物理资源抽象化为逻辑资源<br>C. 共用逻辑资源以提供数据完整性<br>D. 支持跨数据中心的分散式管理</p>
+<p><strong>以下哪项要求是指存储解决方案能够随业务一同增长?</strong></p>
+<p> A. 可用性<br> B. 可管理性<br> C. 完整性<br> <strong>D. 可扩展性</strong> **</p>
+<h3 id="Module-2"><a href="#Module-2" class="headerlink" title="Module 2"></a>Module 2</h3><p><strong>以下哪一项是计算虚拟化的好处?</strong></p>
+<p> A. 支持计算内存交换<br> <strong>B. 提高计算利用率</strong> **<br> C. 将计算内存与应用程序隔离<br> D. 将计算 OS 与应用程序隔离</p>
+<p><strong>哪一项是对虚拟机 (VM) 的最佳描述?</strong><br> A. 物理服务器上的所有虚拟机都必须运行同一 OS<br> B. 当虚拟机关闭时会删除虚拟机文件<br> <strong>C. 虚拟机是独立的文件组</strong> **<br> D. 所有虚拟机平等共享可用资源</p>
+<p><strong>什么是合并?</strong><br> <strong>A. 将多个物理驱动器分组到逻辑驱动器</strong> **<br> B. 将物理驱动器分为多个逻辑驱动器<br> C. 在逻辑驱动器上写入磁盘元数据的过程<br> D. 通过碎片整理向物理驱动器添加更多容量</p>
+<p><strong>哪些因素决定机械磁盘的总体服务时间?</strong></p>
+<p>A. 磁盘缓冲时间、全程和旋转延迟<br> B. 内部传输速度、外部传输速度和缓冲时间<br> C. 全程、平均寻道时间和道间寻道时间<br> <strong>D. 平均寻道时间、旋转延迟和数据传输速度</strong> **</p>
+<p><strong>哪一项是 DAS 环境的挑战?</strong><br>A. 性能低<br><strong>B. 可扩展性有限</strong> **<br>C. 部署复杂性<br> D. 最初投资过多</p>
+<p><strong>以下关于“文件级虚拟化”的描述中哪一项是正确的?</strong></p>
+<p><strong>A. 提供了跨文件服务器或 NAS 设备的不间断的文件移动</strong> **<br>B. 使用 CIFS 和 NFS 将文件的逻辑路径映射到他们的物理路径<br>C. 可以使用户使用物理路径，而不是逻辑路径，来访问文件<br>D. 增加了文件在跨文件服务器或 NAS 设备传输时的停机时间</p>
+<h3 id="Module-3"><a href="#Module-3" class="headerlink" title="Module 3"></a>Module 3</h3><p><strong>关于软件 RAID 实现，以下哪项描述是正确的?</strong><br> A. 操作系统升级不需要验证与 RAID 软件的兼容性<br> B. 其成本高于硬件 RAID 实现<br> C. 支持所有 RAID 级别<br> <strong>D. 使用主机 CPU 周期执行 RAID 计算</strong> **</p>
+<p><strong>一个应用程序生成 400 个小型随机 IOPS，读写比为 3:1。用于 RAID 5 的磁盘上 RAID 更正的 IOPS 是多少?</strong></p>
+<p> A. 400<br> B. 500<br> <strong>C. 700</strong> **<br> D. 900</p>
+<p>用于小型随机 I/O 的 RAID 6 配置中的写性能损失是多少?<br> A. 2<br> B. 3<br> C. 4<br> <strong>D. 6</strong> **</p>
+<p><strong>以下哪个应用程序可通过使用 RAID 3 获得最大效益?</strong></p>
+<p> <strong>A. 备份</strong> **<br> B. OLTP<br> C. 电子商务<br> D. 电子邮件</p>
+<p><strong>一个具有 64 KB 条块大小且包含五个磁盘的奇偶校验 RAID 5 集的条带大小是多少?</strong></p>
+<p> A. 64KB<br> B. 128 KB<br> <strong>C. 256 KB</strong> **<br> D. 320 KB</p>
+<h3 id="Module-4"><a href="#Module-4" class="headerlink" title="Module 4"></a>Module 4</h3><p><strong>智能存储系统的哪个组件可使主机从与旋转磁盘相关的机械延迟中解脱出来?</strong> </p>
+<p>A. 前端控制器<br>B. 后端控制器<br><strong>C. 缓存</strong> **<br>D. 存储网络</p>
+<p><strong>缓存达到其容量的 100% 时，会激活哪种刷新模式?</strong><br>A. 空闲<br>B. 高水位线<br><strong>C. 强制</strong> **<br>D. 低水位线</p>
+<p><strong>在传统存储资源调配中，哪个 LUN 扩展技术可改进性能?</strong><br> A. 合并 metaLUN<br> <strong>B. 分条 metaLUN</strong> **<br> C. 基础 LUN<br> D. 组件 LUN</p>
+<p><strong>哪个进程通过限制主机对特定 LUN 的访问来提供数据访问控制?</strong><br> <strong>A. LUN 掩蔽</strong> **<br> B. 分区<br> C. 主动变更<br> D. VSAN</p>
+<p><strong>哪个机制提供对“缓存中的未提交数据”的电源故障保护?</strong><br> A. 镜像<br> <strong>B. 保险存储</strong> **<br> C. 水位线<br> D. 分层</p>
+<h3 id="Module-5"><a href="#Module-5" class="headerlink" title="Module 5"></a>Module 5</h3><p><strong>哪种缆线可在远距离时提供最小的信号衰减?</strong><br> A. 双绞铜线<br> B. 同轴铜线<br> <strong>C. 单模光纤</strong> **<br> D. 多模光纤</p>
+<p><strong>什么是 FC SAN 中的 F_Port?</strong><br> A. 连接 E_Port 的交换机端口<br> <strong>B. 连接 N_Port 的交换机端口</strong> **<br> C. 连接 N_Port 的节点端口<br> D. 连接 E_Port 的节点端口</p>
+<p><strong>哪种类型的连接结构登录支持在 N_Port 之间交换与上层协议相关的参数?</strong><br>A. 连接结构登录<br>B. 端口登录<br><strong>C. 进程登录</strong> **<br>D. ULP 登录</p>
+<p><strong>FC SAN 中分区的优点有哪些?</strong><br>A. 分隔连接结构服务<br><strong>B. 限制 RSCN 通信</strong> **<br>C. 支持在线卷扩展<br>D. 提供无中断数据迁移</p>
+<p><strong>VSAN 的优点是什么?</strong></p>
+<p>A. 不再需要连接结构登录进程<br>B. 提供的网络带宽更高<br><strong>C. 通过分隔 VSAN 之间的通信提高安全性</strong> **<br>D. 使 VSAN 能够共享连接结构分区服务</p>
+<h3 id="Module-6"><a href="#Module-6" class="headerlink" title="Module 6"></a>Module 6</h3><p><strong>哪个 iSCSI 主机连接选项可从主机 CPU 分流 iSCSI 和 TCP/IP 处理的负载?</strong></p>
+<p>A. 具有 iSCSI 启动器软件的标准 NIC<br><strong>B. TOE NIC</strong> **<br>C. iSCSI HBA<br>D. CNA</p>
+<p><strong>哪种类型的 iSCSI 名称需要注册域名才能生成唯一 iSCSI 标识符?</strong><br> A. eui<br> <strong>B. iqn</strong> **<br> C. WWN<br> D. MAC</p>
+<p><strong>哪个协议可将 FC 帧封装到 IP 数据包?</strong><br> A. FCoE<br> B. iSCSI<br> <strong>C. FCIP</strong> **<br> D. CIFS</p>
+<p><strong>下面哪一项是基于优先级的流控制的特点?</strong><br> <strong>A. 虚拟链路可独立暂停</strong> **<br> B. 所有虚拟链路一起暂停<br> C. 实现基于带宽暂停虚拟链路<br> D. 实现基于优先级暂停单个物理链路</p>
+<p><strong>哪项功能允许将带宽分配给 FCoE 环境中的不同通信类别?</strong><br> A. 基于优先级的流控制<br> <strong>B. 增强传输选择</strong> **<br> C. 拥挤通知<br> D. 数据中心桥接交换</p>
+<h3 id="Module-7"><a href="#Module-7" class="headerlink" title="Module 7"></a>Module 7</h3><p><strong>NAS 机头的哪种组件会将文件级请求转换为数据块存储请求?</strong><br> A. 前端端口<br> <strong>B. 经过优化的操作系统</strong> **<br> C. CIFS 和 NFS<br> D. 网络接口卡</p>
+<p><strong>哪项是横向扩展 NAS 的功能?</strong><br> A. 将一般用途操作系统用于文件服务<br> B. 在群集中的每个节点上创建多个文件系统<br> C. 使用外部、单独进行管理的节点<br> <strong>D. 支持共用作为单个 NAS 设备工作的节点</strong> **</p>
+<p><strong>哪项是网关 NAS 的功能?</strong><br> A. 对每个 NAS 机头使用专用存储<br> <strong>B. NAS 机头和存储是单独进行管理的</strong> **<br> C. 创建在所有 NAS 机头上运行的单个文件系统<br> D. 提供 iSCSI 和 FC 主机连接</p>
+<p><strong>哪种 NAS 实施会整合对单个存储平台的基于文件和基于数据块的访问?</strong><br> A. 横向扩展<br> B. 网关<br> <strong>C. 统一</strong> **<br> D. 网关和横向扩展</p>
+<p><strong>哪一项是文件级虚拟化的优势?</strong><br> A. 使用户能够使用物理路径(而不是逻辑路径)访问文件<br> B. 无中断地将文件级请求转换为数据块存储请求<br> C. 整合对单个存储平台的基于 NAS 和基于 SAN 的访问<br> <strong>D. 消除了在文件级访问的数据与文件位置之间的相关性</strong> **</p>
+<h3 id="Module-8"><a href="#Module-8" class="headerlink" title="Module 8"></a>Module 8</h3><p><strong>单一地址空间较层次结构地址空间而言有何优势?</strong><br> <strong>A. 高度可扩展且对性能影响最小</strong> **<br> B. 根据保留策略提供对数据的访问<br> C. 使用同一接口提供对数据块、文件和对象的访问<br> D. 访问数据时使用的网络带宽更少</p>
+<p><strong>OSD 节点中的元数据服务有何作用?</strong><br> A. 负责以对象的形式存储数据<br> <strong>B. 存储为对象生成的唯一 ID</strong> **<br> C. 存储对象和对象 ID<br> D. 控制存储设备的功能</p>
+<p><strong>使用下面哪一项在 CAS 系统中生成对象 ID?</strong><br> A. 文件元数据<br> B. 源和目标地址<br> <strong>C. 数据的二进制表示形式</strong> **<br> D. 文件系统类型和所有权</p>
+<p><strong>下面哪一项准确描述了统一存储中的数据块 I/O 访问?</strong><br> A. I/O 穿过 NAS 机头和存储控制器到达磁盘<br> B. I/O 穿过 OSD 节点和存储控制器到达磁盘<br> <strong>C. I/O 穿过存储控制器到达磁盘</strong> **<br> D. I/O 会直接发送到磁盘</p>
+<p><strong>下面哪一项准确描述了统一存储?</strong><br> <strong>A. 在一个平台中提供数据块、文件和基于对象的访问</strong> **<br> B. 使用对象提供数据块和文件存储访问<br> C. 使用单一地址空间支持数据块和文件访问<br> D. 专门构建用于归档的专用存储设备</p>
+<h3 id="Module-9"><a href="#Module-9" class="headerlink" title="Module 9"></a>Module 9</h3><p><strong>如果应用程序的恢复点目标 (RPO) 为 2 小时，则以下哪项陈述正确?</strong><br> A. 应用程序继续运行所需的时间必须短于 2 小时<br> B. 应用程序继续运行所需的时间必须等于 2 小时<br> <strong>C. 不超过 2 小时的生产数据可能会丢失</strong> **<br> D. 两次应用程序故障之间的平均时间为 2 小时</p>
+<p><strong>以下哪项配置允许对两个或多个物理 NIC 进行分组并将它们视为一台逻辑设备?</strong><br> A. NIC 流<br> B. NIC 移植<br> <strong>C. NIC 分组</strong> **<br> D. NIC 分区</p>
+<p><strong>以下哪项最恰当地描述了恢复时间目标 (RTO)?</strong><br> A. 中断之后必须将数据恢复到的时间点<br> B. 两次故障之间系统或组件可执行其正常操作的时间<br> <strong>C. 一段时间，系统和应用程序在中断后必须在此期间恢复</strong> **<br> D. 企业可承担的数据丢失量</p>
+<p><strong>以下哪个表达式可从 MTBF 和 MTTR 方面表示系统的可用性?</strong></p>
+<p> A. MTTR/(MTBF x MTTR)</p>
+<p> B. MTBF/(MTBF x MTTR)</p>
+<p> C. MTTR/(MTBF + MTTR)</p>
+<p> <strong>D. MTBF/(MTTR + MTBF)</strong> **</p>
+<p><strong>某部门要求能够在周一至周五的每天上午 9 点至下午 5 点访问数据库应用程序。 上周四下午 1 点应用程序崩溃，花了 6 个小时才解决问题。应用程序在上周的可 用性是多少?</strong></p>
+<p> A. 85%<br> <strong>B. 90%</strong> **<br> C. 95%<br> D. 100%</p>
+<h3 id="Module-10"><a href="#Module-10" class="headerlink" title="Module 10"></a>Module 10</h3><p><strong>关于增量备份，以下哪项是正确的?</strong><br> A. 恢复只需上次完整备份和上次增量备份<br> B. 恢复只需上次增量备份<br> <strong>C. 复制自从上次完整备份或增量备份以来有更改的数据</strong> **<br> D. 复制自从上次完整备份以来有更改的数据</p>
+<p><strong>虚拟化环境中基于映像的备份与传统备份方法相比有何优势?</strong><br> <strong>A. 减轻虚拟机管理程序的备份处理负担</strong> **<br> B. 更快，因为它仅复制虚拟机磁盘数据<br> C. 更快，因为它仅复制虚拟机配置数据<br> D. 所需的空间是整个备份数据的一小部分</p>
+<p><strong>以下哪一项准确描述了备份服务器的角色?</strong><br> A. 收集要备份的数据并将其发送到存储节点<br> B. 负责将客户端发送的数据写入备份设备<br> <strong>C. 管理备份操作和维护备份目录</strong> **<br> D. 控制磁带库中的机械臂</p>
+<p><strong>在磁带备份环境中，“来回走带”是什么意思?</strong><br> A. 从多数据流将数据写入单一磁带<br> B. 模拟磁盘驱动器并作为磁带提供给备份软件的过程<br> <strong>C. 当备份数据流中断时磁带机进行的重复的往复移动</strong> **<br> D. 删除备份数据中冗余内容的过程</p>
+<p><strong>基于源的重复数据消除有何优势?</strong><br> A. 提高了备份客户端的性能<br> B. 提高了备份服务器的性能<br> C. 将备份时段减至零<br> <strong>D. 减少了备份的网络带宽需求</strong> **</p>
+<h3 id="Module-11"><a href="#Module-11" class="headerlink" title="Module 11"></a>Module 11</h3><p><strong>基于指针的虚拟复制有何优势?</strong><br> A. 源设备无需正常运行即可进行恢复<br> B. 无需保存位置即可激活会话<br> <strong>C. 创建复制副本所需的存储空间更少</strong> **<br> D. 复制不会对源产生性能影响</p>
+<p><strong>在基于主机的复制中，文件系统快照技术使用以下哪种方法?</strong></p>
+<p><strong>A. 首次写时复制(Copy on First Write)</strong> **<br>B. 首次读时复制(Copy on First Read)<br>C. 首次访问时复制(Copy on First Access)<br>D. 首次挂载时复制(Copy on First Mount)</p>
+<p><strong>有关基于指针的完整卷复制，以下哪一项是正确的?</strong><br> A. 目标大小是源的一小部分<br> <strong>B. 目标大小至少与源大小相同</strong> **<br> C. 仅在同步完成并从源上断开后才能进行访问目标<br> D. 目标始终只包含指向保存位置的指针</p>
+<p><strong>在连续数据保护技术中，以下哪项因素决定着恢复点可退回的时间范围?</strong><br> A. 为复制副本配置的空间量<br> B. 复制中使用的写操作拆分器的类型<br> <strong>C. 为日志配置的空间量</strong> **<br> D. 复制副本的更改率</p>
+<p><strong>在 CoFA 复制模式下，数据何时从源拷贝到目标?</strong><br> A. 首次从源上的位置发出读命令时<br> B. 首次向源上的位置发出读写命令时<br> <strong>C. 首次向目标上的位置发出读写命令时</strong> **<br> D. 向源上的位置发出所有写命令时</p>
+<p><strong>当虚拟机从其快照恢复时，来宾操作系统配置会发生什么情况?</strong><br> <strong>A. 来宾操作系统配置会恢复到快照创建 PIT</strong> **<br> B. 会保留当前来宾操作系统配置<br> C. 来宾操作系统配置将复制到新的虚拟机中<br> D. 来宾操作系统设置会丢失且需要手动配置</p>
+<h3 id="Module-12"><a href="#Module-12" class="headerlink" title="Module 12"></a>Module 12</h3><p><strong>哪个因素会影响同步远程复制解决方案中的写入响应时间?</strong><br>A. 源阵列上的 LUN 数<br>B. 远程阵列上的 LUN 数<br><strong>C. 源和远程站点之间的距离</strong> **<br>D. 远程阵列上配置的 RAID 级别</p>
+<p><strong>下面哪一项准确描述了异步远程复制?</strong><br> A. 在发生灾难时提供接近零的 RPO<br> B. 不适合超出 200 千米的距离<br> C. 向主机确认前，写入会提交到源和复制副本<br> <strong>D. 写入提交到源，并立即向主机确认</strong> **</p>
+<p><strong>下面哪一项决定异步远程复制中的 RPO?</strong><br> A. 应用装置响应时间<br> B. 平均读取工作负载<br> <strong>C. 缓冲区的大小</strong> **<br> D. 远程阵列上的 LUN 数</p>
+<p><strong>在级联/多级跳(同步 + 磁盘缓冲)三站点复制中，至少需要多少个存储卷?</strong><br> A. 2<br> B. 3<br> <strong>C. 4</strong> **<br> D. 5</p>
+<p><strong>有关虚拟机管理程序到虚拟机管理程序虚拟机迁移的描述，哪一项是正确的?</strong> </p>
+<p> A. 将虚拟机文件从源阵列移动到远程阵列<br> B. 支持在不同的存储阵列中移动虚拟机<br> <strong>C. 需要源和目标虚拟机管理程序访问同一存储</strong> **<br> D. 在迁移过程中需要虚拟机脱机</p>
+<h3 id="Module-13"><a href="#Module-13" class="headerlink" title="Module 13"></a>Module 13</h3><p><strong>哪项功能是由云计算提供的?</strong><br> <strong>A. 单向资源调配</strong> **<br> B. 与服务提供商进行人工互动<br> C. 增加产品上市时间<br> D. 供应商锁定</p>
+<p><strong>根据 NIST，什么是云的本质特征?</strong><br> A. 开放 API<br> B. 基于策略的监控<br> <strong>C. 可计量的服务</strong> **<br>D. 软件即服务</p>
+<p><strong>基础架构即服务中提供哪些内容?</strong><br> A. 数据库管理系统<br> B. 操作系统<br> C. 应用程序<br> <strong>D. 存储</strong> **</p>
+<p><strong>哪一项是云中的虚拟基础架构的组件?</strong><br> A. 管理软件<br> B. 存储阵列<br> <strong>C. 网络标识池</strong> **<br> D. 服务目录</p>
+<p><strong>针对云优化的存储的特征是什么?</strong><br> A. 以服务器为中心<br> B. 位置相关<br> <strong>C. 安全的多重租用</strong> **<br> D. 单一访问机制</p>
+<h3 id="Module-14"><a href="#Module-14" class="headerlink" title="Module 14"></a>Module 14</h3><p><strong>哪种攻击涉及执行操作和消除可证明攻击者身份的证据?</strong><br> A. 拒绝服务<br> B. 窃听<br> <strong>C. 否认攻击</strong> **<br> D. 嗅探</p>
+<p><strong>在 Kerberos 身份验证中，Active Directory 的角色是什么?</strong><br> A. 实施身份验证服务和票证授予服务<br> B. 在建立客户端-服务器会话时验证会话 ID<br> <strong>C. 验证用户的登录信息</strong> **<br> D. 维护服务器的安全密钥</p>
+<p><strong>如何减少 IT 环境中的漏洞?</strong></p>
+<p> A. 尽可能扩大攻击面和减小攻击难度<br> <strong>B. 尽可能缩小攻击面和加大攻击难度</strong> **<br> C. 尽可能扩大攻击面和攻击难度<br> D. 尽可能缩小攻击面和攻击难度</p>
+<p><strong>哪种 SAN 安全机制可阻止启用交换机端口，即使在交换机重新启动后也一样?</strong><br> A. 端口锁定<br> <strong>B. 永久禁用端口</strong> **<br> C. 端口绑定<br> D. 端口分区</p>
+<p><strong>哪种安全机制可确保只能初始化特定端口类型的端口?</strong><br> <strong>A. 端口锁定</strong> **<br> B. 永久禁用端口<br> C. 端口绑定<br> D. 端口分区</p>
+<h3 id="Module-15"><a href="#Module-15" class="headerlink" title="Module 15"></a>Module 15</h3><p><strong>如果磁盘驱动器上的软介质错误接近其预定义的阈值，会生成哪种类型的警报?</strong><br> A. 致命性警报<br> <strong>B. 警告性警报</strong> **<br> C. 信息性警报<br> D. 水位线警报</p>
+<p><strong>按存储容量使用计费报告的目的是什么?</strong><br> A. 报告管理基础架构的投资<br> B. 报告退出使用基础架构组件的成本<br> <strong>C. 报告各个用户使用基础架构组件的情况</strong> **<br> D. 报告 SLA 违规的费用</p>
+<p><strong>哪个监视参数可帮助确保足够量的资源可用并防止出现服务不可用?</strong><br> A. 可用性<br> <strong>B. 容量</strong> **<br> C. 性能<br> D. 安全</p>
+<p><strong>多重租用的哪个重要方面可确保多重租用存储环境中的服务级别一致且可靠?</strong><br> A. 安全分隔<br> <strong>B. 服务保证</strong> **<br> C. 服务可用性<br> D. 存储分层</p>
+<p><strong>以下哪项描述最符合 SMI 规范?</strong><br> A. 限制供应商构建管理存储子系统的新功能<br> <strong>B. 不需要开发供应商专用的管理接口</strong> **<br> C. 防止多供应商资源之间的互操作性<br> D. 支持部署 ILM 支持的基础架构</p>
+<p><strong>Review Point:</strong></p>
+<p><strong>下图中, 属于硬件分区的是?</strong></p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-03-16%20%E4%B8%8B%E5%8D%885.36.27.png" alt="截屏2021-03-16 下午5.36.27"></p>
+<p> <strong>A. Zone 2</strong> **<br> B. Zone 1 and 3<br> C. Zone 3<br> D. Zone 1</p>
+<p>EMC 在多个类型的存储系统提供多个产品,<br>高端存储阵列有基于块存储的: <strong>Symmetrix(VMAX)</strong>;<br>中端存储阵列/统一存储阵列有: <strong>VNX</strong>;<br>面向对象存储有: <strong>Atoms</strong>;<br>横向扩展 NAS 有: <strong>isilon</strong>;<br>并提供跨数据中心/异地数据中心的虚机迁移产品: <strong>VPlex</strong>;<br>在备份消重技术上，有基于源端消重的 <strong>Avamar</strong>,和基于目标端消重的 <strong>Data Domain</strong>;<br>而在安全设备上，有 RSA 的 <strong>SecureID</strong> 作为双因素验证的手段;<br>存储资源管理上，有 <strong>ControlCenter</strong> 对多厂商设备进行统一管理。</p>
+<h2 id="简答题"><a href="#简答题" class="headerlink" title="简答题"></a>简答题</h2><h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><p>问题：<strong>数据中心基础架构的关键特征。计算中心部署的软硬件资源及分类。数据中心的核心元素。</strong></p>
+<p><strong>数据中心基础架构的关键特征（1.3.2）</strong></p>
+<ul>
+<li><strong>可用性</strong>:有需求时，一个数据中心必须保证数据的可用性。对于 金融服务业、通信和电子商务领域的业务来说，数据无法访问可以造 成每小时上百万美元的损失。</li>
+<li><strong>安全性</strong>:数据中心应建立完整的安全策略和流程，加强各部件的 整合，防止对信息的非授权访问。</li>
+<li><strong>可扩展性</strong>:业务的增长通常需要部署更多的服务器、新的应用和 额外的数据库。数据中心资源应实现按需扩展，扩展应不影响正常的 业务运营。</li>
+<li><strong>性能</strong>:数据中心的部件应能根据服务等级提供最佳的性能。</li>
+<li><strong>数据完整性</strong>:数据完整性对应的是一种机制，比如纠错码或奇偶 校验位，以保证数据在存取和接收时保持一致。</li>
+<li><strong>容量</strong>:数据中心的运行需要足够的资源来高效地存储和处理海量 数据。当容量需求增加时，数据中心必须在不影响可用性，或者仅对 其产生很小影响的前提下实现扩容。容量管理可以是对现有资源的重 新分配，而不仅仅是添加新的资源。</li>
+<li><strong>可管理性</strong>:数据中心对于部件的管理应该尽量简单和统一。可管理性可以通过对常规任务进行自动化或减少人工介入来实现。</li>
+</ul>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-03-10%20%E4%B8%8B%E5%8D%8811.10.12.png" alt="截屏2021-03-10 下午11.10.12"></p>
+<p><strong>计算中心部署的软硬件资源及分类1.3</strong></p>
+<p>数据中心基础设施包括硬件组件和软件组件。硬件组件包括计算机、存储系统、网络设备和后备电源等。软件组件包括应用、操作系统和管理软件等。此外，空调、灭火和通风装置等环境控制设备也是基础设施的组成部分。</p>
+<p><strong>数据中心的核心元素（1.3.1）</strong></p>
+<p>一个数据中心要实现基本功能，必须要有5个核心部件。</p>
+<ul>
+<li><strong>应用</strong>:提供计算操作逻辑的计算机程序。</li>
+<li><strong>数据库管理系统(DBMS)</strong>:提供了一种结构化方式，把数据存储成具有关联关系的逻辑表。</li>
+<li><strong>主机或计算</strong>:指运行应用和数据库的计算平台(包含硬件、固件 和软件)。</li>
+<li><strong>网络</strong>:联网设备之间通信的数据通路。</li>
+<li><strong>存储</strong>:持续存储数据以供后续使用的设备。 </li>
+</ul>
+<p>通常这些核心部件都被视为独立的管理单元，但是只有所有这些部件一起工作才能达到数据处理的要求。</p>
+<h3 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h3><p>问题：<strong>什么是磁盘的分区及合并技术以及如何实现分区。2.3.3</strong></p>
+<p><strong>什么是磁盘的分区</strong></p>
+<p>早期，硬盘驱动器(HDD)呈现给操作系统的是一组连续的物理 块。整个硬盘驱动器都分配给文件系统或是其他数据体，由操作系统 或应用程序使用。这样做的缺点是缺乏灵活性:当一个硬盘驱动器的 空间使用完时，想要扩展文件系统的大小就很难。而当硬盘驱动器存 储容量增加时，把整个硬盘驱动器分配给文件系统通常会导致存储空 间不能充分利用。</p>
+<p>逻辑卷管理器(Logical Volume Manager，LVM)的发展使得文件 系统容量的动态扩展以及高效的存储管理成为可能。LVM 是一个运行 在物理机器上管理逻辑和物理存储设备的软件。LVM也是一个介于文 件系统和物理磁盘之间的中间层。它可以把一个大容量物理磁盘划分 为若干小的虚拟磁盘，也可以把几个小的物理磁盘组合成一个大的虚 拟磁盘(这个过程叫做串联concatenation)，提供给应用程序使用。</p>
+<p>磁盘分区(disk partitioning)的引入就是为了改善硬盘驱动器的灵 活性和使用率。在分区时，硬盘驱动器被划分为几个逻辑卷(logical volume，LV)，如图 2-1 所示。例如，一个大的物理磁盘，可以根据 文件系统和应用程序的数据管理要求，划分为若干小的逻辑卷。当硬 盘在主机上进行初始分区时，是将一组连续的柱面分配给一个分区。 主机的文件系统在访问分区时，完全不需要知道磁盘的物理结构和分区信息。</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-03-15%20%E4%B8%8B%E5%8D%8811.54.05.png" alt="截屏2021-03-15 下午11.54.05"></p>
+<p>串联(concatenation)把若干小的物理磁盘组合起来，呈现给主机</p>
+<p>一个较大的逻辑盘(见图2-1)。 LVM提供了优化的存储访问，简化了存储资源的管理。它隐藏了</p>
+<p>物理磁盘的细节和数据在磁盘上的位置。管理员改变存储的分配时无需停止正在运行的应用。</p>
+<p>LVM的基本部件是物理卷(physical volume)、卷组(volume group)和逻辑卷(logical volume)。在LVM术语中，每一个连接到主 机系统的物理磁盘都是一个物理卷(PV)。LVM把由物理卷提供的物 理存储空间转换为逻辑存储空间，供操作系统和应用程序使用。一个 卷组由一个或多个物理卷组合而成。对一个物理卷进行初始化时， LVM会为其分配一个唯一的物理卷标识(PVID)。卷组中的物理卷可 以动态添加或移除。一个物理卷只能属于一个卷组，它的全部空间都 并入卷组，不能被其他卷组共享。在卷组创建时，每一个物理卷都被</p>
+<p>划分为若干个相同大小的数据块，这些数据块称为物理区域(physical extent)。</p>
+<p>  逻辑卷是在给定的卷组中创建的。一个逻辑卷可以被认为是一个虚拟磁盘分区，而卷组则可以被认为是一个磁盘。一个卷组可以划分为许多逻辑卷。逻辑卷的大小取决于其包含的物理区域的数目。</p>
+<p>  对操作系统来说，逻辑卷就像是一个物理设备。一个逻辑卷可以由不连续的物理分区组成，并可以跨越多个物理卷。在逻辑卷上创建文件系统后，就可以将逻辑卷分配给应用了。可以为逻辑卷配置镜像，以确保更好的数据可用性。</p>
+<h3 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h3><p>问题：<strong>RAID 技术。每种 RAID 类型的工作原理及 I/O 损失。</strong></p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-03-12%20%E4%B8%8B%E5%8D%885.33.32.png" alt="截屏2021-03-12 下午5.33.32"></p>
+<p><strong>RAID0(条带化磁盘阵列)（写代价0）</strong></p>
+<p>在RAID 0 中，数据是分条存储在RAID 集的各个硬盘上的，因此 利用了全部的存储空间。读取数据时，控制器会将各条带数据重新组 合起来。图 3-5 是一个包含5 块磁盘的RAID 0 存储阵列。随着阵列中 磁盘数目的增加，它便能够并发地读写更多的数据，因而性能也随之 提高。RAID 0特别适用于那些对I/O带宽需求很大的应用程序。然而， 如果这些应用同时要求高可用性，RAID 0就无法提供数据保护功能及 应对磁盘故障的高可用性。</p>
+<p><strong>RAID1（写代价2）</strong></p>
+<p>RAID 1 基于镜像技术，通过数据镜像来提供容错性(如图3-6所 示)。一个RAID 1 组至少由两块硬盘构成。如前所述，每个写操作都是同时写在两块磁盘上。镜像对主机是完全透明的。发生磁盘故障 时，RAID 1的数据恢复代价是所有RAID级别中最小的。这是因为 RAID控制器将利用镜像磁盘中的数据进行数据恢复。RAID 1适用于那 些对高可用性有需求且没有成本限制的应用。</p>
+<p><strong>嵌套RAID(RAID1+0或RAID10)</strong></p>
+<p>许多数据中心对RAID阵列的数据冗余和性能都有需求。RAID 1+0 和RAID0+1集成了RAID 0 的性能优势和RAID 1 的冗余特征，将镜像 和分带的优点组合起来。这类RAID需要由偶数数量的磁盘构建，且至 少需要4块磁盘(如图3-7所示)。</p>
+<p>RAID 1+0也被称为RAID 10或RAID 1/0。类似的，RAID 0+1也被 称为RAID 01或RAID 0/1。RAID 1+0 适用于写密集、随机访问、数据 量小的I/O负载，如以下这些应用:</p>
+<ul>
+<li>高事务率的在线事务处理(Online Transaction Processing， OLTP)。</li>
+<li>大型消息服务。</li>
+<li>负载多为写密集和随机访问的数据库应用。 人们常常误认为RAID 1+0和RAID 0+1是相同的。在正常情况下，</li>
+</ul>
+<p>RAID 1+0和RAID 0+1的特征确实很相似。但对于磁盘损坏时的数据重构，它们二者却存在差异。</p>
+<p>RAID 1+0 通常被称做“分条的镜像”(Striped Mirror):RAID 1+0 的基本构成是镜像对。也就是说，数据是首先被镜像，然后再将两个 副本分别分条存储在RAID集的多个硬盘上。当替换故障磁盘时，我们 只需重建镜像。换句话说，阵列控制器利用镜像组中的幸存磁盘来完 成数据恢复，并继续提供服务。幸存磁盘中的数据将被复制到新替换 的磁盘上。</p>
+<p><strong>RAID 3</strong></p>
+<p>RAID 3 通过存储分带提供高性能，并利用奇偶校验提升容错性。 它将奇偶校验信息存储在一个专用的磁盘上，因此，如果有RAID阵列 中有一个磁盘损坏，数据是可以被重新构造的。例如， 5块磁盘中的4块将用于存储数据，而另外一块存储校验和。因此，总的磁盘开销将是数据磁盘的1.25 倍。在RAID 3 中，数据总是以整个分条为单位对所 有磁盘并行读写的，不存在只更新同一分条中某些条带的部分写操作。</p>
+<p><strong>RAID 4</strong></p>
+<p>与RAID 3 类似，RAID 4 也通过存储分条提供高性能，并利用奇 偶校验提升容错性。数据被分带存储在除了校验磁盘以外的其他磁盘 上。奇偶校验信息存储在一个专用的磁盘上，以备磁盘损坏时重构数 据。与RAID 3 不同的是，RAID 4 的数据磁盘支持独立访问。因此某 个数据单元可以从单块磁盘中读写，而无需访问整个分条。RAID 4 提 供了很好的读吞吐率和可接受的(reasonable)写吞吐率。</p>
+<p><strong>RAID 5（写代价4）</strong></p>
+<p>RAID 5 是一种适用性很强的 RAID 实现，与 RAID 4 类似的地方 在于它也采用了分条技术，磁盘(条带)可独立访问。二者的不同点 在于它们存储校验值的位置。由于 RAID 4 将校验值存储在一个专用的 磁盘上，这就使校验磁盘成为写性能瓶颈。在 RAID 5 中，校验值是分 布存储在所有磁盘上的，这种方法克服了校验值写性能瓶颈的缺陷。</p>
+<p>RAID 5 适用于较多随机读写及写密集型的应用，在消息系统、数据挖掘、中等性能的媒体服务器，以及数据库管理员(DBA)优化数 据访问所用的关系数据库管理系统(RDBMS)中得到了广泛应用。</p>
+<p><strong>RAID 6（写代价6）</strong></p>
+<p>RAID 6 的工作模式和RAID 5 基本相同。但它引入了第二个校验 元素以应对RAID 组中的两块磁盘同时失效的情况(如图3-10 所示)。 因此，RAID 6 至少需要4 块磁盘。RAID 6 也将校验值分布在所有磁盘 上。由于RAID 6 的写代价要比RAID 5 大，因此RAID 5 的写性能要比 RAID 6好。此外，由于RAID 6 有两个校验集，因此它的重建操作要比 RAID 5更耗时。</p>
+<p><strong>区别</strong></p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/Image00041.jpg" alt="Image00041"></p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/Image00042.jpg" alt="Image00042"></p>
+<p><strong>IO负载的计算</strong></p>
+<p><strong>读的频率*IO吞吐量+写代价*（写频率*IO吞吐量）</strong></p>
+<p><strong>写代价</strong></p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-03-16%20%E4%B8%8B%E5%8D%881.26.50.png" alt="截屏2021-03-16 下午1.26.50"></p>
+<h3 id="问题4"><a href="#问题4" class="headerlink" title="问题4"></a>问题4</h3><p>问题：<strong>智能存储系统中缓存技术的优势及直写缓存和回写缓存的执行方式。虚拟资源调配技术及其工作原理。</strong></p>
+<p><strong>缓存技术的优势4.2.1</strong></p>
+<p>缓存是半导体存储器，为了减少完成主机I/O请求所需的时间，数据被暂存在缓存中。</p>
+<p>物理磁盘是智能存储系统中最慢的组件，缓存可以将主机与磁盘 的机械延迟隔离开，以此来提升系统的性能。因为寻道时间与旋转延 迟，从物理磁盘中访问数据通常需要几毫秒。而从缓存访问数据只需 要不到 1 ms。在智能阵列中，写入的数据先被存入缓存随后才会被写 入到磁盘中。</p>
+<p><strong>直写缓存(透写)</strong></p>
+<p>数据被存入缓存并立即写到磁盘中，然后响应被送到主机。因为数据在收到时就被写入到磁盘，数据丢失的危险性很小，但是因为需要磁盘操作，写响应时间会比较长。</p>
+<p><strong>回写缓存</strong></p>
+<p>数据被存入缓存，主机立刻得到响应。一段时间后，多个写操作的数据被一起提交到磁盘。写响应时间加快，因为写操作和磁盘的机械延迟被分开了。然而，如果缓存遇到故障，未被提交的数据有丢失的风险。</p>
+<p><strong>虚拟资源调配技术及其工作原理4.2.2</strong></p>
+<p>虚拟式存储配给(virtual provisioning)，指的是让一个LUN 的容 量大于它的物理容量的技术。使用该技术创建的LUN叫做精简(thin) LUN，以与传统LUN区分。</p>
+<p>在创建精简 LUN 并将它呈现给主机时并不需要将物理空间都分配 给它。物理存储是按需从一个物理存储共享池中分配给主机的。共享 池由若干物理磁盘组成，与RAID组类似，共享池支持单个RAID级 别。RAID组也是由若干磁盘组成，并且也可以创建LUN。共享池与 RAID组的不同在于，共享池可以包含大量的磁盘。磁盘可以是同质的 (磁盘类型相同)，也可以是异质的(多种磁盘类型混用，如闪存 盘、光纤盘、SAS盘和SATA盘)。</p>
+<p>精简配给能实现主机更高效的存储分配。精简配给的一个特点是超额订阅(oversubscription),即呈现给主机的容量大于存储阵列的可 用容量。随着主机的存储需求增长，共享池和精简 LUN都可以进行不 中断扩容。一个存储阵列中可有多个共享池，一个共享池可以被多个精简 LUN 共享</p>
+<p><strong>自动精简配给与传统配给的比较</strong></p>
+<p>管理员一般是基于预期的存储需求来分配容量的。这很容易导致 容量的过度配给，从而提高成本，降低利用率。超额配给的原因有避 免因为LUN容量耗尽而频繁配给，以及减少对应用程序可用性的破 坏。存储的过度配给会带来额外的采购开支和运营成本。</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/Image00050.jpg" alt="Image00050"></p>
+<p>而精简配给解决了这些问题。采用精简配给可以提高存储容量的 利用率，简化存储的管理。图4-9将精简配给与传统配给做了比较。</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/Image00051.jpg" alt="Image00051"></p>
+<p>使用传统配给方法创建了3个LUN并提供给一个或多个主机使用，如图4-9（a）所示。存储系统的总容量为2 TB。LUN 1 的容量为500 GB，其中100 GB 已用，剩下的400 GB 未用。LUN 2 的容量为550 GB，其中50 GB已用，500 GB 未用。LUN 3的容量为800 GB，其中200 GB已用，600 GB未用。该存储系统总计有350 GB 的数据，1.5 TB的空间已分配但未使用。只有150 GB剩余空间可以提供给其他应用。<br>现在来看容量同样是 2 TB 的使用精简配给（精简卷）的存储系统，如图 4-9（b）所示。这个存储系统中创建了 3 个容量相同的精简 LUN。整个系统不存在已分配但未用的容量。同样是350 GB 的精简配给的系统剩余可用容量达1.65 TB，而传统式配给的系统的剩余可用容量只有150 GB。</p>
+<p><strong>传统LUN和精简 LUN的使用案例</strong></p>
+<p>虽然在某些场合传统LUN更适合应用的需求，多数情况下精简配 给和精简 LUN更有优势。精简 LUN 适合那些能容忍性能波动的应用， 这得益于对共享池中大量磁盘的分条处理，使用精简 LUN 后性能有可 能提升。然而，当多个精简LUN争夺同一池中的共享存储资源时，以 及当利用率较高时，性能会下降。使用精简 LUN 能提升存储空间的效 率，适合那些空间消耗难以预测的应用。使用精间LUN能帮助企业降 低能耗和采购成本，简化存储管理。</p>
+<p>传统LUN则适合那些要求性能可控的应用。在传统LUN中，可以 对数据的存储位置精确控制。当发生负载竞争时，可在不同RAID组上 创建LUN。不太关心存储空间效率的商业组织依然可以使用传统 LUN。</p>
+<p>传统LUN 和精简 LUN可在同一存储阵列中共存。管理员可根据需 求在两者之间迁移数据。</p>
+<h3 id="问题5"><a href="#问题5" class="headerlink" title="问题5"></a>问题5</h3><p><strong>问题：</strong>在 FCSAN 技术的连接拓扑及互联方式和优缺点，分区的功能及类型。</p>
+<p><strong>点对点</strong></p>
+<p>点对点是最简单的 FC 配置方案——两个设备直接相连，如图 5-6 所 示。这种方案为每对节点间的数据传输提供专用的连接。但是，点对 点配置方案只能提供有限的互连能力，在同一时间只能两个设备间相 互通信。而且，它不能容纳大量的网络设备。标准的DAS就使用点对 点连接。</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/Image00061.jpg" alt="Image00061"></p>
+<p><strong>仲裁环</strong></p>
+<p>在 FC-AL 的配置里，设备连接到一个共享的环路。FC-AL 拥有令牌 环拓扑和星型物理拓扑的特性。在FC-AL里，每个设备都与其它设备 争用信道以进行I/O操作。在环上的设备必须被仲裁才能获得环的控制 权。在某个给定的时间点，只有一个设备可以在环路上进行 I/O 操作 (见图5-7)。</p>
+<p>作为一个环路配置方案，FC-AL可以抛开任何互连设备来实现，设备 与设备通过线缆直接相连，构成环状结构即可。</p>
+<p>但是，FC-AL实现也有可能使用集线器，尤其是在仲裁环的物理连接 采用星型拓扑的时候。</p>
+<p>FC-AL配置方案在扩展性上有以下局限:</p>
+<ul>
+<li>FC-AL 在环内共享环路。一个时刻只能有一个设备进行 I/O 操作。 因为每个环路上的设备都必须排队等待I/O请求的处理，所以在FC-AL 拓扑里数据传输的速率会变得很低。</li>
+<li>FC-AL只使用24 位FC 寻址地址中的8 位(剩下的16位都被屏蔽)， 最多为端口分配127个地址。因此，在同一个环上，最多只支持127个 设备。其中一个地址会预留给连接FC交换机端口。这样最多只有126 个节点连接到环上。</li>
+<li>增加和移除设备都会导致环的重新初始化，这可能导致环流量的瞬 间中断。</li>
+</ul>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/Image00062.jpg" alt="Image00062"></p>
+<p><strong>光纤通道交换fabric</strong></p>
+<p>与环配置方案不同，光纤通道交换 fabric(FC-SW)提供专用数据通 路，具有可扩展性。在一个交换网里增加或移除设备极少引起网络服 务中断，它不会影响其它节点正在传输的数据流量。</p>
+<p>FC-SW也被称作fabric连接。一个fabric是一个逻辑空间，所有节点都 可以在其中互相通信。这个虚拟空间可以通过一个交换机或一个交换 机网络来构建。每个在fabric中的交换机包含一个唯一的域标识符，同 时也是fabric寻址机制的一部分。在FC-SW中，节点并不共享一个环 路;相反，数据是通过一个专用的路径在节点间进行传输。每个fabric 上的端口都有一个唯一的24比特的光纤信道地址用于通信。图5-8展示 了FC-SW的一个例子。</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/Image00063.jpg" alt="Image00063"></p>
+<p>在交换fabric中，任意两个交换机之间的链路叫做交换机间链路 (interswitch link, ISL)。通过ISL，交换机可以互联组成一个更大的 fabric。ISL用于在交换机之间传输主机给存储的数据和fabric管理流 量。利用ISL，一个交换fabric可以扩展，实现大量节点的互联。</p>
+<p>一个fabric可以用其包含的层数目来描述。一个fabric的层的数量取决 于相距最远的两个节点所穿越的交换机的数量。但是，注意这个数字 完全由fabric决定，与存储器和服务器如何通过交换机连接没有关系。</p>
+<p>当fabric的层数增加时，fabric管理信息到达每个交换机所必须穿越的 距离也会增大。距离上的增大会造成fabric重设置事件(例如新交换机 加入，或一个区域设置传播事件)传播和完成的时间增大。图5-9分别 展示的是两层和三层的fabric结构。</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/Image00064.jpg" alt="Image00064"></p>
+<h3 id="问题6"><a href="#问题6" class="headerlink" title="问题6"></a>问题6</h3><p><strong>问题：</strong>聚合增强以太网 (CEE)的工作原理及消除以太网的有损耗的方式（6.3.4）。</p>
+<p>传统的以太网本质上是有损失的，即在传输过程中可能有帧丢弃或帧 丢失的情况发生。聚合增强型以太网(CEE)，又称无损以太网，为 现有的以太网标准提供了新的实现规格，消除了以太网的有损属性。 10 Gb 以太网成为与FC类似、可行的存储网络方案。无损以太网需要 特定的功能作为前提。这些功能由隶属IEEE 802.1 工作组的数据中心 桥接(data center bridging)工作组定义和维护。它们是:</p>
+<ul>
+<li>基于优先级的流量控制(PFC)</li>
+<li> 优化的传输选择(enhanced transmission selection) </li>
+<li> 拥塞通知功能</li>
+<li>数据中心桥接交换协议</li>
+</ul>
+<p><strong>基于优先级的流量控制(PFC)</strong></p>
+<p>传统的 FC 使用链路级的基于信用的流量控制来管理拥塞，确保没有 帧丢失。常规的以太网与 TCP/IP 使用一种弃包的流量控制机制。弃 包流量控制是有损失的，这个问题通过使用 IEEE 802.3x以太网暂停 控制帧得以解决，从而得到了无损以太网。接收端在队列填满时会向 发送方提出暂停申请。在收到暂停帧后，发送方停止帧传输，确保不 会丢失帧。使用以太网暂停帧的弊端在于它在整个链路上操作，链路上可能同时有多个流量流在传输。</p>
+<p>PFC提供了链路级的流量控制机制。它在一条物理链路上创建了8条独 立的虚拟链路，可单独控制任何一条链路暂停或重启。PFC的暂停机 制是基于用户的优先级或者服务类别，在这一机制基础上可创建流量 (如FCoE流量)无损链路。暂停机制用于FCoE，常规的TCP/IP流量 依然使用弃包(弃帧)机制。图6-18显示的是1个物理链路被分为8个 虚拟链路，在暂停其中一个链路时不会影响其他链路的流量。</p>
+<p><strong>增强传输选择(Enhanced Transmission Selection，ETS)</strong></p>
+<p>增强传输选择提供了一个通用的管理框架，可将带宽分配给不同的流 量类，如 LAN、SAN和进程间通信(IPC)。当某一个流量类不能用 完分配带宽时，ETS会让其他类使用可用的带宽。</p>
+<p><strong>拥塞通告(Congestion Notification，CN)</strong></p>
+<p>拥塞通告为自身不具备拥塞控制机制的协议(如 FCoE)提供了端到 端的拥塞管理。链路级拥塞通告提供了一个机制，用来探测拥塞并通 知源头尽量不使用拥塞的链路。链路级拥塞通告能让交换机发送信号 给其他端口，使其停止传输或降速传输。图6-19显示的是在节点 A(发送方)和节点 B(接收方)之间的通信过程中的拥塞通告过程 及其管理。如果拥塞发生在接收端，交换机上的相应算法会向发送节 点(节点A)生成一个拥塞通告信息。发送方收到信息后，会限制数据的传输速率。</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/Image00101.jpg" alt="Image00101"></p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/Image00102.jpg" alt="Image00102"></p>
+<p><strong>数据中心桥接交换协议（DCBX）</strong></p>
+<p>DCBX 协议是一个发现和能力交换协议，帮助聚合增强型以太网 (CEE)设备针对同一网络内的其他CEE设备呈现和配置能力参数。 DCBX用于交换机和适配器之间的能力协商。它允许交换机将配置参 数发送给所有连接的适配器，这有助于保证整个网络的配置一致。</p>
+<h3 id="问题7"><a href="#问题7" class="headerlink" title="问题7"></a>问题7</h3><p><strong>问题：</strong>文件共享的几种方式及实施过程7.3.2。</p>
+<p>文件共享是指在网络上进行文件存储和访问。在一个文件共享环境中，创建文件的用户(文件创建者或文件所有者)决定了其他用户可使用的操作类型(读、写、执行、附加和删除等)，并且控制着对文件的修改。当多个用户尝试同时访问一个共享文件时，就需要一个保护机制来维护数据的完整性，使得这种共享是可行的。</p>
+<p><strong>文件传输协议</strong></p>
+<p>文件传输协议(File Transfer Protocol，FTP)、分布式文件系统和使 用文件共享协议(如NFS、CIFS以及P2P)的客户/服务器模型，都是 文件共享环境的一些具体的实现例子。</p>
+<p>FTP是一个通过网络来传输数据的客户/服务器协议。一个FTP服务器 和一个FTP客户端使用TCP作为传输协议来进行相互间的通信。 FTP(就像标准中定义的那样)并不是一个安全的数据传输方法，因 为它在网络上使用未加密的数据传输方式。基于Secure Shell(SSH) 的FTP则给原来的FTP协议增加了安全性。基于SSH的FTP又被称为安 全FTP(SFTP)。</p>
+<p><strong>分布式文件系统</strong></p>
+<p>分布式文件系统(Distributed File System，DFS)是一个分布于不同主 机上的文件系统。DFS 提供了主机直接访问整个文件系统的能力，同 时保证了管理的高效性和数据的安全性。标准的客户/服务器文件共享 协议，比如 NFS 和 CIFS，让文件所有者可为某一特定用户或用户组 设置访问权限(如只读或可读写)。使用这种协议，客户端可挂载专 用文件服务器上的远程文件系统。</p>
+<p><strong>名称服务</strong></p>
+<p>名称服务(如域名系统 DNS)、目录服务(如 Microsoft Active Directory)以及网络信息服务(Network Information Service，NIS)可 以帮助用户确定和访问网络上的特定资源。名称服务协议用于创建一 个命名空间，以保存每个网络资源的唯一名字，以此识别网络上的各种资源。</p>
+<p><strong>P2P</strong></p>
+<p>P2P(peer-to-peer，个人对个人)文件共享模式使用 P2P 网络。客户 端之间可以直接进行文件共享。客户端使用的文件共享软件可搜索其 他客户端。这不同于客户/服务器模式。客户/服务器模式中，文件都 存储在文件服务器上。</p>
+<h3 id="问题8"><a href="#问题8" class="headerlink" title="问题8"></a>问题8</h3><p><strong>问题</strong>：几种备份策略及其工作原理10.8。</p>
+<p><strong>全备份</strong></p>
+<p>全备份指对生产卷上的所有数据进行完整备份。全备份副本由复制生产卷上的数据到备份存储设备而得到。它的恢复较快，但是消耗空间较大，备份时间也较长。</p>
+<p><strong>增量式备份</strong></p>
+<p>增量式备份复制自上次全备份或者增量式备份以来(取两者中较晚者)修改的数据。由于仅限于对修改的数据进行备份，这种备份非常快，但是恢复起来却很耗时。</p>
+<p><strong>累积式(或称差分式)备份</strong></p>
+<p>累积式(或称差分式)备份复制自最后一次全备份以来修改的数据。这种方式备份时间比增量式长，但恢复快。</p>
+<h2 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h2><h3 id="Module-2-1"><a href="#Module-2-1" class="headerlink" title="Module 2"></a>Module 2</h3><p>**Module 2: Exercise on Design Storage Solution for New Application **</p>
+<p><strong>Scenario:</strong></p>
+<p>An organization is deploying a new business application in their environment. The new application requires 1TB of storage space for business and application data. During peak workload application is expected to generate 4900 IOPS (I/O per second) with typical I/O size of 4KB.</p>
+<p>The available disk drive option is 15,000 rpm drive with 100 GB capacity. Other specifications of the drives are:<br> Av. Seek time = 5 millisecond<br> Data transfer rate = 40MB/sec</p>
+<p><strong>Task:</strong></p>
+<p>You are asked to calculate the required number of disk drives that can meet both capacity and performance requirements of an application.</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li><p>Calculate time required to perform one I/O, which depends on disk service time. Whereas, Disk service time= Av. seek time + rotational latency + data transfer time</p>
+<p>Av. Seek time (given) = 5 millisecond.</p>
+<p>Rotational latency is 1⁄2 of the time taken for full rotation. Since rotation speed is given as 15000 revolutions per min; one revolution will take 1/ (15000/60) in sec.</p>
+<p>Therefore time taken for half revolution is 0.5/ (15000/60) = 2ms.<br> Data transfer rate is 40MB/s, therefore transfer of 4KB I/O will take, 4KB/40MB/s = 0.1ms<br> Therefore, time required to perform one I/O is = 5 ms + 2ms + 0.1ms = 7.1 msec</p>
+</li>
+<li><p>Now calculate maximum number of IOPS a disk can perform, which is equal to, 1 / 7.1 ms = 140 IOPS</p>
+<p>For acceptable response time disk controller utilization must be less than 70%, therefore maximum number of IOPS a disk can perform at 70% utilization is 140 X 0.7 = 98 IOPS</p>
+</li>
+<li><p>Now calculate number of disk required to meet:</p>
+<ol>
+<li>Application’s performance requirement = 4900/98 = 50 disk</li>
+<li>Application’s capacity requirement = 1TB/ 100 GB = 10 disk</li>
+</ol>
+</li>
+<li><p>Finally, disk required = Maximum (Capacity, Performance) = Maximum (10, 50) = 50 disks</p>
+</li>
+</ol>
+<p><strong>设想：</strong></p>
+<p>一个组织正在其环境中部署新的业务应用程序。新应用程序需要1TB的存储空间来存储业务和应用程序数据。在高峰工作负载期间，预计应用程序将产生4900 IOPS（每秒I / O），典型I / O大小为4KB。</p>
+<p>可用的磁盘驱动器选件是15,000 rpm的驱动器，具有100 GB的容量。驱动器的其他规格是：<br> 平均搜寻时间= 5毫秒<br> 数据传输速率= 40MB /秒</p>
+<p><strong>任务：</strong></p>
+<p>要求您计算可以满足应用程序容量和性能要求的所需磁盘驱动器数量。</p>
+<p><strong>解决方案：</strong></p>
+<p>1.计算执行一个I / O所需的时间，具体取决于磁盘服务时间。而磁盘服务时间= Av。搜寻时间+旋转等待时间+数据传输时间</p>
+<p>   平均搜索时间（给定）= 5毫秒。</p>
+<p>   旋转等待时间是完全旋转所花费时间的1⁄2。由于转速为每分钟15000转；一转将花费1 /（15000/60）秒。</p>
+<p>   因此，半转所花费的时间为0.5 /（15000/60）= 2ms。<br>    数据传输速率为40MB / s，因此需要4KB I / O传输，即4KB / 40MB / s = 0.1ms<br>    因此，执行一个I / O所需的时间为5毫秒+ 2毫秒+ 0.1毫秒= 7.1毫秒</p>
+<p>2.现在，计算磁盘可以执行的最大IOPS数，等于1 / 7.1毫秒= 140 IOPS</p>
+<p>   为了获得可接受的响应时间，磁盘控制器利用率必须小于70％，因此，磁盘在70％利用率下可以执行的最大IOPS数为140 X 0.7 = 98 IOPS</p>
+<p>3.现在计算满足以下条件所需的磁盘数量：</p>
+<p>   1.应用程序的性能要求= 4900/98 = 50个磁盘<br>   2.应用程序的容量要求= 1TB / 100 GB = 10个磁盘</p>
+<p>4.最后，所需磁盘=最大（容量，性能）=最大（10，50）= 50个磁盘</p>
+<h3 id="Module-3-1"><a href="#Module-3-1" class="headerlink" title="Module 3"></a>Module 3</h3><p><strong>Module 3: Exercise 1 RAID</strong></p>
+<p>A telecom company, involved in mobile wireless services across the country, has about 5000 employees worldwide. This company has 7 regional offices across the country. Although the company is financially doing well, they continue to feel the competitive pressure. As a result, the company needs to ensure that the IT infrastructure takes advantage of fault tolerant features.</p>
+<p><strong>Current Configuration and Challenges:</strong></p>
+<ul>
+<li><p> The company uses different applications for communication, accounting, and management. All the applications are hosted on individual servers with disks configured as RAID 0.</p>
+</li>
+<li><p> All financial activity is managed and tracked by a single accounting application. It is very important for the accounting data to be highly available.</p>
+</li>
+<li><p>The application performs around 15% random write operations and the remaining 85% are random reads.</p>
+</li>
+<li><p>The accounting data is currently stored on a 5-disk RAID 0 set. Each disk has an advertised formatted capacity of 200 GB and the total size of their files is 730 GB.</p>
+</li>
+<li><p>The company performs nightly backups and removes old information — so the amount of data is unlikely to change much over the next 6 months.</p>
+<p>The company is approaching the end of the financial year and the IT budget is depleted. It won’t be possible to buy even one new disk drive.</p>
+<p>Tasks:</p>
+</li>
+</ul>
+<ol>
+<li>Recommend a RAID level that the company can use to restructure their environment fulfilling their needs.</li>
+<li>Justify your choice based on cost, performance, and availability of the new solution.</li>
+</ol>
+<p><strong>Solutions:</strong></p>
+<p>First, look at the formatted capacity of the disks. A 200 GB disk holds only 186.3 GB of user data. The total size of customer data is 730 GB, which will fit on 4 disks. Therefore, we can consider a solution which uses parity-based RAID – RAID 3 or RAID 5. RAID 3 is useful only in environments where data access will be in large, sequential blocks; so we exclude it here. RAID 5 is the only solution that will not require purchasing of extra disks. As the proportion of writes does not exceed 25%, RAID 5 should perform reasonably well.</p>
+<p>We recommend reconfiguring the disks as a RAID 5 set.</p>
+<p>RAID level to use: Advantages: Disadvantages:</p>
+<p>RAID 5<br> Low cost of data protection<br> High overhead due to rebuilt operation if a disk fails.</p>
+<p>模块3：练习1 RAID<br>一家在全国从事移动无线服务的电信公司，在全球拥有约5000名员工。该公司在全国设有7个地区办事处。尽管公司财务状况良好，但他们继续感受到竞争压力。因此，公司需要确保IT基础架构利用容错功能。</p>
+<p><strong>当前的配置和挑战：</strong></p>
+<ul>
+<li>公司使用不同的应用程序进行通信，会计和管理。所有应用程序都托管在单独的服务器上，磁盘配置为RAID 0。</li>
+<li>所有财务活动均由单个会计应用程序管理和跟踪。会计数据的高度可用非常重要。</li>
+<li>应用程序执行大约15％的随机写入操作，其余的85％是随机读取。</li>
+<li>记帐数据当前存储在5磁盘RAID 0集上。每个磁盘的广告格式化容量为200 GB，其文件总大小为730 GB。</li>
+<li>该公司每夜执行一次备份并删除旧信息-因此，在接下来的6个月内，数据量不太可能发生太大变化。<br>该公司将在本财政年度接近尾声，并且IT预算已用尽。甚至无法购买一个新的磁盘驱动器。</li>
+</ul>
+<p><strong>任务：</strong><br>  1.推荐公司可以用来重组其环境以满足其需求的RAID级别。<br>  2.根据新解决方案的成本，性能和可用性来证明您的选择。</p>
+<p><strong>解决方案：</strong><br>首先，查看磁盘的格式化容量。 200 GB的磁盘仅容纳186.3 GB的用户数据。 客户数据的总大小为730 GB，可容纳4个磁盘。 因此，我们可以考虑使用基于奇偶校验的RAID – RAID 3或RAID 5的解决方案。RAID 3仅在数据访问位于大的顺序块中的环境中才有用。 因此我们在此将其排除在外。 RAID 5是唯一不需要购买额外磁盘的解决方案。 由于写入比例不超过25％，因此RAID 5应该表现良好。<br>我们建议将磁盘重新配置为RAID 5集。<br>要使用的RAID级别：优点：缺点：<br>RAID 5<br>数据保护成本低<br>如果磁盘发生故障，则由于重建操作而导致的高开销。</p>
+<p><strong>Module 3: Exercise 2 RAID</strong></p>
+<p>A telecom company, involved in mobile wireless services across the country, has about 5000 employees worldwide. This company has 7 regional offices across the country. Although the company is financially doing well, they continue to feel the competitive pressure. As a result, the company needs to ensure that the IT infrastructure takes advantage of fault tolerant features.</p>
+<p><strong>Current Configuration and Challenges:</strong></p>
+<ul>
+<li><p> The company uses an accounting application that is hosted on an individual server with disks configured as RAID 0.</p>
+</li>
+<li><p>It is now the beginning of a new financial year and the IT department has an increased budget. You are called in to recommend changes to their database environment.</p>
+</li>
+<li><p>You investigate their database environment closely and observe that the data is stored on a 6-disk RAID 0 set. Each disk has an advertised formatted capacity of 200 GB and the total size of their files is 900 GB.</p>
+</li>
+<li><p>The amount of data is likely to change by 30 % over the next 6 months and your solution must accommodate this growth.</p>
+</li>
+<li><p>The application performs around 40% write operations and the remaining 60 % are reads.</p>
+<p><strong>Tasks:</strong></p>
+</li>
+</ul>
+<ol>
+<li><p>Recommend a RAID level that the company can use to restructure their environment and fulfill their needs.</p>
+</li>
+<li><p>What is the cost of the new solution?</p>
+</li>
+<li><p>Justify your choice based on cost, performance, and data availability of the new</p>
+<p>solution.</p>
+</li>
+</ol>
+<p>Note: A new 200 GB disk drive costs $1000. The controller can handle all commonly used RAID levels, so will not need to be replaced.</p>
+<p><strong>Solution:</strong></p>
+<p>Each 200 GB drive can hold 186.3 GB of data. There is currently 900 GB of data, which will increase to 1170 GB in the next 6 months. That amount of data will fit on 7 disks, with space left over.<br> The environment uses a high proportion of writes, so parity-based RAID is not an option. RAID 1 will not provide required capacity, so our choice is RAID 1+0. This RAID level uses mirroring and striping. So, for the 1170 GB of data, we need 7 disk pairs – 14 disks.</p>
+<p>We already have 6 disks. So, we need to purchase an additional 8, for a total cost of $8000.</p>
+<p>RAID level to use: Advantages:</p>
+<p>Disadvantages:</p>
+<p>RAID 1+0<br> Excellent protection, very good performance in environments with a high proportion of writes Minimal disruption if a disk failure occurs Highest cost of all RAID solutions</p>
+<p>模块3：练习2 RAID<br>一家在全国从事移动无线服务的电信公司，在全球拥有约5000名员工。该公司在全国设有7个地区办事处。尽管公司财务状况良好，但他们继续感受到竞争压力。因此，公司需要确保IT基础架构利用容错功能。</p>
+<p><strong>当前的配置和挑战</strong>：</p>
+<ul>
+<li><p>公司使用会计应用程序，该应用程序托管在具有配置为RAID 0的磁盘的单个服务器上。</p>
+</li>
+<li><p>现在是新财政年度的开始，IT部门的预算也有所增加。您将被要求对他们的数据库环境进行更改。</p>
+</li>
+<li><p>您仔细研究了他们的数据库环境，并观察到数据存储在6磁盘RAID 0集上。每个磁盘的广告格式化容量为200 GB，其文件总大小为900 GB。</p>
+</li>
+<li><p>在接下来的6个月中，数据量可能会发生30％的变化，并且您的解决方案必须适应这种增长。</p>
+</li>
+<li><p>应用程序执行约40％的写操作，其余60％为读。</p>
+</li>
+</ul>
+<p><strong>任务：</strong><br>  1.推荐公司可用于重组环境并满足其需求的RAID级别。<br>  2.新解决方案的成本是多少？<br>  3.根据新产品的成本，性能和数据可用性证明您的选择解决方案。<br>  注意：一个新的200 GB磁盘驱动器的价格为1000美元。该控制器可以处理所有常用的RAID级别，因此无需更换。</p>
+<p><strong>解决方案：</strong><br>每个200 GB的驱动器可以容纳186.3 GB的数据。 当前有900 GB的数据，在接下来的6个月中将增加到1170 GB。 该数量的数据将适合7个磁盘，并留有空间。<br>该环境使用大量写入，因此基于奇偶校验的RAID不可选项。 RAID 1无法提供所需的容量，因此我们选择RAID 1 + 0。 此RAID级别使用镜像和条带化。 因此，对于1170 GB的数据，我们需要7个磁盘对– 14个磁盘。<br>我们已经有6个磁盘。 因此，我们需要另外购买8个，总费用为8000美元。<br>要使用的RAID级别：优点：<br>缺点：<br>RAID 1 + 0<br>出色的保护功能，在写入比例很高的环境中具有非常好的性能，如果发生磁盘故障，则造成的中断最少，是所有RAID解决方案中成本最高的</p>
+<h3 id="Module-5-1"><a href="#Module-5-1" class="headerlink" title="Module 5"></a>Module 5</h3><p><strong>Module 5: Exercise on FC SAN Design</strong></p>
+<p><strong>Scenario:</strong></p>
+<p>The IT infrastructure of an organization consists of three storage arrays direct-attached<br> to a heterogeneous mix of 45 servers. All servers are dual-attached to the arrays for high availability. Because each storage array has 32 front-end ports, each could support a maximum of 16 servers. However, each existing storage array has the disk capacity to support a maximum of 32 servers. The organization plans to purchase 45 more servers to meet its growth requirements. If it continues using direct-attached storage, the organization needs to purchase additional storage arrays to connect these new servers. The organization realizes that its existing storage arrays are poorly utilized; therefore, it plans to implement FC SAN to overcome the scalability and utilization challenges. The organization uses high- performance applications; therefore, it wants to minimize the hop count for the server’s access to storage.</p>
+<p><strong>Task:</strong></p>
+<p>Propose a switched fabric topology to address organization’s challenges and requirements. Justify your choice of the fabric topology. If 72-port switches are available for FC SAN implementation, determine the minimum number of switches required in the fabric.</p>
+<p><strong>Solution:</strong></p>
+<p>Full mesh topology is not suitable for environment that requires high scalability. Partial mesh, although, provides more scalability than full mesh, but several hops or ISLs may be required for the network traffic to reach its destination. Therefore, the recommended solution is core-edge topology. The core-edge topology provides higher scalability than mesh topology and provides one-hop storage access to all servers in the environment. Because of the deterministic pattern (from the edge to the core) of FC traffic movement, it is easy to calculate traffic load distribution across ISLs.</p>
+<p>Total number of server ports = 90 servers × 2 ports = 180 ports</p>
+<p>Total number of array ports = 3 arrays × 32 ports = 96 ports</p>
+<p>Number of switches required at the core = 96 array ports/ 72 ports per switch = 2 switches</p>
+<p>The core switches provides 144 ports of which 96 ports will be used for array connectivity. Remaining 48 ports can be used for ISLs and future growth.</p>
+<p>Number of switches at the edge = 180 server ports/ 72 ports per switch = 3 switches</p>
+<p>The edge switches provide 216 ports of which 180 ports will be used for server connectivity. Remaining 36 ports can be used for ISLs and future growth.</p>
+<p>Number of edge switch ports used for connecting to core switches = 6, this is less than the remaining edge switch ports.</p>
+<p>Number of core switch ports used for connecting to edge switches = 6, this is less than the remaining core switch ports.</p>
+<p>So, at minimum, 2 core switches and 3 edge switches are required to implement the core- edge fabric.</p>
+<p>模块5：FC SAN设计练习<br> <strong>设想：</strong><br>组织的IT基础架构由三个直接连接的存储阵列组成<br>到45个服务器的异构混合。所有服务器都双重连接到阵列，以实现高可用性。因为每个存储阵列都有32个前端端口，所以每个端口最多可以支持16个服务器。但是，每个现有存储阵列都具有磁盘容量，最多可支持32台服务器。该组织计划再购买45台服务器以满足其增长需求。如果继续使用直连式存储，则组织需要购买其他存储阵列以连接这些新服务器。该组织意识到其现有存储阵列的利用率很低；因此，它计划实施FC SAN以克服可扩展性和利用率挑战。组织使用高性能应用程序；因此，它希望最大程度地减少服务器访问存储的跳数。</p>
+<p><strong>任务：</strong></p>
+<p>提出交换结构拓扑，以解决组织的挑战和要求。证明您对结构拓扑的选择。如果72端口交换机可用于FC SAN实施，请确定结构中所需的最少交换机数量。<br>解决方案：<br>全网状拓扑不适用于需要高可伸缩性的环境。尽管部分网状网络提供了比全网状网络更大的可伸缩性，但是网络流量到达其目的地可能需要数个跃点或ISL。因此，推荐的解决方案是核心边缘拓扑。核心边缘拓扑提供比网格拓扑更高的可伸缩性，并提供对环境中所有服务器的单跳存储访问。由于FC流量移动具有确定性模式（从边缘到核心），因此可以轻松计算跨ISL的流量负载分布。<br>服务器端口总数= 90个服务器×2个端口= 180个端口<br>阵列端口总数= 3个阵列×32个端口= 96个端口<br>核心所需的交换机数量= 96个阵列端口/每个交换机72个端口= 2个交换机<br>核心交换机提供144个端口，其中96个端口将用于阵列连接。剩下的48个端口可用于ISL和未来的增长。<br>边缘的交换机数量= 180个服务器端口/每个交换机72个端口= 3个交换机<br>边缘交换机提供216个端口，其中180个端口将用于服务器连接。剩下的36个端口可用于ISL和未来的增长。<br>用于连接到核心交换机的边缘交换机端口数= 6，这少于其余的边缘交换机端口。<br>用于连接到边缘交换机的核心交换机端口数量= 6，这少于其余的核心交换机端口。<br>因此，至少需要2个核心交换机和3个边缘交换机才能实现核心边缘结构。</p>
+<p><strong>Module 9</strong></p>
+<p><strong>Module 9: Exercise 1 on MTBF/MTTR</strong></p>
+<p><strong>Scenario:</strong></p>
+<p>A company has three components in a system and requires all three to be operational for 24 hours, Monday to Friday. Failure of component 1 occurs as follows:</p>
+<ul>
+<li><p>Monday = No failure.</p>
+</li>
+<li><p>Tuesday = 5 a.m. to 7 a.m.</p>
+</li>
+<li><p>Wednesday = No failure.</p>
+</li>
+<li><p>Thursday = 4 p.m. to 8 p.m.</p>
+</li>
+<li><p>Friday = 8 a.m. to 11 a.m.</p>
+<p><strong>Task:</strong></p>
+<p>Calculate the MTBF and MTTR of component 1.</p>
+<p><strong>Solution:</strong></p>
+</li>
+<li><p>MTBF is calculated as: Total uptime/Number of failures<br> Total downtime = 2 hours on Tuesday + 4 hours on Thursday + 3 hours on</p>
+<p>Friday = 9hours</p>
+<p>Total uptime = (5*24) – 9 = 111 hours So, MTBF = 111 / 3</p>
+<p>= 37 hours</p>
+</li>
+<li><p>MTTR is calculated as: Total downtime/Number of failures<br> Total downtime = 2 hours on Tuesday + 4 hours on Thursday + 3 hours on Friday</p>
+<p>So, MTTR = (9 hours/3) = 3 hours</p>
+</li>
+</ul>
+<p><strong>单元9：关于MTBF / MTTR的练习1</strong><br>  <strong>设想：</strong><br>公司在系统中具有三个组件，并且要求所有三个组件在星期一至星期五的24小时内正常运行。 组件1发生故障的情况如下：<br>•星期一=无故障。<br>•周二=上午5时至上午7时<br>•星期三=无故障。<br>•周四=下午4点 到晚上8点<br>•星期五=上午8点至上午11点</p>
+<p><strong>任务：</strong></p>
+<p>计算组件1的MTBF和MTTR。</p>
+<p><strong>解决方案：</strong></p>
+<p>•MTBF计算为：总正常运行时间/故障次数<br>总停机时间=星期二2个小时+星期四4个小时+星期三3个小时<br>星期五= 9小时<br>总正常运行时间=（5 * 24）– 9 = 111小时因此，MTBF = 111/3<br>= 37小时<br>•MTTR的计算公式为：总停机时间/故障次数<br>总停机时间=星期二2个小时+星期四4个小时+星期五3个小时<br>因此，MTTR =（9小时/ 3）= 3小时</p>
+<p><strong>Module 9: Exercise 2 on Information Availability</strong></p>
+<p><strong>Scenario:</strong></p>
+<p>A company has three components in a system and requires all three to be operational from 8 a.m. to 5 p.m. business hours, Monday to Friday. Failure of component 2 occurs as follows:</p>
+<ul>
+<li><p>Monday = 8 a.m. to 11 a.m.</p>
+</li>
+<li><p>Tuesday = No failure</p>
+</li>
+<li><p>Wednesday = 4 p.m. to 7 p.m.</p>
+</li>
+<li><p>Thursday = 5 p.m. to 8 p.m.</p>
+</li>
+<li><p>Friday = 1 p.m. to 2 p.m.</p>
+<p><strong>Task:</strong></p>
+<p>Calculate the availability of component 2.</p>
+<p>Solution:</p>
+<p>Availability (%) = system uptime/(system uptime + system downtime)</p>
+<p>System downtime = 3 hours on Monday + 1 hour on Wednesday + 1 hour on Friday = 5 hours</p>
+<p>System uptime = total operational time – system downtime = 45 hours – 5 hours = 40 hours</p>
+<p>Availability (%) = 40/45 = 88.9%</p>
+</li>
+</ul>
+<p><strong>模块9：关于信息可用性的练习2</strong><br>  <strong>设想：</strong><br>一家公司在系统中具有三个组件，并且要求这三个组件从上午8点到下午5点都可以正常运行。 周一至周五营业时间。 组件2发生故障的情况如下：</p>
+<ul>
+<li>星期一=上午8点至上午11点</li>
+<li>周二=没有失败</li>
+<li>周三=下午4点 到晚上7点</li>
+<li>周四=下午5点 到晚上8点</li>
+<li>星期五=下午1点 到下午2点</li>
+</ul>
+<p><strong>任务：</strong></p>
+<p>计算组件2的可用性。</p>
+<p><strong>解决方案：</strong></p>
+<p>可用性（％）=系统正常运行时间/（系统正常运行时间+系统停机时间）<br>系统停机时间=星期一3小时+星期三1小时+星期五1小时= 5小时<br>系统正常运行时间=总运行时间–系统停机时间= 45小时– 5小时= 40小时<br>可用性（％）= 40/45 = 88.9％</p>
+<h3 id="Module-10-1"><a href="#Module-10-1" class="headerlink" title="Module 10"></a>Module 10</h3><p><strong>Module 10: Exercise on Backup and Recovery</strong></p>
+<p><strong>Business Profile:</strong></p>
+<p>An organization uses tape as their primary backup storage media for their applications.</p>
+<p><strong>Current Situation:</strong></p>
+<ul>
+<li><p>Full backup is performed on every Sunday and incremental backups are performed from Monday to Saturday.</p>
+</li>
+<li><p>Their database has to be shut down during the backup process.</p>
+</li>
+<li><p>Multiple redundant copies of backup data</p>
+</li>
+<li><p>Network bandwidth constraint</p>
+<p><strong>Requirements:</strong></p>
+</li>
+<li><p>Eliminate the need to shutdown the database for backup</p>
+</li>
+<li><p>Need faster backup and restore</p>
+</li>
+<li><p>Eliminate redundant copies of backup data</p>
+<p><strong>Task:</strong></p>
+<p>Propose a backup and recovery solution to address the organization’s concern and justify your solution.</p>
+<p><strong>Solution:</strong></p>
+<p>The solution should have the following elements:</p>
+</li>
+<li><p>Use open-file agents to perform online backup to avoid database shutdown during backup.</p>
+</li>
+<li><p>Implement backup-to-disk to improve backup speed and reduce backup window requirement.</p>
+</li>
+<li><p>Implement source-based data deduplication technology to eliminate redundant copies in backup environment. This will also reduce bandwidth requirement and storage space requirements.</p>
+</li>
+</ul>
+<p><strong>模块10：备份和恢复练习</strong></p>
+<p> <strong>业务简介：</strong></p>
+<p>组织将磁带用作其应用程序的主要备份存储介质。</p>
+<p><strong>现在的情况：</strong></p>
+<ul>
+<li><p>在每个星期日执行完全备份，并在星期一至星期六执行增量备份。</p>
+</li>
+<li><p>在备份过程中必须关闭其数据库。</p>
+</li>
+<li><p>备份数据的多个冗余副本</p>
+</li>
+<li><p>网络带宽限制</p>
+</li>
+</ul>
+<p><strong>要求：</strong></p>
+<ul>
+<li>无需关闭数据库以进行备份</li>
+<li>需要更快的备份和还原</li>
+<li>消除备份数据的冗余副本</li>
+</ul>
+<p><strong>任务：</strong><br>提出一种备份和恢复解决方案，以解决组织的疑虑并证明您的解决方案的合理性。<br><strong>解决方案：</strong><br>该解决方案应具有以下要素：</p>
+<ul>
+<li>使用打开文件代理执行联机备份，以避免在备份过程中关闭数据库。</li>
+<li>实施磁盘备份以提高备份速度并减少备份窗口要求。</li>
+<li>实施基于源的重复数据删除技术，以消除备份环境中的冗余副本。这还将减少带宽需求和存储空间需求。</li>
+</ul>
+<h3 id="Module-11-1"><a href="#Module-11-1" class="headerlink" title="Module 11"></a>Module 11</h3><p><strong>Module 11: Exercise on Local Replication</strong></p>
+<p><strong>Scenario:</strong></p>
+<p>A manufacturing organization stores data of their mission critical applications on a high end storage array with RAID 1 configuration. The database application has 1 TB of storage and needs 24x7availability. Average data that changes in 24 hours is 60 GB.</p>
+<p><strong>Requirements:</strong></p>
+<ol>
+<li>Need solution to address logical corruption of database</li>
+<li>Maximum RPO of 1 hour</li>
+<li>Solution should support restore request for up to 8 hours old data</li>
+<li>Minimize the amount of storage used for data protection</li>
+</ol>
+<p><strong>Task:</strong></p>
+<p>Suggest an appropriate local replication solution to meet RPO requirement with minimum amount of storage. Estimate the physical storage required by this solution.</p>
+<p><strong>Solution:</strong></p>
+<p>Pointer based virtual replication technology is the most obvious choice here. A rolling pointer-based virtual replication solution can meet the requirements. Creating pointer based virtual replica every hour – Total of 8 such replicas will meet requirement.</p>
+<ul>
+<li><p>At Hour 01:00 Create Replica 1</p>
+</li>
+<li><p>At Hour 02:00 Create Replica 2</p>
+</li>
+<li><p>At Hour 03:00 Create Replica 3</p>
+</li>
+<li><p>At Hour 04:00 Create Replica 4</p>
+</li>
+<li><p>At Hour 05:00 Create Replica 5</p>
+</li>
+<li><p>At Hour 06:00 Create Replica 6</p>
+</li>
+<li><p>At Hour 07:00 Create Replica 7</p>
+</li>
+<li><p>At Hour 08:00 Create Replica 8</p>
+</li>
+<li><p>At Hour 09:00 Recreate Replica with Replica 1</p>
+<p>If logical corruption occurs, data can be restored from the latest Replica. Each Replica is kept for 8 hours. If 60 GB data changes in 24 hours this implies that on average 20 GB of data changes every 8 hours. Thus each replica would require 20GB. Thus 8 replicas need approximately 160 GB of physical storage.</p>
+<p>模块11：本地复制练习</p>
+</li>
+</ul>
+<p> <strong>设想：</strong></p>
+<p>一个制造组织将其任务关键型应用程序的数据存储在具有RAID 1配置的高端存储阵列上。数据库应用程序具有1 TB的存储，需要24x7的可用性。 24小时内平均变化的数据为60 GB。</p>
+<p><strong>要求：</strong></p>
+<p>1.需要解决数据库逻辑损坏的解决方案<br>2.最大RPO为1小时<br>3.解决方案应支持最多8个小时的旧数据还原请求<br>4.最小化用于数据保护的存储量</p>
+<p><strong>任务：</strong></p>
+<p>建议一个合适的本地复制解决方案，以最少的存储量满足RPO要求。估计此解决方案所需的物理存储。</p>
+<p><strong>解决方案：</strong></p>
+<p>基于指针的虚拟复制技术是这里最明显的选择。基于滚动指针的虚拟复制解决方案可以满足要求。每小时创建一次基于指针的虚拟副本–总共8个这样的副本将满足要求。</p>
+<ul>
+<li>在01:00时创建副本1</li>
+<li>在02:00时创建副本2</li>
+<li>在03:00时创建副本3</li>
+<li>在04:00时创建副本4</li>
+<li>在05:00时创建副本5</li>
+<li>在06:00时创建副本6</li>
+<li>在07:00时创建副本7</li>
+<li>在08:00时创建副本8</li>
+<li>在09:00时，使用副本1重新创建副本</li>
+</ul>
+<p>如果发生逻辑损坏，则可以从最新的副本还原数据。每个副本保留8小时。如果在24小时内更改60 GB数据，则意味着平均每8小时更改20 GB数据。因此，每个副本将需要20GB。因此，8个副本需要大约160 GB的物理存储。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2551,551 +3437,6 @@ weighted avg       0.88      0.94      0.91      4687
 <p>在母串中的所有字母都会在字典中有一个key，而每个key所对应的value实际上是一个数组，这个数组中的值，就是在母串中出现的位置</p>
 <p>在查找的时候，先找到子串中的第一个字符，并在字典中找到其对应的value数组，取到value数组之后，将之中的所有索引都分别+1，再与子串下一个字符对应的value数组进行比较，并只保留相同的部分，一直不断重读，知道子串遍历结束，或者两个之间没有重复的元素</p>
 <p>最后得到的结果就表示着子串在母串中结尾字符的位置</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/12/29/c%E5%A4%B4%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/12/29/c%E5%A4%B4%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99/" class="post-title-link" itemprop="url">Clion无法找到unistd.h这个头文件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-12-29 09:51:41" itemprop="dateCreated datePublished" datetime="2020-12-29T09:51:41+08:00">2020-12-29</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Clion无法找到unistd-h这个头文件"><a href="#Clion无法找到unistd-h这个头文件" class="headerlink" title="Clion无法找到unistd.h这个头文件"></a>Clion无法找到unistd.h这个头文件</h1><blockquote>
-<p>今天遇到一个很无语的错误，前几天一直在操作系统实习，里面用到了很多unistd.h 还有csignal中定义的一些变量，之前都是能够正常运行的。然后最近要演示代码，我就想打开程序再运行一下，结果一打开，疯狂爆红，然后我看了一下，根源居然是没有找到头文件！！晚上找了很多方法都是没有用的（什么叫你升级xcode都是扯淡），然后我将源码复制到xcode中去运行，结果居然运行成功了！我猜测可能的原因是我的xcode前段时间升级了一下，然后头文件的目录产生了变化，而clion还没有来得及更变目录，这里我提供一下临时的解决方案</p>
-</blockquote>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
-<li>MacOS 11.1</li>
-<li>Clion 2020.3</li>
-<li>Xcode 12.3</li>
-</ul>
-<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><p>在cmake中在添加下面这个几行代码</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定头文件路径</span></span><br><span class="line"><span class="keyword">include_directories</span>(/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/<span class="keyword">include</span>)</span><br><span class="line"><span class="comment"># 链接库文件</span></span><br><span class="line"><span class="keyword">link_directories</span>(/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib)</span><br></pre></td></tr></table></figure>
-<p>这里其实就是指定头文件的路径和链接库的路径，有点类似PATH</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/12/18/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/12/18/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">软件需求分析复习指北</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-12-18 21:59:26" itemprop="dateCreated datePublished" datetime="2020-12-18T21:59:26+08:00">2020-12-18</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="软件需求分析复习指北"><a href="#软件需求分析复习指北" class="headerlink" title="软件需求分析复习指北"></a>软件需求分析复习指北</h1><hr>
-<h2 id="第一章-需求工程导论"><a href="#第一章-需求工程导论" class="headerlink" title="第一章 需求工程导论"></a>第一章 需求工程导论</h2><h3 id="软件项目的三种类型（P3）"><a href="#软件项目的三种类型（P3）" class="headerlink" title="软件项目的三种类型（P3）"></a>软件项目的三种类型（P3）</h3><ul>
-<li>在预期的时间内，在预算的成本下完成预期的所有功能，则项目为成功项目</li>
-<li>已经完成，软件产品能够正常工作，但在生产中或者超支，或者超期，或者实现的功能不全的项目为问题项目</li>
-<li>因无法进行而被中途撤销，或者最终产品无法提交试用，则项目为失败项目</li>
-</ul>
-<h3 id="项目成功项目的因素（P4）"><a href="#项目成功项目的因素（P4）" class="headerlink" title="项目成功项目的因素（P4）"></a>项目成功项目的因素（P4）</h3><ul>
-<li>用户参与</li>
-<li>高层管理支持</li>
-<li>清晰的需求说明</li>
-<li>正确的项目计划</li>
-<li>切合实际的期望</li>
-<li>细化的项目里程碑</li>
-<li>员工能力</li>
-<li>主人翁意识</li>
-<li>清晰的目标和前景</li>
-<li>努力工作</li>
-</ul>
-<h3 id="影响问题项目的因素（P4）"><a href="#影响问题项目的因素（P4）" class="headerlink" title="影响问题项目的因素（P4）"></a>影响问题项目的因素（P4）</h3><ul>
-<li>缺少用户的输入</li>
-<li>不完整的需求说明</li>
-<li>需求变化</li>
-<li>缺乏高层管理支持</li>
-<li>技术能力不足</li>
-<li>缺乏资源</li>
-<li>不切实际的期望</li>
-<li>目标不清晰</li>
-<li>不现实的时间要求</li>
-<li>新技术的影响</li>
-</ul>
-<h3 id="影响失败项目的因素（P4）"><a href="#影响失败项目的因素（P4）" class="headerlink" title="影响失败项目的因素（P4）"></a>影响失败项目的因素（P4）</h3><ul>
-<li>不完整的需求说明</li>
-<li>缺少用户输入</li>
-<li>缺乏资源</li>
-<li>不切实际的期望</li>
-<li>缺乏高层管理支持</li>
-<li>需求变化</li>
-<li>缺乏计划</li>
-<li>额外的无用功能</li>
-<li>缺乏IT管理</li>
-<li>技术能力不足</li>
-</ul>
-<h3 id="软件模拟特性（P5）"><a href="#软件模拟特性（P5）" class="headerlink" title="软件模拟特性（P5）"></a>软件模拟特性（P5）</h3><p>​    导致需求问题的原因中最重要的原因就是：<strong>未能很好的理解和掌握“应用”型软件的模拟特性以及由此而产生的一系列影响和要求</strong><br>​    软件的模拟特性来源于其知识载体的特性：<strong>软件在运行中表现出来的特性，行为应该和应用的现实情况保持一致</strong>。这样，人们通过观察软件的表现就可以得出相应现实问题的答案，即软件“模拟”了现实</p>
-<p>“模拟”性具体指</p>
-<ul>
-<li>目的性</li>
-<li>正确性</li>
-<li>现实可理解性</li>
-</ul>
-<h3 id="需求工程中基本的活动（P12）"><a href="#需求工程中基本的活动（P12）" class="headerlink" title="需求工程中基本的活动（P12）"></a>需求工程中基本的活动（P12）</h3><div class="mermaid">
-graph TD
-需求工程---需求开发
-需求工程---需求管理
-需求开发---需求获取
-需求开发---需求分析
-需求开发---需求规格说明
-需求开发---需求需求验证
-</div>
-
-<h3 id="需求工程的复杂性（P16）"><a href="#需求工程的复杂性（P16）" class="headerlink" title="需求工程的复杂性（P16）"></a>需求工程的复杂性（P16）</h3><ul>
-<li>处理范围广泛</li>
-<li>涉及诸多参与方</li>
-<li>处理内容多样</li>
-<li>处理活动相互交织</li>
-<li>处理结果要求苛刻</li>
-</ul>
-<h3 id="需求工程师需要具备的技能（P18）"><a href="#需求工程师需要具备的技能（P18）" class="headerlink" title="需求工程师需要具备的技能（P18）"></a>需求工程师需要具备的技能（P18）</h3><ul>
-<li>熟练掌握软件开发的方法与技术</li>
-<li>精确的表达能力和文档化能力</li>
-<li>良好的沟通能力</li>
-<li>抽象建模与分析能力</li>
-<li>关系协调和团队工作的能力</li>
-</ul>
-<hr>
-<h2 id="第二章-需求基础"><a href="#第二章-需求基础" class="headerlink" title="第二章 需求基础"></a>第二章 需求基础</h2><h3 id="问题解决的基础——模拟共享现象（P26）"><a href="#问题解决的基础——模拟共享现象（P26）" class="headerlink" title="问题解决的基础——模拟共享现象（P26）"></a>问题解决的基础——模拟共享现象（P26）</h3><p>处于问题域之外的解系统之所以能够解决问题域中问题，是因为<strong>问题域与解系统之间存在有效的互动，并在互动中相互影响</strong>。而问题域与解系统能够形成互动的基础是<strong>解系统部分模拟了问题域</strong>，这种模拟性称为共享现象</p>
-<h3 id="需求和问题的层次（P28）"><a href="#需求和问题的层次（P28）" class="headerlink" title="需求和问题的层次（P28）"></a>需求和问题的层次（P28）</h3><ul>
-<li><strong>业务需求</strong>，针对整个业务的期望</li>
-<li><strong>用户需求</strong>，针对具体任务的期望</li>
-<li><strong>系统级需求</strong>，针对用户与系统一次交互的期望</li>
-</ul>
-<div class="mermaid">
-graph TD
-业务需求--&gt;|业务需求指导需求获取|用户需求--&gt;|转化用户需求为系统级需求|系统需求
-
-</div>
-
-<h3 id="优秀需求的特性（P43）"><a href="#优秀需求的特性（P43）" class="headerlink" title="优秀需求的特性（P43）"></a>优秀需求的特性（P43）</h3><ul>
-<li><p><strong>完备性</strong></p>
-<p>需求是否描述了开发人员设计和实现这项功能所需的所有信息</p>
-</li>
-<li><p><strong>正确性</strong></p>
-<p>每项需取样都必须正确描述所需要的系统功能，要真实反应用户的意图</p>
-</li>
-<li><p><strong>可行性</strong></p>
-<p>需求必须能够在系统及其运行环境的已知条件和约束下实现</p>
-</li>
-<li><p><strong>必要性</strong></p>
-<p>每一项需求都应该是必要的，它是满足用户的业务需求说必需的</p>
-</li>
-<li><p><strong>无歧义</strong></p>
-<p>需求要能够正确传递的前提是传递者和受众能够形成共同的理解</p>
-</li>
-<li><p><strong>可验证</strong></p>
-<p>需求是可以通过分析、检查、模拟或测试等方法能够判断需取样是否被满足</p>
-</li>
-</ul>
-<hr>
-<h2 id="第三章-需求工程过程"><a href="#第三章-需求工程过程" class="headerlink" title="第三章 需求工程过程"></a>第三章 需求工程过程</h2><h3 id="需求获取（P54）"><a href="#需求获取（P54）" class="headerlink" title="需求获取（P54）"></a>需求获取（P54）</h3><ul>
-<li>收集背景资料</li>
-<li>获取问题和目标，定义项目前景与范围</li>
-<li>识别涉众，选择信息的来源</li>
-<li>选择获取方法，执行获取，获取功能与非功能需求</li>
-<li>记录获取结果</li>
-</ul>
-<h2 id="第四章-需求获取概述"><a href="#第四章-需求获取概述" class="headerlink" title="第四章 需求获取概述"></a>第四章 需求获取概述</h2><h3 id="需求获取中的常见困难（P75）"><a href="#需求获取中的常见困难（P75）" class="headerlink" title="需求获取中的常见困难（P75）"></a>需求获取中的常见困难（P75）</h3><ul>
-<li>用户和开发人员的背景不同，立场不同<ul>
-<li>知识理解的困难</li>
-<li>默认知识现象</li>
-</ul>
-</li>
-<li>普通用户缺乏概括性，综合性的表述能力</li>
-<li>用户存在认知困难</li>
-<li>用户越俎代庖<ul>
-<li>用户提出的不是需求，而是解决方案</li>
-<li>用户固执地坚持某些特征和功能</li>
-</ul>
-</li>
-<li>缺乏用户参与<ul>
-<li>用户数量太多，选择困难</li>
-<li>用户认知不足，不愿意参与</li>
-<li>用户情绪抵制，消极参与</li>
-<li>没有明确的用户</li>
-</ul>
-</li>
-</ul>
-<h3 id="需求获取活动（P79）"><a href="#需求获取活动（P79）" class="headerlink" title="需求获取活动（P79）"></a>需求获取活动（P79）</h3><ul>
-<li>研究应用背景，建立初始的知识框架</li>
-<li>根据获取的需求，采用必要的获取方法和技巧</li>
-<li>先行确定获取的内容和主题，设定场景</li>
-<li>分析用户的高（深）层目标，理解用户的意图</li>
-<li>进行涉众分析，针对涉众的特点展开工作</li>
-</ul>
-<h3 id="获取信息的内容（P80）"><a href="#获取信息的内容（P80）" class="headerlink" title="获取信息的内容（P80）"></a>获取信息的内容（P80）</h3><ul>
-<li>需求</li>
-<li>问题域描述</li>
-<li>环境和约束</li>
-</ul>
-<h3 id="获取信息的来源（P81）"><a href="#获取信息的来源（P81）" class="headerlink" title="获取信息的来源（P81）"></a>获取信息的来源（P81）</h3><ul>
-<li>涉众</li>
-<li>硬数据</li>
-<li>相关产品</li>
-<li>重要文档</li>
-<li>相关技术标准和法规</li>
-</ul>
-<h3 id="获取信息的方法（P81）"><a href="#获取信息的方法（P81）" class="headerlink" title="获取信息的方法（P81）"></a>获取信息的方法（P81）</h3><ul>
-<li>传统方法<ul>
-<li>问卷调差</li>
-<li>面谈</li>
-<li>文档分析</li>
-<li>文档检查</li>
-<li>需求剥离</li>
-</ul>
-</li>
-<li>集体获取方法<ul>
-<li>头脑风暴</li>
-<li>专题讨论会</li>
-<li>JAD（联合应用开发）</li>
-<li>JRP（联合需求计划）</li>
-</ul>
-</li>
-<li>原型<ul>
-<li>采用原型方法</li>
-</ul>
-</li>
-<li>模型驱动方法<ul>
-<li>面对目标的方法</li>
-<li>基于场景的方法</li>
-<li>基于用例的方法</li>
-</ul>
-</li>
-<li>认知方法<ul>
-<li>任务分析</li>
-<li>协议分析</li>
-</ul>
-</li>
-<li>基于上下文的方法<ul>
-<li>观察</li>
-<li>民族志</li>
-<li>话语分析</li>
-</ul>
-</li>
-</ul>
-<h3 id="获取信息的过程（P82）"><a href="#获取信息的过程（P82）" class="headerlink" title="获取信息的过程（P82）"></a>获取信息的过程（P82）</h3><ul>
-<li><p><strong>注意事项</strong></p>
-<ul>
-<li>在整体上制定组织方案</li>
-<li>维护项目的前景和范围</li>
-<li>接受需求的不稳定性</li>
-<li>控制探索性工作</li>
-</ul>
-</li>
-<li><p><strong>防止遗漏需求</strong></p>
-<ul>
-<li>务必让所有涉众都表达自己的意见</li>
-<li>不要以抽象和模糊的需求作为结束</li>
-<li>使用多种方法表发需求信息</li>
-<li>主义检查边界和布尔逻辑</li>
-</ul>
-</li>
-<li><p><strong>结束获取</strong></p>
-<ul>
-<li>用户想不出更多的用例</li>
-<li>用户想出的新用例都是导出用例</li>
-<li>用户只是在重复已经讨论过的问题</li>
-<li>新提出的特性、需求都在项目范围之外</li>
-<li>新提出的需求优先级都很低</li>
-<li>用户提出的新功能都属于后续版本，而非当前版本</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="第五章-确定项目的前景与范围"><a href="#第五章-确定项目的前景与范围" class="headerlink" title="第五章 确定项目的前景与范围"></a>第五章 确定项目的前景与范围</h2><h3 id="问题分析（P96）"><a href="#问题分析（P96）" class="headerlink" title="问题分析（P96）"></a>问题分析（P96）</h3><ul>
-<li><p><strong>获取问题</strong></p>
-<ul>
-<li>问题分析的前提是获取问题，这可以通过收集背景资料或与涉众沟通来实现</li>
-</ul>
-</li>
-<li><p><strong>明确问题</strong></p>
-<ul>
-<li>对问题达成共识</li>
-<li>收集背景资料，判断问题的明确性</li>
-<li>分析不明确的问题，发现问题背后的问题</li>
-</ul>
-</li>
-<li><p><strong>发现业务需求</strong></p>
-<p>每一个明确、一致的问题都意味着涉众存在一些相应的期望目标，即业务需求</p>
-</li>
-<li><p><strong>定义问题解决方案及系统特性</strong></p>
-<ul>
-<li>建立问题解决方案</li>
-<li>确定系统特性和解决方案的边界</li>
-<li>确定解决方案的约束</li>
-</ul>
-</li>
-</ul>
-<h3 id="目标分析（P105）"><a href="#目标分析（P105）" class="headerlink" title="目标分析（P105）"></a>目标分析（P105）</h3><h3 id="活动图（P122）"><a href="#活动图（P122）" class="headerlink" title="活动图（P122）"></a>活动图（P122）</h3><h3 id="识别涉众的方法（P150）"><a href="#识别涉众的方法（P150）" class="headerlink" title="识别涉众的方法（P150）"></a>识别涉众的方法（P150）</h3><ul>
-<li>先膨胀后收缩方法</li>
-<li>检查列表方法</li>
-<li>涉众网络方法</li>
-</ul>
-<h3 id="涉众评估（P156）"><a href="#涉众评估（P156）" class="headerlink" title="涉众评估（P156）"></a>涉众评估（P156）</h3><ul>
-<li>优先级评估</li>
-<li>风险评估</li>
-<li>共赢分析</li>
-</ul>
-<h3 id="涉众代表选择（P160）"><a href="#涉众代表选择（P160）" class="headerlink" title="涉众代表选择（P160）"></a>涉众代表选择（P160）</h3><ul>
-<li><strong>涉众代表选择</strong><ul>
-<li>完整采样</li>
-<li>态度积极</li>
-<li>数量适中</li>
-<li>比例恰当</li>
-</ul>
-</li>
-<li><strong>用户替代源</strong><ul>
-<li>拥有类似系统经验的系统分析人员</li>
-<li>与用户直接联系的技术支持人员</li>
-<li>服务咨询人员</li>
-<li>内部或者外部的顾问</li>
-<li>用户方的管理者</li>
-<li>市场人员</li>
-<li>拥有相关知识的开发人员</li>
-</ul>
-</li>
-</ul>
-<h3 id="硬数据及硬数据采样（P166）"><a href="#硬数据及硬数据采样（P166）" class="headerlink" title="硬数据及硬数据采样（P166）"></a>硬数据及硬数据采样（P166）</h3><ul>
-<li>定制硬数据<ul>
-<li>数据收集表格</li>
-<li>统计报表</li>
-</ul>
-</li>
-<li>定性硬数据<ul>
-<li>整个组织的描述文件</li>
-<li>业务指导文档</li>
-<li>业务备忘</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="第七章-基于用例-场景模型展开用户需求获取"><a href="#第七章-基于用例-场景模型展开用户需求获取" class="headerlink" title="第七章 基于用例/场景模型展开用户需求获取"></a>第七章 基于用例/场景模型展开用户需求获取</h2><h3 id="用例图（P186）"><a href="#用例图（P186）" class="headerlink" title="用例图（P186）"></a>用例图（P186）</h3><hr>
-<h2 id="第十二章-过程建模"><a href="#第十二章-过程建模" class="headerlink" title="第十二章 过程建模"></a>第十二章 过程建模</h2><h3 id="数据流图（P293）"><a href="#数据流图（P293）" class="headerlink" title="数据流图（P293）"></a>数据流图（P293）</h3><hr>
-<h2 id="第十三章-数据建模"><a href="#第十三章-数据建模" class="headerlink" title="第十三章 数据建模"></a>第十三章 数据建模</h2><hr>
-<h2 id="第十六章-需求验证"><a href="#第十六章-需求验证" class="headerlink" title="第十六章 需求验证"></a>第十六章 需求验证</h2><h3 id="需求验证的方法（P418）"><a href="#需求验证的方法（P418）" class="headerlink" title="需求验证的方法（P418）"></a>需求验证的方法（P418）</h3><ul>
-<li>需求评审</li>
-<li>原型与模拟</li>
-<li>开发测试用例</li>
-<li>用户手册编制</li>
-<li>利用跟踪关系</li>
-<li>自动化分析</li>
-</ul>
-<hr>
-<h2 id="第十七章-需求管理"><a href="#第十七章-需求管理" class="headerlink" title="第十七章 需求管理"></a>第十七章 需求管理</h2><h3 id="需求管理的作用（P431）"><a href="#需求管理的作用（P431）" class="headerlink" title="需求管理的作用（P431）"></a>需求管理的作用（P431）</h3><ul>
-<li>增强了项目涉众对复杂产品特征在细节和互相依赖关系的理解</li>
-<li>增进了项目涉众之间的交流</li>
-<li>减少了工作量的浪费</li>
-<li>准确反应项目的状态，帮助进行更好的项目决策</li>
-<li>改变项目文化，使需求的作用得到重视和有效的发挥</li>
-</ul>
-<h3 id="需求管理的过程（P432）"><a href="#需求管理的过程（P432）" class="headerlink" title="需求管理的过程（P432）"></a>需求管理的过程（P432）</h3><ul>
-<li>维护需求基线</li>
-<li>实现需求跟踪</li>
-<li>控制变更</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/11/27/%E7%BB%99express%E5%BC%80%E5%90%AFhttps/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/11/27/%E7%BB%99express%E5%BC%80%E5%90%AFhttps/" class="post-title-link" itemprop="url">给Express开启HTTPS</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-11-27 15:38:46" itemprop="dateCreated datePublished" datetime="2020-11-27T15:38:46+08:00">2020-11-27</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-12-12 21:55:33" itemprop="dateModified" datetime="2020-12-12T21:55:33+08:00">2020-12-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Nodejs/" itemprop="url" rel="index"><span itemprop="name">Nodejs</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>因为最近有一个项目放在express上跑，而且还必须要开启https，其实我一开始是先通过有ssl的nginx来反向代理没有证书的express，但是，经过我多方面的尝试，最终以失败告终，所以，我决定狠下心来，来给express配置安装ssl证书</p>
-</blockquote>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
-<li>  CentOS 版本： 7.7</li>
-<li>  express 版本：4.17.1</li>
-<li>  node 版本： 14.15.1</li>
-</ul>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
-<li>  首先找到入口文件（一般是app.js），用vim打开</li>
-<li>  配置以下信息</li>
-</ul>
-<p>// 导入依赖的模块<br>const express = require(‘express’)<br>const fs = require(‘fs’)<br>const https = require(‘https’)<br>// 找到ssl证书和秘钥<br>const privateCrt = fs.readFileSync(&lt;证书路径&gt;)<br>const privateKey = fs.readFileSync(&lt;秘钥路径&gt;)<br>// https的配置信息<br>const HTTPS_OPTOIN = {<br>  key: privateKey,<br>  cert: privateCrt<br>};<br>/*<br>*   你的代码逻辑<br>*/<br>// 生成服务器<br>const httpsServer = https.createServer(HTTPS_OPTOIN, app);<br>httpsServer.listen(&lt;你所定义的端口号&gt;);</p>
-<ul>
-<li>  启动服务</li>
-</ul>
-<h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><p>注意一定要将app配置好了之后再生成对应的https服务器，否则将会失败</p>
 
       
     </div>

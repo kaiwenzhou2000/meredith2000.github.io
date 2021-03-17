@@ -167,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -205,6 +205,378 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/07/21/c-%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/21/c-%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="post-title-link" itemprop="url">C++ 期末复习</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-21 14:21:48" itemprop="dateCreated datePublished" datetime="2020-07-21T14:21:48+08:00">2020-07-21</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近一直用java和python，都已经渐渐忘记了c++的一些基本用法和概念。但是考虑到马上进学校还有c++的考试，想想还是复习复习吧，于是我就干脆写一篇关于c++重点知识的复习博客，给我自己提提醒，同时可以帮助到正在学习c++的同学们，如果有不足，请多多指正！</p>
+<hr>
+<h2 id="知识点总结"><a href="#知识点总结" class="headerlink" title="知识点总结"></a>知识点总结</h2><h3 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h3><p>拷贝构造函数是一种特殊的构造函数，主要在下面三种情况下会遇到</p>
+<ul>
+<li>  使用一个已经创建完毕的对象来初始化一个新的对象</li>
+<li>  将函数对象作为函数的形参</li>
+<li>  返回值为一个对象</li>
+</ul>
+<p>我们先说第一种情况：使用一个已经创建完毕的对象来初始化一个新的对象</p>
+<p>person p1(age, name);    // 此时p1使用person中的普通的构造函数来完成对象的创建<br>person p2(p1);    // p2的构造是依靠p1来完成的，所以再p2创建的时候就会调用person的拷贝构造函数</p>
+<p>下面是第二种情况：将函数对象作为函数的形参</p>
+<p>// 在main函数中调用test的时候，p1对象被当做实参传入函数，那么p2就会调用拷贝构造函数来进行初始化。<br>void test(person p2){<br>    // do something<br>}</p>
+<p>int main(){<br>    person p1(age, name);<br>    test(p1);<br>    return 0;<br>}</p>
+<p>第三种情况：返回值为一个对象</p>
+<p>// test函数在返回p1对象的时候，就会调用p2的拷贝构造函数，来初始化p2<br>person test(){<br>    person p1(age, name);<br>    return p1<br>}</p>
+<p>int main (){<br>    person p2 = test();<br>    return 0;<br>}</p>
+<p>上面已经说完了拷贝构造函数的三种调用的时机，下面就让我来说说拷贝构造函数的写法吧。</p>
+<p>class person{<br>private:<br>    string name;<br>    int age;<br>public:<br>    // 空参构造器<br>    person(){};<br>    // 参数构造器<br>    person(age, name){<br>    this-&gt;age = age;<br>    this-&gt;name = name;<br>    }<br>    // 拷贝构造函数<br>    // 引用必须要加，要不然会引起递归调用，编译器会报错<br>    // const 可加可不加，但是建议加上，避免p在函数的过程中发生变化<br>    person(const person&amp; p){<br>    age = p.age;<br>    name = p.name;<br>    }<br>};</p>
+<h3 id="构造函数的调用规则"><a href="#构造函数的调用规则" class="headerlink" title="构造函数的调用规则"></a>构造函数的调用规则</h3><p>在默认的情况下，c++编译器会给每一个类添加3个构造函数</p>
+<ul>
+<li>  默认空参构造函数</li>
+<li>  默认析构函数</li>
+<li>  默认拷贝构造函数</li>
+</ul>
+<p>但是，一旦用户自定义有参数构造函数，那么编译器将不再自动的提供无参构造函数，但是仍然会提供析构函数和拷贝构造函数。</p>
+<p>如果用户自定义拷贝构造函数，那么c++就只会提供默认的析构函数。</p>
+<p><strong>Tips:</strong></p>
+<p>如果出现以下情况本质上还是调用了拷贝构造函数</p>
+<p>person *p = new person(age, name);     // 在这里，p并不是一个对象，而是一个指针，没有用到person中的任何构造函数<br>person p1= *p;    // 而在这里，实际上*p所代表的是一个对象，所以p1在初始化的时候调用了拷贝构造函数</p>
+<h3 id="深拷贝与浅拷贝"><a href="#深拷贝与浅拷贝" class="headerlink" title="深拷贝与浅拷贝"></a>深拷贝与浅拷贝</h3><ul>
+<li>  <strong>浅拷贝</strong>：默认的拷贝构造函数就是浅拷贝，如果遇到指针，只会拷贝指针的地址。</li>
+<li>  <strong>深拷贝</strong>：在拷贝指针的时候不是直接拷贝指针的地址，而是在堆区重新开辟一块空间，将原来指针里面的内容拷贝进去，然后在将指针指向新开辟的一块空间（需要程序员自己操作）。</li>
+</ul>
+<h3 id="重载运算符"><a href="#重载运算符" class="headerlink" title="重载运算符"></a>重载运算符</h3><p>重载运算符定义的格式如下：</p>
+<p>person&amp; operator+(person p);    // 在class中申明</p>
+<p>person&amp; person::operator+(person p){    // 在class外定义<br>    // do something<br>}</p>
+<p>// 前置++运算符的重载<br>person&amp; operator++(){<br>}</p>
+<p>// 后置++运算法的重载<br>person operator++(int){<br>    // 为了与前置++运算符的区分，要在后面添加一个int占位符（添加其他的没有用）</p>
+<p>// 重载左移运算符必须要在全局进行申明，然后在需要操作的类的内部申明友元函数（具体可以看下面的友元函数的使用）<br>ostream&amp; operator&lt;&lt; (ostream&amp; cout, person p1){<br>    cout &lt;&lt; p1.name;<br>    return cout;<br>}</p>
+<p><strong>Tips</strong>:</p>
+<p>在使用运算符重载（除了后置的运算符）时，返回值最好是引用数据类型，因为这样可以保证在连续运算的时候操作的是同一个对象</p>
+<p>在使用后置的运算符的时候一定不能返回引用，因为后置的运算符是先返回值，再运算的，此时返回的是一个临时的值，只能进行值的传递，要是使用引用的话会有非法访问的问题。</p>
+<h3 id="友元函数"><a href="#友元函数" class="headerlink" title="友元函数"></a>友元函数</h3><p>在类中具有的private的属性的对象，在类的外面是不可以访问的，而在实际操作中，为了操作的方便，可以在类中申明友元函数，这样，在友元函数中就可以访问该类内部的私有属性。可以参考一下代码来体会一下。</p>
+<p>class person{<br>// 申明是友元函数<br>friend ostream&amp; operator&lt;&lt; (ostream&amp; cout, person, p1);<br>private:<br>    string name;<br>    int age;<br>public:<br>    // 构造函数和方法<br>};</p>
+<p>ostream&amp; operator&lt;&lt; (ostream&amp; cout, person p1){<br>    // 由于在类中申明了是友元函数，所以再改函数中能访问p1中的私有属性，比如说下面的p1.name<br>    cout &lt;&lt; p1.name;<br>    return cout;<br>}</p>
+<p><strong>Tips:</strong></p>
+<p>友元函数在类类申明的时候要添加friend关键字，但是在全局里面定义的时候前面是不需要加friend的。</p>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><p>在c++中分为以下两块：</p>
+<ul>
+<li>  函数模板</li>
+<li>  类模板</li>
+</ul>
+<p><strong>关于函数模板</strong>：</p>
+<p><strong>关于类模板：</strong></p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>在C++中是允许实现多重继承的，而继承的方式分为一下的三种方式：</p>
+<ul>
+<li>  公有继承</li>
+<li>  保护继承</li>
+<li>  私有继承</li>
+</ul>
+<p>区别如下：</p>
+<p><img src="https://blog.zkwzkw.top/wp-content/uploads/2020/08/image-35.png"></p>
+<p>申明和定义的方法：</p>
+<p>// 父类<br>class father(){<br>    father();    // 父类构造器<br>}</p>
+<p>// 子类，继承父类<br>class son(): public father{<br>    son();    // 子类构造器<br>}</p>
+<p>// 调用父类构造器的子类构造器<br>son::son(): father(){<br>    // 里面申明子类构造器<br>}</p>
+<h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><ul>
+<li>  让指针能够指向数组可以这样赋值</li>
+</ul>
+<p>*p = new int[n]</p>
+<ul>
+<li>  new 返回值为指针</li>
+<li>  不用添加任何头文件实现小数点后面保留一位小数，并且四舍五入</li>
+</ul>
+<p>// temp1，temp2用来组合出小数点之后的第二位，用来判断要不要四舍五入<br>int temp1, temp2;<br>    avg = (english+math+programe)/3.0;<br>    temp1 = avg*100;<br>    temp2 = avg*10;<br>    avg = temp2/10.0;<br>    temp2 *= 10;<br>    if (temp1-temp2 &gt;= 5) {<br>        avg += 0.1;<br>    }</p>
+<ul>
+<li>  在类中申明的方法，前面有friend，static……在下面定义函数的时候前面的修饰符都不需要加，只要最前面写返回值就可以了。</li>
+<li>  如果在一个函数中传进来的参数为一直指针，指向一个字符串，那么要给另外一个字符数组是不能直接赋值的，需要先将字符数组转换为字符串，然后再用for循环将字符字符串转换为字符数组</li>
+</ul>
+<p>stuinfo::stuinfo(char *st, char *na, int score) {<br>    int i, j;<br>    // temp 用来接收传递进来的两个参数，并转换为字符串<br>    string temp1 = st;<br>    string temp2 = na;<br>    for(i = 0; i &lt; temp1.length(); i++){<br>        stuno[i] = st[i];<br>    }<br>    stuno[i] = ‘\0’;<br>    for(j = 0; j &lt; temp2.length(); j++){<br>        name[j] = na[j];<br>    }<br>    name[j] = ‘\0’;<br>    sum = score;<br>}</p>
+<h2 id="后续还会有更新。。。"><a href="#后续还会有更新。。。" class="headerlink" title="后续还会有更新。。。"></a>后续还会有更新。。。</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/07/20/%E5%88%A9%E7%94%A8aria2%E5%AE%9E%E7%8E%B0%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/20/%E5%88%A9%E7%94%A8aria2%E5%AE%9E%E7%8E%B0%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/" class="post-title-link" itemprop="url">利用Aria2实现离线下载</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-20 20:22:47" itemprop="dateCreated datePublished" datetime="2020-07-20T20:22:47+08:00">2020-07-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/aria2/" itemprop="url" rel="index"><span itemprop="name">aria2</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近想着怎么充分利用我自己的服务器资源，后来在知乎上发现一个帖子，大概意思就是通过Aria2c+AriaNg（Aria2的可视化界面），后来我有自己尝试着安装Aria2，发现是在是太难安装，特别在写配置文件的时候，对我这种小白来说非常不友好，然后，我在github上发现一款安装Aria2的脚本，这个脚本解决了我的安装Aria2的难题，下面我来分享我的安装过程吧。</p>
+<hr>
+<h2 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h2><ul>
+<li>  CentOS 版本： 7.7</li>
+<li>  aria2c 版本：1.35.0</li>
+</ul>
+<hr>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><ul>
+<li>  首先先下载脚本</li>
+</ul>
+<p>wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh</p>
+<ul>
+<li>  下载完成之后直接运行脚本，然后根据里面的提示进行安装进行安装。</li>
+</ul>
+<p>./aria2.sh</p>
+<ul>
+<li>请到以下界面去下载AriaNg（建议下载ALLINONE版本）<br>  <a target="_blank" rel="noopener" href="https://github.com/mayswind/AriaNg/releases">https://github.com/mayswind/AriaNg/releases</a></li>
+<li>  将下载下来的文件解压，然后部署到apache中去，然后进行访问</li>
+<li>  最后在配置RPC秘钥就可以了</li>
+</ul>
+<hr>
+<h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><ul>
+<li>  一定要采用http来访问，因为采用https会有诸多限制</li>
+<li>  RPC秘钥在使用脚本后会自动生成，直接在运行脚本的时候查看配置就会看到自己的RPC秘钥了。</li>
+</ul>
+<hr>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/P3TERX/aria2.sh">https://github.com/P3TERX/aria2.sh</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/07/20/docker-%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/20/docker-%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">docker 安装</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-20 15:29:33" itemprop="dateCreated datePublished" datetime="2020-07-20T15:29:33+08:00">2020-07-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近学习了docker这种容器虚拟化的技术，觉得这种技术真的很好，特别是适合我这种配置老是出问题的小白。但是今天我在安装docker的时候踩了大坑，由于用来官方的yum源，速度慢到怀疑人生。</p>
+<hr>
+<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><ul>
+<li>  CentOS 版本： 7.7</li>
+<li>  docker 版本：19.03.12</li>
+</ul>
+<hr>
+<h2 id="安装步骤（不建议学习，但是可以参考一下）"><a href="#安装步骤（不建议学习，但是可以参考一下）" class="headerlink" title="安装步骤（不建议学习，但是可以参考一下）"></a>安装步骤（不建议学习，但是可以参考一下）</h2><ul>
+<li>  输入一下命令（在下载docker的时候会慢到怀疑人生）</li>
+</ul>
+<p># 先移除老版本的docker（没有安装过的，请忽略）<br>yum remove docker \<br>                  docker-client \<br>                  docker-client-latest \<br>                  docker-common \<br>                  docker-latest \<br>                  docker-latest-logrotate \<br>                  docker-logrotate \<br>                  docker-engine</p>
+<h1 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h1><p>yum install -y yum-utils<br>yum-config-manager \<br>    –add-repo \<br>    <a target="_blank" rel="noopener" href="https://download.docker.com/linux/centos/docker-ce.repo">https://download.docker.com/linux/centos/docker-ce.repo</a></p>
+<h1 id="安装docker（极其慢，但是可行）"><a href="#安装docker（极其慢，但是可行）" class="headerlink" title="安装docker（极其慢，但是可行）"></a>安装docker（极其慢，但是可行）</h1><p>yum install docker-ce docker-ce-cli containerd.io</p>
+<hr>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="配置国内的阿里云镜像加速"><a href="#配置国内的阿里云镜像加速" class="headerlink" title="配置国内的阿里云镜像加速"></a>配置国内的阿里云镜像加速</h3><ul>
+<li>  打开 /etc/docker/daemon.json，添加一下代码。（一定要先运行docker，再配置，如果不存在这个文件，就自己创建一个）</li>
+</ul>
+<p>{<br>    “registry-mirrors”: [“阿里云提供的地址”]<br>}       </p>
+<h2 id="阿里云上的docker源"><a href="#阿里云上的docker源" class="headerlink" title="阿里云上的docker源"></a>阿里云上的docker源</h2><p># 添加yum源<br>yum update<br>yum install epel-release -y<br>yum clean all</p>
+<h1 id="安装并启用docker"><a href="#安装并启用docker" class="headerlink" title="安装并启用docker"></a>安装并启用docker</h1><p>yum install docker-io -y<br>systemctl start docker</p>
+<hr>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a></p>
+<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/60750.html?spm=5176.10695662.1996646101.searchclickresult.27e273d4RkmPsz">https://help.aliyun.com/document_detail/60750.html?spm=5176.10695662.1996646101.searchclickresult.27e273d4RkmPsz</a></p>
+<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/51853.html?spm=5176.11065259.1996646101.searchclickresult.4a69232c4xlDLz">https://help.aliyun.com/document_detail/51853.html?spm=5176.11065259.1996646101.searchclickresult.4a69232c4xlDLz</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

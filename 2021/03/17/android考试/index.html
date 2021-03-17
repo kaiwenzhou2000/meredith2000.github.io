@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.zkwzkw.top","root":"/","images":"/images","scheme":"Muse","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="A卷 填空1.答案：Kotlin和Java2.答案：高度3.Android中数据存储的5种方式  简答1.常用的布局  2.安卓中log的作用与级别​        log的作用：常用于对各种日志级别的输出  3.如何使用sharedperformance存储数据  4.active四种启动模式的区别      程序1.设计一个APP，点击按钮，输入框中文字颜色随机改变（或点什么颜色就改成什么颜色">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android考试">
+<meta property="og:url" content="https://blog.zkwzkw.top/2021/03/17/android%E8%80%83%E8%AF%95/index.html">
+<meta property="og:site_name" content="Meredith&#39;s blog">
+<meta property="og:description" content="A卷 填空1.答案：Kotlin和Java2.答案：高度3.Android中数据存储的5种方式  简答1.常用的布局  2.安卓中log的作用与级别​        log的作用：常用于对各种日志级别的输出  3.如何使用sharedperformance存储数据  4.active四种启动模式的区别      程序1.设计一个APP，点击按钮，输入框中文字颜色随机改变（或点什么颜色就改成什么颜色">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316222423638.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316222454741.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316222527348.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316222708239.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316223001464.png">
+<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316223843124.png">
+<meta property="article:published_time" content="2021-03-17T01:36:17.000Z">
+<meta property="article:modified_time" content="2021-03-17T01:36:17.844Z">
+<meta property="article:author" content="kaiwen zhou">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316222423638.png">
+
+
+<link rel="canonical" href="https://blog.zkwzkw.top/2021/03/17/android%E8%80%83%E8%AF%95/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>android考试 | Meredith's blog</title>
+  
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8f735d1ea69ea81de16638ad4504bd80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Meredith's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">share my code</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A1%AB%E7%A9%BA"><span class="nav-number">1.</span> <span class="nav-text">填空</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%AD%94%E6%A1%88%EF%BC%9AKotlin%E5%92%8CJava"><span class="nav-number">1.1.</span> <span class="nav-text">1.答案：Kotlin和Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%AD%94%E6%A1%88%EF%BC%9A%E9%AB%98%E5%BA%A6"><span class="nav-number">1.2.</span> <span class="nav-text">2.答案：高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Android%E4%B8%AD%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E7%9A%845%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">3.Android中数据存储的5种方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E7%AD%94"><span class="nav-number">2.</span> <span class="nav-text">简答</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B8%83%E5%B1%80"><span class="nav-number">2.1.</span> <span class="nav-text">1.常用的布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%89%E5%8D%93%E4%B8%ADlog%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E7%BA%A7%E5%88%AB"><span class="nav-number">2.2.</span> <span class="nav-text">2.安卓中log的作用与级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8sharedperformance%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE"><span class="nav-number">2.3.</span> <span class="nav-text">3.如何使用sharedperformance存储数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-active%E5%9B%9B%E7%A7%8D%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.4.</span> <span class="nav-text">4.active四种启动模式的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AAAPP%EF%BC%8C%E7%82%B9%E5%87%BB%E6%8C%89%E9%92%AE%EF%BC%8C%E8%BE%93%E5%85%A5%E6%A1%86%E4%B8%AD%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2%E9%9A%8F%E6%9C%BA%E6%94%B9%E5%8F%98%EF%BC%88%E6%88%96%E7%82%B9%E4%BB%80%E4%B9%88%E9%A2%9C%E8%89%B2%E5%B0%B1%E6%94%B9%E6%88%90%E4%BB%80%E4%B9%88%E9%A2%9C%E8%89%B2%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">1.设计一个APP，点击按钮，输入框中文字颜色随机改变（或点什么颜色就改成什么颜色）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%BE%80%E9%80%9A%E8%AE%AF%E5%BD%95%E4%B8%AD%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">3.2.</span> <span class="nav-text">2.往通讯录中插入数据</span></a></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">kaiwen zhou</p>
+  <div class="site-description" itemprop="description">the web page to share my code</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/03/17/android%E8%80%83%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          android考试
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-17 09:36:17" itemprop="dateCreated datePublished" datetime="2021-03-17T09:36:17+08:00">2021-03-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>A卷</p>
+<h2 id="填空"><a href="#填空" class="headerlink" title="填空"></a>填空</h2><h3 id="1-答案：Kotlin和Java"><a href="#1-答案：Kotlin和Java" class="headerlink" title="1.答案：Kotlin和Java"></a>1.答案：Kotlin和Java</h3><h3 id="2-答案：高度"><a href="#2-答案：高度" class="headerlink" title="2.答案：高度"></a>2.答案：高度</h3><h3 id="3-Android中数据存储的5种方式"><a href="#3-Android中数据存储的5种方式" class="headerlink" title="3.Android中数据存储的5种方式"></a>3.Android中数据存储的5种方式</h3><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316222423638.png" alt="image-20210316222423638" style="zoom:100%;" />
+
+<h2 id="简答"><a href="#简答" class="headerlink" title="简答"></a>简答</h2><h3 id="1-常用的布局"><a href="#1-常用的布局" class="headerlink" title="1.常用的布局"></a>1.常用的布局</h3><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316222454741.png" alt="image-20210316222454741" style="zoom:80%;" />
+
+<h3 id="2-安卓中log的作用与级别"><a href="#2-安卓中log的作用与级别" class="headerlink" title="2.安卓中log的作用与级别"></a>2.安卓中log的作用与级别</h3><p>​        log的作用：常用于对各种日志级别的输出</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316222527348.png" alt="image-20210316222527348"></p>
+<h3 id="3-如何使用sharedperformance存储数据"><a href="#3-如何使用sharedperformance存储数据" class="headerlink" title="3.如何使用sharedperformance存储数据"></a>3.如何使用sharedperformance存储数据</h3><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316222708239.png" alt="image-20210316222708239" style="zoom:80%;" />
+
+<h3 id="4-active四种启动模式的区别"><a href="#4-active四种启动模式的区别" class="headerlink" title="4.active四种启动模式的区别"></a>4.active四种启动模式的区别</h3><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316223001464.png" alt="image-20210316223001464" style="zoom:80%;" />
+
+<img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316223843124.png" alt="image-20210316223843124" style="zoom:80%;" />
+
+
+
+<h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><h3 id="1-设计一个APP，点击按钮，输入框中文字颜色随机改变（或点什么颜色就改成什么颜色）"><a href="#1-设计一个APP，点击按钮，输入框中文字颜色随机改变（或点什么颜色就改成什么颜色）" class="headerlink" title="1.设计一个APP，点击按钮，输入框中文字颜色随机改变（或点什么颜色就改成什么颜色）"></a>1.设计一个APP，点击按钮，输入框中文字颜色随机改变（或点什么颜色就改成什么颜色）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> TextView tv;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        tv = findViewById(R.id.textView);</span><br><span class="line">        findViewById(R.id.button).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                Random random = <span class="keyword">new</span> Random();</span><br><span class="line">                <span class="keyword">int</span> rc = Color.rgb(random.nextInt(<span class="number">256</span>),random.nextInt(<span class="number">256</span>),random.nextInt(<span class="number">256</span>));</span><br><span class="line">                tv.setTextColor(rc);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-往通讯录中插入数据"><a href="#2-往通讯录中插入数据" class="headerlink" title="2.往通讯录中插入数据"></a>2.往通讯录中插入数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    EditText et1,et2;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        et1 = findViewById(R.id.et1); et2 = findViewById(R.id.et2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//新增联系人信息</span></span><br><span class="line">        findViewById(R.id.button).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//插入一条空数据，返回onContactId</span></span><br><span class="line">                ContentValues values = <span class="keyword">new</span> ContentValues();</span><br><span class="line">                <span class="comment">//获取ContentResolver，插入到url</span></span><br><span class="line">                Uri uri = getContentResolver().insert(ContactsContract.RawContacts.CONTENT_URI,values);</span><br><span class="line">                <span class="keyword">long</span> rawContactId = ContentUris.parseId(uri);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//插入联系人姓名</span></span><br><span class="line">                values.clear();</span><br><span class="line">                values.put(ContactsContract.Data.RAW_CONTACT_ID,rawContactId);</span><br><span class="line">                <span class="comment">//设置内容类型</span></span><br><span class="line">                values.put(ContactsContract.Data.MIMETYPE,ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE);</span><br><span class="line">                <span class="comment">//插入联系人姓名</span></span><br><span class="line">                values.put(ContactsContract.CommonDataKinds.StructuredName.GIVEN_NAME,et1.getText().toString());</span><br><span class="line">                <span class="comment">//姓名插入到通讯录中</span></span><br><span class="line">                getContentResolver().insert(ContactsContract.Data.CONTENT_URI,values);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//插入联系人手机</span></span><br><span class="line">                values.clear();</span><br><span class="line">                values.put(ContactsContract.Data.RAW_CONTACT_ID,rawContactId);</span><br><span class="line">                <span class="comment">//设置内容类型</span></span><br><span class="line">                values.put(ContactsContract.Data.MIMETYPE,ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);</span><br><span class="line">                <span class="comment">//设置联系人手机</span></span><br><span class="line">                values.put(ContactsContract.CommonDataKinds.Phone.NUMBER,et2.getText().toString());</span><br><span class="line">                <span class="comment">//设置电话类型</span></span><br><span class="line">                values.put(ContactsContract.CommonDataKinds.Phone.TYPE, ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE);</span><br><span class="line">                <span class="comment">//把联系人手机插入到通讯录中</span></span><br><span class="line">                getContentResolver().insert(ContactsContract.Data.CONTENT_URI,values);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        findViewById(R.id.button2).setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//curor中保存着所有联系人的信息</span></span><br><span class="line">                Cursor cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,</span><br><span class="line">                        <span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//联系人列表集合</span></span><br><span class="line">                List&lt;PhoneDto&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">                <span class="keyword">while</span>(cursor.moveToNext())&#123;</span><br><span class="line">                    String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));</span><br><span class="line">                    String phone = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));</span><br><span class="line">                    list.add(<span class="keyword">new</span> PhoneDto(name,phone));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                ListView lv = findViewById(R.id.ListView);</span><br><span class="line">                MyAdapter adapter = <span class="keyword">new</span> MyAdapter(list,MainActivity.<span class="keyword">this</span>);  <span class="comment">//传递上下文</span></span><br><span class="line">                lv.setAdapter(adapter);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">androidx.constraintlayout.widget.ConstraintLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">&quot;.MainActivity&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=&quot;@+id/textView&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginStart=&quot;29dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;38dp&quot;</span><br><span class="line">        android:text=&quot;联系人姓名&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;EditText</span><br><span class="line">        android:id=&quot;@+id/et1&quot;</span><br><span class="line">        android:layout_width=&quot;140dp&quot;</span><br><span class="line">        android:layout_height=&quot;37dp&quot;</span><br><span class="line">        android:layout_marginStart=&quot;17dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;31dp&quot;</span><br><span class="line">        android:ems=&quot;10&quot;</span><br><span class="line">        android:inputType=&quot;textPersonName&quot;</span><br><span class="line">        app:layout_constraintStart_toEndOf=&quot;@+id/textView&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=&quot;@+id/textView2&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginStart=&quot;29dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;34dp&quot;</span><br><span class="line">        android:text=&quot;联系人手机&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/textView&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;EditText</span><br><span class="line">        android:id=&quot;@+id/et2&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginStart=&quot;16dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;7dp&quot;</span><br><span class="line">        android:ems=&quot;10&quot;</span><br><span class="line">        android:inputType=&quot;textPersonName&quot;</span><br><span class="line">        app:layout_constraintStart_toEndOf=&quot;@+id/textView2&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/et1&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/button&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginStart=&quot;80dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;36dp&quot;</span><br><span class="line">        android:text=&quot;新增联系人信息&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/et2&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/button2&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginStart=&quot;40dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;36dp&quot;</span><br><span class="line">        android:text=&quot;查询联系人&quot;</span><br><span class="line">        app:layout_constraintStart_toEndOf=&quot;@+id/button&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/et2&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;ListView</span><br><span class="line">        android:id=&quot;@+id/ListView&quot;</span><br><span class="line">        android:layout_width=&quot;409dp&quot;</span><br><span class="line">        android:layout_height=&quot;489dp&quot;</span><br><span class="line">        android:layout_marginStart=&quot;1dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;20dp&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/button&quot; /&gt;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">androidx.constraintlayout.widget.ConstraintLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/android/" rel="tag"># android</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/17/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/" rel="prev" title="数据存储技术">
+                  <i class="fa fa-chevron-left"></i> 数据存储技术
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/03/17/javaEE%E8%80%83%E7%82%B9/" rel="next" title="javaEE考点">
+                  javaEE考点 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kaiwen zhou</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+<script>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+
+
+
+
+  
+
+
+</body>
+</html>
