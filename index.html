@@ -214,7 +214,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/03/20/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/03/21/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -227,7 +227,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/20/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">数据存储技术</a>
+          <a href="/2021/03/21/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">数据存储技术</a>
         </h2>
 
         <div class="post-meta-container">
@@ -238,7 +238,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-03-20 09:26:13" itemprop="dateCreated datePublished" datetime="2021-03-20T09:26:13+08:00">2021-03-20</time>
+      <time title="Created: 2021-03-21 16:03:07" itemprop="dateCreated datePublished" datetime="2021-03-21T16:03:07+08:00">2021-03-21</time>
     </span>
 
   
@@ -258,7 +258,7 @@
 <p><strong>以下哪一项是以信息为中心的体系结构的功能?</strong> </p>
 <p> A. 内置于服务器之中的存储<br> B. 防止在服务器之间共享存储<br> C. 单个系统中包括服务器、网络和存储<br> <strong>D. 存储将得到集中管理且独立于服务器</strong> **</p>
 <p><strong>以下哪一项准确描述了虚拟化?</strong> </p>
-<p><strong>A. 提供按需计量服务</strong> **<br>B. 将物理资源抽象化为逻辑资源<br>C. 共用逻辑资源以提供数据完整性<br>D. 支持跨数据中心的分散式管理</p>
+<p>A. 提供按需计量服务<br><strong>B. 将物理资源抽象化为逻辑资源</strong> **<br>C. 共用逻辑资源以提供数据完整性<br>D. 支持跨数据中心的分散式管理</p>
 <p><strong>以下哪项要求是指存储解决方案能够随业务一同增长?</strong></p>
 <p> A. 可用性<br> B. 可管理性<br> C. 完整性<br> <strong>D. 可扩展性</strong> **</p>
 <h3 id="Module-2"><a href="#Module-2" class="headerlink" title="Module 2"></a>Module 2</h3><p><strong>以下哪一项是计算虚拟化的好处?</strong></p>
@@ -515,6 +515,17 @@
 <p>一个fabric可以用其包含的层数目来描述。一个fabric的层的数量取决 于相距最远的两个节点所穿越的交换机的数量。但是，注意这个数字 完全由fabric决定，与存储器和服务器如何通过交换机连接没有关系。</p>
 <p>当fabric的层数增加时，fabric管理信息到达每个交换机所必须穿越的 距离也会增大。距离上的增大会造成fabric重设置事件(例如新交换机 加入，或一个区域设置传播事件)传播和完成的时间增大。图5-9分别 展示的是两层和三层的fabric结构。</p>
 <p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/Image00064.jpg" alt="Image00064"></p>
+<p><strong>分区的功能</strong></p>
+<p>分区是一种 FC 交换机的功能，它使得节点在一个 fabric 里可以被逻辑上分为不同的组，并且在组间进行互相通信</p>
+<p>当名字服务器数据库有改变时，fabric控制器会向所有受到影响的节点 发送一个注册状态变更通知(Registered State Change Notifiation， RSCN)。如果没有设置分区，fabric 控制器会向fabric中的所有节点 发送。这会牵扯没有受到影响的节点，从而增加fabric的管理流量。对 于一个较大的fabric来说，由此产生FC流量十分可观，可能会影响主 机到存储的数据流量。分区则可以限制fabric上的RSCN数量。有了分 区之后，fabric只需向发生更改的分区的节点发送RSCN。</p>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/Image00073.jpg" alt="Image00073"></p>
+<p><strong>分区的类型</strong></p>
+<ul>
+<li>端口分区:使用交换机端口的物理地址来定义分区。在端口分区 里，对于节点的访问由与节点连接的物理交换机端口决定。连接HBA 和目标(存储设备)的端口标识符属于分区成员如果节点转移到 fabric 中另外一个交换机端口上，那么分区必须做出相应修改，以保 证此节点在新端口依然能够加入原分区。然而，如果HBA或者它的目 标(存储设备)失效，管理员只需更换失效设备即可，无需手动更改 分区设置。</li>
+<li>WWN 分区:它使用万维网名称来定义分区。分区成员为HBA及其 目标(存储设备)的唯一万维网名称地址。WWN 分区的一个主要的 优点就是灵活性。节点更换交换机端口后依然可与原来的分区伙伴通 信，并不需要重新配置分区信息。这是因为WWN相对于分区端口来 说是静态的。</li>
+<li>混合分区:它结合了 WWN 分区和端口分区的优点。使用混合分区 时的一个特定的端口可以绑定到一个节点的WWN上。</li>
+</ul>
+<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/Image00075.jpg" alt="Image00075"></p>
 <h3 id="问题6"><a href="#问题6" class="headerlink" title="问题6"></a>问题6</h3><p><strong>问题：</strong>聚合增强以太网 (CEE)的工作原理及消除以太网的有损耗的方式（6.3.4）。</p>
 <p>传统的以太网本质上是有损失的，即在传输过程中可能有帧丢弃或帧 丢失的情况发生。聚合增强型以太网(CEE)，又称无损以太网，为 现有的以太网标准提供了新的实现规格，消除了以太网的有损属性。 10 Gb 以太网成为与FC类似、可行的存储网络方案。无损以太网需要 特定的功能作为前提。这些功能由隶属IEEE 802.1 工作组的数据中心 桥接(data center bridging)工作组定义和维护。它们是:</p>
 <ul>
