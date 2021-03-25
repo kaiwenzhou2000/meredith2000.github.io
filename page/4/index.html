@@ -167,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -205,6 +205,109 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/08/03/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%BA%8C%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith and Cynthia's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/03/%E5%8D%97%E6%9E%97%E5%A4%A7c%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%BA%8C%E9%A2%98/" class="post-title-link" itemprop="url">南林大C++编程第二题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-03 16:28:05" itemprop="dateCreated datePublished" datetime="2020-08-03T16:28:05+08:00">2020-08-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>前言</p>
+<p>这里是南京林业大学2020年C++复习指南（自制）的编程题版块，想要获取更多可以点击以下链接：</p>
+<p><a href="https://blog.zkwzkw.top/?p=240">https://blog.zkwzkw.top/?p=240</a></p>
+<p>需要其他复习指南的可以参考一下连接：</p>
+<p>欢迎访问我的个人网站，里面有更多的干货哦！</p>
+<p><a href="https://blog.zkwzkw.top/">https://blog.zkwzkw.top</a></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><strong>设计一个stack类的结构，该类可以完成栈的功能。该栈的元素类型为int，最大深度为100。它能完成push和pop方法，功能分别为压栈和出栈。<br>如下main()函数可以执行。<br>void main()<br>{<br>stack s1;<br>int i;<br>for(i = 1; i &lt; 10;i++)<br>s1.push(i);<br>for(i = 1; i &lt;6;i++)<br>cout &lt;&lt; s1.pop()&lt;&lt;”,”;<br>s1.push(200);<br>cout &lt;&lt; s1.pop()&lt;&lt;endl;<br>}<br>执行的结果为<br>9,8,7,6,5,200</strong></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>第二题也没有什么难度，主要要注意一下栈的溢出和触底的检验操作</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>#include <iostream></p>
+<p>#define maxN 100            // 栈的最大容量</p>
+<p>using namespace std;</p>
+<p>class stack{<br>private:<br>    int top;                // 栈顶指针，初始化的时候指向-1<br>    int a[maxN];            // 用数组来模拟栈<br>public:<br>    stack();            // 空参构造器<br>    void push(int num);     // push方法<br>    int pop();              // pop方法<br>};</p>
+<p>// 初始化栈<br>stack::stack() {<br>    top = -1;<br>}</p>
+<p>void stack::push(int num) {<br>    if (top &lt; maxN-1) {             // 检验栈有没有溢出<br>        top++;<br>        a[top] = num;<br>    }<br>}</p>
+<p>int stack::pop() {<br>    if (top &gt; -1) {                 // 检验栈有没有触底<br>        top–;<br>        return a[top+1];<br>    }<br>    return -1;<br>}</p>
+<p>int main()<br>{<br>    stack s1;<br>    int i;</p>
+<pre><code>for(i = 1; i &lt; 10;i++)
+    s1.push(i);
+for(i = 1; i &lt;6;i++)
+    cout &lt;&lt; s1.pop()&lt;&lt;&quot;,&quot;;
+s1.push(200);
+cout &lt;&lt; s1.pop()&lt;&lt;endl;
+return 0;</code></pre>
+<p>}</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1113,119 +1216,6 @@
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
 <p><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/98728.html?spm=5176.2020520163.0.dexternal.57c756a7SiQM1o#title-4mj-mh9-ap3">https://help.aliyun.com/document_detail/98728.html?spm=5176.2020520163.0.dexternal.57c756a7SiQM1o#title-4mj-mh9-ap3</a></p>
 </blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2020/07/22/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith and Cynthia's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/22/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/" class="post-title-link" itemprop="url">斐波那契数列(快速幂求模)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-07-22 16:20:40" itemprop="dateCreated datePublished" datetime="2020-07-22T16:20:40+08:00">2020-07-22</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-12-12 18:01:14" itemprop="dateModified" datetime="2020-12-12T18:01:14+08:00">2020-12-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在写题目的时候，遇到一个很有意思的题目，题目是关于斐波那契数列的，但是我的脑子里立马出现“矩阵快速幂”，我想肯定是用这种解法，结果折腾了三四个小时，还没搞定。不是因为我写的矩阵快速幂的方法不对，而是这道题无法使用矩阵快速幂来完成。废话不多说了，直接给你们看题目。</p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>带余数斐波那契数公式如下：<br>fib(n) = (fib(n-1) + fib(n-2)) % r n&gt;=1 r = 173<br>解析带余数斐波那契数的类结构如下<br>class fib{<br>static const int r = 173;<br>static const int F1 = 1;<br>static const int F2 = 1;<br>public:<br>fib();<br>//获取fib(n^p)的值 其中n小于1000000，p小于10000，p和n都是正整数<br>int getfib(int n, int p);<br>};<br>以下的main函数执行后<br>void main( )<br>{<br>fib a;<br>cout &lt;&lt; a.getfib(120000,1000) &lt;&lt; endl;<br>}<br>其输出结果为：<br>8</p>
-<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>这道题乍一看是使用矩阵快速幂的方法来计算斐波那契数列，但是，这道题坑就坑在，他给出的n非常大，虽然理论上来说通过矩阵快速幂是可以解决很大的n，但是这个n实在是太大，而且用内置的数据类型根本就无法表示，这给后续的运算带来了极大的麻烦。实际上这道题根本就不是真的让你用矩阵快速幂来精确的计算第n项的斐波那契数列的结果，而是一道“找规律”的题目。</p>
-<p>在这道题目中，由于对斐波那契数列的结果不断的取模运算，使得斐波那契的结果呈现一个“环状结构”，所以说，根本就不需要计算那么多项的斐波那契数列，知道找到这个“环形结构”的交界点就可以了。</p>
-<p><strong>快速幂求模</strong></p>
-<p>这是这道题目唯一的难点，就是计算(n^p)%r，解决的思想其实很简单。</p>
-<p>首先我们先来了解一下模运算的基本性质：</p>
-<ol>
-<li> (a + b) % p = (a % p + b % p) % p</li>
-<li> (a - b) % p = (a % p - b % p) % p</li>
-<li> <strong>(a * b) % p = (a % p * b % p) % p</strong></li>
-<li> a ^ b % p = ((a % p)^b) % p</li>
-</ol>
-<p>在这里我们重点关注第三条性质。好，我们知道了这个性质之后，让我们再来复习一下小学时候学过的乘法的性质：</p>
-<p><img src="https://zkwzkw.top/wordpress/wp-content/uploads/2020/07/IMG_184781BC88B1-1-1024x496.jpeg"></p>
-<p>基本的乘方运算性质</p>
-<p>由此可见，越往下进行，需要运算的次数越少，使用这种方法可以有效的降低算法的复杂度。</p>
-<p>这时候，我们再结合刚刚取模运算的规律：</p>
-<p><img src="https://zkwzkw.top/wordpress/wp-content/uploads/2020/07/IMG_D3F25CDA81F3-1-1024x871.jpeg"></p>
-<p>结合上面两条性质</p>
-<p>这样就不断的循环下去，知道temp的指数为0。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>#include <iostream><br>#define maxN 100000    // 定义fibCache的大小<br>#define MOD 173            // 定义取模的大小</p>
-<p>using namespace std;</p>
-<p>unsigned long long fibCache[maxN] = {0};    // 设置斐波那契数列的缓存结构，将已经计算好的斐波那契的项放在这里面</p>
-<p>class fib{<br>    static const int r = 173;<br>    static const int F1 = 1;<br>    static const int F2 = 1;<br>public:<br>    fib();<br>    //获取fib(n^p)的值  其中n小于1000000，p小于10000，p和n都是正整数<br>    int getfib(int n, int p);<br>};</p>
-<p>// 用来寻找这个循环的周期（大小）<br>unsigned long long findLoop(){<br>    unsigned long long i = 2;<br>    // 初始化斐波那契数列的缓存数组<br>    fibCache[0] = 0;<br>    fibCache[1] = 1;<br>    // 向febCache中添加值，要保证第一次能够进入，同时在找到“尾巴”的时候退出这个循环<br>    do{<br>        fibCache[i] = (fibCache[i-1] + fibCache[i-2])%MOD;<br>        i++;<br>    }while (!(fibCache[i-2] == 0 &amp;&amp; fibCache[i-1] == 1));<br>    // 修正i的值，这时候i表示着斐波那契数列中形成的环的大小<br>    return i-2;<br>}</p>
-<p>fib::fib() {}</p>
-<p>// 用来计算最后的落在fibCache的具体位置，并返回结果，这里运用到了快速幂求模<br>unsigned long long findFib(unsigned long long count, unsigned long long n, unsigned long long p){    // count表示斐波那契数列循环的周期，n表示底数，p表示指数<br>    // res 用来存放最后结果所在位置的索引<br>    unsigned long long res=1,temp=n%count;<br>    while(p){<br>        if (p&amp;1) res=res*temp%count;    // p和1进行与运算实际上是判断p的奇偶性，如果p是奇数的话，就会进入这个if，如果是偶数的话，就不会进入这个if（p一定为有一次等于1.就在这时，res获取最后的结果）<br>        temp=temp*temp%count;    // 不断地对自己进行平方，并求模<br>        p=p&gt;&gt;1;    // 右移一位，相当于除以2<br>    }<br>    return fibCache[res];<br>}</p>
-<p>int fib::getfib(int n, int p) {<br>    unsigned long long count = findLoop();<br>    return findFib(count, n, p);<br>}</p>
-<p>int main() {<br>    fib a;</p>
-<pre><code>cout &lt;&lt; a.getfib(120000,1000) &lt;&lt; endl;
-
-return 0;</code></pre>
-<p>}</p>
 
       
     </div>

@@ -167,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -205,6 +205,89 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/03/25/%E8%88%AA%E7%A9%BA%E9%80%89%E5%BA%A7%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E5%80%BC%E6%8F%90%E5%8F%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith and Cynthia's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/03/25/%E8%88%AA%E7%A9%BA%E9%80%89%E5%BA%A7%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E5%80%BC%E6%8F%90%E5%8F%96/" class="post-title-link" itemprop="url">航空选座问题进行特征值提取</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-25 23:52:15" itemprop="dateCreated datePublished" datetime="2021-03-25T23:52:15+08:00">2021-03-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="特征值提取"><a href="#特征值提取" class="headerlink" title="特征值提取"></a>特征值提取</h1><h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = pd.read_csv(<span class="string">&#x27;./data/plane.csv&#x27;</span>, low_memory=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对数据进行空值的预处理</span></span><br><span class="line">data.replace([<span class="number">0</span>, <span class="string">&#x27;0&#x27;</span>], np.nan, inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 展示data</span></span><br><span class="line">data</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看dataframe的形状</span></span><br><span class="line">data.shape</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># new_data中存放的是nan的个数</span></span><br><span class="line">new_data = pd.isna(data).<span class="built_in">sum</span>()</span><br><span class="line">new_data</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将new_data中的的数值转换为数据的填充率（非nan的个数/总数）</span></span><br><span class="line">index = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> new_data.values:</span><br><span class="line">  new_data.iloc[index] = (data.shape[<span class="number">0</span>]-i)/data.shape[<span class="number">0</span>]</span><br><span class="line">  index += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">new_data</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 筛选出覆盖率大于百分之三十的</span></span><br><span class="line">index_num = <span class="number">0</span></span><br><span class="line">index = new_data.index</span><br><span class="line">ans = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> new_data[:]:</span><br><span class="line">  <span class="keyword">if</span> i &lt; <span class="number">0.3</span>:</span><br><span class="line">   <span class="keyword">del</span> new_data[index[index_num]]</span><br><span class="line">  index_num += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_data</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一共五十条数据</span></span><br><span class="line"><span class="built_in">len</span>(new_data)</span><br></pre></td></tr></table></figure>
+<h2 id="人工筛选"><a href="#人工筛选" class="headerlink" title="人工筛选"></a>人工筛选</h2><p>考虑要覆盖率的问题，筛选出上面50条可用的数据，下面进行人工的筛选</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># new_data.to_csv(&#x27;./drive/MyDrive/data/result.csv&#x27;)</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -3364,164 +3447,6 @@ weighted avg       0.88      0.94      0.91      4687
 <li>索引组织方式</li>
 </ul>
 <h4 id="FAT"><a href="#FAT" class="headerlink" title="FAT"></a>FAT</h4><p>可能会考计算题</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/01/02/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E6%9C%9F%E6%9C%AB%E8%AF%95%E5%8D%B7%E8%A7%A3%E6%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith and Cynthia's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/01/02/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E6%9C%9F%E6%9C%AB%E8%AF%95%E5%8D%B7%E8%A7%A3%E6%9E%90/" class="post-title-link" itemprop="url">算法分析期末试卷解析</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-01-02 17:07:43" itemprop="dateCreated datePublished" datetime="2021-01-02T17:07:43+08:00">2021-01-02</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="算法分析期末试卷解析"><a href="#算法分析期末试卷解析" class="headerlink" title="算法分析期末试卷解析"></a>算法分析期末试卷解析</h1><h2 id="代码托管地址"><a href="#代码托管地址" class="headerlink" title="代码托管地址"></a>代码托管地址</h2><p><a target="_blank" rel="noopener" href="https://github.com/Meredith2000/final_exam_of_algorithm_analysis">https://github.com/Meredith2000/final_exam_of_algorithm_analysis</a></p>
-<h2 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h2><blockquote>
-<p>题目：用伪代码描述一个二分查找算法的完整过程</p>
-<p>题目类型：二分法</p>
-</blockquote>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>下面是一个有序的列表，而红色背景的元素就是我们需要寻找的元素了</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%881.33.19.png" alt="截屏2020-12-19 下午1.33.19"></p>
-<p><strong>注意：二分法查找要求列表中的值是有序的！！！</strong></p>
-<p><strong>现在我们将列表中放入三个指针</strong>，他们分别是：</p>
-<ul>
-<li>指向列表头部的head指针 -&gt; 0</li>
-<li>指向列表尾部的tail指针 -&gt; len(array)</li>
-<li>指向列表中间的mid指针 -&gt; int(head + mid)</li>
-</ul>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%881.41.14.png" alt="截屏2020-12-19 下午1.41.14"></p>
-<p><strong>我们约定检索的规则如下：</strong></p>
-<ul>
-<li>如果mid所指的值等于我们所要寻找的值，那么就认为找到了</li>
-<li>如果mid所指的值大于我们要寻找的值，那么我们寻找的值，一定在mid的左边，则移动tail指针到mid的左边，并重新计算mid</li>
-<li>如果mid所指的值小于我们要寻找的值，那么我们寻找的值，一定在mid的右边，则移动head指针到mid的右边，并重新计算mid</li>
-<li>如果head &gt; tail 那就说明列表中没有这个元素</li>
-</ul>
-<h3 id="查找过程"><a href="#查找过程" class="headerlink" title="查找过程"></a>查找过程</h3><p><strong>下面我们进行第一次的比较：</strong></p>
-<p>​    此时mid所代表的的是6号元素，其所对应的值是7，由于7小于我们所要寻找的11，所以head指向7号元素，mid = (head + tail)/2，所以mid所指的是9号元素，其值为10，对应图如下</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%881.54.26.png" alt="截屏2020-12-19 下午1.54.26"></p>
-<p><strong>下面我们进行第三次的比较：</strong></p>
-<p>​    此时mid所代表的的是9号元素，其所对应的值是10，由于10小于我们所要寻找的11，所以head指向10号元素，mid = (head + tail)/2，所以mid所指的是11号元素，其值为12，对应图如下</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%881.58.07.png" alt="截屏2020-12-19 下午1.58.07"></p>
-<p><strong>下面我们进行第四次的比较：</strong></p>
-<p>​    此时mid所代表的的是11号元素，其所对应的值是12，由于12大于我们所要寻找的11，所以tail指向10号元素，mid = (head + tail)/2，所以mid所指的是10号元素，其值为11，对应图如下</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%882.01.37.png" alt="截屏2020-12-19 下午2.01.37"></p>
-<p><strong>下面我们进行第五次比较：</strong></p>
-<p>​    此时mid所代表的的是10号元素，其所对应的值是11，11正是我们要寻找的元素！</p>
-<h3 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h3><p>此种算法的算法复杂度为<strong>O(log(2n))</strong></p>
-<h2 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h2><blockquote>
-<p>题目：在2k*2k的棋盘覆盖问题中，如果k值等于3，残缺方块的行列序号分别是7和6，请给出此种状态下的覆盖过程描述并简单解释使用了何种算法以及本题使用这种算法的优势。</p>
-<p>题目类型：分治法+递归</p>
-</blockquote>
-<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>如下图所示，红色部分表示缺失的棋盘位置：</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%882.23.47.png" alt="截屏2020-12-19 下午2.23.47"></p>
-<p>面对这样的题，我们可以把整个棋盘分成4个子棋盘，分别是<strong>左上，右上，左下，右下</strong>，如下图：</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%882.41.44.png" alt="截屏2020-12-19 下午2.41.44"></p>
-<p>可以看出确实的格子是属于左上的，所以我们要在其余没有缺少的子棋盘中的指定一个做为缺少的（指定位置），如下图：</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-19%20%E4%B8%8B%E5%8D%882.49.19.png" alt="截屏2020-12-19 下午2.49.19"></p>
-<p>根据上面的过程可以不断的递归下去，每一个棋盘都可以分为四个子棋盘，直到最后只有一个格子的时候退出</p>
-<h3 id="伪代码演示"><a href="#伪代码演示" class="headerlink" title="伪代码演示"></a>伪代码演示</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">play_chess</span>(<span class="params">棋盘的大小, 棋盘的顶点横坐标, 棋盘的顶点纵坐标, 缺少位置的横坐标, 缺少位置的纵坐标</span>):</span></span><br><span class="line">  <span class="comment"># 递归的出口</span></span><br><span class="line">  <span class="keyword">if</span> size == <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  <span class="comment"># 首先进行棋盘的分割</span></span><br><span class="line">  <span class="comment"># 左上角</span></span><br><span class="line">  <span class="keyword">if</span> 缺失的格子在左上角:</span><br><span class="line">    play_chess(棋盘位置调整到左上角，缩小规模)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    chess_board[中心点的左上方坐标] = trace_step</span><br><span class="line">    play_chess(棋盘位置调整到左上角, 缩小规模, 更新缺少的点)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 右上角</span></span><br><span class="line">  <span class="keyword">if</span> 缺失的格子在右上角:</span><br><span class="line">    play_chess(棋盘位置调整到右上角，缩小规模)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    chess_board[中心点的右上方坐标] = trace_step</span><br><span class="line">    play_chess(棋盘位置调整到右上角, 缩小规模, 更新缺少的点)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 左下角</span></span><br><span class="line">  <span class="keyword">if</span> 缺失的格子在左下角:</span><br><span class="line">    play_chess(棋盘位置调整到左下角，缩小规模)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    chess_board[中心点的左下方坐标] = trace_step</span><br><span class="line">    play_chess(棋盘位置调整到左下角, 缩小规模, 更新缺少的点)</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 右下角</span></span><br><span class="line">  <span class="keyword">if</span> 缺失的格子在右下角:</span><br><span class="line">    play_chess(棋盘位置调整到右下角，缩小规模)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    chess_board[中心点的右下方坐标] = trace_step</span><br><span class="line">    play_chess(棋盘位置调整到右下角, 缩小规模, 更新缺少的点)</span><br></pre></td></tr></table></figure>
-<h2 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h2><blockquote>
-<p>题目：给定n种物品和一个背包。物品i的重量为wi，其价值为vi,背包的容量为C。使用动态规划方法分析并描述应该如何选择装入背包的物品，使得装入背包中物品的总价值最大？在选择装入背包时，对每种物品只有两种选择：即装入背包或不装入背包，不能将物品装入背包多次，也不能只装入部分某物品。</p>
-<p>题目类型：0，1背包问题（动态规划）</p>
-</blockquote>
-<h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h3><p>这是一道典型的动态规划的题目，主要是要写出整个的状态转义方程，其实对于整体而言，一直在重复拿和不拿之间的关系，即找到拿或者不拿中间的最大值</p>
-<p>这里我把表中的取值的过程简单写成一个函数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">value_table[i][j] = <span class="built_in">max</span>(拿的价值，不拿的价值)</span><br></pre></td></tr></table></figure>
-<p><strong>状态转移方程：</strong><br>$$<br>value_table[i][j] =<br>\begin{cases}<br>value_table[i-1][j] \\<br>value[i] + value_table[i-1][j-weight[i]]<br>\end{cases}<br>$$<br>建立表格之后，找到最大的就行了</p>
-<h2 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h2><blockquote>
-<p>题目：在最长公共子序列问题中，用c[i][j]记录Xi和Yi的最长公共子序列的长度。其中，Xi={x1,x2…xi}，Yi={y1,y2…yi}。当i或j的值为0时，X和Y的最长公共子序列为空序列。请求出在一般情况下，由本问题的最优子结构性质所建立的递归关系式，给出推导过程。</p>
-<p>题目类型：LCS 动态规划</p>
-</blockquote>
-<h3 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h3><p>这是一道动态规划的题目，状态转移方程如下</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-25%20%E4%B8%8A%E5%8D%8810.29.44.png" alt="截屏2020-12-25 上午10.29.44"></p>
-<p>跟上面一样，建立表格后找到最大的就可以</p>
-<h2 id="第五题"><a href="#第五题" class="headerlink" title="第五题"></a>第五题</h2><blockquote>
-<p>题目：设计一个贪心算法（详细的流程图，或者 完整的伪代码，或者 有注释的源代码）， 把一个真分数表示为埃及分数之和的形式。所谓埃及分数，是指分子为1的分数。如：7/8=1/2+1/3+1/24。</p>
-<p>题目类型：贪心算法</p>
-</blockquote>
-<h3 id="分析-4"><a href="#分析-4" class="headerlink" title="分析"></a>分析</h3><p>贪心算法的思想是：找到局部最优解，那么整体就会最优</p>
-<p>在这道题中，要把一个真分数转换为尽量少的埃及真分数，那么每次的在取分数的时候都找它最大的埃及真分数就行了</p>
-<p>在这道题中，我运用的暴力+贪心的算法，由于分母越小的分数，值越大，所以<strong>分母从2开始，不断地加1，直到比原来的数要小，然后这个数就是当前最大的埃及真分数了</strong></p>
-<p>但是在做题的过程中，我看见网上有一种效率更加的高的方法，直接可以给出当前最大的埃及真分数，但是要用到数学方面的推倒，我这里就不做深究了，源码我放在了文件中，各位可以下下来运行。</p>
-<h2 id="第六题"><a href="#第六题" class="headerlink" title="第六题"></a>第六题</h2><blockquote>
-<p>题目：给定无向图G和m种不同的颜色，用这些颜色对图G的各顶点进行着色，每个顶点着一种颜色。分析是否有一种着色法使G中每条边的两个顶点着不同颜色？使用回溯法分析本问题，并画出在此框架下的解空间树（并添加适当注释）。</p>
-<p>题目类型：回溯法</p>
-</blockquote>
-<h3 id="分析-5"><a href="#分析-5" class="headerlink" title="分析"></a>分析</h3><p>回溯法实际上就是深度优先搜索+减枝</p>
-<p>我们将问题简化一下，设置一下边界，就成了下面这个无向图</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-29%20%E4%B8%8B%E5%8D%887.45.10.png" alt="截屏2020-12-29 下午7.45.10"></p>
-<p>对于无向图的在电脑中的保存我使用了邻接矩阵的方式来存放</p>
-<p>从1节点开始，有三种不同的颜色选择，形成了三个子节点，而这三个子节点又可以分别形成各自的三个不同的子节点，这样就形成了一个数，通过判断有没有颜色一样的来进行减枝，如下图</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-29%20%E4%B8%8B%E5%8D%887.45.03.png" alt="截屏2020-12-29 下午7.45.03"></p>
-<h2 id="第七题"><a href="#第七题" class="headerlink" title="第七题"></a>第七题</h2><blockquote>
-<p>题目：有一批共n个集装箱要装上两艘载重量分别为c1和c2的轮船，其中集装箱i的重量为wi，且集装箱总重量小于两艘船的载重总量。请确定是否有一个合理的装载方案可将所有的集装箱装上这两艘轮船。这是经典的装载问题，在此问题中，当我们将问题变换成本质上是研究如何将第一艘船尽可能装满后，在使用分支限界的方法时，是如何进行“分支限界”的？</p>
-<p>题目类型：分支限界</p>
-</blockquote>
-<p>实际上分支限界就是广度优先搜索，类似于上一题回溯法，只有“取”和“不取”的两种状态</p>
-<p>这里我通过简单的FIFO来广度优先遍历树，实际上FIFO算法就是一个队列，将队列中的头看作是根节点，从而衍生出多个子节点，在这道题中，每个节点都会有两个子节点，分别是“取”或者是“不取”，在确定子节点之后，将生成的两个子节点放入队列的末尾，知道队列中的长度为空，这个树就遍历结束了</p>
-<p>通过设置分支限界可以有效减小问题的规模，这里有两个限界的点，第一个超过了船最大容量，我们称之为“上界”，这种只会发生在“取”的情况下，第二个是下面的所有物品中之和加上头结点不能大于现有最大的节点，这就说明下面就算是全取，也不可能大于现有的最优解，所以这个节点可以不入队。</p>
-<h2 id="第八题"><a href="#第八题" class="headerlink" title="第八题"></a>第八题</h2><blockquote>
-<p>题目：结合你在数据结构与算法课程中获取的知识，自行设计一种面向字符串的单个关键字查找算法，假定查找范围为普通的一维数组。要求：与之前我们所学的所有查找算法都不完全相同。使用详细的流程图，完整的伪代码，有注释的源代码，等其中的任意一种描述方法均可</p>
-</blockquote>
-<p>这道题，我的想法借鉴于哈夫曼编码的压缩算法，主要思想如下：</p>
-<p>首先根据母串建立如下字典索引：</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-02%20%E4%B8%8B%E5%8D%884.51.41.png" alt="截屏2021-01-02 下午4.51.41"></p>
-<p>在母串中的所有字母都会在字典中有一个key，而每个key所对应的value实际上是一个数组，这个数组中的值，就是在母串中出现的位置</p>
-<p>在查找的时候，先找到子串中的第一个字符，并在字典中找到其对应的value数组，取到value数组之后，将之中的所有索引都分别+1，再与子串下一个字符对应的value数组进行比较，并只保留相同的部分，一直不断重读，知道子串遍历结束，或者两个之间没有重复的元素</p>
-<p>最后得到的结果就表示着子串在母串中结尾字符的位置</p>
 
       
     </div>
