@@ -26,18 +26,18 @@
 <meta name="description" content="特征值提取数据分析1234import pandas as pdimport seaborn as snsimport matplotlib.pyplot as pltimport numpy as np  1data &#x3D; pd.read_csv(&amp;#x27;.&#x2F;data&#x2F;plane.csv&amp;#x27;, low_memory&#x3D;False)  12# 对数据进行空值的预处理data.replace">
 <meta property="og:type" content="article">
 <meta property="og:title" content="航空选座问题进行特征值提取">
-<meta property="og:url" content="https://blog.zkwzkw.top/2021/03/25/%E8%88%AA%E7%A9%BA%E9%80%89%E5%BA%A7%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E5%80%BC%E6%8F%90%E5%8F%96/index.html">
+<meta property="og:url" content="https://blog.zkwzkw.top/2021/03/26/%E8%88%AA%E7%A9%BA%E9%80%89%E5%BA%A7%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E5%80%BC%E6%8F%90%E5%8F%96/index.html">
 <meta property="og:site_name" content="Meredith and Cynthia&#39;s blog">
 <meta property="og:description" content="特征值提取数据分析1234import pandas as pdimport seaborn as snsimport matplotlib.pyplot as pltimport numpy as np  1data &#x3D; pd.read_csv(&amp;#x27;.&#x2F;data&#x2F;plane.csv&amp;#x27;, low_memory&#x3D;False)  12# 对数据进行空值的预处理data.replace">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-25T15:52:15.000Z">
-<meta property="article:modified_time" content="2021-03-25T15:52:15.862Z">
+<meta property="article:published_time" content="2021-03-25T16:00:21.000Z">
+<meta property="article:modified_time" content="2021-03-25T16:00:21.362Z">
 <meta property="article:author" content="kaiwen zhou">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://blog.zkwzkw.top/2021/03/25/%E8%88%AA%E7%A9%BA%E9%80%89%E5%BA%A7%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E5%80%BC%E6%8F%90%E5%8F%96/">
+<link rel="canonical" href="https://blog.zkwzkw.top/2021/03/26/%E8%88%AA%E7%A9%BA%E9%80%89%E5%BA%A7%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E5%80%BC%E6%8F%90%E5%8F%96/">
 
 
 <script class="page-configurations">
@@ -218,7 +218,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/03/25/%E8%88%AA%E7%A9%BA%E9%80%89%E5%BA%A7%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E5%80%BC%E6%8F%90%E5%8F%96/">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/03/26/%E8%88%AA%E7%A9%BA%E9%80%89%E5%BA%A7%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E5%80%BC%E6%8F%90%E5%8F%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -242,7 +242,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-03-25 23:52:15" itemprop="dateCreated datePublished" datetime="2021-03-25T23:52:15+08:00">2021-03-25</time>
+      <time title="Created: 2021-03-26 00:00:21" itemprop="dateCreated datePublished" datetime="2021-03-26T00:00:21+08:00">2021-03-26</time>
     </span>
 
   
@@ -263,17 +263,421 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 展示data</span></span><br><span class="line">data</span><br></pre></td></tr></table></figure>
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pax_name</th>
+      <th>pax_passport</th>
+      <th>seg_route_from</th>
+      <th>seg_route_to</th>
+      <th>seg_flight</th>
+      <th>seg_cabin</th>
+      <th>seg_dep_time</th>
+      <th>pax_fcny</th>
+      <th>pax_tax</th>
+      <th>emd_lable</th>
+      <th>...</th>
+      <th>pit_pay_avg_amt_m3</th>
+      <th>pit_pay_avg_amt_m6</th>
+      <th>pit_pay_avg_amt_y1</th>
+      <th>pit_pay_avg_amt_y2</th>
+      <th>pit_pay_avg_amt_y3</th>
+      <th>pit_add_chnl_m3</th>
+      <th>pit_add_chnl_m6</th>
+      <th>pit_add_chnl_y1</th>
+      <th>pit_add_chnl_y2</th>
+      <th>pit_add_chnl_y3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>9612c51f08718e48b1361e415ef55be9</td>
+      <td>93d0aceeaef3f85264e5c5b5b1148a90</td>
+      <td>PVG</td>
+      <td>JFK</td>
+      <td>AB1006</td>
+      <td>J</td>
+      <td>2018/12/16 20:00</td>
+      <td>4161.0</td>
+      <td>584.43</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>c7ca533cd9da4c4bf3d597248f90bc6e</td>
+      <td>6930f6fa59d86c11fa28c610ab6f56a5</td>
+      <td>PVG</td>
+      <td>JFK</td>
+      <td>AB1006</td>
+      <td>J</td>
+      <td>2019/2/18 20:00</td>
+      <td>1670.0</td>
+      <td>248.80</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>bd2cb6b0dd56fb3de6f7c018296a07e2</td>
+      <td>da73afa8f6ededd29d67a9331dccdbe9</td>
+      <td>PVG</td>
+      <td>LAX</td>
+      <td>AB1009</td>
+      <td>Y</td>
+      <td>2018/3/9 13:20</td>
+      <td>243.0</td>
+      <td>301.31</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65657872fe131ea7651565638dcb5683</td>
+      <td>dc31eead23771810dbb586ad236ade3b</td>
+      <td>PVG</td>
+      <td>LAX</td>
+      <td>AB1009</td>
+      <td>Y</td>
+      <td>2018/1/2 13:20</td>
+      <td>1362.0</td>
+      <td>454.16</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>722261f7b860b183da9fe0b6630b6dbf</td>
+      <td>7689603247539830a08d945cb1a57823</td>
+      <td>PVG</td>
+      <td>JFK</td>
+      <td>AB1010</td>
+      <td>Y</td>
+      <td>2018/7/6 11:30</td>
+      <td>675.0</td>
+      <td>284.11</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>23427</th>
+      <td>ec988e914b272ad74634c52b71e84ea8</td>
+      <td>e61b68ce193bce838436620230ce94e1</td>
+      <td>PVG</td>
+      <td>SYD</td>
+      <td>AB1007</td>
+      <td>Y</td>
+      <td>2017/8/1 20:20</td>
+      <td>807.0</td>
+      <td>486.50</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>23428</th>
+      <td>fa23535ab2ca52589303bd265ee6d382</td>
+      <td>fdd824109fccadfbcba782aaae72484f</td>
+      <td>PVG</td>
+      <td>SYD</td>
+      <td>AB1007</td>
+      <td>J</td>
+      <td>2017/3/25 20:20</td>
+      <td>2218.0</td>
+      <td>312.90</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>23429</th>
+      <td>623d32d20af6c9752d8eef46efe95c09</td>
+      <td>ef53ebb9358d5c7b013f6aed92d78a42</td>
+      <td>PVG</td>
+      <td>SYD</td>
+      <td>AB1007</td>
+      <td>J</td>
+      <td>2017/3/25 20:20</td>
+      <td>2218.0</td>
+      <td>312.90</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>23430</th>
+      <td>dadbf45dde7347740b0294c2c0913100</td>
+      <td>5fe336074ba73e83e12dccb31c33fe40</td>
+      <td>PVG</td>
+      <td>SYD</td>
+      <td>AB1007</td>
+      <td>J</td>
+      <td>2017/3/25 20:20</td>
+      <td>2218.0</td>
+      <td>312.90</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>23431</th>
+      <td>d4ca366192c096cdda1be87ad0bb89b5</td>
+      <td>b3981b746d87f6fcea1dba9059d6678f</td>
+      <td>PVG</td>
+      <td>SYD</td>
+      <td>AB1007</td>
+      <td>J</td>
+      <td>2017/2/26 20:20</td>
+      <td>4900.0</td>
+      <td>744.76</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>23432 rows × 657 columns</p>
+</div>
+
+
+
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看dataframe的形状</span></span><br><span class="line">data.shape</span><br></pre></td></tr></table></figure>
 
+
+
+<pre><code>(23432, 657)</code></pre>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># new_data中存放的是nan的个数</span></span><br><span class="line">new_data = pd.isna(data).<span class="built_in">sum</span>()</span><br><span class="line">new_data</span><br></pre></td></tr></table></figure>
 
+
+
+<pre><code>pax_name               0
+pax_passport           0
+seg_route_from         0
+seg_route_to           0
+seg_flight             0
+                   ...  
+pit_add_chnl_m3    23300
+pit_add_chnl_m6    22841
+pit_add_chnl_y1    22229
+pit_add_chnl_y2    21143
+pit_add_chnl_y3    20889
+Length: 657, dtype: int64</code></pre>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将new_data中的的数值转换为数据的填充率（非nan的个数/总数）</span></span><br><span class="line">index = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> new_data.values:</span><br><span class="line">  new_data.iloc[index] = (data.shape[<span class="number">0</span>]-i)/data.shape[<span class="number">0</span>]</span><br><span class="line">  index += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">new_data</span><br></pre></td></tr></table></figure>
 
+
+
+<pre><code>pax_name           1.000000
+pax_passport       1.000000
+seg_route_from     1.000000
+seg_route_to       1.000000
+seg_flight         1.000000
+                     ...   
+pit_add_chnl_m3    0.005633
+pit_add_chnl_m6    0.025222
+pit_add_chnl_y1    0.051340
+pit_add_chnl_y2    0.097687
+pit_add_chnl_y3    0.108527
+Length: 657, dtype: float64</code></pre>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 筛选出覆盖率大于百分之三十的</span></span><br><span class="line">index_num = <span class="number">0</span></span><br><span class="line">index = new_data.index</span><br><span class="line">ans = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> new_data[:]:</span><br><span class="line">  <span class="keyword">if</span> i &lt; <span class="number">0.3</span>:</span><br><span class="line">   <span class="keyword">del</span> new_data[index[index_num]]</span><br><span class="line">  index_num += <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_data</span><br></pre></td></tr></table></figure>
 
+
+
+<pre><code>pax_name               1.000000
+pax_passport           1.000000
+seg_route_from         1.000000
+seg_route_to           1.000000
+seg_flight             1.000000
+seg_cabin              0.999957
+seg_dep_time           1.000000
+pax_fcny               0.998549
+pax_tax                0.996159
+emd_lable              0.307357
+cabin_y_cnt_y3         0.313076
+pref_aircraft_y2_1     0.318795
+pref_aircraft_y2_2     0.318795
+pref_aircraft_y3_1     0.395015
+pref_aircraft_y3_2     0.395015
+seat_walkway_cnt_y3    0.312095
+prebuy_i_cnt_y3_d99    0.331427
+pref_orig_y3_1         0.333433
+pref_orig_y3_2         0.333433
+pref_line_y3_1         0.333433
+pref_line_y3_2         0.333433
+pref_city_y2_1         0.318795
+pref_city_y2_2         0.318795
+pref_city_y3_1         0.395015
+pref_city_y3_2         0.395015
+pref_month_y3_1        0.333433
+pref_month_y3_2        0.333433
+flt_cnt_y3             0.333433
+recent_flt_day         0.395015
+dist_cnt_y3            0.394930
+flt_nature_cnt_y3      0.395015
+avg_dist_cnt_y2        0.306291
+avg_dist_cnt_y3        0.333433
+dist_i_cnt_y2          0.312820
+dist_i_cnt_y3          0.392369
+dist_all_cnt_y2        0.316960
+dist_all_cnt_y3        0.394930
+flt_leg_cnt_y2         0.317045
+flt_leg_cnt_y3         0.395015
+flt_leg_i_cnt_y2       0.312905
+flt_leg_i_cnt_y3       0.392455
+pref_orig_city_y2      0.318795
+pref_orig_city_y3      0.395015
+pref_dest_city_y3      0.333305
+flt_bag_cnt_y3         0.354174
+tkt_3y_amt             0.391985
+tkt_i_amt_y3           0.329635
+tkt_all_amt_y3         0.331939
+tkt_avg_amt_y3         0.331939
+mdl_mcv                0.323020
+dtype: float64</code></pre>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一共五十条数据</span></span><br><span class="line"><span class="built_in">len</span>(new_data)</span><br></pre></td></tr></table></figure>
+
+
+
+<pre><code>50</code></pre>
 <h2 id="人工筛选"><a href="#人工筛选" class="headerlink" title="人工筛选"></a>人工筛选</h2><p>考虑要覆盖率的问题，筛选出上面50条可用的数据，下面进行人工的筛选</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># new_data.to_csv(&#x27;./drive/MyDrive/data/result.csv&#x27;)</span></span><br></pre></td></tr></table></figure>
     </div>
