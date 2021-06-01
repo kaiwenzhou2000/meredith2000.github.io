@@ -167,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -205,6 +205,361 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/06/02/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/06/02/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/" class="post-title-link" itemprop="url">软件体系结构复习</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-06-02 00:21:52" itemprop="dateCreated datePublished" datetime="2021-06-02T00:21:52+08:00">2021-06-02</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="软件体系结构复习"><a href="#软件体系结构复习" class="headerlink" title="软件体系结构复习"></a>软件体系结构复习</h1><h2 id="题型"><a href="#题型" class="headerlink" title="题型"></a>题型</h2><ul>
+<li>选择（30‘）</li>
+<li>简答（20’）</li>
+<li>分析</li>
+<li>设计</li>
+</ul>
+<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="软件危机是什么（软件危机具体的表现）"><a href="#软件危机是什么（软件危机具体的表现）" class="headerlink" title="软件危机是什么（软件危机具体的表现）"></a>软件危机是什么（软件危机具体的表现）</h3><ul>
+<li>软件成本日益增长</li>
+<li>开发进度难以控制</li>
+<li>软件质量差</li>
+<li>软件维护困难</li>
+</ul>
+<h3 id="软件危机的原因"><a href="#软件危机的原因" class="headerlink" title="软件危机的原因"></a>软件危机的原因</h3><ul>
+<li>用户需求不明确</li>
+<li>缺乏正确的理论指导</li>
+<li>软件规模越做越大</li>
+<li>软件复杂度越来越高</li>
+</ul>
+<h3 id="如何克服软件危机"><a href="#如何克服软件危机" class="headerlink" title="如何克服软件危机"></a>如何克服软件危机</h3><p>人们面对的不单是技术问题，更重要的还是管理问题</p>
+<p><strong>软件工程包括三要素</strong>：</p>
+<ul>
+<li><p><strong>方法</strong></p>
+<p>  软件工程方法为软件开发提供了“如何做”的技术，是完成软件工程项目的技术手段。</p>
+</li>
+<li><p><strong>工具</strong></p>
+<p>  软件工具是人们在开发软件的活动中智力和体力的扩展和延伸，为软件工程方法提供了自动的或半自动的软件支撑环境。</p>
+</li>
+<li><p><strong>过程</strong></p>
+<p>  软件工程过程则是将软件工程的方法和工具综合起来以达到合理、及时地进行计算机软件开发的目的。</p>
+</li>
+</ul>
+<h3 id="构件的定义"><a href="#构件的定义" class="headerlink" title="构件的定义"></a>构件的定义</h3><p>一般认为，构件是指语义完整、语法正确和有可重用价值的单位软件，是软件重用过程中可以明确辨识的系统;结构上，它是语义描述、通讯接口和实现代码的复合体。<strong>简单地说，构件是具有 一定的功能，能够独立工作或能同其它构件装配起来协调工作的程序体，构件的使用同他的开发、 生产无关。</strong></p>
+<h3 id="主流的构建流派"><a href="#主流的构建流派" class="headerlink" title="主流的构建流派"></a>主流的构建流派</h3><ul>
+<li>OMG(Object Management Group，对象管理组织)的<strong>CORBA</strong> (Common Object Request Broker Architecture，通用对象请求代理结构)</li>
+<li>Sun的<strong>EJB</strong> (Enterprise Java Bean)</li>
+<li>Microsoft的<strong>DCOM</strong>(Distributed Component Object Model，分布式构件对象模型)</li>
+</ul>
+<h3 id="构件获取的途径"><a href="#构件获取的途径" class="headerlink" title="构件获取的途径"></a>构件获取的途径</h3><ul>
+<li>从现有构件中获得符合要求的构件，直接使用或作适应性(flexibility)修改，得到可重 用的构件。</li>
+<li>通过遗留工程(legacy engineering)，将具有潜在重用价值的构件提取出来，得到可重用的构件。</li>
+<li>从市场上购买现成的商业构件，即COTS(Commercial Off-The-Shell)构件。</li>
+<li>开发新的符合要求的构件。</li>
+</ul>
+<h3 id="可重用技术对构件库组织方法的要求是"><a href="#可重用技术对构件库组织方法的要求是" class="headerlink" title="可重用技术对构件库组织方法的要求是"></a>可重用技术对构件库组织方法的要求是</h3><ul>
+<li>支持构件库的各种维护动作，如增加、删除以及修改构件，尽量不要影响构件库的结构。</li>
+<li>不仅要支持精确匹配，还要支持相似构件的查找。</li>
+<li>不仅能进行简单的语法匹配，而且能够查找在功能或行为方面等价或相似的构件。</li>
+<li>对应用领域具有较强的描述能力和较好的描述精度。</li>
+<li>库管理员和用户容易使用。</li>
+</ul>
+<h3 id="构件的分类方法"><a href="#构件的分类方法" class="headerlink" title="构件的分类方法"></a>构件的分类方法</h3><ul>
+<li>关键字分类法</li>
+<li>刻面分类法</li>
+<li>超文本组织方法</li>
+</ul>
+<h3 id="如果把软件系统看成是构件的集合，那么从构件的外部形态来看，构成一个系统的构件可分为5-类"><a href="#如果把软件系统看成是构件的集合，那么从构件的外部形态来看，构成一个系统的构件可分为5-类" class="headerlink" title="如果把软件系统看成是构件的集合，那么从构件的外部形态来看，构成一个系统的构件可分为5 类"></a>如果把软件系统看成是构件的集合，那么从构件的外部形态来看，构成一个系统的构件可分为5 类</h3><ul>
+<li>独立而成熟的构件</li>
+<li>有限制的构件</li>
+<li>适应性构件</li>
+<li>装配的构件</li>
+<li>可修改的构件</li>
+</ul>
+<h3 id="构件重用工作"><a href="#构件重用工作" class="headerlink" title="构件重用工作"></a>构件重用工作</h3><ul>
+<li>检索与提取构件</li>
+<li>理解与评价构件</li>
+<li>修改构件</li>
+<li>构件组装</li>
+</ul>
+<h3 id="构件图的几种类型"><a href="#构件图的几种类型" class="headerlink" title="构件图的几种类型"></a>构件图的几种类型</h3><h3 id="软件体系结构的定义"><a href="#软件体系结构的定义" class="headerlink" title="软件体系结构的定义"></a>软件体系结构的定义</h3><p>软件体系结构为软件系统提供了一个结构、行为和属性的高级抽象，由构成系统的元素的描 述、这些元素的相互作用、指导元素集成的模式以及这些模式的约束组成。软件体系结构不仅指定 了系统的组织(organization)结构和拓扑(topology)结构，并且显示了系统需求和构成系统的 元素之间的对应关系，提供了一些设计决策的基本原理。</p>
+<h3 id="软件体系结构的意义"><a href="#软件体系结构的意义" class="headerlink" title="软件体系结构的意义"></a>软件体系结构的意义</h3><ul>
+<li>体系结构是风险承担者进行交流的手段</li>
+<li>体系结构是早期设计决策的体现</li>
+<li>软件体系结构是可传递和可重用的模型</li>
+</ul>
+<h3 id="体系结构所经历的四个阶段"><a href="#体系结构所经历的四个阶段" class="headerlink" title="体系结构所经历的四个阶段"></a>体系结构所经历的四个阶段</h3><ul>
+<li><p><strong>无体系结构设计阶段</strong></p>
+<p>以汇编语言进行小规模应用程序开发为特征。</p>
+</li>
+<li><p><strong>萌芽阶段</strong></p>
+<p>出现了程序结构设计主题，以控制流图和数据流图构成软件结构为特征。</p>
+</li>
+<li><p><strong>初期阶段</strong></p>
+<p>出现了从不同侧面描述系统的结构模型，以UML为典型代表。</p>
+</li>
+<li><p><strong>高级阶段</strong></p>
+<p>以描述系统的高层抽象结构为中心，不关心具体的建模细节，划分了体系结构模型与传统软件结构的界限，该阶段以Kruchten提出的“4+1”模型为标志。</p>
+</li>
+</ul>
+<h2 id="第二章-软件体系建模"><a href="#第二章-软件体系建模" class="headerlink" title="第二章 软件体系建模"></a>第二章 软件体系建模</h2><h3 id="软件体系结构模型"><a href="#软件体系结构模型" class="headerlink" title="软件体系结构模型"></a>软件体系结构模型</h3><ul>
+<li>结构模型</li>
+<li>框架模型</li>
+<li>动态模型</li>
+<li>过程模型</li>
+<li>功能模型</li>
+</ul>
+<h3 id="4-1视图模型"><a href="#4-1视图模型" class="headerlink" title="4+1视图模型"></a>4+1视图模型</h3><h3 id="软件体系结构中的核心模型"><a href="#软件体系结构中的核心模型" class="headerlink" title="软件体系结构中的核心模型"></a>软件体系结构中的核心模型</h3><h3 id="软件体系结构结构的生命周期模型的阶段"><a href="#软件体系结构结构的生命周期模型的阶段" class="headerlink" title="软件体系结构结构的生命周期模型的阶段"></a>软件体系结构结构的生命周期模型的阶段</h3><ul>
+<li>需求分析阶段</li>
+<li>建立软件体系结构阶段</li>
+<li>设计阶段</li>
+<li>实现阶段</li>
+</ul>
+<h2 id="第三章-软件体系结构风格"><a href="#第三章-软件体系结构风格" class="headerlink" title="第三章 软件体系结构风格"></a>第三章 软件体系结构风格</h2><h3 id="软件体系风格的定义"><a href="#软件体系风格的定义" class="headerlink" title="软件体系风格的定义"></a>软件体系风格的定义</h3><p>软件体系结构风格是描述某一特定应用领域中系统组织方式的惯用模式(idiomatic paradigm)。体系结构风格定义了一个系统家族，即一个体系结构定义一个词汇表和一组约束。词 汇表中包含一些构件和连接件类型，而这组约束指出系统是如何将这些构件和连接件组合起来的。 体系结构风格反映了领域中众多系统所共有的结构和语义特性</p>
+<h3 id="经典软件体系结构风格以及优缺点"><a href="#经典软件体系结构风格以及优缺点" class="headerlink" title="经典软件体系结构风格以及优缺点"></a>经典软件体系结构风格以及优缺点</h3><ul>
+<li><p>管道与过滤器</p>
+<ul>
+<li><p>优点</p>
+<ol>
+<li>使得软构件具有良好的隐蔽性和高内聚、低耦合的特点。 </li>
+<li>允许设计师将整个系统的输入/输出行为看成是多个过滤器的行为的简单合成</li>
+<li>支持软件重用。只要提供适合在两个过滤器之间传送的数据，任何两个过滤器都可被连接起来。</li>
+<li>系统维护和增强系统性能简单。新的过滤器可以添加到现有系统中来;旧的可以被改进的 过滤器替换掉。</li>
+<li>允许对一些如吞吐量、死锁等属性的分析。</li>
+<li>支持并行执行。每个过滤器是作为一个单独的任务完成，因此可与其它任务并行执行。 </li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>通常导致进程成为批处理的结构。这是因为虽然过滤器可增量式地处理数据，但它们是独立的，所以设计师必须将每个过滤器看成一个完整的从输入到输出的转换。</li>
+<li>不适合处理交互的应用。当需要增量地显示改变时，这个问题尤为严重。 </li>
+<li>因为在数据传输上没有通用的标准，每个过滤器都增加了解析和合成数据的工作，这样就导致了系统性能下降，并增加了编写过滤器的复杂性。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>数据抽象和面对对象系统</p>
+<ul>
+<li>优点<ol>
+<li>因为对象对其它对象隐藏它的表示，所以可以改变一个对象的表示，而不影响其它的对象。</li>
+<li>设计师可将一些数据存取操作的问题分解成一些交互的代理程序的集合。</li>
+</ol>
+</li>
+<li>缺点<ol>
+<li>(1)为了使一个对象和另一个对象通过过程调用等进行交互，必须知道对象的标识。只要一个对象的标识改变了，就必须修改所有其他明确调用它的对象。</li>
+<li>必须修改所有显式调用它的其它对象，并消除由此带来的一些副作用。例如，如果A使用了对象B，C也使用了对象B，那么，C对B的使用所造成的对A的影响可能是料想不到的。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>基于事件的系统</p>
+<ul>
+<li><p>优点</p>
+<ol>
+<li>为软件重用提供了强大的支持。当需要将一个构件加入现存系统中时，只需将它注册到系 统的事件中。</li>
+<li>为改进系统带来了方便。当用一个构件代替另一个构件时，不会影响到其它构件的接口。</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>构件放弃了对系统计算的控制。一个构件触发一个事件时，不能确定其它构件是否会响应它。而且即使它知道事件注册了哪些构件的过程，它也不能保证这些过程被 调用的顺序。</li>
+<li>数据交换的问题。有时数据可被一个事件传递，但另一些情况下，基于事件的系统必须依靠一个共享的仓库进行交互。在这些情况下，全局性能和资源管理便成了问题。</li>
+<li>既然过程的语义必须依赖于被触发事件的上下文约束，关于正确性的推理存在问题。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>分层系统</p>
+<ul>
+<li>优点<ol>
+<li>支持基于抽象程度递增的系统设计，使设计师可以把一个复杂系统按递增的步骤进行分解。</li>
+<li>支持功能增强，因为每一层至多和相邻的上下层交互，因此功能的改变最多影响相邻的上下层。</li>
+<li>支持重用。只要提供的服务接口定义不变，同一层的不同实现可以交换使用。这样，就可 以定义一组标准的接口，而允许各种不同的实现方法。</li>
+</ol>
+</li>
+<li>缺点<ol>
+<li>并不是每个系统都可以很容易地划分为分层的模式，甚至即使一个系统的逻辑结构是层次 化的，出于对系统性能的考虑，系统设计师不得不把一些低级或高级的功能综合起来;</li>
+<li>很难找到一个合适的、正确的层次抽象方法。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>仓库系统及知识库</p>
+<ul>
+<li>优点</li>
+<li>缺点</li>
+</ul>
+</li>
+<li><p>C2风格</p>
+<ul>
+<li><p>优点</p>
+<ol>
+<li><p>系统中的构件可实现应用需求，并能将任意复杂度的功能封装在一起。 </p>
+</li>
+<li><p>所有构件之间的通讯是通过以连接件为中介的异步消息交换机制来实现的。</p>
+</li>
+<li><p>构件相对独立，构件之间依赖性较少。系统中不存在某些构件将在同一地址空间内执行，或某些构件共享特定控制线程之类的相关性假设。</p>
+</li>
+</ol>
+</li>
+<li><p>缺点</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="客户-服务器风格的任务"><a href="#客户-服务器风格的任务" class="headerlink" title="客户/服务器风格的任务"></a>客户/服务器风格的任务</h3><ul>
+<li><p><strong>服务器负责有效地管理系统的资源，其任务集中于:</strong></p>
+<ul>
+<li>数据库安全性的要求</li>
+<li>数据库访问并发性的控制</li>
+<li>数据库前端的客户应用程序的全局数据完整性规则</li>
+<li>数据库的备份与恢复</li>
+</ul>
+</li>
+<li><p><strong>客户应用程序的主要任务是:</strong></p>
+<ul>
+<li>提供用户与数据库交互的界面</li>
+<li>向数据库服务器提交用户请求并接收来自数据库服务器的信息</li>
+<li>利用客户应用程序对存在于客户端的数据执行应用逻辑要求</li>
+</ul>
+</li>
+</ul>
+<h3 id="客户-服务器风格的优缺点"><a href="#客户-服务器风格的优缺点" class="headerlink" title="客户/服务器风格的优缺点"></a>客户/服务器风格的优缺点</h3><ul>
+<li>优点<ul>
+<li>C/S体系结构的优点主要在于系统的客户应用程序和服务器构件分别运行在不同的计算机上，系 统中每台服务器都可以适合各构件的要求，这对于硬件和软件的变化显示出极大的适应性和灵活 性，而且易于对系统进行扩充和缩小。在C/S体系结构中，系统中的功能构件充分隔离，客户应用程 序的开发集中于数据的显示和分析，而数据库服务器的开发则集中于数据的管理，不必在每一个新 的应用程序中都要对一个DBMS进行编码。将大的应用处理任务分布到许多通过网络连接的低成本 计算机上，以节约大量费用。</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>(1)开发成本较高。C/S 体系结构对客户端软硬件配置要求较高，尤其是软件的不断升级，对 硬件要求不断提高，增加了整个系统的成本，且客户端变得越来越臃肿。</li>
+<li>客户端程序设计复杂。采用C/S体系结构进行软件开发，大部分工作量放在客户端的程序 设计上，客户端显得十分庞大。</li>
+<li>信息内容和形式单一，因为传统应用一般为事务处理，界面基本遵循数据库的字段解释， 开发之初就已确定，而且不能随时截取办公信息和档案等外部信息，用户获得的只是单纯的字符和 数字，既枯燥又死板。</li>
+<li>用户界面风格不一，使用繁杂，不利于推广使用。</li>
+<li>软件移植困难。采用不同开发工具或平台开发的软件，一般互不兼容，不能或很难移植到 其它平台上运行。</li>
+<li>软件维护和升级困难。采用C/S体系结构的软件要升级，开发人员必须到现场为客户机升 级，每个客户机上的软件都需维护。对软件的一个小小改动(例如只改动一个变量)，每一个客户端都 必须更新。</li>
+<li>新技术不能轻易应用。因为一个软件平台及开发工具一旦选定，不可能轻易更改。</li>
+</ul>
+</li>
+<li>二层的缺点<ul>
+<li>二层C/S结构是单一服务器且以局域网为中心的，所以难以扩展至大型企业广域网或 Internet。</li>
+<li>软、硬件的组合及集成能力有限。 (3)客户机的负荷太重，难以管理大量的客户机，系统的性能容易变坏。</li>
+<li>数据安全性不好。因为客户端程序可以直接访问数据库服务器，那么，在客户端计算机上的其他程序也可想办法访问数据库服务器，从而使数据库的安全性受到威胁。</li>
+</ul>
+</li>
+</ul>
+<h3 id="三层C-S结构中的中间件"><a href="#三层C-S结构中的中间件" class="headerlink" title="三层C/S结构中的中间件"></a>三层C/S结构中的中间件</h3><p>在三层C/S体系结构中，中间件是最重要的构件。所谓中间件是一个用API定义的软件层，是具 有强大通信能力和良好可扩展性的分布式软件管理框架。它的功能是在客户机和服务器或者服务器 和服务器之间传送数据，实现客户机群和服务器群之间的通信。其工作流程是:在客户机里的应用 程序需要驻留网络上某个服务器的数据或服务时，搜索此数据的C/S应用程序需访问中间件系统。该 系统将查找数据源或服务，并在发送应用程序请求后重新打包响应，将其传送回应用程序。</p>
+<h3 id="三层C-S的优缺点"><a href="#三层C-S的优缺点" class="headerlink" title="三层C/S的优缺点"></a>三层C/S的优缺点</h3><ul>
+<li>允许合理地划分三层结构的功能，使之在逻辑上保持相对独立性，从而使整个系统的逻辑 结构更为清晰，能提高系统和软件的可维护性和可扩展性。</li>
+<li>允许更灵活有效地选用相应的平台和硬件系统，使之在处理负荷能力上与处理特性上分别 适应于结构清晰的三层;并且这些平台和各个组成部分可以具有良好的可升级性和开放性。例如， 最初用一台Unix工作站作为服务器，将数据层和功能层都配置在这台服务器上。随着业务的发展， 用户数和数据量逐渐增加，这时，就可以将Unix工作站作为功能层的专用服务器，另外追加一台专 用于数据层的服务器。若业务进一步扩大，用户数进一步增加，则可以继续增加功能层的服务器数 目，用以分割数据库。清晰、合理地分割三层结构并使其独立，可以使系统构成的变更非常简单。 因此，被分成三层的应用基本上不需要修正。</li>
+<li>三层C/S结构中，应用的各层可以并行开发，各层也可以选择各自最适合的开发语言。使 之能并行地而且是高效地进行开发，达到较高的性能价格比;对每一层的处理逻辑的开发和维护也 会更容易些。</li>
+<li>允许充分利用功能层有效地隔离开表示层与数据层，未授权的用户难以绕过功能层而利用 数据库工具或黑客手段去非法地访问数据层，这就为严格的安全管理奠定了坚实的基础;整个系统 的管理层次也更加合理和可控制。</li>
+</ul>
+<p>值得注意的是:三层C/S结构各层间的通信效率若不高，即使分配给各层的硬件能力很强，其作 为整体来说也达不到所要求的性能。此外，设计时必须慎重考虑三层间的通信方法、通信频度及数 据量。这和提高各层的独立性一样是三层C/S结构的关键问题。</p>
+<h3 id="浏览器服务器优缺点（重要）"><a href="#浏览器服务器优缺点（重要）" class="headerlink" title="浏览器服务器优缺点（重要）"></a>浏览器服务器优缺点（重要）</h3><ul>
+<li>缺点<ul>
+<li>B/S体系结构缺乏对动态页面的支持能力，没有集成有效的数据库处理功能。</li>
+<li>B/S体系结构的系统扩展能力差，安全性难以控制。 </li>
+<li>采用B/S体系结构的应用系统，在数据查询等响应速度上，要远远地低于C/S体系结构。 </li>
+<li>B/S体系结构的数据提交一般以页面为单位，数据的动态交互性不强，不利于在线事务处理(OnLine Transaction Processing，OLTP)应用。</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>B/S体系结构主要是利用不断成熟的WWW浏览器技术，结合浏览器的多种脚本语言，用通用浏 览器就实现了原来需要复杂的专用软件才能实现的强大功能，并节约了开发成本。从某种程度上来 说，B/S结构是一种全新的软件体系结构。</li>
+<li>在B/S结构中，除了数据库服务器外，应用程序以网页形式存放于Web服务器上，用户运行某个 应用程序时只须在客户端上的浏览器中键入相应的网址，调用Web服务器上的应用程序并对数据库 进行操作完成相应的数据处理工作，最后将结果通过浏览器显示给用户。可以说，在B/S模式的计算 机应用系统中，应用(程序)在一定程度上具有集中特征。</li>
+<li>基于B/S体系结构的软件，系统安装、修改和维护全在服务器端解决。用户在使用系统时，仅仅 需要一个浏览器就可运行全部的模块，真正达到了“零客户端”的功能，很容易在运行时自动升 级。B/S体系结构还提供了异种机、异种网、异种应用服务的联机、联网、统一服务的最现实的开放 性基础。</li>
+<li>B/S结构出现之前，管理信息系统的功能覆盖范围主要是组织内部。B/S结构的“零客户端”方 式，使组织的供应商和客户(这些供应商和客户有可能是潜在的，也就是说可能是事先未知的!) 的计算机方便地成为管理信息系统的客户端，进而在限定的功能范围内查询组织相关信息，完成与 组织的各种业务往来的数据交换和处理工作，扩大了组织计算机应用系统的功能覆盖范围，可以更 加充分利用网络上的各种资源，同时应用程序维护的工作量也大大减少。另外，B/S结构的应用系统 与Internet的结合也使新的企业应用(例如，电子商务、客户关系管理等)的实现成为可能。</li>
+</ul>
+</li>
+</ul>
+<h2 id="第四章-软件体系结构描述"><a href="#第四章-软件体系结构描述" class="headerlink" title="第四章 软件体系结构描述"></a>第四章 软件体系结构描述</h2><h3 id="软件体系结构描述方法"><a href="#软件体系结构描述方法" class="headerlink" title="软件体系结构描述方法"></a>软件体系结构描述方法</h3><ul>
+<li>图形表达工具</li>
+<li>模块内连接语言</li>
+<li>基于软构件的系统描述语言</li>
+<li>软件体系结构描述语言</li>
+</ul>
+<h3 id="ADL与其他语言的比较"><a href="#ADL与其他语言的比较" class="headerlink" title="ADL与其他语言的比较"></a>ADL与其他语言的比较</h3><ul>
+<li>构造能力指的是ADL能够使用较小的独立体系结构元素来建造大型软件系统;</li>
+<li>抽象能力指的是ADL使得软件体系结构中的构件和连接件描述可以只关注它们的抽象特 性，而不管其具体的实现细节;</li>
+<li>重用能力指的是ADL使得组成软件系统的构件、连接件甚至是软件体系结构都成为软件系 统开发和设计的可重用部件;</li>
+<li>组合能力指的是ADL使得其描述的每一系统元素都有其自己的局部结构，这种描述局部结 构的特点使得ADL支持软件系统的动态变化组合;</li>
+<li>异构能力指的是ADL允许多个不同的体系结构描述关联存在;</li>
+<li>分析和推理能力指的是ADL允许对其描述的体系结构进行多种不同的性能和功能上的多种 推理分析。</li>
+</ul>
+<p>P111</p>
+<h2 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h2><ul>
+<li>顺序图</li>
+<li>类图</li>
+<li>通信图</li>
+<li>构件图</li>
+</ul>
+<h2 id="第六章-可扩展标记语言"><a href="#第六章-可扩展标记语言" class="headerlink" title="第六章 可扩展标记语言"></a>第六章 可扩展标记语言</h2><p>XML</p>
+<h2 id="第七章-动态软件体系结构"><a href="#第七章-动态软件体系结构" class="headerlink" title="第七章 动态软件体系结构"></a>第七章 动态软件体系结构</h2><h3 id="体系结构动态性的三类"><a href="#体系结构动态性的三类" class="headerlink" title="体系结构动态性的三类"></a>体系结构动态性的三类</h3><ul>
+<li>交互式动态性</li>
+<li>结构化动态性</li>
+<li>体系结构动态性</li>
+</ul>
+<h3 id="基于构建的动态系统结构模型"><a href="#基于构建的动态系统结构模型" class="headerlink" title="基于构建的动态系统结构模型"></a>基于构建的动态系统结构模型</h3><h2 id="十一章"><a href="#十一章" class="headerlink" title="十一章"></a>十一章</h2><h3 id="软件质量属性"><a href="#软件质量属性" class="headerlink" title="软件质量属性"></a>软件质量属性</h3><ul>
+<li>性能</li>
+<li>可靠性</li>
+<li>可用性</li>
+<li>安全性</li>
+<li>可修改性</li>
+</ul>
+<h3 id="评估的主要方法"><a href="#评估的主要方法" class="headerlink" title="评估的主要方法"></a>评估的主要方法</h3><p>ATAM</p>
+<p>SAAM</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -3311,566 +3666,8 @@ weighted avg       0.88      0.94      0.91      4687
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/01/06/os%E8%80%83%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/01/06/os%E8%80%83%E7%82%B9/" class="post-title-link" itemprop="url">操作系统考点</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-01-06 21:19:06" itemprop="dateCreated datePublished" datetime="2021-01-06T21:19:06+08:00">2021-01-06</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="操作系统考点总结"><a href="#操作系统考点总结" class="headerlink" title="操作系统考点总结"></a>操作系统考点总结</h1><h2 id="第一章-操作系统引论"><a href="#第一章-操作系统引论" class="headerlink" title="第一章 操作系统引论"></a>第一章 操作系统引论</h2><h3 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h3><h4 id="并行与并发"><a href="#并行与并发" class="headerlink" title="并行与并发"></a>并行与并发</h4><ul>
-<li>并行性是指两个或者多个事件在同一时刻发生</li>
-<li>并发性是指两个或者多个事件在同一时间间隔内发生</li>
-</ul>
-<h3 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h3><ul>
-<li><p>设计现代OS的主要目标是什么？</p>
-<p>（1）有效性 （2）方便性 （3）可扩充性 （4）开放性</p>
-</li>
-<li><p>OS的作用可表现在哪几个方面？</p>
-<p>1）OS作为用户与计算机硬件系统之间的接口 （2）OS作为计算机系统资源的管理者 （3）OS实现了对计算机资源的抽象</p>
-</li>
-<li><p>何谓脱机I/O和联机I/O？ </p>
-<p>脱机I/O是指事先将装有用户程序和数据的纸带或卡片装入纸带输入机或卡片机，在外围机的控制下，把纸带或卡片上的数据或程序输入到磁带上。该方式下的输入输出由外围 机控制完成，是在脱离主机的情况下进行的。 而联机I/O方式是指程序和数据的输入输出都是在主机的直接控制下进行的</p>
-</li>
-<li><p>为什么要引入实时OS？</p>
-<p>实时操作系统是指系统能及时响应外部事件的请求，在规定的时间内完成对该事件的处理，并控制所有实时任务协调一致地运行。引入实时OS是为了满足应用的需求，更好地满足实时控制领域和实时信息处理领域的需要。 </p>
-</li>
-<li><p>处理机管理有哪些主要功能？它们的主要任务是什么？</p>
-<p>处理机管理的主要功能是：进程管理、进程同步、进程通信和处理机调度； 进程管理：为作业创建进程，撤销已结束进程，控制进程在运行过程中的状态转换。进程同步：为多个进程（含线程）的运行进行协调。 通信：用来实现在相互合作的进程之间的信息交换。 处理机调度： （1）作业调度。从后备队里按照一定的算法，选出若干个作业，为他们分配运行所需的资源（首选是分配内存）。 （2）进程调度：从进程的就绪队列中，按照一定算法选出一个进程，把处理机分配给它，并设臵运行现场，使进程投入执行。</p>
-</li>
-<li><p>什么是微内核OS</p>
-<p>1）足够小的内核2）基于客户/服务器模式3）应用机制与策略分离原理4）采用面向对象技术。</p>
-</li>
-<li><p>微内核操作系统具有哪些优点？它为何能有这些优点？</p>
-<p>1）提高了系统的可扩展性2）增强了系统的可靠性3）可移植性4）提供了对分布式系统的支持  5）融入了面向对象技术</p>
-</li>
-</ul>
-<h2 id="第二章-进程的描述与控制"><a href="#第二章-进程的描述与控制" class="headerlink" title="第二章 进程的描述与控制"></a>第二章 进程的描述与控制</h2><h3 id="重要概念-1"><a href="#重要概念-1" class="headerlink" title="重要概念"></a>重要概念</h3><h4 id="前驱图-important"><a href="#前驱图-important" class="headerlink" title="前驱图 important"></a>前驱图 important</h4><p>前驱图是一个<strong>有向无循环图</strong>，用来面描述进程之间执行的先后顺序，每个节点可以表示一个程序段</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-25%20%E4%B8%8B%E5%8D%887.33.52.png" alt="截屏2020-12-25 下午7.33.52"></p>
-<h4 id="程序顺序执行的特点-important"><a href="#程序顺序执行的特点-important" class="headerlink" title="程序顺序执行的特点 important"></a>程序顺序执行的特点 important</h4><ul>
-<li><p><strong>顺序性</strong></p>
-<p>处理机的操作严格按照程序所规定的顺序执行，即每一操作必须在上一个操作结束之后开始。</p>
-</li>
-<li><p><strong>封闭性</strong></p>
-<p>程序是在封闭的环境下执行的，即程序运行时独占全机资源，资源的状态(除初始状态外)只有本程序才能改变它。程序一旦开始执行，其执行结果不受外界因素影响。</p>
-</li>
-<li><p><strong>可再现性</strong></p>
-<p>只要程序执行时的环境和初始条件相同，当程序重复执行时，不论它是从头到尾不停顿地执行，还是“停停走走”地执行，都将获得相同的结果。</p>
-</li>
-</ul>
-<h4 id="程序并发执行时的特征-important"><a href="#程序并发执行时的特征-important" class="headerlink" title="程序并发执行时的特征 important"></a>程序并发执行时的特征 important</h4><ul>
-<li><p><strong>间断性</strong></p>
-<p>程序在并发执行时，由于它们共享系统资源，以及为完成同一项任务而相互合作，致 使在这些并发执行的程序之间，形成了相互制约的关系。</p>
-</li>
-<li><p><strong>失去封闭性</strong></p>
-<p>程序在并发执行时，是多个程序共享系统中的各种资源，因而这些资源的状态将由多 个程序来改变，致使程序的运行失去了封闭性。这样，某程序在执行时，必然会受到其它 程序的影响。</p>
-</li>
-<li><p><strong>不可再现性</strong></p>
-<p>程序在并发执行时，由于失去了封闭性，也将导致其再失去可再现性。</p>
-</li>
-</ul>
-<h4 id="进程定义-important"><a href="#进程定义-important" class="headerlink" title="进程定义 important"></a>进程定义 important</h4><ul>
-<li>进程是程序的一次动态执行</li>
-<li>进程是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位</li>
-</ul>
-<h4 id="进程的特征-important"><a href="#进程的特征-important" class="headerlink" title="进程的特征 important"></a>进程的特征 important</h4><ul>
-<li>动态性</li>
-<li>并发性</li>
-<li>独立性</li>
-<li>异步性</li>
-<li>结构性</li>
-</ul>
-<h4 id="进程的三种状态-important"><a href="#进程的三种状态-important" class="headerlink" title="进程的三种状态 important"></a>进程的三种状态 important</h4><ul>
-<li><strong>就绪状态</strong></li>
-<li><strong>执行状态</strong></li>
-<li><strong>阻塞状态</strong></li>
-</ul>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-25%20%E4%B8%8B%E5%8D%887.49.21.png" alt="截屏2020-12-25 下午7.49.21"></p>
-<h4 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h4><p>进程控制一般是由OS的内核中的<strong>原语</strong>来实现的</p>
-<h4 id="两种形式的制约关系-important"><a href="#两种形式的制约关系-important" class="headerlink" title="两种形式的制约关系 important"></a>两种形式的制约关系 important</h4><ul>
-<li>间接相互制约关系（资源共享关系）===》打印机，磁带机，CPU，I/O</li>
-<li>直接相互制约关系（相互合作关系）===》生产者消费者</li>
-</ul>
-<h4 id="临界资源-important"><a href="#临界资源-important" class="headerlink" title="临界资源 important"></a>临界资源 important</h4><p>指的是：<strong>一次仅允许一个进程访问的资源</strong></p>
-<p><strong>引起不可再现性是因为临界资源没有互斥访问。</strong></p>
-<h4 id="同步机制应遵循的规则-important"><a href="#同步机制应遵循的规则-important" class="headerlink" title="同步机制应遵循的规则 important"></a>同步机制应遵循的规则 important</h4><ul>
-<li><p><strong>空闲让进</strong></p>
-<p>当无进程处于临界区时，表明临界资源处于空闲状态，应允许一个请求进入临界区的进程立即进入自己的临界区，以有效地利用临界资源。</p>
-</li>
-<li><p><strong>忙则等待</strong></p>
-<p>当已有进程进入临界区时，表明临界资源正在被访问，因而其它试图进入临界区的进程必须等待，以保证对临界资源的互斥访问。</p>
-</li>
-<li><p><strong>有限等待</strong></p>
-<p>对要求访问临界资源的进程，应保证在有限时间内能进入自己的临界区，以免陷入“死等”状态。</p>
-</li>
-<li><p><strong>让权等待</strong></p>
-<p>当进程不能进入自己的临界区时，应立即释放处理机，以免进程陷入“忙等”状态。</p>
-</li>
-</ul>
-<h4 id="整型信号量-important"><a href="#整型信号量-important" class="headerlink" title="整型信号量 important"></a>整型信号量 important</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wait(S)&#123;			<span class="comment">// P操作</span></span><br><span class="line">  <span class="keyword">while</span>(S &lt;= <span class="number">0</span>);		<span class="comment">// do no-op</span></span><br><span class="line">  S--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">signal(S)&#123;		<span class="comment">// V操作</span></span><br><span class="line">  S++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面两个信号量分别表示等待信号（P操作）和释放信号（V操作），他们都是原子操作，意味着他们都不能被打断</p>
-<p>下面是PV操作的过程</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wait(S);		<span class="comment">// 等待信号S</span></span><br><span class="line"><span class="comment">// code executing</span></span><br><span class="line">signal(S);	<span class="comment">// 释放信号S</span></span><br></pre></td></tr></table></figure>
-<p>只能用来解决一类资源，一个人使用</p>
-<h4 id="记录型信号量-important"><a href="#记录型信号量-important" class="headerlink" title="记录型信号量 important"></a>记录型信号量 important</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义信号量的数据结构</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">  <span class="keyword">int</span> value;			<span class="comment">// 剩余资源的个数</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">process_control_block</span> *<span class="title">list</span>;</span>		<span class="comment">// 进程的等待序列</span></span><br><span class="line">&#125;semaphore;</span><br><span class="line"></span><br><span class="line"><span class="comment">// P操作</span></span><br><span class="line">wait(semaphore *S)&#123;</span><br><span class="line">  S-&gt;value--;</span><br><span class="line">  <span class="keyword">if</span>(s-&gt;value &lt; <span class="number">0</span>) block(S-&gt;<span class="built_in">list</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// V操作</span></span><br><span class="line">singal(semaphore *S)&#123;</span><br><span class="line">  S-&gt;value++;</span><br><span class="line">  <span class="keyword">if</span>(S-&gt;value &lt;= <span class="number">0</span>) wakeup(S-&gt;<span class="built_in">list</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="AND型信号量-important"><a href="#AND型信号量-important" class="headerlink" title="AND型信号量 important"></a>AND型信号量 important</h4><p>P操作</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-27%20%E4%B8%8B%E5%8D%882.10.17.png" alt="截屏2020-12-27 下午2.10.17"></p>
-<p>V操作</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-27%20%E4%B8%8B%E5%8D%882.10.28.png" alt="截屏2020-12-27 下午2.10.28"></p>
-<h4 id="信号量集"><a href="#信号量集" class="headerlink" title="信号量集"></a>信号量集</h4><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-27%20%E4%B8%8B%E5%8D%882.13.21.png" alt="截屏2020-12-27 下午2.13.21"></p>
-<h4 id="利用信号量实现前驱关系-important"><a href="#利用信号量实现前驱关系-important" class="headerlink" title="利用信号量实现前驱关系 important"></a>利用信号量实现前驱关系 important</h4><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-27%20%E4%B8%8B%E5%8D%882.14.16.png" alt="截屏2020-12-27 下午2.14.16"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Var a,b,c,d,e,f,g:semaphore: =<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>; </span><br><span class="line">begin</span><br><span class="line">	parbegin</span><br><span class="line">    begin S1; signal(a); signal(b); end;</span><br><span class="line">    <span class="function">begin <span class="title">wait</span><span class="params">(a)</span></span>; S2; signal(c); signal(d); end; </span><br><span class="line">		<span class="function">begin <span class="title">wait</span><span class="params">(b)</span></span>; S3; signal(e); end;</span><br><span class="line">    <span class="function">begin <span class="title">wait</span><span class="params">(c)</span></span>; S4; signal(f); end;</span><br><span class="line">    <span class="function">begin <span class="title">wait</span><span class="params">(d)</span></span>; S5; signal(g); end;</span><br><span class="line">    <span class="function">begin <span class="title">wait</span><span class="params">(e)</span></span>; wait(f); wait(g); S6; end;</span><br><span class="line">	parend</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<h4 id="生产者和消费者问题-important"><a href="#生产者和消费者问题-important" class="headerlink" title="生产者和消费者问题 important"></a>生产者和消费者问题 important</h4><p><strong>使用记录型信号量解决</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一开始一定是闲置资源，所以mutex = 1</span></span><br><span class="line"><span class="comment">// 由于一开始缓存区什么都没有，所以empty = n，表示有n个空位</span></span><br><span class="line"><span class="comment">// 同理，full = 0，表示缓存区什么都没有</span></span><br><span class="line">Var mutex，empty，full: semaphore:=<span class="number">1</span>,n,<span class="number">0</span>; </span><br><span class="line">buffer:<span class="built_in">array</span>[<span class="number">0</span>，...，n<span class="number">-1</span>] of item; </span><br><span class="line">in，out: integer:=<span class="number">0</span>，<span class="number">0</span>;</span><br><span class="line">begin</span><br><span class="line">	parbegin </span><br><span class="line">  <span class="comment">// 生产者</span></span><br><span class="line">      proceducer: begin</span><br><span class="line">      repeat</span><br><span class="line">      producer an item nextp;</span><br><span class="line">			<span class="comment">// 两个wait不能调换顺序</span></span><br><span class="line">      wait(empty);			<span class="comment">// 等待有空位</span></span><br><span class="line">      wait(mutex);			<span class="comment">// 等待互斥信号量</span></span><br><span class="line">      buffer(in):=nextp;</span><br><span class="line">      in:=(in+<span class="number">1</span>) mod n; </span><br><span class="line">      signal(mutex); </span><br><span class="line">      signal(full);</span><br><span class="line">      until <span class="literal">false</span>;</span><br><span class="line">			end</span><br><span class="line">  <span class="comment">// 消费者</span></span><br><span class="line">    consumer: begin</span><br><span class="line">      repeat</span><br><span class="line">			<span class="comment">// 两个wait不能调换顺序</span></span><br><span class="line">      wait(full);			<span class="comment">// 等待有物品</span></span><br><span class="line">      wait(mutex); 		<span class="comment">// 等待互斥信号量</span></span><br><span class="line">      nextc:=buffer(out); </span><br><span class="line">      out:=(out+<span class="number">1</span>) mod n; </span><br><span class="line">      signal(mutex); </span><br><span class="line">      signal(empty);</span><br><span class="line">      consumer the item in nextc;</span><br><span class="line">      until <span class="literal">false</span>; </span><br><span class="line">      end</span><br><span class="line">	parend</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p><strong>使用AND信号量解决</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">Var mutex，empty，full: semaphore:=<span class="number">1</span>，n，<span class="number">0</span>; </span><br><span class="line">	buffer:<span class="built_in">array</span>[<span class="number">0</span>，...，n<span class="number">-1</span>] of item;</span><br><span class="line">	in out: integer:=<span class="number">0</span>，<span class="number">0</span>;</span><br><span class="line">begin</span><br><span class="line">  parbegin</span><br><span class="line">  <span class="comment">// 生产者</span></span><br><span class="line">		producer: begin </span><br><span class="line">      repeat</span><br><span class="line">		  produce an item in nextp;</span><br><span class="line">			Swait(empty，mutex);</span><br><span class="line">			buffer(in):=nextp; </span><br><span class="line">			in:=(in+<span class="number">1</span>)mod n; </span><br><span class="line">			Ssignal(mutex，full);</span><br><span class="line">		until <span class="literal">false</span>; </span><br><span class="line">	end</span><br><span class="line">  <span class="comment">// 消费者</span></span><br><span class="line">  consumer:begin </span><br><span class="line">    repeat</span><br><span class="line">      Swait(full，mutex); </span><br><span class="line">      Nextc:=buffer(out); </span><br><span class="line">      Out:=(out+<span class="number">1</span>) mod n; </span><br><span class="line">      Ssignal(mutex，empty); </span><br><span class="line">      consumer the item in nextc;</span><br><span class="line">    until <span class="literal">false</span>; </span><br><span class="line">  end</span><br><span class="line">	parend </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<h4 id="哲学家进餐问题-important"><a href="#哲学家进餐问题-important" class="headerlink" title="哲学家进餐问题 important"></a>哲学家进餐问题 important</h4><p><strong>使用记录型信号解决</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">semaphore chopstick[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  wait(chopstick[i]);</span><br><span class="line">	wait(chopstick[(i+<span class="number">1</span>)%<span class="number">5</span>]);</span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">// eat</span></span><br><span class="line">  ...</span><br><span class="line">  signal(chopstick[i]);</span><br><span class="line">  signal(chopstick[(i+<span class="number">1</span>)%<span class="number">5</span>]);</span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">// think</span></span><br><span class="line">  ...</span><br><span class="line">&#125;<span class="keyword">while</span>(<span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>上面这种方法可能会引起死锁</strong></p>
-<p><strong>使用AND型信号量解决</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">semaphore chopstick[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">// think</span></span><br><span class="line">  ...</span><br><span class="line">  Swait(chopstick[(i+<span class="number">1</span>)%<span class="number">5</span>, chopstick[i]);		<span class="comment">// 同时拿到两个筷子</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">// eat</span></span><br><span class="line">  ...</span><br><span class="line">  Ssignal(chopstick[(i+<span class="number">1</span>)%<span class="number">5</span>, chopstick[i]);		<span class="comment">// 同时释放两个筷子</span></span><br><span class="line">&#125;<span class="keyword">while</span>(<span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="读写者问题-important"><a href="#读写者问题-important" class="headerlink" title="读写者问题 important"></a>读写者问题 important</h4><p><strong>使用记录型信号量解决</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 允许多个读者读，</span></span><br><span class="line"><span class="comment">// 但是只允许一个写者进行写</span></span><br><span class="line"><span class="comment">// 也循序读者和写者一起访问</span></span><br><span class="line">Var rmutex，wmutex: semaphore:=<span class="number">1</span>,<span class="number">1</span>;</span><br><span class="line">Readcount: integer:=<span class="number">0</span>; 		<span class="comment">// 表示正在进行读操作的进程个数</span></span><br><span class="line">begin</span><br><span class="line">parbegin</span><br><span class="line">  <span class="comment">// 读者</span></span><br><span class="line">	Reader: begin </span><br><span class="line">    repeat</span><br><span class="line">		wait(rmutex);</span><br><span class="line">		<span class="keyword">if</span> readcount=<span class="number">0</span> then wait(wmutex);		<span class="comment">// 没有任何东西可以读，等待写进程释放</span></span><br><span class="line">			Readcount:=Readcount+<span class="number">1</span>;</span><br><span class="line">		signal(rmutex);</span><br><span class="line">		perform read operation;</span><br><span class="line">		wait(rmutex);</span><br><span class="line">		readcount:=readcount<span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">if</span> readcount=<span class="number">0</span> then signal(wmutex); </span><br><span class="line">			signal(rmutex);</span><br><span class="line">		until <span class="literal">false</span>; </span><br><span class="line">		end</span><br><span class="line">  <span class="comment">// 写者</span></span><br><span class="line">	writer: begin</span><br><span class="line">    repeat</span><br><span class="line">			wait(wmutex);</span><br><span class="line">			perform write operation; </span><br><span class="line">			signal(wmutex);</span><br><span class="line">		until <span class="literal">false</span>; </span><br><span class="line">	end</span><br><span class="line">parend </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<h4 id="引入进程和线程的目的-important"><a href="#引入进程和线程的目的-important" class="headerlink" title="引入进程和线程的目的 important"></a>引入进程和线程的目的 important</h4><ul>
-<li><p>进程</p>
-<p>目的是为了使多个程序能够并发的执行，以提高资源利用率和系统吞吐量</p>
-</li>
-<li><p>线程</p>
-<p>为了减少应用程序在并发执行是所付出的时空开销，使OS具有更好的并发性</p>
-</li>
-</ul>
-<h4 id="进程和线程的区别-important"><a href="#进程和线程的区别-important" class="headerlink" title="进程和线程的区别 important"></a>进程和线程的区别 important</h4><ul>
-<li><strong>调度的基本单位</strong><ul>
-<li>进程是资源拥有的基本单位</li>
-<li>线程是调度和分派的基本单位</li>
-</ul>
-</li>
-<li><strong>并发性（调度性）</strong><ul>
-<li>多个进程是可以并发执行的</li>
-<li>一个进程中的多个线程也可以并发执行</li>
-</ul>
-</li>
-<li><strong>拥有资源</strong><ul>
-<li>进程可以拥有资源，并作为系统中拥有资源的一个基本单位</li>
-<li>线程本身不拥有系统资源，而是仅有一点必不可少的，能保证独立运行的资源</li>
-</ul>
-</li>
-<li><strong>独立性</strong><ul>
-<li>不同进程之间的独立性高</li>
-<li>统一进程中的不同线程之间的独立性低</li>
-</ul>
-</li>
-<li><strong>系统开销</strong><ul>
-<li>进程的开销大</li>
-<li>线程的开销小</li>
-</ul>
-</li>
-<li>支持多处理机系统<ul>
-<li>多线程应用可以吧多个线程分配带多个处理机上(CPU)</li>
-</ul>
-</li>
-</ul>
-<h4 id="线程的三个状态"><a href="#线程的三个状态" class="headerlink" title="线程的三个状态"></a>线程的三个状态</h4><ul>
-<li>执行状态</li>
-<li>就绪状态</li>
-<li>阻塞状态</li>
-</ul>
-<h3 id="习题-1"><a href="#习题-1" class="headerlink" title="习题"></a>习题</h3><ul>
-<li><p>画出下面四条语句的前趋图:S1=a：=x+y;S2=b：=z+1;S3=c：=a-b； S4=w：=c+1;</p>
-<p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.27.23.png" alt="截屏2020-12-28 上午10.27.23"></p>
-</li>
-<li><p>为什么程序并发执行会产生间断性特征</p>
-<p>程序在并发执行时，由于它们共享系统资源，以及为完成同一项任务而相互合作，致使在这些并发执行的进程之间，形成了相互制约的关系，从而也就使得进程在执行期间出现间断性。</p>
-</li>
-<li><p>程序并发执行时为什么会失去封闭性和可再现性？</p>
-<p>因为程序并发执行时，是多个程序共享系统中的各种资源，因而这些资源的状态是由多个程序来改变，致使程序的运行失去了封闭性。而程序一旦失去了封闭性也会导致其再失去可再现性。</p>
-</li>
-<li><p>试从动态性，并发性和独立性上比较进程和程序?</p>
-<p>a.动态性是进程最基本的特性，可表现为由创建而产生，由调度而执行，因得不到资源而暂停执行，以及由撤销而消亡，因而进程由一定的生命期；而程序只是一组有序指令的集合，是静态实体。b.并发性是进程的重要特征，同时也是OS的重要特征。引入进程的目的正是为了使其程序能和其它建立了进程的程序并发执行，而程序本身是不能并发执行的。c.独立性是指进程实体是一个能独立运行的基本单位，同时也是系统中独立获得资源和独立调度的基本单位。而对于未建立任何进程的程序，都不能作为一个独立的单位来运行。</p>
-</li>
-<li><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.30.12.png" alt="截屏2020-12-28 上午10.30.12"></p>
-</li>
-<li><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.30.52.png" alt="截屏2020-12-28 上午10.30.52"></p>
-</li>
-<li><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.31.06.png" alt="截屏2020-12-28 上午10.31.06"></p>
-</li>
-<li><p>在进行进程切换时，所要保存的处理机状态信息有哪些？ </p>
-<p>进行进程切换时，所要保存的处理机状态信息有： （1）进程当前暂存信息 （2）下一指令地址信息 （3）进程状态信息 （4）过程和系统调用参数及调用地址信息。</p>
-</li>
-<li><p>为什么要在OS中引入线程？</p>
-<p>在OS中引入进程的目的，是为了使多个程序能并发执行，以提高资源利用率和系 统吞吐量。在OS中再引入线程，则是为了减少程序在并发执行时所付出的时空开销，使OS具有更好的并发性。 </p>
-</li>
-<li><p>试说明线程具有哪些属性？</p>
-<p>（1)轻型实体（2）独立调度和分派的基本单位（3）可并发执行（4）共享进程资源。</p>
-</li>
-<li><p>试从调度性，并发性，拥有资源及系统开销方面对进程和线程进行比较.</p>
-<p>a.调度性。在传统的操作系统中，拥有资源的基本单位和独立调度、分派的基本单位都是进程，在引入线程的OS中，则把线程作为调度和分派的基本单位，而把进程作为资源拥有的基本单位；b.并发性。在引入线程的OS中，不仅进程之间可以并发执行，而且在一个进程中的多个线程之间，亦可并发执行，因而使OS具有更好的并发性；c.拥有资源。无论是传统的操作系统，还是引入了线程的操作系统，进程始终是拥有资源的一个基本单位，而线程除了拥有一点在运行时必不可少的资源外，本身基本不拥有系统资源，但它可以访问其隶属进程的资源； d.开销。由于创建或撤销进程时，系统都要为之分配和回收资源，如内存空间等，进程切换时所要保存和设置的现场信息也要明显地多于线程，因此，操作系统在创建、撤消和切换进程时所付出的开销将显著地大于线程。</p>
-</li>
-</ul>
-<h2 id="第三章-处理机调度与死锁"><a href="#第三章-处理机调度与死锁" class="headerlink" title="第三章 处理机调度与死锁"></a>第三章 处理机调度与死锁</h2><h3 id="重要概念-2"><a href="#重要概念-2" class="headerlink" title="重要概念"></a>重要概念</h3><h4 id="处理机调度的层次"><a href="#处理机调度的层次" class="headerlink" title="处理机调度的层次"></a>处理机调度的层次</h4><ul>
-<li>高级调度</li>
-<li>低级调度</li>
-<li>中级调度</li>
-</ul>
-<h4 id="关于周转时间的几个概念以及计算-important"><a href="#关于周转时间的几个概念以及计算-important" class="headerlink" title="关于周转时间的几个概念以及计算 important"></a>关于周转时间的几个概念以及计算 important</h4><p><strong>周转时间</strong>指的是：<strong>进程完成时间 - 进程开始等待的时间</strong></p>
-<p><strong>代权周转时间</strong>指的是：<strong>周转时间/进程执行所需要的时间</strong></p>
-<p><strong>平均代权周转时间</strong>指的是：<strong>代权周转时间/进程的个数</strong></p>
-<h4 id="先来先服务（FCFS）important"><a href="#先来先服务（FCFS）important" class="headerlink" title="先来先服务（FCFS）important"></a>先来先服务（FCFS）important</h4><p><strong>可以用于作业调度或者进程调度</strong></p>
-<p>不管作业执行的长短，谁先进来就先执行谁</p>
-<p>利于长作业（进程），不利于短作业（进程）</p>
-<h4 id="短作业优先（非抢占式）（SJF）-important"><a href="#短作业优先（非抢占式）（SJF）-important" class="headerlink" title="短作业优先（非抢占式）（SJF） important"></a>短作业优先（非抢占式）（SJF） important</h4><p><strong>可以用于作业调度或者进程调度</strong></p>
-<p>作业越短，优先级越高</p>
-<p>缺点：</p>
-<ul>
-<li>需要预支作业运行的时间</li>
-<li>对长作业非常不利</li>
-</ul>
-<h4 id="短作业优先（抢占式）（SPF）-important"><a href="#短作业优先（抢占式）（SPF）-important" class="headerlink" title="短作业优先（抢占式）（SPF） important"></a>短作业优先（抢占式）（SPF） important</h4><p>与非抢占式基本相同，<strong>但是队列中有小的作业时会抢占当前的作业去执行</strong></p>
-<h4 id="优先级调度（PSA）important"><a href="#优先级调度（PSA）important" class="headerlink" title="优先级调度（PSA）important"></a>优先级调度（PSA）important</h4><p>根据优先权的大小，来先后执行任务</p>
-<h4 id="轮转调度算法（RR）"><a href="#轮转调度算法（RR）" class="headerlink" title="轮转调度算法（RR）"></a>轮转调度算法（RR）</h4><p><strong>适用于进程调度</strong></p>
-<p>根据FCFS，将所有就绪进程排成一个就绪队列，按照一定的时间片来依次执行</p>
-<h4 id="优先级调度算法"><a href="#优先级调度算法" class="headerlink" title="优先级调度算法"></a>优先级调度算法</h4><p>静态优先级：在整个过程中，优先级不会发生变化</p>
-<p>动态优先级：在整个过程中，优先级会发生变化</p>
-<h4 id="多级反馈队列调度算法"><a href="#多级反馈队列调度算法" class="headerlink" title="多级反馈队列调度算法"></a>多级反馈队列调度算法</h4><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-27%20%E4%B8%8B%E5%8D%884.05.17.png" alt="截屏2020-12-27 下午4.05.17"></p>
-<p><strong>在就绪队列中采用FCFS，就绪队列之间采用优先级调度算法</strong></p>
-<h4 id="最早截止时间优先（EDF）"><a href="#最早截止时间优先（EDF）" class="headerlink" title="最早截止时间优先（EDF）"></a>最早截止时间优先（EDF）</h4><p>截止时间越早，优先级越高</p>
-<h4 id="最低松弛度优先算法（LLF）"><a href="#最低松弛度优先算法（LLF）" class="headerlink" title="最低松弛度优先算法（LLF）"></a>最低松弛度优先算法（LLF）</h4><p><strong>松弛度</strong>：必须完成的时间-本身的运行时间-当前时间</p>
-<p>松弛度越低，表示任务越紧急，要优先执行</p>
-<p><strong>切换点：</strong></p>
-<ul>
-<li>松弛度为0</li>
-<li>进程结束</li>
-</ul>
-<h4 id="死锁产生的原因"><a href="#死锁产生的原因" class="headerlink" title="死锁产生的原因"></a>死锁产生的原因</h4><ul>
-<li>竞争不可抢占性资源引起死锁</li>
-<li>竞争可消耗资源引起死锁</li>
-<li>进程推进顺序不当引起死锁</li>
-</ul>
-<h4 id="死锁的定义"><a href="#死锁的定义" class="headerlink" title="死锁的定义"></a>死锁的定义</h4><p>如果一组进程中的每一个进程都在等待仅由该组进程中的其他进程才能引发的事件，那么该组进程是死锁</p>
-<h4 id="产生死锁的必要条件-important"><a href="#产生死锁的必要条件-important" class="headerlink" title="产生死锁的必要条件 important"></a>产生死锁的必要条件 important</h4><p><strong>必须要同时满足以下四个条件，才会发生死锁</strong></p>
-<ul>
-<li><p><strong>互斥条件</strong></p>
-<p>指进程对所分配到的资源进行排它性使用，即在一段时间内某资源只由 一个进程占用。如果此时还有其它进程请求该资源，则请求者只能等待，直至占有该资源 的进程用毕释放。</p>
-</li>
-<li><p><strong>请求和保持条件</strong></p>
-<p>指进程已经保持了至少一个资源，但又提出了新的资源请求，而 该资源又已被其它进程占有，此时请求进程阻塞，但又对自己已获得的其它资源保持不放。</p>
-</li>
-<li><p><strong>不可抢占条件</strong></p>
-<p>指进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完 时由自己释放。</p>
-</li>
-<li><p><strong>循环等待条件</strong></p>
-<p>指在发生死锁时，必然存在一个进程——资源的环形链，即进程集 合{P0，P1，P2，…，Pn}中的 P0 正在等待一个 P1 占用的资源;P1 正在等待 P2 占用的资源，……， Pn 正在等待已被 P0 占用的资源。</p>
-</li>
-</ul>
-<h4 id="处理死锁的方法-important"><a href="#处理死锁的方法-important" class="headerlink" title="处理死锁的方法 important"></a>处理死锁的方法 important</h4><ul>
-<li><p><strong>预防死锁</strong></p>
-<p>是一种较简单和直观的事先预防的方法。该方法是通过设置某些限制 条件，去破坏产生死锁的四个必要条件中的一个或几个条件，来预防发生死锁。预防死锁是一种较易实现的方法，已被广泛使用。但由于所施加的限制条件往往太严格，因而可能 会导致系统资源利用率和系统吞吐量降低。</p>
-</li>
-<li><p><strong>避免死锁</strong></p>
-<p>该方法同样是属于事先预防的策略，但它并不须事先采取各种限制措施 去破坏产生死锁的四个必要条件，而是在资源的动态分配过程中，用某种方法去防止系统 进入不安全状态，从而避免发生死锁。这种方法只需事先施加较弱的限制条件，便可获得 较高的资源利用率及系统吞吐量，但在实现上有一定的难度。目前在较完善的系统中常用 此方法来避免发生死锁。</p>
-</li>
-<li><p><strong>检测死锁</strong></p>
-<p>这种方法并不须事先采取任何限制性措施，也不必检查系统是否已经进 入不安全区，而是允许系统在运行过程中发生死锁。但可通过系统所设置的检测机构，及 时地检测出死锁的发生，并精确地确定与死锁有关的进程和资源; 然后，采取适当措施， 从系统中将已发生的死锁清除掉。</p>
-</li>
-<li><p><strong>解除死锁</strong></p>
-<p>这是与检测死锁相配套的一种措施。当检测到系统中已发生死锁时，须 将进程从死锁状态中解脱出来。常用的实施方法是撤消或挂起一些进程，以便回收一些资 源，再将这些资源分配给已处于阻塞状态的进程，使之转为就绪状态，以继续运行。死锁 的检测和解除措施有可能使系统获得较好的资源利用率和吞吐量，但在实现上难度也最大。</p>
-</li>
-</ul>
-<h4 id="利用银行家算法来避免死锁-impotrant"><a href="#利用银行家算法来避免死锁-impotrant" class="headerlink" title="利用银行家算法来避免死锁 impotrant"></a>利用银行家算法来避免死锁 impotrant</h4><p><strong>几个数据结构</strong></p>
-<ul>
-<li><p><strong>可利用资源向量Available</strong></p>
-<p>这是一个含有 m 个元素的数组，其中的每一个元素代 表一类可利用的资源数目，其初始值是系统中所配置的该类全部可用资源的数目，其数值 随该类资源的分配和回收而动态地改变。如果 Available[j]=K，则表示系统中现有 R j 类资源 K个。</p>
-</li>
-<li><p><strong>最大需求矩阵Max</strong></p>
-<p>这是一个 n×m 的矩阵，它定义了系统中 n 个进程中的每一个 进程对 m 类资源的最大需求。如果 Max[i,j]=K，则表示进程 i 需要 Rj 类资源的最大数目 为K。</p>
-</li>
-<li><p><strong>分配矩阵Allocation</strong></p>
-<p>这也是一个 n×m 的矩阵，它定义了系统中每一类资源当前已 分配给每一进程的资源数。如果 Allocation[i,j]=K，则表示进程 i 当前已分得 R j 类资源的数 目为 K。</p>
-</li>
-<li><p><strong>需求矩阵Need</strong></p>
-<p>这也是一个 n×m 的矩阵，用以表示每一个进程尚需的各类资源数。 如果 Need[i,j]=K，则表示进程 i 还需要 R j 类资源 K 个，方能完成其任务。</p>
-</li>
-</ul>
-<p>三个矩阵满足下面这个关系：</p>
-<p><strong>Need[i, j]=Max[i, j]-Allocation[i, j]</strong></p>
-<h3 id="习题-2"><a href="#习题-2" class="headerlink" title="习题"></a>习题</h3><ul>
-<li><p>高级调度与低级调度的主要任务是什么？为什么要引入中级调度？</p>
-<p>1）高级调度主要任务是用于决定把外存上处于后备队列中的那些作业调入内存，并为它们创建进程，分配必要的资源，然后再将新创建的进程排在就绪队列上，准备执行。 （2）低级调度主要任务是决定就绪队列中的哪个进程将获得处理机，然后由分派程序执行把处理机分配给该进程的操作。 （3）引入中级调度的主要目的是为了提高内存的利用率和系统吞吐量。为此，应使那些暂时不能运行的进程不再占用宝贵的内存空间，而将它们调至外存上去等待，称此时的进程状态为就绪驻外存状态或挂起状态。当这些进程重又具备运行条件，且内存又稍有空闲时，由中级调度决定，将外存上的那些重又具备运行条件的就绪进程重新调入内存，并修改其状态为就绪状态，挂在就绪队列上，等待进程调度。</p>
-</li>
-<li><p>试说明低级调度的主要功能。</p>
-<p>（1）保存处理机的现场信息（2）按某种算法选取进程（3）把处理机分配给进程。</p>
-</li>
-<li><p>在抢占调度方式中，抢占的原则是什么？</p>
-<p>剥夺原则有： （1）时间片原则 各进程按时间片运行，当一个时间片用完后，便停止该进程的执行而重新进行调度。这种原则适用于分时系统、大多数实时系统，以及要求较高的批处理系统。 （2）优先权原则 通常是对一些重要的和紧急的作业赋予较高的优先权。当这种作业到达时，如果其优先权比正在执行进程的优先权高，便停止正在执行的进程，将处理机分配给优先权高的进程，使之执行。 （3）短作业（进程）优先原则 当新到达的作业（进程）比正在执行的作业（进程）明显地短时，将剥夺长作业（进程）的执行，将处理机分配给短作业（进程），使之优先执行。</p>
-</li>
-<li><p>选择调度方式和调度算法时，应遵循的准则是什么？</p>
-<p>应遵循的准则有 （1）面向用户的准则：周转时间短，响应时间快，截止时间的保证，优先权准则。 （2）面向系统的准则：系统吞吐量高，处理机利用率好，各类资源的平衡利用。</p>
-</li>
-<li><p>何谓静态和动态优先权？确定静态优先权的依据是什么？</p>
-<p>静态优先权是在创建进程时确定的，且在进程的整个运行期间保持不变。动态优先权是指，在创建进程时所赋予的优先权，是可以随进程的推进或随其等待时间的增加而改变的，以便获得更好的调度性能。 确定静态优先权的依据是： （1）进程类型，通常系统进程的优先权高于一般用户进程的优先权。 （2）进程对资源的需要。 （3）用户要求，用户进程的紧迫程度及用户所付费用的多少来确定优先权的。</p>
-</li>
-<li><p>试比较FCFS和SPF两种进程调度算法。</p>
-<p>FCFS算法按照作业提交或进程变为就绪状态的先后次序，分派CPU。当前作业或进程占有CPU，直到执行完或阻塞，才让出CPU。在作业或进程唤醒后，并不立即恢复执行，通常等到当前作业或进程让出CPU。FCFS比较有利于长作业，而不利于短作业；有利于CPU繁忙的作业，而不利于I/O繁忙的作业。SPF有利于短进程调度，是从就绪队列中选出一估计运行时间最短的进程，将处理机分配给它，使它立即执行并一直执行到完成，或发生某事件而被阻塞放弃处理机时，再重新调度。比FCFS改善了平均周转时间和平均带权周转时间，缩短了作业的等待时间，提高了系统的吞吐量。但SPF有其不容忽视的缺点：该算法对长作业不利；完全未考虑作业的紧迫程度，因而不能保证紧迫性作业（进程）会被及时处理；用户可能会有意无意地干扰作业的运行时间，致使该算法不一定能真正做到短作业优先调度。</p>
-</li>
-<li><p>为什么说多级反馈队列调度算法能较好地满足各方面用户的需要？</p>
-<p>1）对于终端型用户来说，他们提交的大多属于较小的交互型作业，系统只要能使这些作业（进程）在第一队列所规定的时间片内完成，便可使终端型作业用户都感到满意。 （2）对短批处理作业用户来说，在第一队列中执行一个时间片或至多只需在第二队列和第三队列中各执行一个时间片即可完成。 （3）对长批处理作业用户来说，只要将作业依次在第1，2，„„，n个队列中运行，然后再按轮转方式运行，用户不必担心其作业长期得不到处理。</p>
-</li>
-<li><p>按调度方式可将实时调度算法分为哪几种？ </p>
-<p>按调度方式可将实时调度算法分为两大类四小类： （1）非抢占式调度算法：①非抢占式轮转调度算法；②非抢占式优先调度算法； （2）抢占式调度算法：①基于时钟中断的抢占式优先权调度算法；②立即抢占的优先权调度算法。</p>
-</li>
-<li><p>什么是最早截止时间优先调度算法？举例说明之。</p>
-<p>在系统中保持一个实时任务就绪队列，该队列按各任务截止时间的早晚排序，截止时间愈早的优先级愈高，在队列中排列愈靠前，调度程序在选择任务时，总是选择就绪队列中的第一个任务，为之分配处理机，使之投入运行。 例：四个非周期任务，它们先后到达。系统首先调度任务1执行，在任务1执行期间，任务2、3又先后到达。由于任务3的开始截止时间早于任务2，系统在任务1后将调度任务3执行。在此期间又到达作业4，其开始截止时间仍是早于任务2的，在任务3执行完后，系统又调度任务4的执行，最后才调度任务2执行。</p>
-</li>
-<li><p>何谓死锁？产生死锁的原因和必要条件是什么？</p>
-<p>所谓死锁，是指多个进程因竞争资源而造成的一种僵局，若无外力作用，这些进程都将永远不能再向前推进。 产生死锁的原因： （1） 竞争资源，当系统中供多个进程所共享的资源，不足以同时满足它们的 需要时，引起它们对资源的竞争而产生死锁； （2） 进程推进顺序非法，进程在运行过程中，请求和释放资源的顺序不当， 导致进程死锁。 产生死锁的必要条件： （1） 互斥条件 进程对所分配到的资源进行排他性使用。如果此时还有其他进程请求该资源，请求者只能阻塞，直到占有该资源的进程释放该资源。 （2） 请求和保持条件 进程已经保持了至少一个资源，但又提出了新的资源要求，而该资源又已被其他进程占有，此时请求进程阻塞，但请求进程又对已经获得的其他资源保持不放。 （3） 不剥夺条件 进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完后由自己释放。 （4） 环路等待条件 在发生死锁时，必然存在一个进程——资源的环形链。</p>
-</li>
-<li><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.38.05.png" alt="截屏2020-12-28 上午10.38.05"><br><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.38.09.png" alt="截屏2020-12-28 上午10.38.09"></p>
-</li>
-</ul>
-<h2 id="第四章-存储器管理"><a href="#第四章-存储器管理" class="headerlink" title="第四章 存储器管理"></a>第四章 存储器管理</h2><h3 id="重要概念-3"><a href="#重要概念-3" class="headerlink" title="重要概念"></a>重要概念</h3><h4 id="程序的装入-impotrant"><a href="#程序的装入-impotrant" class="headerlink" title="程序的装入 impotrant"></a>程序的装入 impotrant</h4><ul>
-<li><p>绝对装入方式</p>
-<p>程序编译之后生成绝对地址</p>
-</li>
-<li><p>可重定位装入方式</p>
-<p>程序编译之后生成相对的地址</p>
-</li>
-<li><p>动态运行时装入方式</p>
-<p>编译之后不立即转换为地址，而是在运行的时候转换</p>
-</li>
-</ul>
-<h4 id="程序的链接-impotrant"><a href="#程序的链接-impotrant" class="headerlink" title="程序的链接 impotrant"></a>程序的链接 impotrant</h4><ul>
-<li><p>静态链接方式</p>
-<p>在程序运行之前，先将各个目标模块及他们所需的库函数连接成一个完整的装配模块</p>
-</li>
-<li><p>装入是动态链接</p>
-<p>将用户源程序编译后所得到的一组目标模块，在装入内存时，采用边装入边链接的方式</p>
-</li>
-<li><p>运行时动态链接</p>
-<p>在需要某些模块的时候再进行链接</p>
-</li>
-</ul>
-<h4 id="首次适应算法（FF）impotrant"><a href="#首次适应算法（FF）impotrant" class="headerlink" title="首次适应算法（FF）impotrant"></a>首次适应算法（FF）impotrant</h4><p>（基于顺序搜索）</p>
-<p>在分配内存时，从链首开始顺序查找，直至找到一个大小能够满足要求的空闲分区为止</p>
-<h4 id="循环首次适应算法（NF）impotrant"><a href="#循环首次适应算法（NF）impotrant" class="headerlink" title="循环首次适应算法（NF）impotrant"></a>循环首次适应算法（NF）impotrant</h4><p>（基于顺序搜索）</p>
-<p>基本与FF相同，但是每次是从上一次找到的空闲分区的下一个空闲分区开始查找</p>
-<h4 id="最佳适应算法（BF）impotrant"><a href="#最佳适应算法（BF）impotrant" class="headerlink" title="最佳适应算法（BF）impotrant"></a>最佳适应算法（BF）impotrant</h4><p>（基于顺序搜索）</p>
-<p>容量从小到大形成空闲分区链，找到最合适的大小</p>
-<h4 id="最坏适应算法（WF）impotrant"><a href="#最坏适应算法（WF）impotrant" class="headerlink" title="最坏适应算法（WF）impotrant"></a>最坏适应算法（WF）impotrant</h4><p>（基于顺序搜索）</p>
-<p>每次都是找最大的空闲区</p>
-<h4 id="快速适应算法"><a href="#快速适应算法" class="headerlink" title="快速适应算法"></a>快速适应算法</h4><p>（基于索引搜索的动态分区分配算法）</p>
-<ul>
-<li>根据进程的长度，从索引表中去寻找到能够容纳它的最小长度</li>
-<li>从链表中取下第一块进行分配</li>
-</ul>
-<h4 id="伙伴系统"><a href="#伙伴系统" class="headerlink" title="伙伴系统"></a>伙伴系统</h4><p>（基于索引搜索的动态分区分配算法）</p>
-<p>当需要为进程分配一个长度为 n 的存储空间时，首先计算一个 i 值，使 2i-1&lt;n≤2i，然 后在空闲分区大小为 2i 的空闲分区链表中查找。若找到，即把该空闲分区分配给进程。否 则，表明长度为 2i 的空闲分区已经耗尽，则在分区大小为 2i+1 的空闲分区链表中寻找。若 存在 2i+1 的一个空闲分区，则把该空闲分区分为相等的两个分区，这两个分区称为一对伙 伴，其中的一个分区用于分配，而把另一个加入分区大小为 2i 的空闲分区链表中。若大小 为 2i+1 的空闲分区也不存在，则需要查找大小为 2i+2 的空闲分区，若找到则对其进行两次分 割:第一次，将其分割为大小为 2i+1 的两个分区，一个用于分配，一个加入到大小为 2i+1 的空闲分区链表中;第二次，将第一次用于分配的空闲区分割为 2i 的两个分区，一个用于 分配，一个加入到大小为 2i 的空闲分区链表中。若仍然找不到，则继续查找大小为 2i+3 的 空闲分区，以此类推。由此可见，在最坏的情况下，可能需要对 2k 的空闲分区进行 k 次分 割才能得到所需分区。</p>
-<h4 id="分页存储管理-important"><a href="#分页存储管理-important" class="headerlink" title="分页存储管理 important"></a>分页存储管理 important</h4><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%888.54.25.png" alt="截屏2020-12-28 上午8.54.25"></p>
-<ul>
-<li>P表示页号</li>
-<li>A表示逻辑地址</li>
-<li>L表示页面大小 （块大小）</li>
-<li>d表示页内地址</li>
-</ul>
-<h4 id="分页存储的地址变换-important"><a href="#分页存储的地址变换-important" class="headerlink" title="分页存储的地址变换 important"></a>分页存储的地址变换 important</h4><p>逻辑地址 ====》物理地址</p>
-<ol>
-<li>先根据块的大小（页面大小），算出页号和页内地址</li>
-<li>根据页号找到块号</li>
-<li>物理地址 = 块号 x 页面大小（快的大小）+ 页内地址</li>
-</ol>
-<h4 id="块表-important"><a href="#块表-important" class="headerlink" title="块表 important"></a>块表 important</h4><p>普通查询方式<strong>至少两次</strong>访问内存</p>
-<p>为了提高地址变换速度，可在地址变换机构中增设一个具有并行查寻能力的特殊高速缓冲寄存器，又称为“联想寄存器”(Associative Memory)，或称为“快表”</p>
-<h4 id="分段存储管理"><a href="#分段存储管理" class="headerlink" title="分段存储管理"></a>分段存储管理</h4><p>优点</p>
-<ul>
-<li>方便编程</li>
-<li>信息共享</li>
-<li>信息保护</li>
-<li>动态增长</li>
-<li>动态链接</li>
-</ul>
-<h3 id="习题-3"><a href="#习题-3" class="headerlink" title="习题"></a>习题</h3><ul>
-<li><p>何谓静态链接？何谓装入时动态链接和运行时的动态链接？</p>
-<p>静态链接是指在程序运行前，先将各目标模块及它们所需的库函数，链接成一个完整的 装配模块，以后不再拆开的链接方式。 装入时动态链接是指将用户源程序编译后得到的一组目标模块，在装入内存时采用边装入边链接的链接方式。 运行时动态链接是指对某些目标模块的链接，是在程序执行中需要该目标模块时，才对 它进行的链接。 </p>
-</li>
-<li><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.42.48.png" alt="截屏2020-12-28 上午10.42.48"></p>
-</li>
-<li><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.43.05.png" alt="截屏2020-12-28 上午10.43.05"></p>
-</li>
-<li><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.43.22.png" alt="截屏2020-12-28 上午10.43.22"></p>
-</li>
-<li><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.43.37.png" alt="截屏2020-12-28 上午10.43.37"></p>
-</li>
-<li><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.44.05.png" alt="截屏2020-12-28 上午10.44.05"></p>
-</li>
-<li><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.44.21.png" alt="截屏2020-12-28 上午10.44.21"></p>
-</li>
-<li><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.44.37.png" alt="截屏2020-12-28 上午10.44.37"></p>
-</li>
-<li><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.44.56.png" alt="截屏2020-12-28 上午10.44.56"></p>
-</li>
-<li><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2020-12-28%20%E4%B8%8A%E5%8D%8810.45.27.png" alt="截屏2020-12-28 上午10.45.27"></p>
-</li>
-</ul>
-<h2 id="第五章-虚拟存储器"><a href="#第五章-虚拟存储器" class="headerlink" title="第五章 虚拟存储器"></a>第五章 虚拟存储器</h2><h3 id="重要概念-4"><a href="#重要概念-4" class="headerlink" title="重要概念"></a>重要概念</h3><h4 id="最佳（Optimal）置换算法-important"><a href="#最佳（Optimal）置换算法-important" class="headerlink" title="最佳（Optimal）置换算法 important"></a>最佳（Optimal）置换算法 important</h4><p>其所选择的被淘汰页面， 将是以后永不使用的，或许是在最长(未来)时间内不再被访问的页面</p>
-<h4 id="先进先出（FIFO）页面置换算法-important"><a href="#先进先出（FIFO）页面置换算法-important" class="headerlink" title="先进先出（FIFO）页面置换算法 important"></a>先进先出（FIFO）页面置换算法 important</h4><p>该算法总是淘汰最先进入内存的页面，即选择在内存中驻 留时间最久的页面予以淘汰</p>
-<h4 id="LRU置换算法（最近最久未使用算法）important"><a href="#LRU置换算法（最近最久未使用算法）important" class="headerlink" title="LRU置换算法（最近最久未使用算法）important"></a>LRU置换算法（最近最久未使用算法）important</h4><p>LRU 置换算法是选择最近最久未 使用的页面予以淘汰</p>
-<h4 id="产生抖动的原因-important"><a href="#产生抖动的原因-important" class="headerlink" title="产生抖动的原因 important"></a>产生抖动的原因 important</h4><p>同时在系统中运行的进程太多，由此分配给每一个进程的物理块太少，不能满足进程正常运行的基本要求，致使每一个进程在运行时，频繁地出现缺页，必须请求系统将所缺之页调入内存</p>
-<h4 id="抖动的预防方法-important"><a href="#抖动的预防方法-important" class="headerlink" title="抖动的预防方法 important"></a>抖动的预防方法 important</h4><ul>
-<li>采用局部置换策略</li>
-<li>把工作集算法融入到处理机调度中</li>
-<li>利用“L = S”准则调节缺页率</li>
-<li>选择暂停的进程</li>
-</ul>
-<h3 id="习题-4"><a href="#习题-4" class="headerlink" title="习题"></a>习题</h3><ul>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.06.19.png" alt="截屏2021-01-05 下午10.06.19"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.07.26.png" alt="截屏2021-01-05 下午10.07.26"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.07.44.png" alt="截屏2021-01-05 下午10.07.44"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.08.07.png" alt="截屏2021-01-05 下午10.08.07"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.08.26.png" alt="截屏2021-01-05 下午10.08.26"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.08.43.png" alt="截屏2021-01-05 下午10.08.43"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.09.00.png" alt="截屏2021-01-05 下午10.09.00"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.09.17.png" alt="截屏2021-01-05 下午10.09.17"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.09.31.png" alt="截屏2021-01-05 下午10.09.31"></li>
-</ul>
-<h2 id="第六章-输入输出系统"><a href="#第六章-输入输出系统" class="headerlink" title="第六章 输入输出系统"></a>第六章 输入输出系统</h2><h3 id="重要概念-5"><a href="#重要概念-5" class="headerlink" title="重要概念"></a>重要概念</h3><h4 id="I-O系统的基本功能"><a href="#I-O系统的基本功能" class="headerlink" title="I/O系统的基本功能"></a>I/O系统的基本功能</h4><ul>
-<li>隐藏物理设备的细节</li>
-<li>与设备的无关性</li>
-<li>提高处理机和I/O设备的利用率</li>
-<li>与I/O设备的正确共享</li>
-<li>错误处理</li>
-</ul>
-<h4 id="I-O软件的层次"><a href="#I-O软件的层次" class="headerlink" title="I/O软件的层次"></a>I/O软件的层次</h4><ul>
-<li>用户层I/O软件</li>
-<li>设备独立性软件</li>
-<li>设备驱动程序</li>
-<li>中断处理程序</li>
-</ul>
-<h4 id="设备驱动程序的功能"><a href="#设备驱动程序的功能" class="headerlink" title="设备驱动程序的功能"></a>设备驱动程序的功能</h4><ul>
-<li>接收由与设备无关的软件发来的命令和参数</li>
-<li>检查用户I/O请求的合法性</li>
-<li>发出I/O命令</li>
-<li>及时响应由设备控制器发来的中断请求</li>
-</ul>
-<h4 id="假脱机（Spooling）系统-important"><a href="#假脱机（Spooling）系统-important" class="headerlink" title="假脱机（Spooling）系统 important"></a>假脱机（Spooling）系统 important</h4><p><strong>组成</strong></p>
-<ul>
-<li>输入井和输出井</li>
-<li>输入缓冲区和输出缓冲区</li>
-<li>输入进程和输出进程</li>
-<li>井管理程序</li>
-</ul>
-<p><strong>特点</strong></p>
-<ul>
-<li>提高了I/O的速度</li>
-<li>将独占设备改造为共享设备</li>
-<li>实现了虚拟设备功能</li>
-</ul>
-<h4 id="缓冲引入的原因"><a href="#缓冲引入的原因" class="headerlink" title="缓冲引入的原因"></a>缓冲引入的原因</h4><ul>
-<li>缓和 CPU 与 I/O 设备间速度不匹配的矛盾</li>
-<li>减少对 CPU 的中断频率，放宽对 CPU 中断响应时间的限制</li>
-<li>解决数据粒度不匹配问题</li>
-<li>提高 CPU 和 I/O 设备之间的并行性</li>
-</ul>
-<h4 id="单缓冲区和双缓冲区-important"><a href="#单缓冲区和双缓冲区-important" class="headerlink" title="单缓冲区和双缓冲区 important"></a>单缓冲区和双缓冲区 important</h4><p><strong>单缓冲区</strong></p>
-<p>对每一块数据的处理时间：Max(C, T) + M</p>
-<p>C表示CPU对这块数据的处理时间</p>
-<p>T表示输入的时间</p>
-<p>M表示传送的时间</p>
-<p>C与T是并行的</p>
-<p><strong>双缓冲区</strong></p>
-<p>对每一块数据的处理时间：Max(C, T)</p>
-<h4 id="磁盘访问时间"><a href="#磁盘访问时间" class="headerlink" title="磁盘访问时间"></a>磁盘访问时间</h4><ul>
-<li>寻道时间</li>
-<li>旋转延迟时间</li>
-<li>传输时间</li>
-</ul>
-<h4 id="先来先服务（FCFS）-important"><a href="#先来先服务（FCFS）-important" class="headerlink" title="先来先服务（FCFS） important"></a>先来先服务（FCFS） important</h4><p>（磁盘调度算法）</p>
-<p>它根据进程请求访问磁盘的先后次序进行调度</p>
-<h4 id="最短寻道时间优先（SSTF）important"><a href="#最短寻道时间优先（SSTF）important" class="headerlink" title="最短寻道时间优先（SSTF）important"></a>最短寻道时间优先（SSTF）important</h4><p>要求访问的磁道与当前磁头所在的磁道距离最近，以使每次的寻道时间最短</p>
-<h4 id="扫描-SCAN-算法-important"><a href="#扫描-SCAN-算法-important" class="headerlink" title="扫描(SCAN)算法 important"></a>扫描(SCAN)算法 important</h4><p>坐电梯算法</p>
-<p>该算法不仅考虑到欲访问的磁道与当前磁道间的距离，更优先考虑的是磁头当前的移 动方向</p>
-<h4 id="循环扫描（CSCAN）算法"><a href="#循环扫描（CSCAN）算法" class="headerlink" title="循环扫描（CSCAN）算法"></a>循环扫描（CSCAN）算法</h4><p>到最上面之后直接到最下</p>
-<p>到最下面之后直接到最上</p>
-<h3 id="习题-5"><a href="#习题-5" class="headerlink" title="习题"></a>习题</h3><ul>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.10.05.png" alt="截屏2021-01-05 下午10.10.05"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.10.46.png" alt="截屏2021-01-05 下午10.10.46"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.11.03.png" alt="截屏2021-01-05 下午10.11.03"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.11.17.png" alt="截屏2021-01-05 下午10.11.17"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.11.37.png" alt="截屏2021-01-05 下午10.11.37"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.11.48.png" alt="截屏2021-01-05 下午10.11.48"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.12.05.png" alt="截屏2021-01-05 下午10.12.05"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.12.21.png" alt="截屏2021-01-05 下午10.12.21"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.12.38.png" alt="截屏2021-01-05 下午10.12.38"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.12.57.png" alt="截屏2021-01-05 下午10.12.57"></li>
-</ul>
-<h2 id="第七章-文件管理"><a href="#第七章-文件管理" class="headerlink" title="第七章 文件管理"></a>第七章 文件管理</h2><h3 id="习题-6"><a href="#习题-6" class="headerlink" title="习题"></a>习题</h3><ul>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.13.49.png" alt="截屏2021-01-05 下午10.13.49"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.14.27.png" alt="截屏2021-01-05 下午10.14.27"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.14.57.png" alt="截屏2021-01-05 下午10.14.57"></li>
-<li><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-01-05%20%E4%B8%8B%E5%8D%8810.15.17.png" alt="截屏2021-01-05 下午10.15.17"></li>
-</ul>
-<h2 id="第八章-磁盘存储器的管理"><a href="#第八章-磁盘存储器的管理" class="headerlink" title="第八章 磁盘存储器的管理"></a>第八章 磁盘存储器的管理</h2><h3 id="重要概念-6"><a href="#重要概念-6" class="headerlink" title="重要概念"></a>重要概念</h3><h4 id="外存的组织方式"><a href="#外存的组织方式" class="headerlink" title="外存的组织方式"></a>外存的组织方式</h4><ul>
-<li>连续组织方法</li>
-<li>连接组织方式</li>
-<li>索引组织方式</li>
-</ul>
-<h4 id="FAT"><a href="#FAT" class="headerlink" title="FAT"></a>FAT</h4><p>可能会考计算题</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 

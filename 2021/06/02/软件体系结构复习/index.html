@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.zkwzkw.top","root":"/","images":"/images","scheme":"Muse","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="软件体系结构复习题型 选择（30‘） 简答（20’） 分析 设计  第一章软件危机是什么（软件危机具体的表现） 软件成本日益增长 开发进度难以控制 软件质量差 软件维护困难  软件危机的原因 用户需求不明确 缺乏正确的理论指导 软件规模越做越大 软件复杂度越来越高  如何克服软件危机人们面对的不单是技术问题，更重要的还是管理问题 软件工程包括三要素：  方法   软件工程方法为软件开发提供了“如何">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件体系结构复习">
+<meta property="og:url" content="https://blog.zkwzkw.top/2021/06/02/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Meredith&#39;s blog">
+<meta property="og:description" content="软件体系结构复习题型 选择（30‘） 简答（20’） 分析 设计  第一章软件危机是什么（软件危机具体的表现） 软件成本日益增长 开发进度难以控制 软件质量差 软件维护困难  软件危机的原因 用户需求不明确 缺乏正确的理论指导 软件规模越做越大 软件复杂度越来越高  如何克服软件危机人们面对的不单是技术问题，更重要的还是管理问题 软件工程包括三要素：  方法   软件工程方法为软件开发提供了“如何">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-01T16:21:52.000Z">
+<meta property="article:modified_time" content="2021-06-01T16:21:52.181Z">
+<meta property="article:author" content="kaiwen zhou">
+<meta property="article:tag" content="软件体系结构">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.zkwzkw.top/2021/06/02/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>软件体系结构复习 | Meredith's blog</title>
+  
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8f735d1ea69ea81de16638ad4504bd80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Meredith's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">share my code</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">软件体系结构复习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">题型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="nav-number">1.2.</span> <span class="nav-text">第一章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%8D%B1%E6%9C%BA%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%88%E8%BD%AF%E4%BB%B6%E5%8D%B1%E6%9C%BA%E5%85%B7%E4%BD%93%E7%9A%84%E8%A1%A8%E7%8E%B0%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">软件危机是什么（软件危机具体的表现）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%8D%B1%E6%9C%BA%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.2.2.</span> <span class="nav-text">软件危机的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%85%8B%E6%9C%8D%E8%BD%AF%E4%BB%B6%E5%8D%B1%E6%9C%BA"><span class="nav-number">1.2.3.</span> <span class="nav-text">如何克服软件危机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E4%BB%B6%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.2.4.</span> <span class="nav-text">构件的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E6%B5%81%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E6%B4%BE"><span class="nav-number">1.2.5.</span> <span class="nav-text">主流的构建流派</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E4%BB%B6%E8%8E%B7%E5%8F%96%E7%9A%84%E9%80%94%E5%BE%84"><span class="nav-number">1.2.6.</span> <span class="nav-text">构件获取的途径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E9%87%8D%E7%94%A8%E6%8A%80%E6%9C%AF%E5%AF%B9%E6%9E%84%E4%BB%B6%E5%BA%93%E7%BB%84%E7%BB%87%E6%96%B9%E6%B3%95%E7%9A%84%E8%A6%81%E6%B1%82%E6%98%AF"><span class="nav-number">1.2.7.</span> <span class="nav-text">可重用技术对构件库组织方法的要求是</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E4%BB%B6%E7%9A%84%E5%88%86%E7%B1%BB%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.8.</span> <span class="nav-text">构件的分类方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%8A%8A%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9C%8B%E6%88%90%E6%98%AF%E6%9E%84%E4%BB%B6%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%8C%E9%82%A3%E4%B9%88%E4%BB%8E%E6%9E%84%E4%BB%B6%E7%9A%84%E5%A4%96%E9%83%A8%E5%BD%A2%E6%80%81%E6%9D%A5%E7%9C%8B%EF%BC%8C%E6%9E%84%E6%88%90%E4%B8%80%E4%B8%AA%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9E%84%E4%BB%B6%E5%8F%AF%E5%88%86%E4%B8%BA5-%E7%B1%BB"><span class="nav-number">1.2.9.</span> <span class="nav-text">如果把软件系统看成是构件的集合，那么从构件的外部形态来看，构成一个系统的构件可分为5 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E4%BB%B6%E9%87%8D%E7%94%A8%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.2.10.</span> <span class="nav-text">构件重用工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E4%BB%B6%E5%9B%BE%E7%9A%84%E5%87%A0%E7%A7%8D%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.11.</span> <span class="nav-text">构件图的几种类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.2.12.</span> <span class="nav-text">软件体系结构的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-number">1.2.13.</span> <span class="nav-text">软件体系结构的意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%89%80%E7%BB%8F%E5%8E%86%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.14.</span> <span class="nav-text">体系结构所经历的四个阶段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E5%BB%BA%E6%A8%A1"><span class="nav-number">1.3.</span> <span class="nav-text">第二章 软件体系建模</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">软件体系结构模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1%E8%A7%86%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.2.</span> <span class="nav-text">4+1视图模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.3.</span> <span class="nav-text">软件体系结构中的核心模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%BB%93%E6%9E%84%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%98%B6%E6%AE%B5"><span class="nav-number">1.3.4.</span> <span class="nav-text">软件体系结构结构的生命周期模型的阶段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%A3%8E%E6%A0%BC"><span class="nav-number">1.4.</span> <span class="nav-text">第三章 软件体系结构风格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E9%A3%8E%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.4.1.</span> <span class="nav-text">软件体系风格的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%A3%8E%E6%A0%BC%E4%BB%A5%E5%8F%8A%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">1.4.2.</span> <span class="nav-text">经典软件体系结构风格以及优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.4.3.</span> <span class="nav-text">客户&#x2F;服务器风格的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">1.4.4.</span> <span class="nav-text">客户&#x2F;服务器风格的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%B1%82C-S%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">1.4.5.</span> <span class="nav-text">三层C&#x2F;S结构中的中间件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%B1%82C-S%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">1.4.6.</span> <span class="nav-text">三层C&#x2F;S的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">1.4.7.</span> <span class="nav-text">浏览器服务器优缺点（重要）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.5.</span> <span class="nav-text">第四章 软件体系结构描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%8F%8F%E8%BF%B0%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.1.</span> <span class="nav-text">软件体系结构描述方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ADL%E4%B8%8E%E5%85%B6%E4%BB%96%E8%AF%AD%E8%A8%80%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">1.5.2.</span> <span class="nav-text">ADL与其他语言的比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0"><span class="nav-number">1.6.</span> <span class="nav-text">第五章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80"><span class="nav-number">1.7.</span> <span class="nav-text">第六章 可扩展标记语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8A%A8%E6%80%81%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">1.8.</span> <span class="nav-text">第七章 动态软件体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%8A%A8%E6%80%81%E6%80%A7%E7%9A%84%E4%B8%89%E7%B1%BB"><span class="nav-number">1.8.1.</span> <span class="nav-text">体系结构动态性的三类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%9E%84%E5%BB%BA%E7%9A%84%E5%8A%A8%E6%80%81%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.8.2.</span> <span class="nav-text">基于构建的动态系统结构模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E7%AB%A0"><span class="nav-number">1.9.</span> <span class="nav-text">十一章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E5%B1%9E%E6%80%A7"><span class="nav-number">1.9.1.</span> <span class="nav-text">软件质量属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E7%9A%84%E4%B8%BB%E8%A6%81%E6%96%B9%E6%B3%95"><span class="nav-number">1.9.2.</span> <span class="nav-text">评估的主要方法</span></a></li></ol></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">kaiwen zhou</p>
+  <div class="site-description" itemprop="description">the web page to share my code</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/06/02/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kaiwen zhou">
+      <meta itemprop="description" content="the web page to share my code">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Meredith's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          软件体系结构复习
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-06-02 00:21:52" itemprop="dateCreated datePublished" datetime="2021-06-02T00:21:52+08:00">2021-06-02</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="软件体系结构复习"><a href="#软件体系结构复习" class="headerlink" title="软件体系结构复习"></a>软件体系结构复习</h1><h2 id="题型"><a href="#题型" class="headerlink" title="题型"></a>题型</h2><ul>
+<li>选择（30‘）</li>
+<li>简答（20’）</li>
+<li>分析</li>
+<li>设计</li>
+</ul>
+<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="软件危机是什么（软件危机具体的表现）"><a href="#软件危机是什么（软件危机具体的表现）" class="headerlink" title="软件危机是什么（软件危机具体的表现）"></a>软件危机是什么（软件危机具体的表现）</h3><ul>
+<li>软件成本日益增长</li>
+<li>开发进度难以控制</li>
+<li>软件质量差</li>
+<li>软件维护困难</li>
+</ul>
+<h3 id="软件危机的原因"><a href="#软件危机的原因" class="headerlink" title="软件危机的原因"></a>软件危机的原因</h3><ul>
+<li>用户需求不明确</li>
+<li>缺乏正确的理论指导</li>
+<li>软件规模越做越大</li>
+<li>软件复杂度越来越高</li>
+</ul>
+<h3 id="如何克服软件危机"><a href="#如何克服软件危机" class="headerlink" title="如何克服软件危机"></a>如何克服软件危机</h3><p>人们面对的不单是技术问题，更重要的还是管理问题</p>
+<p><strong>软件工程包括三要素</strong>：</p>
+<ul>
+<li><p><strong>方法</strong></p>
+<p>  软件工程方法为软件开发提供了“如何做”的技术，是完成软件工程项目的技术手段。</p>
+</li>
+<li><p><strong>工具</strong></p>
+<p>  软件工具是人们在开发软件的活动中智力和体力的扩展和延伸，为软件工程方法提供了自动的或半自动的软件支撑环境。</p>
+</li>
+<li><p><strong>过程</strong></p>
+<p>  软件工程过程则是将软件工程的方法和工具综合起来以达到合理、及时地进行计算机软件开发的目的。</p>
+</li>
+</ul>
+<h3 id="构件的定义"><a href="#构件的定义" class="headerlink" title="构件的定义"></a>构件的定义</h3><p>一般认为，构件是指语义完整、语法正确和有可重用价值的单位软件，是软件重用过程中可以明确辨识的系统;结构上，它是语义描述、通讯接口和实现代码的复合体。<strong>简单地说，构件是具有 一定的功能，能够独立工作或能同其它构件装配起来协调工作的程序体，构件的使用同他的开发、 生产无关。</strong></p>
+<h3 id="主流的构建流派"><a href="#主流的构建流派" class="headerlink" title="主流的构建流派"></a>主流的构建流派</h3><ul>
+<li>OMG(Object Management Group，对象管理组织)的<strong>CORBA</strong> (Common Object Request Broker Architecture，通用对象请求代理结构)</li>
+<li>Sun的<strong>EJB</strong> (Enterprise Java Bean)</li>
+<li>Microsoft的<strong>DCOM</strong>(Distributed Component Object Model，分布式构件对象模型)</li>
+</ul>
+<h3 id="构件获取的途径"><a href="#构件获取的途径" class="headerlink" title="构件获取的途径"></a>构件获取的途径</h3><ul>
+<li>从现有构件中获得符合要求的构件，直接使用或作适应性(flexibility)修改，得到可重 用的构件。</li>
+<li>通过遗留工程(legacy engineering)，将具有潜在重用价值的构件提取出来，得到可重用的构件。</li>
+<li>从市场上购买现成的商业构件，即COTS(Commercial Off-The-Shell)构件。</li>
+<li>开发新的符合要求的构件。</li>
+</ul>
+<h3 id="可重用技术对构件库组织方法的要求是"><a href="#可重用技术对构件库组织方法的要求是" class="headerlink" title="可重用技术对构件库组织方法的要求是"></a>可重用技术对构件库组织方法的要求是</h3><ul>
+<li>支持构件库的各种维护动作，如增加、删除以及修改构件，尽量不要影响构件库的结构。</li>
+<li>不仅要支持精确匹配，还要支持相似构件的查找。</li>
+<li>不仅能进行简单的语法匹配，而且能够查找在功能或行为方面等价或相似的构件。</li>
+<li>对应用领域具有较强的描述能力和较好的描述精度。</li>
+<li>库管理员和用户容易使用。</li>
+</ul>
+<h3 id="构件的分类方法"><a href="#构件的分类方法" class="headerlink" title="构件的分类方法"></a>构件的分类方法</h3><ul>
+<li>关键字分类法</li>
+<li>刻面分类法</li>
+<li>超文本组织方法</li>
+</ul>
+<h3 id="如果把软件系统看成是构件的集合，那么从构件的外部形态来看，构成一个系统的构件可分为5-类"><a href="#如果把软件系统看成是构件的集合，那么从构件的外部形态来看，构成一个系统的构件可分为5-类" class="headerlink" title="如果把软件系统看成是构件的集合，那么从构件的外部形态来看，构成一个系统的构件可分为5 类"></a>如果把软件系统看成是构件的集合，那么从构件的外部形态来看，构成一个系统的构件可分为5 类</h3><ul>
+<li>独立而成熟的构件</li>
+<li>有限制的构件</li>
+<li>适应性构件</li>
+<li>装配的构件</li>
+<li>可修改的构件</li>
+</ul>
+<h3 id="构件重用工作"><a href="#构件重用工作" class="headerlink" title="构件重用工作"></a>构件重用工作</h3><ul>
+<li>检索与提取构件</li>
+<li>理解与评价构件</li>
+<li>修改构件</li>
+<li>构件组装</li>
+</ul>
+<h3 id="构件图的几种类型"><a href="#构件图的几种类型" class="headerlink" title="构件图的几种类型"></a>构件图的几种类型</h3><h3 id="软件体系结构的定义"><a href="#软件体系结构的定义" class="headerlink" title="软件体系结构的定义"></a>软件体系结构的定义</h3><p>软件体系结构为软件系统提供了一个结构、行为和属性的高级抽象，由构成系统的元素的描 述、这些元素的相互作用、指导元素集成的模式以及这些模式的约束组成。软件体系结构不仅指定 了系统的组织(organization)结构和拓扑(topology)结构，并且显示了系统需求和构成系统的 元素之间的对应关系，提供了一些设计决策的基本原理。</p>
+<h3 id="软件体系结构的意义"><a href="#软件体系结构的意义" class="headerlink" title="软件体系结构的意义"></a>软件体系结构的意义</h3><ul>
+<li>体系结构是风险承担者进行交流的手段</li>
+<li>体系结构是早期设计决策的体现</li>
+<li>软件体系结构是可传递和可重用的模型</li>
+</ul>
+<h3 id="体系结构所经历的四个阶段"><a href="#体系结构所经历的四个阶段" class="headerlink" title="体系结构所经历的四个阶段"></a>体系结构所经历的四个阶段</h3><ul>
+<li><p><strong>无体系结构设计阶段</strong></p>
+<p>以汇编语言进行小规模应用程序开发为特征。</p>
+</li>
+<li><p><strong>萌芽阶段</strong></p>
+<p>出现了程序结构设计主题，以控制流图和数据流图构成软件结构为特征。</p>
+</li>
+<li><p><strong>初期阶段</strong></p>
+<p>出现了从不同侧面描述系统的结构模型，以UML为典型代表。</p>
+</li>
+<li><p><strong>高级阶段</strong></p>
+<p>以描述系统的高层抽象结构为中心，不关心具体的建模细节，划分了体系结构模型与传统软件结构的界限，该阶段以Kruchten提出的“4+1”模型为标志。</p>
+</li>
+</ul>
+<h2 id="第二章-软件体系建模"><a href="#第二章-软件体系建模" class="headerlink" title="第二章 软件体系建模"></a>第二章 软件体系建模</h2><h3 id="软件体系结构模型"><a href="#软件体系结构模型" class="headerlink" title="软件体系结构模型"></a>软件体系结构模型</h3><ul>
+<li>结构模型</li>
+<li>框架模型</li>
+<li>动态模型</li>
+<li>过程模型</li>
+<li>功能模型</li>
+</ul>
+<h3 id="4-1视图模型"><a href="#4-1视图模型" class="headerlink" title="4+1视图模型"></a>4+1视图模型</h3><h3 id="软件体系结构中的核心模型"><a href="#软件体系结构中的核心模型" class="headerlink" title="软件体系结构中的核心模型"></a>软件体系结构中的核心模型</h3><h3 id="软件体系结构结构的生命周期模型的阶段"><a href="#软件体系结构结构的生命周期模型的阶段" class="headerlink" title="软件体系结构结构的生命周期模型的阶段"></a>软件体系结构结构的生命周期模型的阶段</h3><ul>
+<li>需求分析阶段</li>
+<li>建立软件体系结构阶段</li>
+<li>设计阶段</li>
+<li>实现阶段</li>
+</ul>
+<h2 id="第三章-软件体系结构风格"><a href="#第三章-软件体系结构风格" class="headerlink" title="第三章 软件体系结构风格"></a>第三章 软件体系结构风格</h2><h3 id="软件体系风格的定义"><a href="#软件体系风格的定义" class="headerlink" title="软件体系风格的定义"></a>软件体系风格的定义</h3><p>软件体系结构风格是描述某一特定应用领域中系统组织方式的惯用模式(idiomatic paradigm)。体系结构风格定义了一个系统家族，即一个体系结构定义一个词汇表和一组约束。词 汇表中包含一些构件和连接件类型，而这组约束指出系统是如何将这些构件和连接件组合起来的。 体系结构风格反映了领域中众多系统所共有的结构和语义特性</p>
+<h3 id="经典软件体系结构风格以及优缺点"><a href="#经典软件体系结构风格以及优缺点" class="headerlink" title="经典软件体系结构风格以及优缺点"></a>经典软件体系结构风格以及优缺点</h3><ul>
+<li><p>管道与过滤器</p>
+<ul>
+<li><p>优点</p>
+<ol>
+<li>使得软构件具有良好的隐蔽性和高内聚、低耦合的特点。 </li>
+<li>允许设计师将整个系统的输入/输出行为看成是多个过滤器的行为的简单合成</li>
+<li>支持软件重用。只要提供适合在两个过滤器之间传送的数据，任何两个过滤器都可被连接起来。</li>
+<li>系统维护和增强系统性能简单。新的过滤器可以添加到现有系统中来;旧的可以被改进的 过滤器替换掉。</li>
+<li>允许对一些如吞吐量、死锁等属性的分析。</li>
+<li>支持并行执行。每个过滤器是作为一个单独的任务完成，因此可与其它任务并行执行。 </li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>通常导致进程成为批处理的结构。这是因为虽然过滤器可增量式地处理数据，但它们是独立的，所以设计师必须将每个过滤器看成一个完整的从输入到输出的转换。</li>
+<li>不适合处理交互的应用。当需要增量地显示改变时，这个问题尤为严重。 </li>
+<li>因为在数据传输上没有通用的标准，每个过滤器都增加了解析和合成数据的工作，这样就导致了系统性能下降，并增加了编写过滤器的复杂性。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>数据抽象和面对对象系统</p>
+<ul>
+<li>优点<ol>
+<li>因为对象对其它对象隐藏它的表示，所以可以改变一个对象的表示，而不影响其它的对象。</li>
+<li>设计师可将一些数据存取操作的问题分解成一些交互的代理程序的集合。</li>
+</ol>
+</li>
+<li>缺点<ol>
+<li>(1)为了使一个对象和另一个对象通过过程调用等进行交互，必须知道对象的标识。只要一个对象的标识改变了，就必须修改所有其他明确调用它的对象。</li>
+<li>必须修改所有显式调用它的其它对象，并消除由此带来的一些副作用。例如，如果A使用了对象B，C也使用了对象B，那么，C对B的使用所造成的对A的影响可能是料想不到的。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>基于事件的系统</p>
+<ul>
+<li><p>优点</p>
+<ol>
+<li>为软件重用提供了强大的支持。当需要将一个构件加入现存系统中时，只需将它注册到系 统的事件中。</li>
+<li>为改进系统带来了方便。当用一个构件代替另一个构件时，不会影响到其它构件的接口。</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>构件放弃了对系统计算的控制。一个构件触发一个事件时，不能确定其它构件是否会响应它。而且即使它知道事件注册了哪些构件的过程，它也不能保证这些过程被 调用的顺序。</li>
+<li>数据交换的问题。有时数据可被一个事件传递，但另一些情况下，基于事件的系统必须依靠一个共享的仓库进行交互。在这些情况下，全局性能和资源管理便成了问题。</li>
+<li>既然过程的语义必须依赖于被触发事件的上下文约束，关于正确性的推理存在问题。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>分层系统</p>
+<ul>
+<li>优点<ol>
+<li>支持基于抽象程度递增的系统设计，使设计师可以把一个复杂系统按递增的步骤进行分解。</li>
+<li>支持功能增强，因为每一层至多和相邻的上下层交互，因此功能的改变最多影响相邻的上下层。</li>
+<li>支持重用。只要提供的服务接口定义不变，同一层的不同实现可以交换使用。这样，就可 以定义一组标准的接口，而允许各种不同的实现方法。</li>
+</ol>
+</li>
+<li>缺点<ol>
+<li>并不是每个系统都可以很容易地划分为分层的模式，甚至即使一个系统的逻辑结构是层次 化的，出于对系统性能的考虑，系统设计师不得不把一些低级或高级的功能综合起来;</li>
+<li>很难找到一个合适的、正确的层次抽象方法。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>仓库系统及知识库</p>
+<ul>
+<li>优点</li>
+<li>缺点</li>
+</ul>
+</li>
+<li><p>C2风格</p>
+<ul>
+<li><p>优点</p>
+<ol>
+<li><p>系统中的构件可实现应用需求，并能将任意复杂度的功能封装在一起。 </p>
+</li>
+<li><p>所有构件之间的通讯是通过以连接件为中介的异步消息交换机制来实现的。</p>
+</li>
+<li><p>构件相对独立，构件之间依赖性较少。系统中不存在某些构件将在同一地址空间内执行，或某些构件共享特定控制线程之类的相关性假设。</p>
+</li>
+</ol>
+</li>
+<li><p>缺点</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="客户-服务器风格的任务"><a href="#客户-服务器风格的任务" class="headerlink" title="客户/服务器风格的任务"></a>客户/服务器风格的任务</h3><ul>
+<li><p><strong>服务器负责有效地管理系统的资源，其任务集中于:</strong></p>
+<ul>
+<li>数据库安全性的要求</li>
+<li>数据库访问并发性的控制</li>
+<li>数据库前端的客户应用程序的全局数据完整性规则</li>
+<li>数据库的备份与恢复</li>
+</ul>
+</li>
+<li><p><strong>客户应用程序的主要任务是:</strong></p>
+<ul>
+<li>提供用户与数据库交互的界面</li>
+<li>向数据库服务器提交用户请求并接收来自数据库服务器的信息</li>
+<li>利用客户应用程序对存在于客户端的数据执行应用逻辑要求</li>
+</ul>
+</li>
+</ul>
+<h3 id="客户-服务器风格的优缺点"><a href="#客户-服务器风格的优缺点" class="headerlink" title="客户/服务器风格的优缺点"></a>客户/服务器风格的优缺点</h3><ul>
+<li>优点<ul>
+<li>C/S体系结构的优点主要在于系统的客户应用程序和服务器构件分别运行在不同的计算机上，系 统中每台服务器都可以适合各构件的要求，这对于硬件和软件的变化显示出极大的适应性和灵活 性，而且易于对系统进行扩充和缩小。在C/S体系结构中，系统中的功能构件充分隔离，客户应用程 序的开发集中于数据的显示和分析，而数据库服务器的开发则集中于数据的管理，不必在每一个新 的应用程序中都要对一个DBMS进行编码。将大的应用处理任务分布到许多通过网络连接的低成本 计算机上，以节约大量费用。</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>(1)开发成本较高。C/S 体系结构对客户端软硬件配置要求较高，尤其是软件的不断升级，对 硬件要求不断提高，增加了整个系统的成本，且客户端变得越来越臃肿。</li>
+<li>客户端程序设计复杂。采用C/S体系结构进行软件开发，大部分工作量放在客户端的程序 设计上，客户端显得十分庞大。</li>
+<li>信息内容和形式单一，因为传统应用一般为事务处理，界面基本遵循数据库的字段解释， 开发之初就已确定，而且不能随时截取办公信息和档案等外部信息，用户获得的只是单纯的字符和 数字，既枯燥又死板。</li>
+<li>用户界面风格不一，使用繁杂，不利于推广使用。</li>
+<li>软件移植困难。采用不同开发工具或平台开发的软件，一般互不兼容，不能或很难移植到 其它平台上运行。</li>
+<li>软件维护和升级困难。采用C/S体系结构的软件要升级，开发人员必须到现场为客户机升 级，每个客户机上的软件都需维护。对软件的一个小小改动(例如只改动一个变量)，每一个客户端都 必须更新。</li>
+<li>新技术不能轻易应用。因为一个软件平台及开发工具一旦选定，不可能轻易更改。</li>
+</ul>
+</li>
+<li>二层的缺点<ul>
+<li>二层C/S结构是单一服务器且以局域网为中心的，所以难以扩展至大型企业广域网或 Internet。</li>
+<li>软、硬件的组合及集成能力有限。 (3)客户机的负荷太重，难以管理大量的客户机，系统的性能容易变坏。</li>
+<li>数据安全性不好。因为客户端程序可以直接访问数据库服务器，那么，在客户端计算机上的其他程序也可想办法访问数据库服务器，从而使数据库的安全性受到威胁。</li>
+</ul>
+</li>
+</ul>
+<h3 id="三层C-S结构中的中间件"><a href="#三层C-S结构中的中间件" class="headerlink" title="三层C/S结构中的中间件"></a>三层C/S结构中的中间件</h3><p>在三层C/S体系结构中，中间件是最重要的构件。所谓中间件是一个用API定义的软件层，是具 有强大通信能力和良好可扩展性的分布式软件管理框架。它的功能是在客户机和服务器或者服务器 和服务器之间传送数据，实现客户机群和服务器群之间的通信。其工作流程是:在客户机里的应用 程序需要驻留网络上某个服务器的数据或服务时，搜索此数据的C/S应用程序需访问中间件系统。该 系统将查找数据源或服务，并在发送应用程序请求后重新打包响应，将其传送回应用程序。</p>
+<h3 id="三层C-S的优缺点"><a href="#三层C-S的优缺点" class="headerlink" title="三层C/S的优缺点"></a>三层C/S的优缺点</h3><ul>
+<li>允许合理地划分三层结构的功能，使之在逻辑上保持相对独立性，从而使整个系统的逻辑 结构更为清晰，能提高系统和软件的可维护性和可扩展性。</li>
+<li>允许更灵活有效地选用相应的平台和硬件系统，使之在处理负荷能力上与处理特性上分别 适应于结构清晰的三层;并且这些平台和各个组成部分可以具有良好的可升级性和开放性。例如， 最初用一台Unix工作站作为服务器，将数据层和功能层都配置在这台服务器上。随着业务的发展， 用户数和数据量逐渐增加，这时，就可以将Unix工作站作为功能层的专用服务器，另外追加一台专 用于数据层的服务器。若业务进一步扩大，用户数进一步增加，则可以继续增加功能层的服务器数 目，用以分割数据库。清晰、合理地分割三层结构并使其独立，可以使系统构成的变更非常简单。 因此，被分成三层的应用基本上不需要修正。</li>
+<li>三层C/S结构中，应用的各层可以并行开发，各层也可以选择各自最适合的开发语言。使 之能并行地而且是高效地进行开发，达到较高的性能价格比;对每一层的处理逻辑的开发和维护也 会更容易些。</li>
+<li>允许充分利用功能层有效地隔离开表示层与数据层，未授权的用户难以绕过功能层而利用 数据库工具或黑客手段去非法地访问数据层，这就为严格的安全管理奠定了坚实的基础;整个系统 的管理层次也更加合理和可控制。</li>
+</ul>
+<p>值得注意的是:三层C/S结构各层间的通信效率若不高，即使分配给各层的硬件能力很强，其作 为整体来说也达不到所要求的性能。此外，设计时必须慎重考虑三层间的通信方法、通信频度及数 据量。这和提高各层的独立性一样是三层C/S结构的关键问题。</p>
+<h3 id="浏览器服务器优缺点（重要）"><a href="#浏览器服务器优缺点（重要）" class="headerlink" title="浏览器服务器优缺点（重要）"></a>浏览器服务器优缺点（重要）</h3><ul>
+<li>缺点<ul>
+<li>B/S体系结构缺乏对动态页面的支持能力，没有集成有效的数据库处理功能。</li>
+<li>B/S体系结构的系统扩展能力差，安全性难以控制。 </li>
+<li>采用B/S体系结构的应用系统，在数据查询等响应速度上，要远远地低于C/S体系结构。 </li>
+<li>B/S体系结构的数据提交一般以页面为单位，数据的动态交互性不强，不利于在线事务处理(OnLine Transaction Processing，OLTP)应用。</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>B/S体系结构主要是利用不断成熟的WWW浏览器技术，结合浏览器的多种脚本语言，用通用浏 览器就实现了原来需要复杂的专用软件才能实现的强大功能，并节约了开发成本。从某种程度上来 说，B/S结构是一种全新的软件体系结构。</li>
+<li>在B/S结构中，除了数据库服务器外，应用程序以网页形式存放于Web服务器上，用户运行某个 应用程序时只须在客户端上的浏览器中键入相应的网址，调用Web服务器上的应用程序并对数据库 进行操作完成相应的数据处理工作，最后将结果通过浏览器显示给用户。可以说，在B/S模式的计算 机应用系统中，应用(程序)在一定程度上具有集中特征。</li>
+<li>基于B/S体系结构的软件，系统安装、修改和维护全在服务器端解决。用户在使用系统时，仅仅 需要一个浏览器就可运行全部的模块，真正达到了“零客户端”的功能，很容易在运行时自动升 级。B/S体系结构还提供了异种机、异种网、异种应用服务的联机、联网、统一服务的最现实的开放 性基础。</li>
+<li>B/S结构出现之前，管理信息系统的功能覆盖范围主要是组织内部。B/S结构的“零客户端”方 式，使组织的供应商和客户(这些供应商和客户有可能是潜在的，也就是说可能是事先未知的!) 的计算机方便地成为管理信息系统的客户端，进而在限定的功能范围内查询组织相关信息，完成与 组织的各种业务往来的数据交换和处理工作，扩大了组织计算机应用系统的功能覆盖范围，可以更 加充分利用网络上的各种资源，同时应用程序维护的工作量也大大减少。另外，B/S结构的应用系统 与Internet的结合也使新的企业应用(例如，电子商务、客户关系管理等)的实现成为可能。</li>
+</ul>
+</li>
+</ul>
+<h2 id="第四章-软件体系结构描述"><a href="#第四章-软件体系结构描述" class="headerlink" title="第四章 软件体系结构描述"></a>第四章 软件体系结构描述</h2><h3 id="软件体系结构描述方法"><a href="#软件体系结构描述方法" class="headerlink" title="软件体系结构描述方法"></a>软件体系结构描述方法</h3><ul>
+<li>图形表达工具</li>
+<li>模块内连接语言</li>
+<li>基于软构件的系统描述语言</li>
+<li>软件体系结构描述语言</li>
+</ul>
+<h3 id="ADL与其他语言的比较"><a href="#ADL与其他语言的比较" class="headerlink" title="ADL与其他语言的比较"></a>ADL与其他语言的比较</h3><ul>
+<li>构造能力指的是ADL能够使用较小的独立体系结构元素来建造大型软件系统;</li>
+<li>抽象能力指的是ADL使得软件体系结构中的构件和连接件描述可以只关注它们的抽象特 性，而不管其具体的实现细节;</li>
+<li>重用能力指的是ADL使得组成软件系统的构件、连接件甚至是软件体系结构都成为软件系 统开发和设计的可重用部件;</li>
+<li>组合能力指的是ADL使得其描述的每一系统元素都有其自己的局部结构，这种描述局部结 构的特点使得ADL支持软件系统的动态变化组合;</li>
+<li>异构能力指的是ADL允许多个不同的体系结构描述关联存在;</li>
+<li>分析和推理能力指的是ADL允许对其描述的体系结构进行多种不同的性能和功能上的多种 推理分析。</li>
+</ul>
+<p>P111</p>
+<h2 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h2><ul>
+<li>顺序图</li>
+<li>类图</li>
+<li>通信图</li>
+<li>构件图</li>
+</ul>
+<h2 id="第六章-可扩展标记语言"><a href="#第六章-可扩展标记语言" class="headerlink" title="第六章 可扩展标记语言"></a>第六章 可扩展标记语言</h2><p>XML</p>
+<h2 id="第七章-动态软件体系结构"><a href="#第七章-动态软件体系结构" class="headerlink" title="第七章 动态软件体系结构"></a>第七章 动态软件体系结构</h2><h3 id="体系结构动态性的三类"><a href="#体系结构动态性的三类" class="headerlink" title="体系结构动态性的三类"></a>体系结构动态性的三类</h3><ul>
+<li>交互式动态性</li>
+<li>结构化动态性</li>
+<li>体系结构动态性</li>
+</ul>
+<h3 id="基于构建的动态系统结构模型"><a href="#基于构建的动态系统结构模型" class="headerlink" title="基于构建的动态系统结构模型"></a>基于构建的动态系统结构模型</h3><h2 id="十一章"><a href="#十一章" class="headerlink" title="十一章"></a>十一章</h2><h3 id="软件质量属性"><a href="#软件质量属性" class="headerlink" title="软件质量属性"></a>软件质量属性</h3><ul>
+<li>性能</li>
+<li>可靠性</li>
+<li>可用性</li>
+<li>安全性</li>
+<li>可修改性</li>
+</ul>
+<h3 id="评估的主要方法"><a href="#评估的主要方法" class="headerlink" title="评估的主要方法"></a>评估的主要方法</h3><p>ATAM</p>
+<p>SAAM</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" rel="tag"># 软件体系结构</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/26/%E8%88%AA%E7%A9%BA%E9%80%89%E5%BA%A7%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E5%80%BC%E6%8F%90%E5%8F%96/" rel="prev" title="航空选座问题进行特征值提取">
+                  <i class="fa fa-chevron-left"></i> 航空选座问题进行特征值提取
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kaiwen zhou</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+<script>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+
+
+
+
+  
+
+
+</body>
+</html>
