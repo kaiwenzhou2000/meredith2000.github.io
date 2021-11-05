@@ -1,281 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="kaiwen zhou">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
+    <meta name="subtitle" content="share my code">
 
 
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
-
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.zkwzkw.top","root":"/","images":"/images","scheme":"Muse","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
-  </script>
-<meta name="description" content="A卷选择（15）1.servlet的生命周期 init() service() doGet() doPost() destory() 猜题：  2.jsp中如何导入jdbc包  猜题：  3.js页面中&lt;%&#x3D; “2” + “4” %&gt;24 4.转发与重定向 猜题：  5.el表达式语法正确的 %()${变量名} 变量名就是 setAttribute 对应的 key 值。 猜题：  6.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="javaEE考点">
-<meta property="og:url" content="https://blog.zkwzkw.top/2021/03/19/javaEE%E8%80%83%E7%82%B9/index.html">
-<meta property="og:site_name" content="Meredith&#39;s blog">
-<meta property="og:description" content="A卷选择（15）1.servlet的生命周期 init() service() doGet() doPost() destory() 猜题：  2.jsp中如何导入jdbc包  猜题：  3.js页面中&lt;%&#x3D; “2” + “4” %&gt;24 4.转发与重定向 猜题：  5.el表达式语法正确的 %()${变量名} 变量名就是 setAttribute 对应的 key 值。 猜题：  6.">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlE4760EF2BE8EE60506E601E54443AEC2.png">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/IMG_9709.jpg">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zl$HNFPN`JG}XH`3QFH9EG7RX.png">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/IMG_9708.jpg">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316165032838.png">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/E76A091D783DB9424090578EEAE23DF9.jpg">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/148BC942512EBFA229C35AB81164F744.jpg">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/IMG_9711.JPEG">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/3F47969FECB0A9692125F771DB0B78A7.png">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/IMG_9713.jpg">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/uPic/IMG_28F5F3D9B7DA-1.jpeg">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316171220620.png">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316173737979.png">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316173821737.png">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316174559407.png">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316165032838.png">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316174831345.png">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316175049641.png">
-<meta property="og:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlimage-20210316175144590.png">
-<meta property="article:published_time" content="2021-03-19T14:15:11.000Z">
-<meta property="article:modified_time" content="2021-03-19T14:15:11.432Z">
-<meta property="article:author" content="kaiwen zhou">
-<meta property="article:tag" content="javaEE">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlE4760EF2BE8EE60506E601E54443AEC2.png">
+    <meta name="description" content="the web page to share my code">
 
 
-<link rel="canonical" href="https://blog.zkwzkw.top/2021/03/19/javaEE%E8%80%83%E7%82%B9/">
-
-
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
-  };
-</script>
-<title>javaEE考点 | Meredith's blog</title>
-  
-
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?8f735d1ea69ea81de16638ad4504bd80";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-  <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">Meredith's blog</h1>
-      <i class="logo-line"></i>
-    </a>
-      <p class="site-subtitle" itemprop="description">share my code</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
+    <meta name="keywords" content="code">
 
 
 
 
+<title>javaEE考点 | Meredith&#39;s blog</title>
 
 
 
-</div>
-        
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#A%E5%8D%B7"><span class="nav-number">1.</span> <span class="nav-text">A卷</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%EF%BC%8815%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">选择（15）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-servlet%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.servlet的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-jsp%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5jdbc%E5%8C%85"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.jsp中如何导入jdbc包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-js%E9%A1%B5%E9%9D%A2%E4%B8%AD-lt-%E2%80%9C2%E2%80%9D-%E2%80%9C4%E2%80%9D-gt"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.js页面中&lt;%&#x3D; “2” + “4” %&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%BD%AC%E5%8F%91%E4%B8%8E%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.转发与重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-el%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%AD%A3%E7%A1%AE%E7%9A%84"><span class="nav-number">1.1.5.</span> <span class="nav-text">5.el表达式语法正确的 %()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E9%81%8D%E5%8E%86%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%EF%BC%88JSTL%EF%BC%89"><span class="nav-number">1.1.6.</span> <span class="nav-text">6.遍历一个数组中的所有元素（JSTL）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%95%B0%E7%BB%84%E7%9A%84%E5%A3%B0%E6%98%8E%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.7.</span> <span class="nav-text">7.数组的声明方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E6%8A%8A%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%BAjack%E5%A1%9E%E5%85%A5%E5%88%B0session%E4%B8%AD"><span class="nav-number">1.1.8.</span> <span class="nav-text">8.把用户名为jack塞入到session中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-web%E9%A1%B9%E7%9B%AE%E4%B8%ADweb-xml%E5%9C%A8%E4%B8%8A%E9%9D%A2%E7%9B%AE%E5%BD%95%E4%B8%8B"><span class="nav-number">1.1.9.</span> <span class="nav-text">9.web项目中web.xml在上面目录下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-tomcat%E7%9A%84%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3"><span class="nav-number">1.1.10.</span> <span class="nav-text">10.tomcat的默认端口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A1%AB%E7%A9%BA%EF%BC%8815-2%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">填空（15*2）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-javaEE%E7%9A%84%E6%B3%A8%E8%A7%A3%EF%BC%88Servlet-Filter%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.javaEE的注解（Servlet,Filter）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%9B%9B%E5%A4%A7%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.四大作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-jquery%EF%BC%8C%E5%8C%B9%E9%85%8D%E7%AC%AC%E5%87%A0%E4%B8%AA%E6%8C%89%E9%92%AE"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.jquery，匹配第几个按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-jsp%E6%8C%87%E4%BB%A4%E5%88%86%E4%B8%BA%E5%93%AA%E5%87%A0%E4%B8%AA%E6%8C%87%E4%BB%A4"><span class="nav-number">1.2.4.</span> <span class="nav-text">4.jsp指令分为哪几个指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E7%AD%94%EF%BC%884-5%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">简答（4*5）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-get%E4%B8%8Epost%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.get与post的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BD%AC%E5%8F%91%E4%B8%8E%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.转发与重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-cookie%E4%B8%8Esession"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.cookie与session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.3.4.</span> <span class="nav-text">4. 9大内置对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E9%A2%98"><span class="nav-number">1.4.</span> <span class="nav-text">程序题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#selectByAll-%EF%BC%885-2%EF%BC%89"><span class="nav-number">1.4.1.</span> <span class="nav-text">selectByAll()（5*2）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BB%E5%85%A5%E5%8A%9F%E8%83%BD"><span class="nav-number">1.4.2.</span> <span class="nav-text">登入功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B%E5%8D%B7"><span class="nav-number">2.</span> <span class="nav-text">B卷</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jdbc%E6%96%B0%E5%A2%9E%E7%94%A8%E6%88%B7"><span class="nav-number">2.0.1.</span> <span class="nav-text">jdbc新增用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-each%E5%BE%AA%E7%8E%AF"><span class="nav-number">2.0.2.</span> <span class="nav-text">for each循环</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E7%AD%94"><span class="nav-number">2.1.</span> <span class="nav-text">简答</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bs%E5%92%8Ccs%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.1.</span> <span class="nav-text">bs和cs的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E5%8F%91%E4%B8%8E%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">2.1.2.</span> <span class="nav-text">转发与重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#servlet%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">2.1.3.</span> <span class="nav-text">servlet的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%AF%BC%E5%85%A5%E5%92%8C%E5%8A%A8%E6%80%81%E5%AF%BC%E5%85%A5%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.4.</span> <span class="nav-text">静态导入和动态导入的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A1%AB%E7%A9%BA"><span class="nav-number">2.2.</span> <span class="nav-text">填空</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jsp%E4%B8%AD%E7%94%B3%E6%98%8E%E5%8F%98%E9%87%8F"><span class="nav-number">2.2.1.</span> <span class="nav-text">jsp中申明变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE%E6%8F%90%E4%BA%A4%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%88post-get%EF%BC%89"><span class="nav-number">2.2.2.</span> <span class="nav-text">表单数据提交的两种方式（post get）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jsp%E7%9A%84%E5%9B%9B%E5%A4%A7%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">2.2.3.</span> <span class="nav-text">jsp的四大作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jsp%E4%B8%AD%E4%B8%A4%E7%A7%8D%E6%B3%A8%E9%87%8A%E6%96%B9%E5%BC%8F"><span class="nav-number">2.2.4.</span> <span class="nav-text">jsp中两种注释方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jsp%E4%B8%AD%E7%BC%96%E8%AF%91%E5%99%A8%E6%8C%87%E4%BB%A4%E5%88%86%E4%B8%BA%E5%93%AA%E4%B8%89%E4%B8%AA"><span class="nav-number">2.2.5.</span> <span class="nav-text">jsp中编译器指令分为哪三个</span></a></li></ol></li></ol></li></ol></div>
-        </section>
-        <!--/noindex-->
-
-        <section class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">kaiwen zhou</p>
-  <div class="site-description" itemprop="description">the web page to share my code</div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">51</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">17</span>
-        <span class="site-state-item-name">categories</span>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
-        <span class="site-state-item-name">tags</span>
-      </div>
-  </nav>
-</div>
+    <link rel="icon" href="/favicon.ico">
 
 
 
-        </section>
-      </div>
-    </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto+Mono&display=swap');
+</style>
 
 
-    </header>
 
+    <!-- stylesheets list from _config.yml -->
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/frame.js"></script>
+    
+
+
+
+
+
+
+
+  <meta name="generator" content="Hexo 5.3.0"></head>
+  <body>
+    <div class="mask-border">
+    </div>
+
+    <div class="wrapper">
+
+      <div class="header">
+  <div class="flex-container">
+    <div class="header-inner">
+      <div class="site-brand-container">
+        <a href="/">blog.zkwzkw.top.</a>
+      </div>
+      <div id="menu-btn" class="menu-btn" onclick="toggleMenu()">
+        Menu
+      </div>
+      <nav class="site-nav">
+        <ul class="menu-list">
+          
+            
+              <li class="menu-item">
+                <a href="/">Home</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/archives/">Archive</a>
+              </li> 
+                   
+          
+        </ul>
+      </nav>
+    </div>
   </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zkwzkw.top/2021/03/19/javaEE%E8%80%83%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kaiwen zhou">
-      <meta itemprop="description" content="the web page to share my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Meredith's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          javaEE考点
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-19 22:15:11" itemprop="dateCreated datePublished" datetime="2021-03-19T22:15:11+08:00">2021-03-19</time>
-    </span>
-
-  
 </div>
 
+
+      <div class="main">
+        <div class="flex-container">
+          <article id="post">
+
+  
+    <div class="post-head">
+    <div class="post-info">
+        <div class="tag-list">
+            
+                
+                    <span class="post-tag">
+                        <a href="/tags/javaEE/">
+                            javaEE
+                        </a>
+                    </span>    
+                           
+            
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="A卷"><a href="#A卷" class="headerlink" title="A卷"></a>A卷</h1><h2 id="选择（15）"><a href="#选择（15）" class="headerlink" title="选择（15）"></a>选择（15）</h2><h3 id="1-servlet的生命周期"><a href="#1-servlet的生命周期" class="headerlink" title="1.servlet的生命周期"></a>1.servlet的生命周期</h3><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlE4760EF2BE8EE60506E601E54443AEC2.png" alt="E4760EF2BE8EE60506E601E54443AEC2"></p>
+        <div class="post-title">
+            
+            
+                javaEE考点
+            
+            
+        </div>
+        <span class="post-date">
+            Mar 19, 2021
+        </span>
+    </div>
+    <div class="post-img">
+        
+            <div class="h-line-primary"></div>
+              
+    </div>
+</div>
+    <div class="post-content">
+    <h1 id="A卷"><a href="#A卷" class="headerlink" title="A卷"></a>A卷</h1><h2 id="选择（15）"><a href="#选择（15）" class="headerlink" title="选择（15）"></a>选择（15）</h2><h3 id="1-servlet的生命周期"><a href="#1-servlet的生命周期" class="headerlink" title="1.servlet的生命周期"></a>1.servlet的生命周期</h3><p><img src="https://public-meredith.oss-cn-beijing.aliyuncs.com/zlE4760EF2BE8EE60506E601E54443AEC2.png" alt="E4760EF2BE8EE60506E601E54443AEC2"></p>
 <p>init()</p>
 <p>service()</p>
 <p>doGet()</p>
@@ -397,115 +249,51 @@
 <p>答案：<strong>组件容器   组件 容器</strong></p>
 <h3 id="jsp中编译器指令分为哪三个"><a href="#jsp中编译器指令分为哪三个" class="headerlink" title="jsp中编译器指令分为哪三个"></a>jsp中编译器指令分为哪三个</h3><p>见A卷简答</p>
 
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/javaEE/" rel="tag"># javaEE</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2021/03/19/android%E8%80%83%E8%AF%95/" rel="prev" title="android考试">
-                  <i class="fa fa-chevron-left"></i> android考试
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2021/03/21/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/" rel="next" title="数据存储技术">
-                  数据存储技术 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-
+</div> 
 
 <script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
+    window.onload = detectors();
 </script>
+    <div class="post-footer">
+    <div class="h-line-primary"></div>
+    <nav class="post-nav">
+        <div class="prev-item">
+           
+                <div class="icon arrow-left"></div>
+                <div class="post-link">
+                    <a href="/2021/03/21/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/">Prev</a>
+                </div>
+            
+        </div>
+        <div class="next-item">
+            
+                <div class="icon arrow-right"></div>
+                <div class="post-link">
+                  <a href="/2021/03/19/android%E8%80%83%E8%AF%95/">Next</a>  
+                </div>  
+            
+        </div>
+    </nav>
 </div>
-  </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">kaiwen zhou</span>
+  
+</article>
+        </div>
+      </div>
+      
+      <div class="footer">
+    <div class="flex-container">
+        <div class="footer-text">
+            
+            
+            
+                Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a target="_blank" rel="noopener" href="https://hexo.io/">Frame</a>
+                
+        </div>
+    </div>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
 
     </div>
-  </footer>
 
-  
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
-  
-
-
-
-
-<script>
-if (document.querySelectorAll('.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js', () => {
-    mermaid.init({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    }, '.mermaid');
-  }, window.mermaid);
-}
-</script>
-
-
-  
-
-
-
-
-
-  
-
-
-</body>
+  </body>
 </html>
